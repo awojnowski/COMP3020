@@ -19,7 +19,7 @@ A new project can be created by opening Xcode and navigating to File > New Proje
 
 **(d) "Keeping a windows form on top": (a) describe one approach for maintaining a form as the topmost window in an application. (b) Give one example of when such a form would be useful.**
 
-It is useful to keep a form on the topmost window in an application when that form requires and relies on immediate user interaction. For example, in an application that manages a music library with playlists, it would be useful to have a form on the top of the application when the user creates a new playlist, which would request the playlist's name and other configuration options.
+It is useful to keep a form on the topmost window in an application when that form requires and relies on immediate user input. For example, in an application that manages a music library with playlists, it would be useful to have a form on the top of the application when the user creates a new playlist, which would request the playlist's name and other configuration options.
 
 **(e) "Menus and context menus": describe each of the following - menus, context menus, status bars, and toolbars.**
 
