@@ -15,7 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		934482D71BC2EC8800FDD096 /* data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = data.txt; path = "../../../../../../../../../../Aaron/Documents/Work/University/COMP 3020/Repository/Assignments/Assignment 1/P2A/P2A/data.txt"; sourceTree = "<group>"; };
+		934482D71BC2EC8800FDD096 /* data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = data.txt; path = "data.txt"; sourceTree = "<group>"; };
 		934F79371BC2E29E00EF49B3 /* P2A.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = P2A.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		934F793A1BC2E29E00EF49B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		934F793C1BC2E29E00EF49B3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
