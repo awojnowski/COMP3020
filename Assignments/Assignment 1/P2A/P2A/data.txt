@@ -1,3 +1,20 @@
-COMP 1010,Introduction to Computer Science 1,John Bate,122
-COMP 1020,Introduction to Computer Science 2,Geoff Nagy,104
-COMP 2130,Discrete Mathematics,Tulsi,78
+COMP 1010,Introduction to Computer Science 1,Terrance H. Andres,100
+COMP 1010,Introduction to Computer Science 1,James E. Young,99
+COMP 1010,Introduction to Computer Science 1,John A. Bate, 192
+COMP 1010,Introduction to Computer Science 1,Andrea Bunt,78
+COMP 1011,Introduction à l'informatique I,Aboubacar S. Bagayogo,1
+COMP 1012,Computer Programming for Scientists and Engineers,Gordon D. Boyer,115
+COMP 1012,Computer Programming for Scientists and Engineers,Terrance H. Andres,119
+COMP 1020,Introductory Computer Science 2,David H. Scuse,108
+COMP 1260,Introductory Computer Usage 1,Gordon D. Boyer,124
+COMP 1260,Introductory Computer Usage 1,Mohammad K. Hasan,103
+COMP 1260,Introductory Computer Usage 1,Jaineet Kaur,101
+COMP 1270,Introductory Computer Usage 2,Mehdi Niknam,75
+COMP 2130,Discrete Mathematics for Computer Science,Ruppa K. Thulasiram,107
+COMP 2140,Data Structures and Algorithms,Hadi Hemmati,78
+COMP 2140,Data Structures and Algorithms,Helen A. Cameron,89
+COMP 2160,Programming Practices,Yang Wang,96
+COMP 2160,Programming Practices,Randall W. Cooper,93
+COMP 2190,Introduction to Scientific Computing,William L. Kocay,33
+COMP 3020,Human-Computer Interaction 1,Pourang P. Irani,65
+COMP 3020,Human-Computer Interaction 1,Barrett M. Ens,80
