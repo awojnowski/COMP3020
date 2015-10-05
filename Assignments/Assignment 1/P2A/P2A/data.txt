@@ -1,0 +1,3 @@
+COMP 1010,Introduction to Computer Science 1,John Bate,122
+COMP 1020,Introduction to Computer Science 2,Geoff Nagy,104
+COMP 2130,Discrete Mathematics,Tulsi,78
