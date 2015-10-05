@@ -7,7 +7,22 @@ Comp 3020 - Assignment 1
 
 **(a) "Creating a simple form": what is the method for showing a message box?**
 
+Typically forms and message boxes are handled using the `NSAlert` class. An example of a message popup would be like so:
 
+    let alert = NSAlert()
+    alert.messageText = "Yes or no?"
+    alert.addButtonWithTitle("Yes")
+    alert.addButtonWithTitle("No")
+
+    let result = alert.runModal()
+    switch(result) {
+    case NSAlertFirstButtonReturn:
+        // yes clicked
+    case NSAlertSecondButtonReturn:
+        // no clicked
+    default:
+        break
+    }
 
 **(b) "Event Handling": what is an event handler?**
 
