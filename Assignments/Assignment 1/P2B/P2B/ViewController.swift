@@ -9,19 +9,35 @@
 import Cocoa
 
 class ViewController: NSViewController {
+    
+    var alertWindowController: AlertWindowController?
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
+        
     }
-
-    override var representedObject: AnyObject? {
-        didSet {
-        // Update the view, if already loaded.
+    
+    // MARK: Actions
+    
+    @IBAction func showAlert(sender: AnyObject) {
+        
+        guard let alertWindowController: AlertWindowController? = AlertWindowController(windowNibName: "AlertWindow") else {
+            
+            NSLog("Uh-oh. The alertWindowController is nil.")
+            return;
+            
         }
+        self.view.window!.beginSheet(alertWindowController!.window!) {
+            (response: NSModalResponse) -> Void in
+            
+            NSLog("Completed.")
+            
+        }
+        self.alertWindowController = alertWindowController
+        
     }
-
 
 }
-

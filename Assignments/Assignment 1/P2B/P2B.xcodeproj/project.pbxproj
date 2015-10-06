@@ -11,6 +11,8 @@
 		934F79581BC2E2A800EF49B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934F79571BC2E2A800EF49B3 /* ViewController.swift */; };
 		934F795A1BC2E2A800EF49B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 934F79591BC2E2A800EF49B3 /* Assets.xcassets */; };
 		934F795D1BC2E2A800EF49B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 934F795B1BC2E2A800EF49B3 /* Main.storyboard */; };
+		93C052741BC440F8006BC914 /* AlertWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C052731BC440F8006BC914 /* AlertWindowController.swift */; settings = {ASSET_TAGS = (); }; };
+		93C052761BC4413C006BC914 /* AlertWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93C052751BC4413C006BC914 /* AlertWindow.xib */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		934F79591BC2E2A800EF49B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		934F795C1BC2E2A800EF49B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		934F795E1BC2E2A800EF49B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93C052731BC440F8006BC914 /* AlertWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertWindowController.swift; path = "AlertWindowController.swift"; sourceTree = "<group>"; };
+		93C052751BC4413C006BC914 /* AlertWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertWindow.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,8 @@
 			isa = PBXGroup;
 			children = (
 				934F79551BC2E2A800EF49B3 /* AppDelegate.swift */,
+				93C052731BC440F8006BC914 /* AlertWindowController.swift */,
+				93C052751BC4413C006BC914 /* AlertWindow.xib */,
 				934F79571BC2E2A800EF49B3 /* ViewController.swift */,
 				934F79591BC2E2A800EF49B3 /* Assets.xcassets */,
 				934F795B1BC2E2A800EF49B3 /* Main.storyboard */,
@@ -118,6 +124,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93C052761BC4413C006BC914 /* AlertWindow.xib in Resources */,
 				934F795A1BC2E2A800EF49B3 /* Assets.xcassets in Resources */,
 				934F795D1BC2E2A800EF49B3 /* Main.storyboard in Resources */,
 			);
@@ -131,6 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				934F79581BC2E2A800EF49B3 /* ViewController.swift in Sources */,
+				93C052741BC440F8006BC914 /* AlertWindowController.swift in Sources */,
 				934F79561BC2E2A800EF49B3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,6 +280,7 @@
 				934F79631BC2E2A800EF49B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
