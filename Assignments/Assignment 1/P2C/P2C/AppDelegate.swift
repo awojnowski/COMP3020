@@ -9,18 +9,26 @@
 import Cocoa
 
 @NSApplicationMain
+
 class AppDelegate: NSObject, NSApplicationDelegate {
-
-
-
+    
+    var delegate: ViewControllerDelegate?
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        // Insert code here to initialize your application
+        
+        delegate = NSApplication.sharedApplication().windows.first!.contentViewController as! ViewController
+        
     }
-
+    
     func applicationWillTerminate(aNotification: NSNotification) {
+        
         // Insert code here to tear down your application
+        
     }
-
-
+    
+    @IBAction func openDocument(sender: NSMenuItem) {
+        
+        delegate?.openDocument()
+        
+    }
+    
 }
-

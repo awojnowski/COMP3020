@@ -8,20 +8,58 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override var representedObject: AnyObject? {
-        didSet {
-        // Update the view, if already loaded.
-        }
-    }
-
-
+protocol ViewControllerDelegate {
+    
+    func openDocument()
+    
 }
 
+class ViewController: NSViewController, ViewControllerDelegate {
+    
+    @IBOutlet weak var imageView: NSImageView!
+    
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        
+    }
+    
+    override var representedObject: AnyObject? {
+        
+        didSet {
+            
+            // Update the view, if already loaded.
+            
+        }
+        
+    }
+    
+    func openDocument() {
+        
+        let myImageUrl = NSOpenPanel().selectUrl
+        print("file selected = \(myImageUrl!.path!)")
+        
+    }
+}
+
+extension NSOpenPanel {
+    
+    var selectUrl: NSURL? {
+        
+        let fileOpenPanel = NSOpenPanel()
+        
+        let types = ["doc"]
+        fileOpenPanel.allowedFileTypes = types
+        
+        fileOpenPanel.title = "Select File"
+        fileOpenPanel.allowsMultipleSelection = true
+        fileOpenPanel.canChooseDirectories = false
+        fileOpenPanel.canChooseFiles = true
+        fileOpenPanel.canCreateDirectories = false
+        fileOpenPanel.runModal()
+        return fileOpenPanel.URLs.first
+        
+    }
+    
+}

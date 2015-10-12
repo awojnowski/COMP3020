@@ -272,6 +272,7 @@
 				934F797E1BC2E2B400EF49B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
