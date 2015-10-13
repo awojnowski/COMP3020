@@ -15,8 +15,7 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-
-        
+        self.view.window?.setFrame(NSRect(x: 100, y: 100, width: 100, height: 100), display: true, animate: false)
         
     }
     
@@ -27,15 +26,10 @@ class ViewController: NSViewController {
         guard let alertWindowController: AlertWindowController? = AlertWindowController(windowNibName: "AlertWindow") else {
             
             NSLog("Uh-oh. The alertWindowController is nil.")
-            return;
+            return
             
         }
-        self.view.window!.beginSheet(alertWindowController!.window!) {
-            (response: NSModalResponse) -> Void in
-            
-            NSLog("Completed.")
-            
-        }
+        alertWindowController?.showWindow(self)
         self.alertWindowController = alertWindowController
         
     }
