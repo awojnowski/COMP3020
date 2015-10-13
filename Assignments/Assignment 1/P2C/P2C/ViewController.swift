@@ -37,8 +37,15 @@ class ViewController: NSViewController, ViewControllerDelegate {
     
     func openDocument() {
         
-        let myImageUrl = NSOpenPanel().selectUrl
-        print("file selected = \(myImageUrl!.path!)")
+        if let documentURL = NSOpenPanel().selectUrl, path = documentURL.path {
+            
+            print("file selected = \(path)")
+            
+        } else {
+            
+            print("cancelled.")
+            
+        }
         
     }
 }
