@@ -716,7 +716,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                 </scroller>
-                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="2pW-7I-gT5">
+                                <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="2pW-7I-gT5">
                                     <rect key="frame" x="463" y="1" width="16" height="268"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>

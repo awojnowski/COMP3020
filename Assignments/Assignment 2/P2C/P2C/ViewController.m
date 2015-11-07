@@ -30,7 +30,9 @@ CGFloat const ViewControllerMinimumTextFieldWidth = 100.0;
     [super viewDidLoad];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(controlTextDidChange:) name:NSControlTextDidChangeNotification object:[self textField]];
-
+    
+    [[self scrollView] setHasVerticalScroller:NO];
+    
 }
 
 #pragma mark - Notifications
@@ -41,7 +43,7 @@ CGFloat const ViewControllerMinimumTextFieldWidth = 100.0;
     NSLog(@"Updated string to: %@",string);
     
     NSSize size = [string sizeWithAttributes:@{ NSFontAttributeName : [[self textField] font] }];
-    size.width += 8.0; // padding
+    size.width += 10.0; // padding
     
     [[[self textField] constraints] enumerateObjectsUsingBlock:^(NSLayoutConstraint * _Nonnull constraint, NSUInteger idx, BOOL * _Nonnull stop) {
     
@@ -55,7 +57,8 @@ CGFloat const ViewControllerMinimumTextFieldWidth = 100.0;
     }];
     
     NSView * const documentView = [[self scrollView] documentView];
-    [documentView setBounds:NSMakeRect(0, 0, MAX(CGRectGetMaxX([[self textField] frame]) + CGRectGetMinX([[self textField] frame]), CGRectGetWidth([[[self view] window] frame])), CGRectGetHeight([documentView bounds]))];
+    [documentView setFrameSize:NSMakeSize(MAX(CGRectGetMaxX([[self textField] frame]) + CGRectGetMinX([[self textField] frame]) * 2, CGRectGetWidth([[[self view] window] frame])), CGRectGetHeight([documentView bounds]))];
+    [[[self scrollView] contentView] scrollToPoint:NSMakePoint(CGRectGetWidth([documentView frame]) - CGRectGetWidth([[self scrollView] visibleRect]), 0)];
     
 }
 
