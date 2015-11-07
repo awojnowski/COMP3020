@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ContactsController.h"
 
 @interface AppDelegate ()
 
@@ -15,7 +16,9 @@
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    // Insert code here to initialize your application
+    
+    [[ContactsController sharedInstance] loadContactsFromFile:ContactsControllerDefaultFileName];
+    
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
