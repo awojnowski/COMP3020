@@ -14,6 +14,7 @@
 @property (nonatomic, copy) NSString *address;
 @property (nonatomic, copy) NSString *phoneNumber;
 @property (nonatomic, copy) NSString *info;
+@property (nonatomic, copy) NSNumber *age;
 
 -(instancetype)init;
 -(instancetype)initWithContents:(NSDictionary *)contents;
