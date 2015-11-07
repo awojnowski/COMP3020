@@ -6,20 +6,31 @@
 //  Copyright © 2015 CS Boys. All rights reserved.
 //
 
+#import "DrawView.h"
 #import "ViewController.h"
+
+@interface ViewController ()
+
+@property (weak) IBOutlet DrawView *drawView;
+
+@end
 
 @implementation ViewController
 
-- (void)viewDidLoad {
+-(void)viewDidLoad {
+    
     [super viewDidLoad];
 
-    // Do any additional setup after loading the view.
+
+    
 }
 
-- (void)setRepresentedObject:(id)representedObject {
-    [super setRepresentedObject:representedObject];
-
-    // Update the view, if already loaded.
+-(void)viewDidAppear {
+    
+    [super viewDidAppear];
+    
+    [[[self view] window] makeFirstResponder:[self drawView]];
+    
 }
 
 @end

@@ -12,6 +12,7 @@
 		93427D861BEE3A0200941139 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93427D851BEE3A0200941139 /* ViewController.m */; };
 		93427D881BEE3A0200941139 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93427D871BEE3A0200941139 /* Assets.xcassets */; };
 		93427D8B1BEE3A0200941139 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93427D891BEE3A0200941139 /* Main.storyboard */; };
+		93427DB41BEE483500941139 /* DrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93427DB31BEE483500941139 /* DrawView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,8 @@
 		93427D871BEE3A0200941139 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		93427D8A1BEE3A0200941139 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		93427D8C1BEE3A0200941139 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93427DB21BEE483500941139 /* DrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DrawView.h; path = "../../../../../../../../../../Aaron/Documents/Work/University/COMP 3020/Repository/Assignments/Assignment 2/P2D/P2D/DrawView.h"; sourceTree = "<group>"; };
+		93427DB31BEE483500941139 /* DrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DrawView.m; path = "../../../../../../../../../../Aaron/Documents/Work/University/COMP 3020/Repository/Assignments/Assignment 2/P2D/P2D/DrawView.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +63,8 @@
 				93427D7F1BEE3A0200941139 /* AppDelegate.m */,
 				93427D841BEE3A0200941139 /* ViewController.h */,
 				93427D851BEE3A0200941139 /* ViewController.m */,
+				93427DB21BEE483500941139 /* DrawView.h */,
+				93427DB31BEE483500941139 /* DrawView.m */,
 				93427D871BEE3A0200941139 /* Assets.xcassets */,
 				93427D891BEE3A0200941139 /* Main.storyboard */,
 				93427D8C1BEE3A0200941139 /* Info.plist */,
@@ -147,6 +152,7 @@
 			files = (
 				93427D861BEE3A0200941139 /* ViewController.m in Sources */,
 				93427D831BEE3A0200941139 /* main.m in Sources */,
+				93427DB41BEE483500941139 /* DrawView.m in Sources */,
 				93427D801BEE3A0200941139 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,6 +293,7 @@
 				93427D911BEE3A0200941139 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
