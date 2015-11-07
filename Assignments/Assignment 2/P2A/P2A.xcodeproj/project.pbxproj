@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		930018BC1BEE7E240085AAF7 /* View.m in Sources */ = {isa = PBXBuildFile; fileRef = 930018BB1BEE7E240085AAF7 /* View.m */; };
 		93427DA01BEE3A2A00941139 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93427D9F1BEE3A2A00941139 /* AppDelegate.m */; };
 		93427DA31BEE3A2A00941139 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 93427DA21BEE3A2A00941139 /* main.m */; };
 		93427DA61BEE3A2A00941139 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93427DA51BEE3A2A00941139 /* ViewController.m */; };
@@ -15,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		930018BA1BEE7E240085AAF7 /* View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = View.h; path = "View.h"; sourceTree = "<group>"; };
+		930018BB1BEE7E240085AAF7 /* View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = View.m; path = "View.m"; sourceTree = "<group>"; };
 		93427D9B1BEE3A2A00941139 /* P2A.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = P2A.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93427D9E1BEE3A2A00941139 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		93427D9F1BEE3A2A00941139 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -60,6 +63,8 @@
 				93427D9F1BEE3A2A00941139 /* AppDelegate.m */,
 				93427DA41BEE3A2A00941139 /* ViewController.h */,
 				93427DA51BEE3A2A00941139 /* ViewController.m */,
+				930018BA1BEE7E240085AAF7 /* View.h */,
+				930018BB1BEE7E240085AAF7 /* View.m */,
 				93427DA71BEE3A2A00941139 /* Assets.xcassets */,
 				93427DA91BEE3A2A00941139 /* Main.storyboard */,
 				93427DAC1BEE3A2A00941139 /* Info.plist */,
@@ -145,6 +150,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				930018BC1BEE7E240085AAF7 /* View.m in Sources */,
 				93427DA61BEE3A2A00941139 /* ViewController.m in Sources */,
 				93427DA31BEE3A2A00941139 /* main.m in Sources */,
 				93427DA01BEE3A2A00941139 /* AppDelegate.m in Sources */,
@@ -287,6 +293,7 @@
 				93427DB11BEE3A2A00941139 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

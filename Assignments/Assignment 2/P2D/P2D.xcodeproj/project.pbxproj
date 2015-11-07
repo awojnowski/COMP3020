@@ -25,8 +25,8 @@
 		93427D871BEE3A0200941139 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		93427D8A1BEE3A0200941139 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		93427D8C1BEE3A0200941139 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		93427DB21BEE483500941139 /* DrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DrawView.h; path = "../../../../../../../../../../Aaron/Documents/Work/University/COMP 3020/Repository/Assignments/Assignment 2/P2D/P2D/DrawView.h"; sourceTree = "<group>"; };
-		93427DB31BEE483500941139 /* DrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DrawView.m; path = "../../../../../../../../../../Aaron/Documents/Work/University/COMP 3020/Repository/Assignments/Assignment 2/P2D/P2D/DrawView.m"; sourceTree = "<group>"; };
+		93427DB21BEE483500941139 /* DrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DrawView.h; path = "DrawView.h"; sourceTree = "<group>"; };
+		93427DB31BEE483500941139 /* DrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DrawView.m; path = "DrawView.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */

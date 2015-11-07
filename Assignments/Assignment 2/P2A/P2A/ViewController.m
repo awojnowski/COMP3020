@@ -7,10 +7,12 @@
 //
 
 #import "ViewController.h"
+#import "View.h"
 
-@interface ViewController ()
+@interface ViewController () <ViewDelegate>
 
 @property (nonatomic, weak) IBOutlet NSView *colorView;
+@property (weak) IBOutlet NSTextField *textLabel;
 
 @end
 
@@ -19,26 +21,19 @@
 -(void)viewDidLoad {
     
     [super viewDidLoad];
-
+    
+    [[self colorView] setWantsLayer:YES];
     [[[self colorView] layer] setBackgroundColor:[[NSColor orangeColor] CGColor]];
     
-}
-
-- (void)setRepresentedObject:(id)representedObject {
-    [super setRepresentedObject:representedObject];
-
-    // Update the view, if already loaded.
-}
-
--(void)keyDown:(NSEvent *)theEvent {
-    
-    NSLog(@"Key down: %@",theEvent);
+    [(View *)[self view] setDelegate:self];
     
 }
 
--(void)keyUp:(NSEvent *)theEvent {
+#pragma mark - ViewDelegate
+
+-(void)viewChangedInputString:(NSString *)inputString {
     
-    NSLog(@"Key up: %@",theEvent);
+    [[self textLabel] setStringValue:inputString];
     
 }
 

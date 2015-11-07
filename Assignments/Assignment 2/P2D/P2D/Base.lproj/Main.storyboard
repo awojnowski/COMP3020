@@ -677,11 +677,22 @@
                                 <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                                 <animations/>
                             </customView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vJl-Sv-vTa">
+                                <rect key="frame" x="133" y="10" width="214" height="17"/>
+                                <animations/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Click and drag anywhere to draw :)" id="phJ-2E-QXw">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" white="0.0" alpha="0.11008880395683447" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="COh-NF-5EI" secondAttribute="bottom" id="An4-Ww-rbC"/>
                             <constraint firstAttribute="trailing" secondItem="COh-NF-5EI" secondAttribute="trailing" id="BIO-U9-ufg"/>
+                            <constraint firstAttribute="bottom" secondItem="vJl-Sv-vTa" secondAttribute="bottom" constant="10" id="NWS-0r-Rla"/>
                             <constraint firstItem="COh-NF-5EI" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="ldE-dE-hQO"/>
+                            <constraint firstItem="vJl-Sv-vTa" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="oG7-jQ-B0P"/>
                             <constraint firstItem="COh-NF-5EI" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="tOs-iY-rxl"/>
                         </constraints>
                         <animations/>
