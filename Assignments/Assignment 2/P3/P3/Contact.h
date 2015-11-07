@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSInteger, ContactGender) {
+    ContactGenderMale,
+    ContactGenderFemale
+};
+
 @interface Contact : NSObject
 
 @property (nonatomic, copy) NSString *name;
@@ -15,6 +20,8 @@
 @property (nonatomic, copy) NSString *phoneNumber;
 @property (nonatomic, copy) NSString *info;
 @property (nonatomic, copy) NSNumber *age;
+@property (nonatomic, copy) NSNumber *universityYear;
+@property (nonatomic, assign) ContactGender gender;
 
 -(instancetype)init;
 -(instancetype)initWithContents:(NSDictionary *)contents;

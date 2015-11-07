@@ -13,6 +13,8 @@ NSString * const ContactAddressKey = @"address";
 NSString * const ContactPhoneNumberKey = @"phoneNumber";
 NSString * const ContactInfoKey = @"info";
 NSString * const ContactAgeKey = @"age";
+NSString * const ContactUniversityYearKey = @"universityYear";
+NSString * const ContactGenderKey = @"gender";
 
 @implementation Contact
 
@@ -38,6 +40,8 @@ NSString * const ContactAgeKey = @"age";
         _phoneNumber = contents[ContactPhoneNumberKey];
         _info = contents[ContactInfoKey];
         _age = contents[ContactAgeKey];
+        _universityYear = contents[ContactUniversityYearKey];
+        _gender = [contents[ContactGenderKey] integerValue];
         
     }
     return self;
@@ -62,6 +66,8 @@ NSString * const ContactAgeKey = @"age";
              ContactPhoneNumberKey : [self phoneNumber] ?: @"",
              ContactInfoKey : [self info] ?: @"",
              ContactAgeKey : [self age] ?: @(0),
+             ContactUniversityYearKey : [self universityYear] ?: @(0),
+             ContactGenderKey : @([self gender]),
              };
     
 }
