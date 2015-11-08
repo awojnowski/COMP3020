@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ContactsController.h"
+#import "Contact.h"
 
 @interface AppDelegate ()
 
@@ -18,6 +19,12 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     
     [[ContactsController sharedInstance] loadContactsFromFile:ContactsControllerDefaultFileName];
+    
+    Contact *contact = [[Contact alloc] init];
+    [contact setName:@"Aaron"];
+    [[[ContactsController sharedInstance] contacts] addObject:contact];
+    
+    [[ContactsController sharedInstance] serializeContactsToFile:ContactsControllerDefaultFileName];
     
 }
 

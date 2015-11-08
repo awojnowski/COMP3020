@@ -114,13 +114,7 @@ append:
     }
     
     NSInteger const offset = multiplier * pixels;
-    [[self window] setFrame:({
-        
-        NSRect rect = [[self window] frame];
-        rect.origin.x += offset;
-        rect;
-        
-    }) display:YES animate:YES];
+    [[self delegate] viewMovedOffset:offset];
     
 complete:
     [[self input] setString:@""];
