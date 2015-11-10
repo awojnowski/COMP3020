@@ -17,12 +17,22 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     
-    [[ContactsController sharedInstance] loadContactsFromFile:ContactsControllerDefaultFileName];
-    
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
-    // Insert code here to tear down your application
+    
+}
+
+- (IBAction)newPressed:(id)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"NewButtonPressed" object:NULL];
+}
+
+- (IBAction)editPressed:(id)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"EditButtonPressed" object:NULL];
+}
+
+- (IBAction)deletePressed:(id)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"DeleteButtonPressed" object:NULL];
 }
 
 @end

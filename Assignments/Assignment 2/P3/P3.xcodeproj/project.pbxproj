@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		88F048111BF19CFE00E95BCF /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F048101BF19CFE00E95BCF /* GraphViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		936336301BEE4ADF0035EF5D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9363362F1BEE4ADF0035EF5D /* AppDelegate.m */; };
 		936336331BEE4ADF0035EF5D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 936336321BEE4ADF0035EF5D /* main.m */; };
 		936336381BEE4ADF0035EF5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 936336371BEE4ADF0035EF5D /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		88F048101BF19CFE00E95BCF /* GraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
 		9363362B1BEE4ADF0035EF5D /* P3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = P3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9363362E1BEE4ADF0035EF5D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9363362F1BEE4ADF0035EF5D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				9363362E1BEE4ADF0035EF5D /* AppDelegate.h */,
 				9363362F1BEE4ADF0035EF5D /* AppDelegate.m */,
 				ED3AD96B1BF0539B00AEEFD5 /* ContactsViewController.swift */,
+				88F048101BF19CFE00E95BCF /* GraphViewController.swift */,
 				936336371BEE4ADF0035EF5D /* Assets.xcassets */,
 				936336391BEE4ADF0035EF5D /* Main.storyboard */,
 				9363363C1BEE4ADF0035EF5D /* Info.plist */,
@@ -174,6 +177,7 @@
 				ED3AD96C1BF0539B00AEEFD5 /* ContactsViewController.swift in Sources */,
 				936336331BEE4ADF0035EF5D /* main.m in Sources */,
 				936336471BEE4B1B0035EF5D /* Contact.m in Sources */,
+				88F048111BF19CFE00E95BCF /* GraphViewController.swift in Sources */,
 				936336441BEE4B110035EF5D /* ContactsController.m in Sources */,
 				936336301BEE4ADF0035EF5D /* AppDelegate.m in Sources */,
 			);
