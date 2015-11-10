@@ -10,21 +10,26 @@ import Cocoa
 
 class GraphViewController: NSViewController {
     @IBOutlet weak var slider: NSSliderCell!
+    @IBOutlet weak var graphView: GraphView!
     var contacts = [Contact]()
     var displayContacts = [Contact]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
+        contacts = ContactsController.sharedInstance().contacts as! [Contact]
     }
     
     func updateDisplayContacts() {
         let oldCount = displayContacts.count
-        displayContacts = contacts.filter { Int($0.age) <= slider.integerValue }
+        displayContacts = contacts.filter { Int($0.universityYear) <= slider.integerValue }
         
         if oldCount != displayContacts.count {
             // REDRAW
+            graphView.contacts = displayContacts
         }
     }
     
+    @IBAction func sliderChanged(sender: AnyObject) {
+        updateDisplayContacts()
+    }
 }

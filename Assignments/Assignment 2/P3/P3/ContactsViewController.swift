@@ -42,7 +42,7 @@ class ContactsViewController: NSViewController, NSTableViewDataSource, NSTableVi
         contact.address = "Location"
         contact.phoneNumber = "Number"
         contact.age = 0
-        contact.universityYear = 1
+        contact.universityYear = 0
         contact.gender = .Male
         return contact
     }
