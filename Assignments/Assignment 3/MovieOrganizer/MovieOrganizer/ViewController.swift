@@ -1,8 +1,8 @@
 //
 //  ViewController.swift
-//  HCI
+//  MovieOrganizer
 //
-//  Created by Aaron Wojnowski on 2015-09-28.
+//  Created by Aaron Wojnowski on 2015-11-19.
 //  Copyright © 2015 CS Boys. All rights reserved.
 //
 
