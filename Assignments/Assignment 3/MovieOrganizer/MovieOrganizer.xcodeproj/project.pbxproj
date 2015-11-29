@@ -7,25 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		934C14671BFE95C000CB3D52 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934C14661BFE95C000CB3D52 /* AppDelegate.swift */; };
-		934C14691BFE95C000CB3D52 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934C14681BFE95C000CB3D52 /* ViewController.swift */; };
-		934C146C1BFE95C000CB3D52 /* MovieOrganizer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 934C146A1BFE95C000CB3D52 /* MovieOrganizer.xcdatamodeld */; };
-		934C146E1BFE95C000CB3D52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 934C146D1BFE95C000CB3D52 /* Assets.xcassets */; };
-		934C14711BFE95C000CB3D52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 934C146F1BFE95C000CB3D52 /* Main.storyboard */; };
+		931CF09D1C0BAA55003122FB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 931CF09C1C0BAA55003122FB /* AppDelegate.m */; };
+		931CF0A01C0BAA55003122FB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 931CF09F1C0BAA55003122FB /* main.m */; };
+		931CF0A31C0BAA55003122FB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 931CF0A21C0BAA55003122FB /* ViewController.m */; };
+		931CF0A51C0BAA55003122FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 931CF0A41C0BAA55003122FB /* Assets.xcassets */; };
+		931CF0A81C0BAA55003122FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 931CF0A61C0BAA55003122FB /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		934C14631BFE95C000CB3D52 /* MovieOrganizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieOrganizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		934C14661BFE95C000CB3D52 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		934C14681BFE95C000CB3D52 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		934C146B1BFE95C000CB3D52 /* MovieOrganizer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MovieOrganizer.xcdatamodel; sourceTree = "<group>"; };
-		934C146D1BFE95C000CB3D52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		934C14701BFE95C000CB3D52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		934C14721BFE95C000CB3D52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		931CF0981C0BAA55003122FB /* MovieOrganizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieOrganizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		931CF09B1C0BAA55003122FB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		931CF09C1C0BAA55003122FB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		931CF09F1C0BAA55003122FB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		931CF0A11C0BAA55003122FB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		931CF0A21C0BAA55003122FB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		931CF0A41C0BAA55003122FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		931CF0A71C0BAA55003122FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		931CF0A91C0BAA55003122FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		934C14601BFE95C000CB3D52 /* Frameworks */ = {
+		931CF0951C0BAA55003122FB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -35,45 +37,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		934C145A1BFE95C000CB3D52 = {
+		931CF08F1C0BAA55003122FB = {
 			isa = PBXGroup;
 			children = (
-				934C14651BFE95C000CB3D52 /* MovieOrganizer */,
-				934C14641BFE95C000CB3D52 /* Products */,
+				931CF09A1C0BAA55003122FB /* MovieOrganizer */,
+				931CF0991C0BAA55003122FB /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		934C14641BFE95C000CB3D52 /* Products */ = {
+		931CF0991C0BAA55003122FB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				934C14631BFE95C000CB3D52 /* MovieOrganizer.app */,
+				931CF0981C0BAA55003122FB /* MovieOrganizer.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		934C14651BFE95C000CB3D52 /* MovieOrganizer */ = {
+		931CF09A1C0BAA55003122FB /* MovieOrganizer */ = {
 			isa = PBXGroup;
 			children = (
-				934C14661BFE95C000CB3D52 /* AppDelegate.swift */,
-				934C14681BFE95C000CB3D52 /* ViewController.swift */,
-				934C146D1BFE95C000CB3D52 /* Assets.xcassets */,
-				934C146F1BFE95C000CB3D52 /* Main.storyboard */,
-				934C14721BFE95C000CB3D52 /* Info.plist */,
-				934C146A1BFE95C000CB3D52 /* MovieOrganizer.xcdatamodeld */,
+				931CF09B1C0BAA55003122FB /* AppDelegate.h */,
+				931CF09C1C0BAA55003122FB /* AppDelegate.m */,
+				931CF0A11C0BAA55003122FB /* ViewController.h */,
+				931CF0A21C0BAA55003122FB /* ViewController.m */,
+				931CF0A41C0BAA55003122FB /* Assets.xcassets */,
+				931CF0A61C0BAA55003122FB /* Main.storyboard */,
+				931CF0A91C0BAA55003122FB /* Info.plist */,
+				931CF09E1C0BAA55003122FB /* Supporting Files */,
 			);
 			path = MovieOrganizer;
+			sourceTree = "<group>";
+		};
+		931CF09E1C0BAA55003122FB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				931CF09F1C0BAA55003122FB /* main.m */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		934C14621BFE95C000CB3D52 /* MovieOrganizer */ = {
+		931CF0971C0BAA55003122FB /* MovieOrganizer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 934C14751BFE95C000CB3D52 /* Build configuration list for PBXNativeTarget "MovieOrganizer" */;
+			buildConfigurationList = 931CF0AC1C0BAA55003122FB /* Build configuration list for PBXNativeTarget "MovieOrganizer" */;
 			buildPhases = (
-				934C145F1BFE95C000CB3D52 /* Sources */,
-				934C14601BFE95C000CB3D52 /* Frameworks */,
-				934C14611BFE95C000CB3D52 /* Resources */,
+				931CF0941C0BAA55003122FB /* Sources */,
+				931CF0951C0BAA55003122FB /* Frameworks */,
+				931CF0961C0BAA55003122FB /* Resources */,
 			);
 			buildRules = (
 			);
@@ -81,25 +93,24 @@
 			);
 			name = MovieOrganizer;
 			productName = MovieOrganizer;
-			productReference = 934C14631BFE95C000CB3D52 /* MovieOrganizer.app */;
+			productReference = 931CF0981C0BAA55003122FB /* MovieOrganizer.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		934C145B1BFE95C000CB3D52 /* Project object */ = {
+		931CF0901C0BAA55003122FB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "CS Boys";
 				TargetAttributes = {
-					934C14621BFE95C000CB3D52 = {
+					931CF0971C0BAA55003122FB = {
 						CreatedOnToolsVersion = 7.1.1;
 					};
 				};
 			};
-			buildConfigurationList = 934C145E1BFE95C000CB3D52 /* Build configuration list for PBXProject "MovieOrganizer" */;
+			buildConfigurationList = 931CF0931C0BAA55003122FB /* Build configuration list for PBXProject "MovieOrganizer" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -107,46 +118,46 @@
 				en,
 				Base,
 			);
-			mainGroup = 934C145A1BFE95C000CB3D52;
-			productRefGroup = 934C14641BFE95C000CB3D52 /* Products */;
+			mainGroup = 931CF08F1C0BAA55003122FB;
+			productRefGroup = 931CF0991C0BAA55003122FB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				934C14621BFE95C000CB3D52 /* MovieOrganizer */,
+				931CF0971C0BAA55003122FB /* MovieOrganizer */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		934C14611BFE95C000CB3D52 /* Resources */ = {
+		931CF0961C0BAA55003122FB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				934C146E1BFE95C000CB3D52 /* Assets.xcassets in Resources */,
-				934C14711BFE95C000CB3D52 /* Main.storyboard in Resources */,
+				931CF0A51C0BAA55003122FB /* Assets.xcassets in Resources */,
+				931CF0A81C0BAA55003122FB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		934C145F1BFE95C000CB3D52 /* Sources */ = {
+		931CF0941C0BAA55003122FB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				934C146C1BFE95C000CB3D52 /* MovieOrganizer.xcdatamodeld in Sources */,
-				934C14691BFE95C000CB3D52 /* ViewController.swift in Sources */,
-				934C14671BFE95C000CB3D52 /* AppDelegate.swift in Sources */,
+				931CF0A31C0BAA55003122FB /* ViewController.m in Sources */,
+				931CF0A01C0BAA55003122FB /* main.m in Sources */,
+				931CF09D1C0BAA55003122FB /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		934C146F1BFE95C000CB3D52 /* Main.storyboard */ = {
+		931CF0A61C0BAA55003122FB /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				934C14701BFE95C000CB3D52 /* Base */,
+				931CF0A71C0BAA55003122FB /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -154,7 +165,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		934C14731BFE95C000CB3D52 /* Debug */ = {
+		931CF0AA1C0BAA55003122FB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -194,11 +205,10 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		934C14741BFE95C000CB3D52 /* Release */ = {
+		931CF0AB1C0BAA55003122FB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -234,7 +244,7 @@
 			};
 			name = Release;
 		};
-		934C14761BFE95C000CB3D52 /* Debug */ = {
+		931CF0AD1C0BAA55003122FB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -246,7 +256,7 @@
 			};
 			name = Debug;
 		};
-		934C14771BFE95C000CB3D52 /* Release */ = {
+		931CF0AE1C0BAA55003122FB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -261,37 +271,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		934C145E1BFE95C000CB3D52 /* Build configuration list for PBXProject "MovieOrganizer" */ = {
+		931CF0931C0BAA55003122FB /* Build configuration list for PBXProject "MovieOrganizer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				934C14731BFE95C000CB3D52 /* Debug */,
-				934C14741BFE95C000CB3D52 /* Release */,
+				931CF0AA1C0BAA55003122FB /* Debug */,
+				931CF0AB1C0BAA55003122FB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		934C14751BFE95C000CB3D52 /* Build configuration list for PBXNativeTarget "MovieOrganizer" */ = {
+		931CF0AC1C0BAA55003122FB /* Build configuration list for PBXNativeTarget "MovieOrganizer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				934C14761BFE95C000CB3D52 /* Debug */,
-				934C14771BFE95C000CB3D52 /* Release */,
+				931CF0AD1C0BAA55003122FB /* Debug */,
+				931CF0AE1C0BAA55003122FB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		934C146A1BFE95C000CB3D52 /* MovieOrganizer.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				934C146B1BFE95C000CB3D52 /* MovieOrganizer.xcdatamodel */,
-			);
-			currentVersion = 934C146B1BFE95C000CB3D52 /* MovieOrganizer.xcdatamodel */;
-			path = MovieOrganizer.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
-	rootObject = 934C145B1BFE95C000CB3D52 /* Project object */;
+	rootObject = 931CF0901C0BAA55003122FB /* Project object */;
 }
