@@ -12,6 +12,7 @@
 		931CF0A31C0BAA55003122FB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 931CF0A21C0BAA55003122FB /* ViewController.m */; };
 		931CF0A51C0BAA55003122FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 931CF0A41C0BAA55003122FB /* Assets.xcassets */; };
 		931CF0A81C0BAA55003122FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 931CF0A61C0BAA55003122FB /* Main.storyboard */; };
+		93C5153A1C0CF71F008C8C8E /* seedData.json in Resources */ = {isa = PBXBuildFile; fileRef = 93C515391C0CF71F008C8C8E /* seedData.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		931CF0A41C0BAA55003122FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		931CF0A71C0BAA55003122FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		931CF0A91C0BAA55003122FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93C515391C0CF71F008C8C8E /* seedData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = seedData.json; path = "seedData.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,9 +73,18 @@
 		931CF09E1C0BAA55003122FB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				931CF0AF1C0CF5E8003122FB /* Seed Data */,
 				931CF09F1C0BAA55003122FB /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		931CF0AF1C0CF5E8003122FB /* Seed Data */ = {
+			isa = PBXGroup;
+			children = (
+				93C515391C0CF71F008C8C8E /* seedData.json */,
+			);
+			name = "Seed Data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,6 +144,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93C5153A1C0CF71F008C8C8E /* seedData.json in Resources */,
 				931CF0A51C0BAA55003122FB /* Assets.xcassets in Resources */,
 				931CF0A81C0BAA55003122FB /* Main.storyboard in Resources */,
 			);
@@ -287,6 +299,7 @@
 				931CF0AE1C0BAA55003122FB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
