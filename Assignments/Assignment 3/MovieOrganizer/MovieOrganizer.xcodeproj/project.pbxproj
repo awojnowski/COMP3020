@@ -13,6 +13,21 @@
 		931CF0A51C0BAA55003122FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 931CF0A41C0BAA55003122FB /* Assets.xcassets */; };
 		931CF0A81C0BAA55003122FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 931CF0A61C0BAA55003122FB /* Main.storyboard */; };
 		93C5153A1C0CF71F008C8C8E /* seedData.json in Resources */ = {isa = PBXBuildFile; fileRef = 93C515391C0CF71F008C8C8E /* seedData.json */; };
+		93C5153F1C0CFA06008C8C8E /* CoreDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C5153E1C0CFA06008C8C8E /* CoreDataController.m */; };
+		93C515431C0CFA25008C8C8E /* MovieOrganizer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93C515411C0CFA25008C8C8E /* MovieOrganizer.xcdatamodeld */; };
+		93C515461C0CFCFE008C8C8E /* SeedDataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C515451C0CFCFE008C8C8E /* SeedDataLoader.m */; };
+		93C515611C0D022A008C8C8E /* Movie+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C5154A1C0D022A008C8C8E /* Movie+CoreDataProperties.m */; };
+		93C515621C0D022A008C8C8E /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C5154C1C0D022A008C8C8E /* Movie.m */; };
+		93C515641C0D022A008C8C8E /* Actor.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C515501C0D022A008C8C8E /* Actor.m */; };
+		93C515651C0D022A008C8C8E /* Genre+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C515521C0D022A008C8C8E /* Genre+CoreDataProperties.m */; };
+		93C515661C0D022A008C8C8E /* Genre.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C515541C0D022A008C8C8E /* Genre.m */; };
+		93C5156A1C0D022A008C8C8E /* Director.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C5155C1C0D022A008C8C8E /* Director.m */; };
+		93C5156B1C0D022A008C8C8E /* Configuration+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C5155E1C0D022A008C8C8E /* Configuration+CoreDataProperties.m */; };
+		93C5156C1C0D022A008C8C8E /* Configuration.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C515601C0D022A008C8C8E /* Configuration.m */; };
+		93C5157A1C0D03C1008C8C8E /* Tag+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C515771C0D03C1008C8C8E /* Tag+CoreDataProperties.m */; };
+		93C5157B1C0D03C1008C8C8E /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C515791C0D03C1008C8C8E /* Tag.m */; };
+		93C515841C0D0627008C8C8E /* Actor+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C515831C0D0627008C8C8E /* Actor+CoreDataProperties.m */; };
+		93C515871C0D066C008C8C8E /* Director+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C515861C0D066C008C8C8E /* Director+CoreDataProperties.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +40,36 @@
 		931CF0A41C0BAA55003122FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		931CF0A71C0BAA55003122FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		931CF0A91C0BAA55003122FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		93C515391C0CF71F008C8C8E /* seedData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = seedData.json; path = "seedData.json"; sourceTree = "<group>"; };
+		93C515391C0CF71F008C8C8E /* seedData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = seedData.json; sourceTree = "<group>"; };
+		93C5153D1C0CFA06008C8C8E /* CoreDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataController.h; sourceTree = "<group>"; };
+		93C5153E1C0CFA06008C8C8E /* CoreDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataController.m; sourceTree = "<group>"; };
+		93C515421C0CFA25008C8C8E /* MovieOrganizer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MovieOrganizer.xcdatamodel; sourceTree = "<group>"; };
+		93C515441C0CFCFE008C8C8E /* SeedDataLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeedDataLoader.h; sourceTree = "<group>"; };
+		93C515451C0CFCFE008C8C8E /* SeedDataLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeedDataLoader.m; sourceTree = "<group>"; };
+		93C515491C0D022A008C8C8E /* Movie+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Movie+CoreDataProperties.h"; sourceTree = "<group>"; };
+		93C5154A1C0D022A008C8C8E /* Movie+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Movie+CoreDataProperties.m"; sourceTree = "<group>"; };
+		93C5154B1C0D022A008C8C8E /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
+		93C5154C1C0D022A008C8C8E /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
+		93C5154F1C0D022A008C8C8E /* Actor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Actor.h; sourceTree = "<group>"; };
+		93C515501C0D022A008C8C8E /* Actor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Actor.m; sourceTree = "<group>"; };
+		93C515511C0D022A008C8C8E /* Genre+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Genre+CoreDataProperties.h"; sourceTree = "<group>"; };
+		93C515521C0D022A008C8C8E /* Genre+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Genre+CoreDataProperties.m"; sourceTree = "<group>"; };
+		93C515531C0D022A008C8C8E /* Genre.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Genre.h; sourceTree = "<group>"; };
+		93C515541C0D022A008C8C8E /* Genre.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Genre.m; sourceTree = "<group>"; };
+		93C5155B1C0D022A008C8C8E /* Director.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Director.h; sourceTree = "<group>"; };
+		93C5155C1C0D022A008C8C8E /* Director.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Director.m; sourceTree = "<group>"; };
+		93C5155D1C0D022A008C8C8E /* Configuration+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Configuration+CoreDataProperties.h"; sourceTree = "<group>"; };
+		93C5155E1C0D022A008C8C8E /* Configuration+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Configuration+CoreDataProperties.m"; sourceTree = "<group>"; };
+		93C5155F1C0D022A008C8C8E /* Configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Configuration.h; sourceTree = "<group>"; };
+		93C515601C0D022A008C8C8E /* Configuration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Configuration.m; sourceTree = "<group>"; };
+		93C515761C0D03C1008C8C8E /* Tag+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Tag+CoreDataProperties.h"; path = "Tag+CoreDataProperties.h"; sourceTree = "<group>"; };
+		93C515771C0D03C1008C8C8E /* Tag+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Tag+CoreDataProperties.m"; path = "Tag+CoreDataProperties.m"; sourceTree = "<group>"; };
+		93C515781C0D03C1008C8C8E /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tag.h; path = "Tag.h"; sourceTree = "<group>"; };
+		93C515791C0D03C1008C8C8E /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tag.m; path = "Tag.m"; sourceTree = "<group>"; };
+		93C515821C0D0627008C8C8E /* Actor+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Actor+CoreDataProperties.h"; path = "Actor+CoreDataProperties.h"; sourceTree = "<group>"; };
+		93C515831C0D0627008C8C8E /* Actor+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Actor+CoreDataProperties.m"; path = "Actor+CoreDataProperties.m"; sourceTree = "<group>"; };
+		93C515851C0D066C008C8C8E /* Director+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Director+CoreDataProperties.h"; path = "Director+CoreDataProperties.h"; sourceTree = "<group>"; };
+		93C515861C0D066C008C8C8E /* Director+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Director+CoreDataProperties.m"; path = "Director+CoreDataProperties.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +102,9 @@
 		931CF09A1C0BAA55003122FB /* MovieOrganizer */ = {
 			isa = PBXGroup;
 			children = (
-				931CF09B1C0BAA55003122FB /* AppDelegate.h */,
-				931CF09C1C0BAA55003122FB /* AppDelegate.m */,
-				931CF0A11C0BAA55003122FB /* ViewController.h */,
-				931CF0A21C0BAA55003122FB /* ViewController.m */,
-				931CF0A41C0BAA55003122FB /* Assets.xcassets */,
-				931CF0A61C0BAA55003122FB /* Main.storyboard */,
-				931CF0A91C0BAA55003122FB /* Info.plist */,
+				93C5153B1C0CF995008C8C8E /* Controllers */,
+				93C515471C0D01EC008C8C8E /* Models */,
+				93C5153C1C0CF99B008C8C8E /* View Controllers */,
 				931CF09E1C0BAA55003122FB /* Supporting Files */,
 			);
 			path = MovieOrganizer;
@@ -73,7 +113,13 @@
 		931CF09E1C0BAA55003122FB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				93C515401C0CFA0D008C8C8E /* Core Data */,
 				931CF0AF1C0CF5E8003122FB /* Seed Data */,
+				931CF09B1C0BAA55003122FB /* AppDelegate.h */,
+				931CF09C1C0BAA55003122FB /* AppDelegate.m */,
+				931CF0A41C0BAA55003122FB /* Assets.xcassets */,
+				931CF0A61C0BAA55003122FB /* Main.storyboard */,
+				931CF0A91C0BAA55003122FB /* Info.plist */,
 				931CF09F1C0BAA55003122FB /* main.m */,
 			);
 			name = "Supporting Files";
@@ -85,6 +131,73 @@
 				93C515391C0CF71F008C8C8E /* seedData.json */,
 			);
 			name = "Seed Data";
+			sourceTree = "<group>";
+		};
+		93C5153B1C0CF995008C8C8E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				93C5153D1C0CFA06008C8C8E /* CoreDataController.h */,
+				93C5153E1C0CFA06008C8C8E /* CoreDataController.m */,
+				93C515441C0CFCFE008C8C8E /* SeedDataLoader.h */,
+				93C515451C0CFCFE008C8C8E /* SeedDataLoader.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		93C5153C1C0CF99B008C8C8E /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				931CF0A11C0BAA55003122FB /* ViewController.h */,
+				931CF0A21C0BAA55003122FB /* ViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		93C515401C0CFA0D008C8C8E /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				93C515411C0CFA25008C8C8E /* MovieOrganizer.xcdatamodeld */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
+		93C515471C0D01EC008C8C8E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				93C515481C0D01F6008C8C8E /* Core Data */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		93C515481C0D01F6008C8C8E /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				93C515821C0D0627008C8C8E /* Actor+CoreDataProperties.h */,
+				93C515831C0D0627008C8C8E /* Actor+CoreDataProperties.m */,
+				93C5154F1C0D022A008C8C8E /* Actor.h */,
+				93C515501C0D022A008C8C8E /* Actor.m */,
+				93C5155D1C0D022A008C8C8E /* Configuration+CoreDataProperties.h */,
+				93C5155E1C0D022A008C8C8E /* Configuration+CoreDataProperties.m */,
+				93C5155F1C0D022A008C8C8E /* Configuration.h */,
+				93C515601C0D022A008C8C8E /* Configuration.m */,
+				93C515851C0D066C008C8C8E /* Director+CoreDataProperties.h */,
+				93C515861C0D066C008C8C8E /* Director+CoreDataProperties.m */,
+				93C5155B1C0D022A008C8C8E /* Director.h */,
+				93C5155C1C0D022A008C8C8E /* Director.m */,
+				93C515511C0D022A008C8C8E /* Genre+CoreDataProperties.h */,
+				93C515521C0D022A008C8C8E /* Genre+CoreDataProperties.m */,
+				93C515531C0D022A008C8C8E /* Genre.h */,
+				93C515541C0D022A008C8C8E /* Genre.m */,
+				93C515491C0D022A008C8C8E /* Movie+CoreDataProperties.h */,
+				93C5154A1C0D022A008C8C8E /* Movie+CoreDataProperties.m */,
+				93C5154B1C0D022A008C8C8E /* Movie.h */,
+				93C5154C1C0D022A008C8C8E /* Movie.m */,
+				93C515761C0D03C1008C8C8E /* Tag+CoreDataProperties.h */,
+				93C515771C0D03C1008C8C8E /* Tag+CoreDataProperties.m */,
+				93C515781C0D03C1008C8C8E /* Tag.h */,
+				93C515791C0D03C1008C8C8E /* Tag.m */,
+			);
+			name = "Core Data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,9 +270,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93C5157B1C0D03C1008C8C8E /* Tag.m in Sources */,
 				931CF0A31C0BAA55003122FB /* ViewController.m in Sources */,
+				93C5156B1C0D022A008C8C8E /* Configuration+CoreDataProperties.m in Sources */,
+				93C515841C0D0627008C8C8E /* Actor+CoreDataProperties.m in Sources */,
+				93C5156A1C0D022A008C8C8E /* Director.m in Sources */,
+				93C515651C0D022A008C8C8E /* Genre+CoreDataProperties.m in Sources */,
+				93C515641C0D022A008C8C8E /* Actor.m in Sources */,
+				93C5157A1C0D03C1008C8C8E /* Tag+CoreDataProperties.m in Sources */,
+				93C515661C0D022A008C8C8E /* Genre.m in Sources */,
+				93C515461C0CFCFE008C8C8E /* SeedDataLoader.m in Sources */,
+				93C515621C0D022A008C8C8E /* Movie.m in Sources */,
+				93C5156C1C0D022A008C8C8E /* Configuration.m in Sources */,
+				93C515611C0D022A008C8C8E /* Movie+CoreDataProperties.m in Sources */,
 				931CF0A01C0BAA55003122FB /* main.m in Sources */,
+				93C515431C0CFA25008C8C8E /* MovieOrganizer.xcdatamodeld in Sources */,
+				93C5153F1C0CFA06008C8C8E /* CoreDataController.m in Sources */,
 				931CF09D1C0BAA55003122FB /* AppDelegate.m in Sources */,
+				93C515871C0D066C008C8C8E /* Director+CoreDataProperties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +430,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		93C515411C0CFA25008C8C8E /* MovieOrganizer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				93C515421C0CFA25008C8C8E /* MovieOrganizer.xcdatamodel */,
+			);
+			currentVersion = 93C515421C0CFA25008C8C8E /* MovieOrganizer.xcdatamodel */;
+			path = MovieOrganizer.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 931CF0901C0BAA55003122FB /* Project object */;
 }
