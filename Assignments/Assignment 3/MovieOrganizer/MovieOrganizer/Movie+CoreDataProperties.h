@@ -15,33 +15,33 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Movie (CoreDataProperties)
 
-@property (nullable, nonatomic, retain) NSString *title;
-@property (nullable, nonatomic, retain) NSNumber *year;
 @property (nullable, nonatomic, retain) NSString *length;
 @property (nullable, nonatomic, retain) NSNumber *rating;
-@property (nullable, nonatomic, retain) NSSet<NSManagedObject *> *actors;
-@property (nullable, nonatomic, retain) NSSet<NSManagedObject *> *genres;
-@property (nullable, nonatomic, retain) NSManagedObject *director;
-@property (nullable, nonatomic, retain) NSSet<NSManagedObject *> *tags;
+@property (nullable, nonatomic, retain) NSString *title;
+@property (nullable, nonatomic, retain) NSNumber *year;
+@property (nullable, nonatomic, retain) NSSet<Actor *> *actors;
+@property (nullable, nonatomic, retain) Director *director;
+@property (nullable, nonatomic, retain) NSSet<Genre *> *genres;
+@property (nullable, nonatomic, retain) NSSet<Tag *> *tags;
 
 @end
 
 @interface Movie (CoreDataGeneratedAccessors)
 
-- (void)addActorsObject:(NSManagedObject *)value;
-- (void)removeActorsObject:(NSManagedObject *)value;
-- (void)addActors:(NSSet<NSManagedObject *> *)values;
-- (void)removeActors:(NSSet<NSManagedObject *> *)values;
+- (void)addActorsObject:(Actor *)value;
+- (void)removeActorsObject:(Actor *)value;
+- (void)addActors:(NSSet<Actor *> *)values;
+- (void)removeActors:(NSSet<Actor *> *)values;
 
-- (void)addGenresObject:(NSManagedObject *)value;
-- (void)removeGenresObject:(NSManagedObject *)value;
-- (void)addGenres:(NSSet<NSManagedObject *> *)values;
-- (void)removeGenres:(NSSet<NSManagedObject *> *)values;
+- (void)addGenresObject:(Genre *)value;
+- (void)removeGenresObject:(Genre *)value;
+- (void)addGenres:(NSSet<Genre *> *)values;
+- (void)removeGenres:(NSSet<Genre *> *)values;
 
-- (void)addTagsObject:(NSManagedObject *)value;
-- (void)removeTagsObject:(NSManagedObject *)value;
-- (void)addTags:(NSSet<NSManagedObject *> *)values;
-- (void)removeTags:(NSSet<NSManagedObject *> *)values;
+- (void)addTagsObject:(Tag *)value;
+- (void)removeTagsObject:(Tag *)value;
+- (void)addTags:(NSSet<Tag *> *)values;
+- (void)removeTags:(NSSet<Tag *> *)values;
 
 @end
 

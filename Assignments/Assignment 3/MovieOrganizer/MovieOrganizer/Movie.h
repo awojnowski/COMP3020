@@ -9,6 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+@class Actor;
+@class Director;
+@class Genre;
+@class Tag;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Movie : NSManagedObject

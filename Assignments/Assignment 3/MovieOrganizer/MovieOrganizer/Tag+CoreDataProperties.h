@@ -16,7 +16,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Tag (CoreDataProperties)
 
 @property (nullable, nonatomic, retain) NSString *title;
-@property (nullable, nonatomic, retain) Movie *movies;
+@property (nullable, nonatomic, retain) NSSet<Movie *> *movies;
+
+@end
+
+@interface Tag (CoreDataGeneratedAccessors)
+
+- (void)addMoviesObject:(Movie *)value;
+- (void)removeMoviesObject:(Movie *)value;
+- (void)addMovies:(NSSet<Movie *> *)values;
+- (void)removeMovies:(NSSet<Movie *> *)values;
 
 @end
 

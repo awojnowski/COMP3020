@@ -13,13 +13,13 @@
 
 @implementation Movie (CoreDataProperties)
 
-@dynamic title;
-@dynamic year;
 @dynamic length;
 @dynamic rating;
+@dynamic title;
+@dynamic year;
 @dynamic actors;
-@dynamic genres;
 @dynamic director;
+@dynamic genres;
 @dynamic tags;
 
 @end

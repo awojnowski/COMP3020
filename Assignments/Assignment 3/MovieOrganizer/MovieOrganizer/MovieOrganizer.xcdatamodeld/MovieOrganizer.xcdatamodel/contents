@@ -27,7 +27,7 @@
     </entity>
     <entity name="Tag" representedClassName="Tag" syncable="YES">
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="movies" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Movie" inverseName="tags" inverseEntity="Movie" syncable="YES"/>
+        <relationship name="movies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Movie" inverseName="tags" inverseEntity="Movie" syncable="YES"/>
     </entity>
     <elements>
         <element name="Actor" positionX="-54" positionY="-9" width="128" height="75"/>
