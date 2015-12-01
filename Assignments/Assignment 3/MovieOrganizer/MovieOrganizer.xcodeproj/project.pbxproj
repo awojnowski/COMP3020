@@ -62,14 +62,14 @@
 		93C5155E1C0D022A008C8C8E /* Configuration+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Configuration+CoreDataProperties.m"; sourceTree = "<group>"; };
 		93C5155F1C0D022A008C8C8E /* Configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Configuration.h; sourceTree = "<group>"; };
 		93C515601C0D022A008C8C8E /* Configuration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Configuration.m; sourceTree = "<group>"; };
-		93C515761C0D03C1008C8C8E /* Tag+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Tag+CoreDataProperties.h"; path = "Tag+CoreDataProperties.h"; sourceTree = "<group>"; };
-		93C515771C0D03C1008C8C8E /* Tag+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Tag+CoreDataProperties.m"; path = "Tag+CoreDataProperties.m"; sourceTree = "<group>"; };
-		93C515781C0D03C1008C8C8E /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tag.h; path = "Tag.h"; sourceTree = "<group>"; };
-		93C515791C0D03C1008C8C8E /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tag.m; path = "Tag.m"; sourceTree = "<group>"; };
-		93C515821C0D0627008C8C8E /* Actor+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Actor+CoreDataProperties.h"; path = "Actor+CoreDataProperties.h"; sourceTree = "<group>"; };
-		93C515831C0D0627008C8C8E /* Actor+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Actor+CoreDataProperties.m"; path = "Actor+CoreDataProperties.m"; sourceTree = "<group>"; };
-		93C515851C0D066C008C8C8E /* Director+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Director+CoreDataProperties.h"; path = "Director+CoreDataProperties.h"; sourceTree = "<group>"; };
-		93C515861C0D066C008C8C8E /* Director+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Director+CoreDataProperties.m"; path = "Director+CoreDataProperties.m"; sourceTree = "<group>"; };
+		93C515761C0D03C1008C8C8E /* Tag+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Tag+CoreDataProperties.h"; sourceTree = "<group>"; };
+		93C515771C0D03C1008C8C8E /* Tag+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Tag+CoreDataProperties.m"; sourceTree = "<group>"; };
+		93C515781C0D03C1008C8C8E /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
+		93C515791C0D03C1008C8C8E /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
+		93C515821C0D0627008C8C8E /* Actor+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Actor+CoreDataProperties.h"; sourceTree = "<group>"; };
+		93C515831C0D0627008C8C8E /* Actor+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Actor+CoreDataProperties.m"; sourceTree = "<group>"; };
+		93C515851C0D066C008C8C8E /* Director+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Director+CoreDataProperties.h"; sourceTree = "<group>"; };
+		93C515861C0D066C008C8C8E /* Director+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Director+CoreDataProperties.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
