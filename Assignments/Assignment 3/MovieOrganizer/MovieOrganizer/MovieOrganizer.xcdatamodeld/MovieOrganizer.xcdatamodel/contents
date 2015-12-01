@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15B42" minimumToolsVersion="Xcode 7.0">
+    <entity name="Actor" representedClassName="Actor" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="movies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Movie" inverseName="actors" inverseEntity="Movie" syncable="YES"/>
+    </entity>
+    <entity name="Configuration" representedClassName="Configuration" syncable="YES">
+        <attribute name="isCreated" optional="YES" attributeType="Boolean" syncable="YES"/>
+    </entity>
+    <entity name="Director" representedClassName="Director" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="movies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Movie" inverseName="director" inverseEntity="Movie" syncable="YES"/>
+    </entity>
+    <entity name="Genre" representedClassName="Genre" syncable="YES">
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="movies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Movie" inverseName="genres" inverseEntity="Movie" syncable="YES"/>
+    </entity>
+    <entity name="Movie" representedClassName="Movie" syncable="YES">
+        <attribute name="length" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rating" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="year" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="actors" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Actor" inverseName="movies" inverseEntity="Actor" syncable="YES"/>
+        <relationship name="director" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Director" inverseName="movies" inverseEntity="Director" syncable="YES"/>
+        <relationship name="genres" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Genre" inverseName="movies" inverseEntity="Genre" syncable="YES"/>
+        <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="movies" inverseEntity="Tag" syncable="YES"/>
+    </entity>
+    <entity name="Tag" representedClassName="Tag" syncable="YES">
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="movies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Movie" inverseName="tags" inverseEntity="Movie" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Actor" positionX="-54" positionY="-9" width="128" height="75"/>
+        <element name="Configuration" positionX="-63" positionY="-18" width="128" height="60"/>
+        <element name="Director" positionX="18" positionY="72" width="128" height="75"/>
+        <element name="Genre" positionX="-18" positionY="27" width="128" height="75"/>
+        <element name="Movie" positionX="-36" positionY="9" width="128" height="165"/>
+        <element name="Tag" positionX="36" positionY="108" width="128" height="75"/>
+    </elements>
+</model>

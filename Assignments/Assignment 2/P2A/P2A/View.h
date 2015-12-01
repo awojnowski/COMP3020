@@ -20,5 +20,6 @@
 
 @required
 -(void)viewChangedInputString:(NSString *)inputString;
+-(void)viewMovedOffset:(CGFloat)offset;
 
 @end

@@ -37,4 +37,19 @@
     
 }
 
+-(void)viewMovedOffset:(CGFloat)offset {
+    
+    [[[self view] constraints] enumerateObjectsUsingBlock:^(NSLayoutConstraint * _Nonnull constraint, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        if ([constraint firstAttribute] == NSLayoutAttributeLeading && [constraint firstItem] == [self colorView]) {
+            
+            [constraint setConstant:[constraint constant] + offset];
+            *stop = YES;
+            
+        }
+        
+    }];
+    
+}
+
 @end
