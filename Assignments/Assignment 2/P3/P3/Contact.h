@@ -15,7 +15,8 @@ typedef NS_ENUM(NSInteger, ContactGender) {
 
 @interface Contact : NSObject
 
-@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *firstName;
+@property (nonatomic, copy) NSString *lastName;
 @property (nonatomic, copy) NSString *address;
 @property (nonatomic, copy) NSString *phoneNumber;
 @property (nonatomic, copy) NSString *info;

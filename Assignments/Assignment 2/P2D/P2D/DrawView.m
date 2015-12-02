@@ -37,6 +37,7 @@
         
         [self drawBezierPath:obj];
         
+        
     }];
     if ([self currentPath]) {
         

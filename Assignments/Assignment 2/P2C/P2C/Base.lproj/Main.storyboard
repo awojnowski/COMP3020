@@ -679,10 +679,10 @@
                                     <rect key="frame" x="1" y="1" width="478" height="268"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <view translatesAutoresizingMaskIntoConstraints="NO" id="84F-Ua-gDX">
+                                        <view misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="84F-Ua-gDX">
                                             <rect key="frame" x="0.0" y="0.0" width="478" height="268"/>
                                             <subviews>
-                                                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qSU-TA-2zT">
+                                                <textField verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qSU-TA-2zT">
                                                     <rect key="frame" x="8" y="238" width="100" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="UPa-lx-XP9"/>
@@ -712,12 +712,12 @@
                                 </clipView>
                                 <animations/>
                                 <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="apG-eV-tfU">
-                                    <rect key="frame" x="1" y="253" width="478" height="16"/>
+                                    <rect key="frame" x="1" y="254" width="463" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="2pW-7I-gT5">
-                                    <rect key="frame" x="463" y="1" width="16" height="268"/>
+                                    <rect key="frame" x="464" y="1" width="15" height="253"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                 </scroller>

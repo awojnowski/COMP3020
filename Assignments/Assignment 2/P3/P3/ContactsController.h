@@ -14,7 +14,7 @@ extern NSString * const ContactsControllerDefaultFileName;
 
 @interface ContactsController : NSObject
 
-@property (nonatomic, readonly, strong) NSMutableArray <Contact *> *contacts;
+@property (nonatomic, strong) NSMutableArray <Contact *> *contacts;
 
 -(void)loadContactsFromFile:(NSString *)file;
 -(void)serializeContactsToFile:(NSString *)file;

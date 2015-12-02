@@ -7,22 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		88F048111BF19CFE00E95BCF /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F048101BF19CFE00E95BCF /* GraphViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		88F048171BF1ACC700E95BCF /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F048161BF1ACC700E95BCF /* GraphView.swift */; settings = {ASSET_TAGS = (); }; };
 		936336301BEE4ADF0035EF5D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9363362F1BEE4ADF0035EF5D /* AppDelegate.m */; };
 		936336331BEE4ADF0035EF5D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 936336321BEE4ADF0035EF5D /* main.m */; };
-		936336361BEE4ADF0035EF5D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 936336351BEE4ADF0035EF5D /* ViewController.m */; };
 		936336381BEE4ADF0035EF5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 936336371BEE4ADF0035EF5D /* Assets.xcassets */; };
 		9363363B1BEE4ADF0035EF5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 936336391BEE4ADF0035EF5D /* Main.storyboard */; };
 		936336441BEE4B110035EF5D /* ContactsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 936336431BEE4B110035EF5D /* ContactsController.m */; };
 		936336471BEE4B1B0035EF5D /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 936336461BEE4B1B0035EF5D /* Contact.m */; };
+		ED3AD96C1BF0539B00AEEFD5 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3AD96B1BF0539B00AEEFD5 /* ContactsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		88F048101BF19CFE00E95BCF /* GraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
+		88F048161BF1ACC700E95BCF /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		9363362B1BEE4ADF0035EF5D /* P3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = P3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9363362E1BEE4ADF0035EF5D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9363362F1BEE4ADF0035EF5D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		936336321BEE4ADF0035EF5D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		936336341BEE4ADF0035EF5D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		936336351BEE4ADF0035EF5D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		936336371BEE4ADF0035EF5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9363363A1BEE4ADF0035EF5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9363363C1BEE4ADF0035EF5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -30,6 +32,8 @@
 		936336431BEE4B110035EF5D /* ContactsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsController.m; sourceTree = "<group>"; };
 		936336451BEE4B1B0035EF5D /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
 		936336461BEE4B1B0035EF5D /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
+		ED3AD96A1BF0539A00AEEFD5 /* P3-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "P3-Bridging-Header.h"; sourceTree = "<group>"; };
+		ED3AD96B1BF0539B00AEEFD5 /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,12 +70,14 @@
 				936336481BEE4B210035EF5D /* Models */,
 				9363362E1BEE4ADF0035EF5D /* AppDelegate.h */,
 				9363362F1BEE4ADF0035EF5D /* AppDelegate.m */,
-				936336341BEE4ADF0035EF5D /* ViewController.h */,
-				936336351BEE4ADF0035EF5D /* ViewController.m */,
+				ED3AD96B1BF0539B00AEEFD5 /* ContactsViewController.swift */,
+				88F048101BF19CFE00E95BCF /* GraphViewController.swift */,
+				88F048161BF1ACC700E95BCF /* GraphView.swift */,
 				936336371BEE4ADF0035EF5D /* Assets.xcassets */,
 				936336391BEE4ADF0035EF5D /* Main.storyboard */,
 				9363363C1BEE4ADF0035EF5D /* Info.plist */,
 				936336311BEE4ADF0035EF5D /* Supporting Files */,
+				ED3AD96A1BF0539A00AEEFD5 /* P3-Bridging-Header.h */,
 			);
 			path = P3;
 			sourceTree = "<group>";
@@ -171,9 +177,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				936336361BEE4ADF0035EF5D /* ViewController.m in Sources */,
+				ED3AD96C1BF0539B00AEEFD5 /* ContactsViewController.swift in Sources */,
 				936336331BEE4ADF0035EF5D /* main.m in Sources */,
+				88F048171BF1ACC700E95BCF /* GraphView.swift in Sources */,
 				936336471BEE4B1B0035EF5D /* Contact.m in Sources */,
+				88F048111BF19CFE00E95BCF /* GraphViewController.swift in Sources */,
 				936336441BEE4B110035EF5D /* ContactsController.m in Sources */,
 				936336301BEE4ADF0035EF5D /* AppDelegate.m in Sources */,
 			);
@@ -276,11 +284,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = P3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.csboys.P3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "P3/P3-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -288,11 +299,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = P3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.csboys.P3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "P3/P3-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -315,6 +328,7 @@
 				936336411BEE4ADF0035EF5D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

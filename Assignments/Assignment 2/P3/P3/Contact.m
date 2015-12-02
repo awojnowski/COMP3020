@@ -8,7 +8,8 @@
 
 #import "Contact.h"
 
-NSString * const ContactNameKey = @"name";
+NSString * const ContactFirstNameKey = @"firstName";
+NSString * const ContactLastNameKey = @"lastName";
 NSString * const ContactAddressKey = @"address";
 NSString * const ContactPhoneNumberKey = @"phoneNumber";
 NSString * const ContactInfoKey = @"info";
@@ -35,7 +36,8 @@ NSString * const ContactGenderKey = @"gender";
     self = [super init];
     if (self) {
         
-        _name = contents[ContactNameKey];
+        _firstName = contents[ContactFirstNameKey];
+        _lastName = contents[ContactLastNameKey];
         _address = contents[ContactAddressKey];
         _phoneNumber = contents[ContactPhoneNumberKey];
         _info = contents[ContactInfoKey];
@@ -52,7 +54,7 @@ NSString * const ContactGenderKey = @"gender";
 
 -(NSString *)description {
     
-    return [NSString stringWithFormat:@"<%@ %p: name = %@; address = %@; phoneNumber = %@>",NSStringFromClass([self class]),self,[self name],[self address],[self phoneNumber]];
+    return [NSString stringWithFormat:@"<%@ %p: name = %@ %@; address = %@; phoneNumber = %@>",NSStringFromClass([self class]),self,[self firstName],[self lastName],[self address],[self phoneNumber]];
     
 }
 
@@ -61,7 +63,8 @@ NSString * const ContactGenderKey = @"gender";
 -(NSDictionary *)serializedRepresentation {
     
     return @{
-             ContactNameKey : [self name] ?: @"",
+             ContactFirstNameKey : [self firstName] ?: @"",
+             ContactLastNameKey : [self lastName] ?: @"",
              ContactAddressKey : [self address] ?: @"",
              ContactPhoneNumberKey : [self phoneNumber] ?: @"",
              ContactInfoKey : [self info] ?: @"",

@@ -16,6 +16,8 @@
 
 #import "CoreDataController.h"
 #import "Movie.h"
+#import "Genre.h"
+#import "Director.h"
 #import "SeedDataLoader.h"
 
 @interface ViewController ()
@@ -58,6 +60,8 @@
 @property (nonatomic) NSMutableArray* selectedActorsArray;
 @property (nonatomic) NSMutableArray* selectedDirectorsArray;
 
+@property (nonatomic) NSArray<Movie *>* movies;
+
 @end
 
 @implementation ViewController
@@ -72,24 +76,24 @@
         [[SeedDataLoader sharedInstance] seedDataInManagedObjectContext:managedObjectContext];
         
     }];
-
-    NSArray __block * movies = nil;
+    
     [[CoreDataController sharedInstance] performBlock:^(NSManagedObjectContext *managedObjectContext) {
         
-        NSLog(@"test");
-        movies = [Movie allMoviesInManagedObjectContext:managedObjectContext];
+        self.movies = [Movie allMoviesInManagedObjectContext:managedObjectContext];
+        
+        dispatch_async( dispatch_get_main_queue(), ^{
+            
+            [self.movieTableView reloadData];
+            
+        });
         
     }];
-    Movie *movie = [movies firstObject];
-    NSLog(@"%@",movie);
     
     // setting up advanced search fields
-    [self initializeMovieTableView];
     [self createActorListPullDown];
     [self createDirectorListPullDown];
     [self createAgeRatingPullDown];
     
-    self.movieTableView.hidden = YES;
     self.showMovieView.hidden = YES;
 
 }
@@ -151,37 +155,37 @@
     
 }
 
--(void)initializeMovieTableView {
-    
-    NSArray* columnTitles = [NSArray arrayWithObjects: @"Movie Title",@"Genre",@"Year",@"Rating",@"Director",@"Age Rating", nil];
-    
-    for(int i = 0; i < [columnTitles count]; i++) {
-     
-        NSTableColumn *column = self.movieTableView.tableColumns[i];
-        [column.headerCell setStringValue:columnTitles[i]];
-        column.width = self.movieTableView.frame.size.width / 8;
-        
-    }
-    
-}
+#pragma MARK - NSTableView
 
 -(int)numberOfRowsInTableView:(NSTableView *)tableView {
     
-    return 1;
+    return (int)self.movies.count;
     
 }
 
-- (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+- (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex {
     
-    NSTableCellView *result = [tableView makeViewWithIdentifier:@"MovieTableViewIdentifer" owner:self];
+    NSString *columnID = aTableColumn.identifier;
     
-    result.textField.stringValue = @"test";
-    
-    //NSLog(@"in delegate");
-    
-    return result;
+    if ([columnID isEqualToString:@"movieTitle"]) {
+        return self.movies[rowIndex].title;
+    } else if ([columnID isEqualToString:@"movieGenre"]) {
+//        NSLog(@"%@", self.movies[rowIndex].genres);           genres aren't properly fetched
+        return self.movies[rowIndex].genres.anyObject.title;
+    } else if ([columnID isEqualToString:@"movieYear"]) {
+        return [NSString stringWithFormat:@"%@", self.movies[rowIndex].year];
+    } else if ([columnID isEqualToString:@"movieRating"]) {
+        return self.movies[rowIndex].rating;
+    } else if ([columnID isEqualToString:@"movieDirector"]) {
+        return self.movies[rowIndex].director.name;
+    } else if ([columnID isEqualToString:@"movieAgeRating"]) {
+        return self.movies[rowIndex].rating;                    // age rating needs to be added (certification)
+    }
+    return NULL;
     
 }
+
+#pragma MARK - Actions
 
 - (IBAction)minRatingControlTouched:(id)sender {
     
