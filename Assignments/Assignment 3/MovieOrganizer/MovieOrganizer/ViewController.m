@@ -74,6 +74,7 @@
     
     [super viewDidLoad];
     
+    [[CoreDataController sharedInstance] removeCoreDataStore];
     [[CoreDataController sharedInstance] initialize];
     [[CoreDataController sharedInstance] performBlock:^(NSManagedObjectContext *managedObjectContext) {
         
