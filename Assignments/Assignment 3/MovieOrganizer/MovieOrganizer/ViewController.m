@@ -216,7 +216,7 @@
     if ([columnID isEqualToString:@"movieTitle"]) {
         return self.movies[rowIndex].title;
     } else if ([columnID isEqualToString:@"movieGenre"]) {
-        NSLog(@"%@", self.movies[rowIndex].genres.anyObject.title);           // genres aren't properly fetched
+//        NSLog(@"%@", self.movies[rowIndex].genres.anyObject.title);           // genres aren't properly fetched
         return self.movies[rowIndex].genres.anyObject.title;
     } else if ([columnID isEqualToString:@"movieYear"]) {
         return [NSString stringWithFormat:@"%@", self.movies[rowIndex].year];

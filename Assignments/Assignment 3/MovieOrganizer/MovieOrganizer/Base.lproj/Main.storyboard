@@ -778,17 +778,6 @@
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                     </button>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GSy-Ds-GDi">
-                                        <rect key="frame" x="223" y="0.0" width="77" height="32"/>
-                                        <animations/>
-                                        <buttonCell key="cell" type="push" title="Movie" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="G0O-ti-hi3">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="showMovieTapped:" target="XfG-lQ-9wD" id="DHW-Eb-brZ"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="dwP-KK-hnP" firstAttribute="centerY" secondItem="Oox-ln-t14" secondAttribute="centerY" id="9Jo-PR-Lyy"/>
@@ -796,9 +785,7 @@
                                     <constraint firstAttribute="trailing" secondItem="PGX-d2-7Do" secondAttribute="trailing" constant="8" id="G6d-wz-d4J"/>
                                     <constraint firstItem="oNg-wB-Vzz" firstAttribute="leading" secondItem="8eU-oI-1A0" secondAttribute="trailing" constant="8" id="Oxl-lF-nTD"/>
                                     <constraint firstItem="oNg-wB-Vzz" firstAttribute="centerY" secondItem="Oox-ln-t14" secondAttribute="centerY" id="ScE-bY-AgD"/>
-                                    <constraint firstItem="GSy-Ds-GDi" firstAttribute="leading" secondItem="dwP-KK-hnP" secondAttribute="trailing" constant="21" id="Vcu-Nk-Imf"/>
                                     <constraint firstItem="PGX-d2-7Do" firstAttribute="centerY" secondItem="Oox-ln-t14" secondAttribute="centerY" id="baf-Mq-shf"/>
-                                    <constraint firstItem="GSy-Ds-GDi" firstAttribute="centerY" secondItem="Oox-ln-t14" secondAttribute="centerY" id="d0Z-yo-ikf"/>
                                     <constraint firstItem="PGX-d2-7Do" firstAttribute="leading" secondItem="oNg-wB-Vzz" secondAttribute="trailing" constant="8" id="hKy-Nn-7bL"/>
                                     <constraint firstItem="8eU-oI-1A0" firstAttribute="leading" secondItem="Gev-Gf-gQF" secondAttribute="trailing" constant="8" id="n0z-lu-A5H"/>
                                     <constraint firstItem="8eU-oI-1A0" firstAttribute="centerY" secondItem="Oox-ln-t14" secondAttribute="centerY" id="ru8-2D-7EX"/>
