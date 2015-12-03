@@ -17,11 +17,15 @@
 #import "CoreDataController.h"
 #import "Movie.h"
 #import "Genre.h"
+#import "Actor.h"
 #import "Director.h"
 #import "SeedDataLoader.h"
+#import "MovieDetailViewController.h"
 
-@interface ViewController ()
+@interface ViewController () <NSTableViewDataSource, NSTableViewDelegate, MovieDetailViewControllerDelegate>
 
+@property (strong, nonatomic) MovieDetailViewController *movieDetailVC;
+@property (strong, nonatomic) NSView *movieDetailView;
 @property (weak) IBOutlet NSView *showMovieView;
 @property (weak) IBOutlet NSView *advancedSearchMenuBarView;
 @property (weak) IBOutlet NSView *menuBarContainerView;
@@ -33,10 +37,10 @@
 @property (weak) IBOutlet NSView *genreContainerView;
 @property (weak) IBOutlet NSView *actorsContainerView;
 @property (weak) IBOutlet NSView *directorContainerView;
-@property (weak) IBOutlet NSView *userReviewContainer;
-@property (weak) IBOutlet NSView *otherReviewsContainer;
-@property (weak) IBOutlet NSView *exampleUserReviewOne;
-@property (weak) IBOutlet NSView *exampleUserReviewTwo;
+//@property (weak) IBOutlet NSView *userReviewContainer;
+//@property (weak) IBOutlet NSView *otherReviewsContainer;
+//@property (weak) IBOutlet NSView *exampleUserReviewOne;
+//@property (weak) IBOutlet NSView *exampleUserReviewTwo;
 
 @property (weak) IBOutlet NSTableView *movieTableView;
 @property (weak) IBOutlet NSTableHeaderView *tableViewHeader;
@@ -48,9 +52,9 @@
 @property (weak) IBOutlet NSPopUpButton *directorPullDown;
 
 // Properties related to looking at movie field
-@property (weak) IBOutlet NSLevelIndicator *movieRatingIndicator;
-@property (weak) IBOutlet NSTextField *movieDescriptionField;
-@property (weak) IBOutlet NSImageView *moviePosterImage;
+//@property (weak) IBOutlet NSLevelIndicator *movieRatingIndicator;
+//@property (weak) IBOutlet NSTextField *movieDescriptionField;
+//@property (weak) IBOutlet NSImageView *moviePosterImage;
 
 // Database of actors & directors
 @property (nonatomic) NSMutableArray* actorArray;
@@ -94,15 +98,51 @@
     [self createDirectorListPullDown];
     [self createAgeRatingPullDown];
     
+    [self setMovieDetailView];
     self.showMovieView.hidden = YES;
 
 }
 
--(void)setRepresentedObject:(id)representedObject {
+-(void)setMovieDetailView {
     
-    [super setRepresentedObject:representedObject];
-
+    self.movieDetailVC = [[MovieDetailViewController alloc] init];
+    self.movieDetailVC.delegate = self;
+    self.movieDetailView = self.movieDetailVC.view;
+    [self.movieDetailView setTranslatesAutoresizingMaskIntoConstraints:NO];
     
+    [self.showMovieView addConstraint:[NSLayoutConstraint constraintWithItem:self.movieDetailView
+                                                          attribute:NSLayoutAttributeTop
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.showMovieView
+                                                          attribute:NSLayoutAttributeTop
+                                                         multiplier:1.0
+                                                           constant:0.0]];
+    
+    [self.showMovieView addConstraint:[NSLayoutConstraint constraintWithItem:self.movieDetailView
+                                                          attribute:NSLayoutAttributeLeading
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.showMovieView
+                                                          attribute:NSLayoutAttributeLeading
+                                                         multiplier:1.0
+                                                           constant:0.0]];
+    
+    [self.showMovieView addConstraint:[NSLayoutConstraint constraintWithItem:self.movieDetailView
+                                                          attribute:NSLayoutAttributeBottom
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.showMovieView
+                                                          attribute:NSLayoutAttributeBottom
+                                                         multiplier:1.0
+                                                           constant:0.0]];
+    
+    [self.showMovieView addConstraint:[NSLayoutConstraint constraintWithItem:self.movieDetailView
+                                                          attribute:NSLayoutAttributeTrailing
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.showMovieView
+                                                          attribute:NSLayoutAttributeTrailing
+                                                         multiplier:1.0
+                                                           constant:0.0]];
+    
+    [self.showMovieView addSubview:self.movieDetailView];
     
 }
 
@@ -114,7 +154,7 @@
         
         [self.view setWantsLayer:YES];
         
-        [self.showMovieView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
+//        [self.showMovieView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
         [self.advancedSearchMenuBarView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
         [self.menuBarContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
         [self.minRatingContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
@@ -125,12 +165,12 @@
         [self.genreContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
         [self.actorsContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
         [self.directorContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-        [self.userReviewContainer.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-        [self.otherReviewsContainer.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-        [self.exampleUserReviewOne.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-        [self.exampleUserReviewTwo.layer setBorderColor:[NSColor lightGrayColor].CGColor];
+//        [self.userReviewContainer.layer setBorderColor:[NSColor lightGrayColor].CGColor];
+//        [self.otherReviewsContainer.layer setBorderColor:[NSColor lightGrayColor].CGColor];
+//        [self.exampleUserReviewOne.layer setBorderColor:[NSColor lightGrayColor].CGColor];
+//        [self.exampleUserReviewTwo.layer setBorderColor:[NSColor lightGrayColor].CGColor];
         
-        [self.showMovieView.layer setBorderWidth:1];
+//        [self.showMovieView.layer setBorderWidth:1];
         [self.advancedSearchMenuBarView.layer setBorderWidth:1];
         [self.menuBarContainerView.layer setBorderWidth:1];
         [self.minRatingContainerView.layer setBorderWidth:1];
@@ -141,18 +181,24 @@
         [self.genreContainerView.layer setBorderWidth:1];
         [self.actorsContainerView.layer setBorderWidth:1];
         [self.directorContainerView.layer setBorderWidth:1];
-        [self.userReviewContainer.layer setBorderWidth:1];
-        [self.otherReviewsContainer.layer setBorderWidth:1];
-        [self.exampleUserReviewOne.layer setBorderWidth:1];
-        [self.exampleUserReviewTwo.layer setBorderWidth:1];
+//        [self.userReviewContainer.layer setBorderWidth:1];
+//        [self.otherReviewsContainer.layer setBorderWidth:1];
+//        [self.exampleUserReviewOne.layer setBorderWidth:1];
+//        [self.exampleUserReviewTwo.layer setBorderWidth:1];
         
         [self.advancedSearchMenuBarView.layer setBackgroundColor:[NSColor whiteColor].CGColor];
         [self.menuBarContainerView.layer setBackgroundColor:[NSColor whiteColor].CGColor];
-        [self.showMovieView.layer setBackgroundColor:[NSColor whiteColor].CGColor];
-        [self.otherReviewsContainer.layer setBackgroundColor:[NSColor whiteColor].CGColor];
+        [self.showMovieView.layer setBackgroundColor:[NSColor orangeColor].CGColor];
+//        [self.otherReviewsContainer.layer setBackgroundColor:[NSColor whiteColor].CGColor];
         
     });
     
+}
+
+#pragma MARK - MovieDetailViewControllerDelegate
+
+- (void)backButtonPressed {
+    [self showListViewTapped:nil];
 }
 
 #pragma MARK - NSTableView
@@ -170,7 +216,7 @@
     if ([columnID isEqualToString:@"movieTitle"]) {
         return self.movies[rowIndex].title;
     } else if ([columnID isEqualToString:@"movieGenre"]) {
-//        NSLog(@"%@", self.movies[rowIndex].genres);           genres aren't properly fetched
+//        NSLog(@"%@", self.movies[rowIndex].genres.anyObject.title);           // genres aren't properly fetched
         return self.movies[rowIndex].genres.anyObject.title;
     } else if ([columnID isEqualToString:@"movieYear"]) {
         return [NSString stringWithFormat:@"%@", self.movies[rowIndex].year];
@@ -183,6 +229,11 @@
     }
     return NULL;
     
+}
+
+- (void)tableViewSelectionDidChange:(NSNotification *)notification {
+    self.movieDetailVC.movie = self.movies[self.movieTableView.selectedRow];
+    [self showMovieTapped:nil];
 }
 
 #pragma MARK - Actions

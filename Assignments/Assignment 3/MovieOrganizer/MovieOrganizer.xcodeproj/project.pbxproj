@@ -28,6 +28,8 @@
 		93C5157B1C0D03C1008C8C8E /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C515791C0D03C1008C8C8E /* Tag.m */; };
 		93C515841C0D0627008C8C8E /* Actor+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C515831C0D0627008C8C8E /* Actor+CoreDataProperties.m */; };
 		93C515871C0D066C008C8C8E /* Director+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C515861C0D066C008C8C8E /* Director+CoreDataProperties.m */; };
+		ED3AD9741C0FD59F00AEEFD5 /* MovieDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3AD9721C0FD59F00AEEFD5 /* MovieDetailViewController.m */; };
+		ED3AD9751C0FD59F00AEEFD5 /* MovieDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED3AD9731C0FD59F00AEEFD5 /* MovieDetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +72,9 @@
 		93C515831C0D0627008C8C8E /* Actor+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Actor+CoreDataProperties.m"; sourceTree = "<group>"; };
 		93C515851C0D066C008C8C8E /* Director+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Director+CoreDataProperties.h"; sourceTree = "<group>"; };
 		93C515861C0D066C008C8C8E /* Director+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Director+CoreDataProperties.m"; sourceTree = "<group>"; };
+		ED3AD9711C0FD59F00AEEFD5 /* MovieDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieDetailViewController.h; sourceTree = "<group>"; };
+		ED3AD9721C0FD59F00AEEFD5 /* MovieDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieDetailViewController.m; sourceTree = "<group>"; };
+		ED3AD9731C0FD59F00AEEFD5 /* MovieDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieDetailViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +154,9 @@
 			children = (
 				931CF0A11C0BAA55003122FB /* ViewController.h */,
 				931CF0A21C0BAA55003122FB /* ViewController.m */,
+				ED3AD9711C0FD59F00AEEFD5 /* MovieDetailViewController.h */,
+				ED3AD9721C0FD59F00AEEFD5 /* MovieDetailViewController.m */,
+				ED3AD9731C0FD59F00AEEFD5 /* MovieDetailViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -257,6 +265,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED3AD9751C0FD59F00AEEFD5 /* MovieDetailViewController.xib in Resources */,
 				93C5153A1C0CF71F008C8C8E /* seedData.json in Resources */,
 				931CF0A51C0BAA55003122FB /* Assets.xcassets in Resources */,
 				931CF0A81C0BAA55003122FB /* Main.storyboard in Resources */,
@@ -270,6 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED3AD9741C0FD59F00AEEFD5 /* MovieDetailViewController.m in Sources */,
 				93C5157B1C0D03C1008C8C8E /* Tag.m in Sources */,
 				931CF0A31C0BAA55003122FB /* ViewController.m in Sources */,
 				93C5156B1C0D022A008C8C8E /* Configuration+CoreDataProperties.m in Sources */,
