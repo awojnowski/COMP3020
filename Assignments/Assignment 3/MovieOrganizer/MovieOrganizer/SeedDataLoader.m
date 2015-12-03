@@ -22,24 +22,6 @@ NSString * const SeedDataLoaderSeedDataFileName = @"seedData.json";
 
 @implementation SeedDataLoader
 
-/*
- 
- {
- "genre": [
- "Action",
- "Drama"
- ],
- "actor": [
- "Tom Neal",
- "Carole Mathews",
- "Carole Donne",
- "Don Zelaya",
- "Ralph Graves"
- ]
- }
- 
- */
-
 -(void)seedDataInManagedObjectContext:(NSManagedObjectContext *)managedObjectContext {
  
     Configuration * configuration = [Configuration globalConfigurationInManagedObjectContext:managedObjectContext];
@@ -63,6 +45,13 @@ NSString * const SeedDataLoaderSeedDataFileName = @"seedData.json";
     // import the data into core data
     
     [movies enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull movieDictionary, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        if (idx > 1000) {
+            
+            *stop = YES;
+            return;
+            
+        }
         
         NSString * const movieTitle = [movieDictionary[@"title"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         
@@ -88,38 +77,57 @@ NSString * const SeedDataLoaderSeedDataFileName = @"seedData.json";
         [movie setLength:movieLength];
         [movie setRating:@(movieRating)];
         
-        Director * const existingDirector = [Director directorMatchingName:directorName inManagedObjectContext:managedObjectContext];
-        if (!existingDirector) {
+        // add the director
+        
+        Director * const director = ({
             
-            Director * const director = [Director createInManagedObjectContext:managedObjectContext];
-            [director setName:directorName];
-            [movie setDirector:director];
+            Director *director = [Director directorMatchingName:directorName inManagedObjectContext:managedObjectContext];
+            if (!director) {
+                
+                director = [Director createInManagedObjectContext:managedObjectContext];
+                
+            }
+            director;
             
-        }
+        });
+        [director setName:directorName];
+        [movie setDirector:director];
+        
+        // add the genres
         
         [genres enumerateObjectsUsingBlock:^(NSString * _Nonnull genreTitle, NSUInteger idx, BOOL * _Nonnull stop) {
             
-            Genre * const existingGenre = [Genre genreMatchingTitle:genreTitle inManagedObjectContext:managedObjectContext];
-            if (existingGenre) {
+            Genre * const genre = ({
                 
-                return;
+                Genre *genre = [Genre genreMatchingTitle:genreTitle inManagedObjectContext:managedObjectContext];
+                if (!genre) {
+                    
+                    genre = [Genre createInManagedObjectContext:managedObjectContext];
+                    
+                }
+                genre;
                 
-            }
-            Genre * const genre = [Genre createInManagedObjectContext:managedObjectContext];
+            });
             [genre setTitle:genreTitle];
             [movie addGenresObject:genre];
             
         }];
         
+        // add the actors
+        
         [actors enumerateObjectsUsingBlock:^(NSString * _Nonnull actorName, NSUInteger idx, BOOL * _Nonnull stop) {
             
-            Actor * const existingActor = [Actor actorMatchingName:actorName inManagedObjectContext:managedObjectContext];
-            if (existingActor) {
+            Actor * const actor = ({
                 
-                return;
+                Actor *actor = [Actor actorMatchingName:actorName inManagedObjectContext:managedObjectContext];
+                if (!actor) {
+                    
+                    actor = [Actor createInManagedObjectContext:managedObjectContext];
+                    
+                }
+                actor;
                 
-            }
-            Actor * const actor = [Actor createInManagedObjectContext:managedObjectContext];
+            });
             [actor setName:actorName];
             [movie addActorsObject:actor];
             
