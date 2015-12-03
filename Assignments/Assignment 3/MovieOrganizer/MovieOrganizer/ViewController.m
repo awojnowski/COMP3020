@@ -205,9 +205,9 @@
 
 #pragma MARK - NSTableView
 
--(int)numberOfRowsInTableView:(NSTableView *)tableView {
+-(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
     
-    return (int)self.movies.count;
+    return self.movies.count;
     
 }
 
