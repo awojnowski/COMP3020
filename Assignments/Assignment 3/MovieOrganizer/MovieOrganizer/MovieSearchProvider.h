@@ -25,6 +25,10 @@
 
 @property (nonatomic, strong) NSArray <Actor *> *actors;
 
+// certification
+
+@property (nonatomic, strong) NSString *certification;
+
 // director
 
 @property (nonatomic, strong) Director *director;
