@@ -101,38 +101,4 @@
     
 }
 
--(BOOL)isMovie:(Movie *)movie partOf:(NSArray *)array setPath:(NSString *)setPath inclusive:(BOOL)inclusive {
-    
-    BOOL satisfied = NO;
-    if (inclusive) {
-        
-        satisfied = YES;
-        for (id obj in array) {
-            
-            if (![[obj valueForKeyPath:setPath] containsObject:movie]) {
-                
-                satisfied = NO;
-                
-            }
-            
-        }
-        
-    } else {
-        
-        for (id obj in array) {
-            
-            if ([[obj valueForKeyPath:setPath] containsObject:movie]) {
-                
-                satisfied = YES;
-                continue;
-                
-            }
-            
-        }
-        
-    }
-    return satisfied;
-    
-}
-
 @end
