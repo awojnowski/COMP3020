@@ -40,6 +40,8 @@
 @property (weak) IBOutlet NSView *actorsContainerView;
 @property (weak) IBOutlet NSView *directorContainerView;
 @property (weak) IBOutlet NSSearchField *movieSearchField;
+@property (weak) IBOutlet NSTextField *minYearTextField;
+@property (weak) IBOutlet NSTextField *maxYearTextField;
 
 @property (weak) IBOutlet NSTableView *movieTableView;
 @property (weak) IBOutlet NSTableHeaderView *tableViewHeader;
@@ -124,6 +126,8 @@
     [self.movieTableView setDoubleAction:@selector(showMovie)];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(movieSearchTextChanged:) name:NSControlTextDidChangeNotification object:self.movieSearchField];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(minYearTextChanged:) name:NSControlTextDidChangeNotification object:self.minYearTextField];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(maxYearTextChanged:) name:NSControlTextDidChangeNotification object:self.maxYearTextField];
     
     // finish up
     
@@ -317,6 +321,12 @@
         
     }
     
+    NSLog(@"%d",minRating*2);
+    
+    [self.searchProvider setMinimumRating:(minRating*2)];
+    
+    [self refreshMovies];
+    
 }
 
 -(void)createAgeRatingPullDown {
@@ -480,6 +490,26 @@
     }
     
     [self.searchProvider setTitle:searchString];
+    
+    [self refreshMovies];
+    
+}
+
+- (void)minYearTextChanged:(NSNotification *)notification {
+    
+    NSString* minYear = self.minYearTextField.stringValue;
+    
+    [self.searchProvider setMinimumYear:minYear.integerValue];
+    
+    [self refreshMovies];
+    
+}
+
+- (void)maxYearTextChanged:(NSNotification *)notification {
+    
+    NSString* maxYear = self.maxYearTextField.stringValue;
+    
+    [self.searchProvider setMinimumYear:maxYear.integerValue];
     
     [self refreshMovies];
     
