@@ -76,6 +76,27 @@ NSString * const SeedDataLoaderSeedDataFileName = @"seedData.json";
         [movie setLength:movieLength];
         [movie setRating:@(movieRating)];
         
+        // add the networks
+        
+        NSInteger result = arc4random_uniform(3);
+        if (result == 1) {
+         
+            [movie setAvailableOnItunes:@(YES)];
+            
+        }
+        result = arc4random_uniform(3);
+        if (result == 1) {
+            
+            [movie setAvailableOnNetflix:@(YES)];
+            
+        }
+        result = arc4random_uniform(3);
+        if (result == 1) {
+            
+            [movie setAvailableOnShomi:@(YES)];
+            
+        }
+        
         // add the director
         
         Director * const director = ({

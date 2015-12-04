@@ -81,6 +81,7 @@
     if (!_searchProvider) {
         
         _searchProvider = [[MovieSearchProvider alloc] init];
+        [_searchProvider setAvailableOnShomi:YES];
         
     }
     return _searchProvider;
@@ -91,6 +92,7 @@
     
     [super viewDidLoad];
     
+    //[[CoreDataController sharedInstance] removeCoreDataStore];
     [[CoreDataController sharedInstance] initialize];
     [[CoreDataController sharedInstance] performBlock:^(NSManagedObjectContext *managedObjectContext) {
         

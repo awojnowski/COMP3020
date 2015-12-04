@@ -13,6 +13,9 @@
 
 @implementation Movie (CoreDataProperties)
 
+@dynamic availableOnNetflix;
+@dynamic availableOnShomi;
+@dynamic availableOnItunes;
 @dynamic certification;
 @dynamic length;
 @dynamic rating;
