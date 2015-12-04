@@ -91,7 +91,7 @@
     
     [self.movieTitleLabel setStringValue:self.movie.title];
     [self.movieDetailTextField setStringValue:description];
-    [self.starRatingCell setIntValue:([self.movie.rating intValue]+1) / 2];
+    [self.starRatingCell setIntValue:([self.movie.rating intValue] / 2)+1];
     
     [[self artworkImageView] setImage:[NSImage imageNamed:@"poster"]];
     [[self movie] fetchImageWithCompletionBlock:^(NSImage * _Nonnull image) {

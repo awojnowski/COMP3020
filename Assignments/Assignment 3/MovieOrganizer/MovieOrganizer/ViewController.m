@@ -404,18 +404,9 @@
     
     [self.actorPullDown removeAllItems];
     
-    self.actorArray = [[NSMutableArray alloc] init];
-    self.selectedActorsArray = [[NSMutableArray alloc] init];
-    [self.actorArray addObject:@"N/A"];
-    [self.actorArray addObject:@"Tom Cruise"];
-    [self.actorArray addObject:@"Brad Pitt"];
-    [self.actorArray addObject:@"Angelia Jolie"];
+    // how to add actors to a list
     
-    for(int i = 0; i <= [self.actorArray count]; i++) {
-        
-        [self.actorPullDown addItemsWithTitles:self.actorArray];
-        
-    }
+    //[self.actorPullDown addItemsWithTitles:self.actors];
     
 }
 
@@ -453,35 +444,6 @@
     [self.searchProvider setCertification:ageRating];
     
     [self refreshMovies];
-    
-}
-
-- (IBAction)addActorTouched:(id)sender {
-    
-    if([self.selectedActorsArray indexOfObject:self.actorPullDown.titleOfSelectedItem] == NSNotFound) {
-        
-        if(![self.actorPullDown.titleOfSelectedItem isEqualToString:@"N/A"]) {
-            
-            [self.selectedActorsArray addObject: self.actorPullDown.titleOfSelectedItem];
-            [self updateActorList];
-            
-        }
-        
-    }
-    
-}
-
-- (IBAction)addDirectorTouched:(id)sender {
-    
-    if([self.selectedDirectorsArray indexOfObject:self.directorPullDown.titleOfSelectedItem] == NSNotFound ) {
-        
-        if(![self.directorPullDown.titleOfSelectedItem isEqualToString:@"N/A"]) {
-            
-            [self.selectedDirectorsArray addObject: self.directorPullDown.titleOfSelectedItem];
-            
-        }
-        
-    }
     
 }
 
@@ -543,6 +505,36 @@
     
 }
 
+- (IBAction)addActorTouched:(id)sender {
+    
+    if([self.selectedActorsArray indexOfObject:self.actorPullDown.titleOfSelectedItem] == NSNotFound) {
+        
+        if(![self.actorPullDown.titleOfSelectedItem isEqualToString:@"N/A"]) {
+            
+            [self.selectedActorsArray addObject: self.actorPullDown.titleOfSelectedItem];
+            [self updateActorList];
+            
+        }
+        
+    }
+    
+}
+
+- (IBAction)addDirectorTouched:(id)sender {
+    
+    if([self.selectedDirectorsArray indexOfObject:self.directorPullDown.titleOfSelectedItem] == NSNotFound ) {
+        
+        if(![self.directorPullDown.titleOfSelectedItem isEqualToString:@"N/A"]) {
+            
+            [self.selectedDirectorsArray addObject: self.directorPullDown.titleOfSelectedItem];
+            NSLog(@"%@",self.directorPullDown.titleOfSelectedItem);
+            
+        }
+        
+    }
+    
+}
+
 - (IBAction)actorSelectionTouched:(id)sender {
     
     
@@ -550,7 +542,10 @@
 
 - (IBAction)directorSelectionTouched:(id)sender {
     
-    
+    /*NSPopUpButtonCell* directorSelectionButton = (NSPopUpButtonCell*)sender;
+    NSString* selectedDirector = directorSelectionButton.titleOfSelectedItem;
+    directorSelectionButton.state = NSOnState;*/
+
 }
 
 - (void)movieSearchTextChanged:(NSNotification *)notification {
@@ -593,7 +588,15 @@
         
     }
     
-    [self.searchProvider setMaximumYear:maxYear];
+    if(maxYear == 0) {
+        
+        [self.searchProvider setMaximumYear:INT_MAX];
+        
+    } else {
+        
+        [self.searchProvider setMaximumYear:maxYear];
+        
+    }
     
     [self refreshMovies];
     
@@ -645,6 +648,36 @@
     
     [self refreshMovies];
     
+}
+
+- (IBAction)horrorButtonTouched:(id)sender {
+}
+
+- (IBAction)comedyButtonTouched:(id)sender {
+}
+
+- (IBAction)romanceButtonTouched:(id)sender {
+}
+
+- (IBAction)adventureButtonTouched:(id)sender {
+}
+
+- (IBAction)documentaryButtonTouched:(id)sender {
+}
+
+- (IBAction)sciFiButtonTouched:(id)sender {
+}
+
+- (IBAction)dramaButtonTouched:(id)sender {
+}
+
+- (IBAction)actionButtonTouched:(id)sender {
+}
+
+- (IBAction)thrillerButtonTouched:(id)sender {
+}
+
+- (IBAction)fantasyButtonTouched:(id)sender {
 }
 
 @end
