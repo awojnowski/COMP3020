@@ -16,6 +16,12 @@
 @property (weak) IBOutlet NSTextField *movieTitleLabel;
 @property (weak) IBOutlet NSTextField *movieDetailTextField;
 @property (weak) IBOutlet NSLevelIndicatorCell *starRatingCell;
+@property (weak) IBOutlet NSLevelIndicatorCell *userRatingCell;
+
+@property (weak) IBOutlet NSView *userReviewContainer;
+@property (weak) IBOutlet NSView *otherReviewsContainer;
+@property (weak) IBOutlet NSView *exampleUserReviewOne;
+@property (weak) IBOutlet NSView *exampleUserReviewTwo;
 
 @end
 
@@ -26,9 +32,18 @@
     // Do view setup here.
     
     [self.view setWantsLayer:YES];
-    [self.view.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-    [self.view.layer setBorderWidth:1];
-    [self.view.layer setBackgroundColor:[[NSColor whiteColor] CGColor]];
+
+    [self.userReviewContainer.layer setBorderColor:[NSColor lightGrayColor].CGColor];
+    [self.otherReviewsContainer.layer setBorderColor:[NSColor lightGrayColor].CGColor];
+    [self.exampleUserReviewOne.layer setBorderColor:[NSColor lightGrayColor].CGColor];
+    [self.exampleUserReviewTwo.layer setBorderColor:[NSColor lightGrayColor].CGColor];
+    
+    [self.userReviewContainer.layer setBorderWidth:1];
+    [self.otherReviewsContainer.layer setBorderWidth:1];
+    [self.exampleUserReviewOne.layer setBorderWidth:1];
+    [self.exampleUserReviewTwo.layer setBorderWidth:1];
+    
+    [self.view.layer setBackgroundColor:[NSColor whiteColor].CGColor];
 }
 
 - (void)setMovie:(Movie *)movie {
@@ -48,6 +63,12 @@
 }
 
 - (IBAction)addToWatchListPressed:(id)sender {
+    
+}
+
+- (IBAction)ratingLevelTouched:(id)sender {
+    
+    [self.userRatingCell setImage:[NSImage imageNamed:@"starSmallOutline"]];
     
 }
 

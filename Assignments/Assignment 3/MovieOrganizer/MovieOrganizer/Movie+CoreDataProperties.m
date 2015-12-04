@@ -13,6 +13,7 @@
 
 @implementation Movie (CoreDataProperties)
 
+@dynamic certification;
 @dynamic length;
 @dynamic rating;
 @dynamic title;

@@ -1,0 +1,393 @@
+**Users**
+
+1) Tanis
+- A 53 year old mom
+- Has two children in University
+- Enjoy's comedy and drama movies
+- Is not very picky about looking into reviews before watching
+- Likes to go to the movie theatre every other weekend with friends
+- Watches Netflix occasionally, maybe twice a week
+- Is not the most technical and prefers simple, easy to use interfaces that require minimal learning
+- Likes recent films
+
+2) Rocky
+- A 52 year old dad
+- Has one child in University
+- Enjoy's science fiction and action movies
+- Likes to watch movies with his family
+- Likes to watch movies that friends have suggested to him
+- Prefers to watch movie on Netflix on weekends
+- Really loves Steven Spielberg movies
+
+3) Daniel
+- A 20 year old male University student
+- Will make up any excuse as to why he hates each movie he watches
+- Very picky about movies, but favours action over anything else
+- Loves to vent online about why every movie sucks through online message boards
+- Usually torrents movies that he likes if they aren't on Netflix
+- Very tech savvy
+
+4) Aurelié
+- A 21 year old female exchange student from France
+- Fluent in French and knows basic to intermediate English
+- Loves contemporary, romance and any classic movie
+- Has a few close friends that she likes to watch movies with
+- Quiet, and does not usually voice her opinion on movies
+- Does not have a Netflix account, so she usually rents movies on iTunes or goes to the theatre occasionally
+
+5) Tresor
+- An 18 year old male University student
+- Watches Netflix frequently
+- Prefers watching television series' opposed to movies most of the time
+- Likes action movies
+- Competent with technology but is indifferent on keeping up with latest trends
+
+**Subtasks / Interview Guideline**
+
+(Will be semi-structured including observation)
+
+- Inform users about the background of the application and the concept
+- Ensure to user to be open about discussing going through tasks and to mention suggestions or thoughts
+- Ask user to be relaxed and calm whilst conducting the tests
+- Ask permission to observe actions
+
+1) Use advanced search to search by movies with Quentin Tarantino
+2) Find the movie 'A Cinderella Story'
+3) Search for movies from 2000 or earlier
+4) Search for movies above 3 stars
+5) Rate a movie
+6) Add a movie to watchlist
+7) In movie window, return to viewing list of movies
+8) View scatterplot representation of data
+9) Search for movies NOT available on netflix
+
+Logical order of each task:
+1) find director in director field > click
+2) search bar > type string containing movie title > locate movie in tableview
+or advanced search known info > locate movie in tableview
+3) type 2000 in max year field > optional type 0 in min
+4) click 3 star button in min rating
+5) click on any movie (if not currently in view) > click amount of stars for review > (type optional review) > click submit
+6) click on any movie (if not currently in view) > click on add to watchlist button
+7) in movie view click on back
+or in movie view click on tableview button
+or in movie view click on scatterplot button
+8) click on scatterplot button
+9) in advanced search field click on netflix field to disable
+
+Any questions or suggestions?
+Overall how was your experience with the interface?
+Are you okay with me using quotes from this interview for a user study?
+
+**Variables / Analysis of Task**
+
+1) clicks per task
+2) time
+3) errors/feedback
+
+**Interviews**
+
+Tanis:
+Permission to observe: YES
+Permission to quote: YES
+
+1)
+clicks: 3
+time: 35 seconds
+errors/feedback: - did not know who quinten tarantino was so looked in actors first
+- searched by scrolling taking longer
+
+2)
+clicks: 1
+time: 10 seconds
+errors/feedback: note: slower typer, identified field quickly
+
+3)
+clicks: 2
+time: 8 seconds
+errors/feedback: extra click by adding 0 as min year
+
+4)
+clicks: 1
+time: 3 seconds
+errors/feedback: none
+
+5)
+clicks: 3
+time: 11 seconds
+errors/feedback: none
+
+6)
+clicks: 1
+time: 5 seconds
+errors/feedback: note: 1 click because already in movie view
+
+7)
+clicks: 1
+time: 3 seconds
+errors/feedback: note: used back button feature to return and was already in movie view
+
+8)
+clicks: 1
+time: 14 seconds
+errors/feedback: "took me a while to find the graph picture"
+
+9)
+clicks: 1
+time: 8 seconds
+errors/feedback: none
+
+Tanis' Experience:
+- It was easy to use and understand
+- I like how there aren't too many buttons
+- I liked how it didn't take me a lot of clicks to get where I want
+
+Rocky:
+Permission to observe: YES
+Permission to quote: YES
+
+1)
+clicks: 2
+time: 21 seconds
+errors/feedback: searched by scrolling taking longer
+
+2)
+clicks: 1
+time: 6 seconds
+errors/feedback: none
+
+3)
+clicks: 1
+time: 5 seconds
+errors/feedback: none
+
+4)
+clicks: 1
+time: 2 seconds
+errors/feedback: none
+
+5)
+clicks: 3
+time: 9 seconds
+errors/feedback: none
+
+6)
+clicks: 1
+time: 4 seconds
+errors/feedback: note: 1 click because already in movie view
+
+7)
+clicks: 1
+time: 3 seconds
+errors/feedback: note: used list button feature to return and was already in movie view
+
+8)
+clicks: 1
+time: 9 seconds
+errors/feedback: none
+
+9)
+clicks: 1
+time: 6 seconds
+errors/feedback: none
+
+Rocky's Review:
+- It seems to be a very fast and efficient tool
+- I'm happy there is a feature to search for netflix
+- I like that I can search for multiple genres at once
+- Overall information is displayed well and simply for me to find
+
+Daniel:
+Permission to observe: YES
+Permission to quote: YES
+
+1)
+clicks: 1
+time: 7 seconds
+errors/feedback: - queried by typing to increase speed
+
+2)
+clicks: 1
+time: 4 seconds
+errors/feedback: note: fast typer
+
+3)
+clicks: 1
+time: 2 seconds
+errors/feedback: none
+
+4)
+clicks: 1
+time: 1 second
+errors/feedback: none
+
+5)
+clicks: 3 
+time: 12 seconds
+errors/feedback: note: wrote a brief review as well
+
+6)
+clicks: 1
+time: 2 seconds
+errors/feedback: none
+
+7)
+clicks: 1
+time: 1 second
+errors/feedback: note: used back button feature to return and was already in movie view
+
+8)
+clicks: 1
+time: 5 seconds
+errors/feedback: none
+
+9)
+clicks: 1
+time: 3 seconds
+errors/feedback: none
+
+Daniel's Review:
+- I like the wide range of search tools
+- I like being able to tab to different search fields
+- fluid workflow
+- overall solid app
+
+Aurelié:
+Permission to observe: YES
+Permission to quote: YES
+
+1)
+clicks: 2
+time: 20 seconds
+errors/feedback: - searched by scrolling taking longer
+
+2)
+clicks: 9
+time: 17 seconds
+errors/feedback: note: used advanced search by genre and director
+
+3)
+clicks: 2
+time: 7 seconds
+errors/feedback: extra click by adding 0 as min year
+
+4)
+clicks: 1
+time: 4 seconds
+errors/feedback: none
+
+5)
+clicks: 3
+time: 8 seconds
+errors/feedback: none
+
+6)
+clicks: 1
+time: 4 seconds
+errors/feedback: note: 1 click because already in movie view
+
+7)
+clicks: 1
+time: 4 seconds
+errors/feedback: note: used back button feature to return and was already in movie view
+
+8)
+clicks: 1
+time: 10 seconds
+errors/feedback: none
+
+9)
+clicks: 1
+time: 6 seconds
+errors/feedback: none
+
+Aurelié's review:
+- Easy to use even though my first language isn't English
+- I like being able to search in a year range, because I like classics
+- I like how I can see if a movie can be rented on iTunes
+
+Tresor:
+Permission to observe: YES
+Permission to quote: YES
+
+1)
+clicks: 2
+time: 9 seconds
+errors/feedback: - searched by typing to increase speed
+
+2)
+clicks: 1
+time: 7 seconds
+errors/feedback: none
+
+3)
+clicks: 1
+time: 5 seconds
+errors/feedback: none
+
+4)
+clicks: 1
+time: 3 seconds
+errors/feedback: none
+
+5)
+clicks: 3
+time: 10 seconds
+errors/feedback: none
+
+6)
+clicks: 1
+time: 4 seconds
+errors/feedback: note: 1 click because already in movie view
+
+7)
+clicks: 1
+time: 2 seconds
+errors/feedback: note: used back button feature to return and was already in movie view
+
+8)
+clicks: 1
+time: 6 seconds
+errors/feedback: none
+
+9)
+clicks: 1
+time: 4 seconds
+errors/feedback: none
+
+Tresor's review:
+- I like being able to search for Netflix movies easily
+- Simple and easy to find what I want to do
+
+**Analysis**
+
+*NOTE: SEE DATA GRAPHS AND ANALYSIS INFORMATION ON FINAL PAGE
+
+- Our objective in our end user testing was to observe users interaction with the most common subtasks of the app to ensure that the learning curve is very easy for them and simple to use
+- Our vision was to create a system that is very easy in terms of navigation and very simple in terms of presented information.  We have accomplished this by noticing the maximum amount of clicks (excluding one advanced search with multiple fields) took 3 clicks to complete a subtask with a unique group of users testing the application
+- Graphing timed data and recognizing an average task completion time for all users to be 7.31seconds on first interaction with the application, demonstrates the simple learning curve
+- To solidify that our system is easy to use, when asked for feedback it was common that users expressed that it was enjoyable using the app
+- One concern was the ability to find the graph button by one user which we changed the icon to be more apparent
+- Additionally we verified through subtasks that our advanced searching method was easy for users, along with writing ratings/reviews on movies and adding to a watchlist quickly
+- We found that observing users unobtrusively was the best representation of real-life use which we wanted to test
+- At the core, our system is foundationally based on searching for movies so we did not feel that it was appropriate to categorize content analysis because the overall goal was to ensure fluid, easy, simple usage
+- We focused on noting important diaglogue as opposed to a whole transcript to focus on rich feedback as opposed to a diluted cluster
+- Overall great performance from different users and overall general consistency
+
+**Experience**
+
+(a) What we learned
+- We learned about interviewing users in a professional manner and getting valuable feedback to assess our application
+- We learned that different users interact with environments differently depending on how tech-savvy they are (Ex. tabbing through fields versus click and scroll)
+- We learned to be careful with questions such as search for movies with "Quinten Tarantino" versus "directed by," a less ambiguous and more accurate question
+
+(b)
+- We will be concise with questions such as rephrasing task 1 to "use advanced search to search by movies directed by Quinten Tarantino
+- We will try to facilitate more direct questions such as "use the search bar to search for 'A Cinderella Story'" as opposed to just saying 'find' as that diverted one user to search with the advanced field skewing the data
+- However, asking more open ended questions such as find movie X does allow freedom for the user which can be just as useful by observing how they interact when multiple options are available. Therefore the previous question is not necessarily harmful as we learned some users will search for the movie, some may prefer advanced searching
+
+(c)
+- User testing with work/coop projects can be useful for conducting interviews amongst peers for many different decisions such as usability and design feedback for example
+- More so with future projects, user testing could be important for a software engineering project on a large system with complex tasks
+- On larger systems whether in a work environment or a project, the larger and more complicated a design and layout is, the more important it is to create the best experience for users and much more important to evaluate the system on users with complicated tasks and subtasks
+- If an issue arises with users in any case on larger projects, it is important to gather feedback and solve this issue so no one else will experience it

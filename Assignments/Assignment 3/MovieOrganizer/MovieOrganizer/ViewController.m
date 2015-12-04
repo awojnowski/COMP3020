@@ -22,6 +22,8 @@
 #import "SeedDataLoader.h"
 #import "MovieDetailViewController.h"
 
+#import "MovieSearchProvider.h"
+
 @interface ViewController () <NSTableViewDataSource, NSTableViewDelegate, MovieDetailViewControllerDelegate>
 
 @property (strong, nonatomic) MovieDetailViewController *movieDetailVC;
@@ -79,13 +81,8 @@
         
         [[SeedDataLoader sharedInstance] seedDataInManagedObjectContext:managedObjectContext];
         
-    }];
-    
-    [[CoreDataController sharedInstance] performBlock:^(NSManagedObjectContext *managedObjectContext) {
-        
         self.movies = [Movie allMoviesInManagedObjectContext:managedObjectContext];
-        
-        dispatch_async( dispatch_get_main_queue(), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
             
             [self.movieTableView reloadData];
             
@@ -94,13 +91,13 @@
     }];
     
     // setting up advanced search fields
+    
     [self createActorListPullDown];
     [self createDirectorListPullDown];
     [self createAgeRatingPullDown];
     
     [self setMovieDetailView];
     self.showMovieView.hidden = YES;
-    [self.movieTableView setDoubleAction:@selector(showMovie)];
 
 }
 
@@ -155,7 +152,10 @@
         
         [self.view setWantsLayer:YES];
         
-//        [self.showMovieView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
+        NSColor *lightGrayColor = [NSColor colorWithSRGBRed:244.0/255.0 green:244.0/255.0 blue:244.0/255.0 alpha:1];
+        
+        NSColor *grayColor = [NSColor colorWithSRGBRed:224.0/255.0 green:224.0/255.0 blue:224.0/255.0 alpha:1];
+        
         [self.advancedSearchMenuBarView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
         [self.menuBarContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
         [self.minRatingContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
@@ -166,12 +166,7 @@
         [self.genreContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
         [self.actorsContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
         [self.directorContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-//        [self.userReviewContainer.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-//        [self.otherReviewsContainer.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-//        [self.exampleUserReviewOne.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-//        [self.exampleUserReviewTwo.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-        
-//        [self.showMovieView.layer setBorderWidth:1];
+
         [self.advancedSearchMenuBarView.layer setBorderWidth:1];
         [self.menuBarContainerView.layer setBorderWidth:1];
         [self.minRatingContainerView.layer setBorderWidth:1];
@@ -182,15 +177,10 @@
         [self.genreContainerView.layer setBorderWidth:1];
         [self.actorsContainerView.layer setBorderWidth:1];
         [self.directorContainerView.layer setBorderWidth:1];
-//        [self.userReviewContainer.layer setBorderWidth:1];
-//        [self.otherReviewsContainer.layer setBorderWidth:1];
-//        [self.exampleUserReviewOne.layer setBorderWidth:1];
-//        [self.exampleUserReviewTwo.layer setBorderWidth:1];
         
-        [self.advancedSearchMenuBarView.layer setBackgroundColor:[NSColor whiteColor].CGColor];
-        [self.menuBarContainerView.layer setBackgroundColor:[NSColor whiteColor].CGColor];
-        [self.showMovieView.layer setBackgroundColor:[NSColor orangeColor].CGColor];
-//        [self.otherReviewsContainer.layer setBackgroundColor:[NSColor whiteColor].CGColor];
+        [self.advancedSearchMenuBarView.layer setBackgroundColor:grayColor.CGColor];
+        [self.menuBarContainerView.layer setBackgroundColor:grayColor.CGColor];
+        [self.view.layer setBackgroundColor:lightGrayColor.CGColor];
         
     });
     
@@ -204,9 +194,9 @@
 
 #pragma MARK - NSTableView
 
--(int)numberOfRowsInTableView:(NSTableView *)tableView {
+-(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
     
-    return (int)self.movies.count;
+    return self.movies.count;
     
 }
 
@@ -232,7 +222,7 @@
     
 }
 
-- (void)showMovie {
+- (void)tableViewSelectionDidChange:(NSNotification *)notification {
     self.movieDetailVC.movie = self.movies[self.movieTableView.selectedRow];
     [self showMovieTapped:nil];
 }
@@ -397,6 +387,16 @@
         self.movieTableScrollView.hidden = NO;
         
     });
+    
+}
+
+- (IBAction)actorSelectionTouched:(id)sender {
+    
+    
+}
+
+- (IBAction)directorSelectionTouched:(id)sender {
+    
     
 }
 

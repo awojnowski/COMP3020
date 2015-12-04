@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Movie (CoreDataProperties)
 
+@property (nullable, nonatomic, retain) NSString *certification;
 @property (nullable, nonatomic, retain) NSString *length;
 @property (nullable, nonatomic, retain) NSNumber *rating;
 @property (nullable, nonatomic, retain) NSString *title;
