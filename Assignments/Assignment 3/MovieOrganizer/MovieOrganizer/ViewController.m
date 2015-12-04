@@ -242,6 +242,10 @@
     [self showListViewTapped:nil];
 }
 
+- (void)addToWatchListPressed {
+    // For Aaron <3
+}
+
 #pragma mark - NSTableView
 
 -(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
