@@ -390,7 +390,7 @@
     
     [self.ageRatingPopUpButton removeAllItems];
     
-    NSArray* ageTypes = [NSArray arrayWithObjects: @"N/A",@"Any",@"G",@"PG",@"14A",@"18A",@"R", nil];
+    NSArray* ageTypes = [NSArray arrayWithObjects: @"N/A",@"Any",@"G",@"PG",@"PG-13",@"R", nil];
     
     for(int i = 0; i <= [ageTypes count]; i++) {
         
@@ -441,7 +441,18 @@
 - (IBAction)ageRatingPulledDown:(id)sender {
     
     NSPopUpButtonCell* ageRatingPopUpButton = (NSPopUpButtonCell*)sender;
-    [ageRatingPopUpButton setTitle:ageRatingPopUpButton.titleOfSelectedItem];
+    NSString* ageRating = ageRatingPopUpButton.titleOfSelectedItem;
+    [ageRatingPopUpButton setTitle:ageRating];
+    
+    if([ageRating isEqualToString:@"Any"]) {
+        
+        ageRating = nil;
+        
+    }
+    
+    [self.searchProvider setCertification:ageRating];
+    
+    [self refreshMovies];
     
 }
 
