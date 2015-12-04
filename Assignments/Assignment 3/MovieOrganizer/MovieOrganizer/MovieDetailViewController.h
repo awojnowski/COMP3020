@@ -12,6 +12,7 @@
 @protocol MovieDetailViewControllerDelegate <NSObject>
 
 - (void)backButtonPressed;
+- (void)addToWatchListPressed;
 
 @end
 

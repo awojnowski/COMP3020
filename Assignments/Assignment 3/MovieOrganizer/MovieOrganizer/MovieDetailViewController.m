@@ -10,6 +10,7 @@
 #import "Genre.h"
 #import "Actor.h"
 #import "Director.h"
+#import "Tag.h"
 
 @interface MovieDetailViewController ()
 
@@ -62,7 +63,27 @@
     }];
     NSString *genreString = [genres componentsJoinedByString:@", "];
     
-    NSString *description = [NSString stringWithFormat:@"Genres: %@\nYear: %@\nRating: %@/10\n\nStars: %@\nDirector: %@\n\nLength: %@\nCertificaiton: %@\n\nTags: %@", genreString, self.movie.year, self.movie.rating, self.movie.actors.anyObject.name, self.movie.director.name, self.movie.length, self.movie.certification, self.movie.tags.anyObject];
+    NSMutableArray<NSString *> *actors = [[NSMutableArray<NSString *> alloc] init];
+    [self.movie.actors.allObjects enumerateObjectsUsingBlock:^(Actor * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [actors addObject:obj.name];
+    }];
+    NSString *actorString = [actors componentsJoinedByString:@", "];
+    
+    NSString *certification = self.movie.certification;
+    if (self.movie.certification == nil) {
+        certification = @"None";
+    }
+    
+    NSString *tagsString = @"None";
+    if (self.movie.tags.count != 0) {
+        NSMutableArray<NSString *> *tags = [[NSMutableArray<NSString *> alloc] init];
+        [self.movie.tags.allObjects enumerateObjectsUsingBlock:^(Tag * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [tags addObject:obj.title];
+        }];
+        tagsString = [tags componentsJoinedByString:@", "];
+    }
+    
+    NSString *description = [NSString stringWithFormat:@"Genres: %@\nYear: %@\nRating: %@/10\n\nStars: %@\nDirector: %@\n\nLength: %@\nCertificaiton: %@\n\nTags: %@", genreString, self.movie.year, self.movie.rating, actorString, self.movie.director.name, self.movie.length, certification, tagsString];
     
     [self.movieTitleLabel setStringValue:self.movie.title];
     [self.movieDetailTextField setStringValue:description];
@@ -74,7 +95,7 @@
 }
 
 - (IBAction)addToWatchListPressed:(id)sender {
-    
+    [self.delegate addToWatchListPressed];
 }
 
 - (IBAction)ratingLevelTouched:(id)sender {
