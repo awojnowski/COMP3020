@@ -50,6 +50,7 @@
 @property (weak) IBOutlet NSTableHeaderView *tableViewHeader;
 @property (weak) IBOutlet NSScrollView *movieTableScrollView;
 
+@property (weak) IBOutlet NSSegmentedCell *viewSegmentedControlSelector;
 @property (weak) IBOutlet NSSegmentedControl *minRatingControl;
 @property (weak) IBOutlet NSPopUpButtonCell *ageRatingPopUpButton;
 @property (weak) IBOutlet NSPopUpButton *actorPullDown;
@@ -252,7 +253,8 @@
 
 - (void)backButtonPressed:(MovieDetailViewController *)movieDetailViewController {
     
-    [self showListViewTapped:nil];
+    self.viewSegmentedControlSelector.enabled = YES;
+    [self showListViewSelected];
     [self refreshMovies];
     
 }
@@ -324,7 +326,10 @@
 - (void)showMovie {
     
     self.movieDetailVC.movie = self.movies[self.movieTableView.selectedRow];
-    [self showMovieTapped:nil];
+    
+    self.viewSegmentedControlSelector.enabled = NO;
+    
+    [self showMovieSelected];
     
 }
 
@@ -340,7 +345,7 @@
     
     // show the list view
     
-    [self showListViewTapped:nil];
+    [self showListViewSelected];
     
     // update the watchlist
     
@@ -483,7 +488,7 @@
     
 }
 
-- (IBAction)showMovieTapped:(id)sender {
+- (void)showMovieSelected {
     
     if ([self movieDetailShowing]) {
         
@@ -499,13 +504,13 @@
     
 }
 
-- (IBAction)showListViewTapped:(id)sender {
+- (void)showListViewSelected {
     
-    if (![self movieDetailShowing]) {
+    /*if (![self movieDetailShowing]) {
         
         return;
         
-    }
+    }*/
     _movieDetailShowing = NO;
     
     self.showMovieView.hidden = YES;
@@ -609,6 +614,27 @@
     }
     
     [self refreshMovies];
+    
+}
+
+- (IBAction)viewSegmentedControlSelected:(id)sender {
+    
+    NSSegmentedControl *control = (NSSegmentedControl *)sender;
+    int segment = (int)[control selectedSegment];
+    
+    if(segment == 0) {
+        
+        [self watchlistClicked:nil];
+        
+    } else if(segment == 1) {
+        
+        [self watchlistClicked:nil];
+        
+    } else if(segment == 2) {
+        
+        // for showing graph
+        
+    }
     
 }
 
