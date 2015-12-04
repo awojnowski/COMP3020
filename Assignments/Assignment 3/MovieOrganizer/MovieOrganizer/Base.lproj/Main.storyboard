@@ -704,7 +704,7 @@
                                             <constraint firstAttribute="width" constant="200" id="MzG-Xy-X5B"/>
                                         </constraints>
                                         <animations/>
-                                        <searchFieldCell key="cell" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="BaY-B0-3ri">
+                                        <searchFieldCell key="cell" selectable="YES" editable="YES" borderStyle="bezel" placeholderString="Search for Movie" usesSingleLineMode="YES" bezelStyle="round" id="BaY-B0-3ri">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
