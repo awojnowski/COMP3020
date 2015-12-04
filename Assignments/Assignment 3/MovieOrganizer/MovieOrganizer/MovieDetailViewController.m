@@ -16,6 +16,7 @@
 @property (weak) IBOutlet NSTextField *movieTitleLabel;
 @property (weak) IBOutlet NSTextField *movieDetailTextField;
 @property (weak) IBOutlet NSLevelIndicatorCell *starRatingCell;
+@property (weak) IBOutlet NSLevelIndicatorCell *userRatingCell;
 
 @end
 
@@ -48,6 +49,12 @@
 }
 
 - (IBAction)addToWatchListPressed:(id)sender {
+    
+}
+
+- (IBAction)ratingLevelTouched:(id)sender {
+    
+    [self.userRatingCell setImage:[NSImage imageNamed:@"starSmallOutline"]];
     
 }
 
