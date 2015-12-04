@@ -39,10 +39,7 @@
 @property (weak) IBOutlet NSView *genreContainerView;
 @property (weak) IBOutlet NSView *actorsContainerView;
 @property (weak) IBOutlet NSView *directorContainerView;
-//@property (weak) IBOutlet NSView *userReviewContainer;
-//@property (weak) IBOutlet NSView *otherReviewsContainer;
-//@property (weak) IBOutlet NSView *exampleUserReviewOne;
-//@property (weak) IBOutlet NSView *exampleUserReviewTwo;
+@property (weak) IBOutlet NSSearchField *movieSearchField;
 
 @property (weak) IBOutlet NSTableView *movieTableView;
 @property (weak) IBOutlet NSTableHeaderView *tableViewHeader;
@@ -436,6 +433,16 @@
 
 - (IBAction)directorSelectionTouched:(id)sender {
     
+    
+}
+
+- (IBAction)searchMovieButtonTouched:(id)sender {
+    
+    //NSString* searchString = self.movieSearchField.stringValue;
+    
+    //MovieSearchProvider *provider = [[MovieSearchProvider alloc] init];
+    
+    //[self.movieTableView reloadData];
     
 }
 
