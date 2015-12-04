@@ -698,18 +698,6 @@
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="Oox-ln-t14">
                                 <rect key="frame" x="225" y="692" width="740" height="36"/>
                                 <subviews>
-                                    <searchField wantsLayer="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dwP-KK-hnP">
-                                        <rect key="frame" x="8" y="7" width="200" height="22"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="200" id="MzG-Xy-X5B"/>
-                                        </constraints>
-                                        <animations/>
-                                        <searchFieldCell key="cell" selectable="YES" editable="YES" borderStyle="bezel" placeholderString="Search for Movie" usesSingleLineMode="YES" bezelStyle="round" id="BaY-B0-3ri">
-                                            <font key="font" metaFont="system"/>
-                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                        </searchFieldCell>
-                                    </searchField>
                                     <button translatesAutoresizingMaskIntoConstraints="NO" id="8eU-oI-1A0">
                                         <rect key="frame" x="712" y="8" width="20" height="20"/>
                                         <constraints>
@@ -749,20 +737,18 @@
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                     </button>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iIJ-a7-lcC">
-                                        <rect key="frame" x="202" y="1" width="81" height="32"/>
+                                    <searchField wantsLayer="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dwP-KK-hnP">
+                                        <rect key="frame" x="8" y="7" width="200" height="22"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="69" id="E27-mo-Mav"/>
+                                            <constraint firstAttribute="width" constant="200" id="MzG-Xy-X5B"/>
                                         </constraints>
                                         <animations/>
-                                        <buttonCell key="cell" type="push" title="Search" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="f5i-rl-xEM">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <searchFieldCell key="cell" selectable="YES" editable="YES" borderStyle="bezel" placeholderString="Search for Movie" usesSingleLineMode="YES" bezelStyle="round" id="BaY-B0-3ri">
                                             <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="searchMovieButtonTouched:" target="XfG-lQ-9wD" id="aj4-ec-Fi5"/>
-                                        </connections>
-                                    </button>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </searchFieldCell>
+                                    </searchField>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="bNh-mT-nO7" firstAttribute="leading" secondItem="Gev-Gf-gQF" secondAttribute="trailing" constant="8" id="28d-q3-7He"/>
@@ -770,8 +756,6 @@
                                     <constraint firstItem="dwP-KK-hnP" firstAttribute="leading" secondItem="Oox-ln-t14" secondAttribute="leading" constant="8" id="Ao5-Uz-SfM"/>
                                     <constraint firstItem="bNh-mT-nO7" firstAttribute="centerY" secondItem="8eU-oI-1A0" secondAttribute="centerY" id="NLC-gJ-ZKP"/>
                                     <constraint firstItem="8eU-oI-1A0" firstAttribute="leading" secondItem="bNh-mT-nO7" secondAttribute="trailing" constant="8" id="VdU-2p-Qjf"/>
-                                    <constraint firstItem="iIJ-a7-lcC" firstAttribute="leading" secondItem="dwP-KK-hnP" secondAttribute="trailing" id="axv-6N-PPU"/>
-                                    <constraint firstItem="iIJ-a7-lcC" firstAttribute="centerY" secondItem="Oox-ln-t14" secondAttribute="centerY" id="eUx-Rq-SZC"/>
                                     <constraint firstAttribute="trailing" secondItem="8eU-oI-1A0" secondAttribute="trailing" constant="8" id="mwb-Pd-O6z"/>
                                     <constraint firstItem="8eU-oI-1A0" firstAttribute="centerY" secondItem="Oox-ln-t14" secondAttribute="centerY" id="ru8-2D-7EX"/>
                                     <constraint firstItem="Gev-Gf-gQF" firstAttribute="centerY" secondItem="Oox-ln-t14" secondAttribute="centerY" id="vvW-lS-sid"/>
