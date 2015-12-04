@@ -96,6 +96,24 @@
         [[self artworkImageView] setImage:image];
         
     }];
+        
+    if(self.movie.availableOnNetflix.boolValue) {
+        
+        [self.netflixImage setImage:[NSImage imageNamed:@"netflix"]];
+        
+    }
+    
+    if(self.movie.availableOnShomi.boolValue) {
+        
+        [self.shomiImage setImage:[NSImage imageNamed:@"shomi"]];
+        
+    }
+    
+    if(self.movie.availableOnItunes.boolValue) {
+        
+        [self.appleImage setImage:[NSImage imageNamed:@"apple"]];
+        
+    }
 }
 
 - (IBAction)backButtonPressed:(id)sender {

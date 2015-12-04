@@ -736,6 +736,9 @@
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="watchlistClicked:" target="XfG-lQ-9wD" id="Ngc-G5-GK0"/>
+                                        </connections>
                                     </button>
                                     <searchField wantsLayer="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dwP-KK-hnP">
                                         <rect key="frame" x="8" y="7" width="200" height="22"/>
@@ -1392,9 +1395,11 @@
                         <outlet property="directorContainerView" destination="w9R-bg-Nem" id="vdd-WY-h4F"/>
                         <outlet property="directorPullDown" destination="sFX-9X-O0V" id="X2I-k3-4Xq"/>
                         <outlet property="genreContainerView" destination="iC4-mN-aDl" id="dKc-1D-4jD"/>
+                        <outlet property="maxYearTextField" destination="N5O-3g-gyE" id="8iV-od-Su0"/>
                         <outlet property="menuBarContainerView" destination="Oox-ln-t14" id="0nR-K8-tKB"/>
                         <outlet property="minRatingContainerView" destination="U4I-jN-Gzg" id="rtB-9U-IsG"/>
                         <outlet property="minRatingControl" destination="jrs-cJ-hG6" id="E9A-hk-LuD"/>
+                        <outlet property="minYearTextField" destination="lCh-Y2-pSa" id="OTr-PH-HxK"/>
                         <outlet property="movieSearchField" destination="dwP-KK-hnP" id="jHA-Mb-cqZ"/>
                         <outlet property="movieTableScrollView" destination="fKr-mU-o44" id="KCf-fi-Eb0"/>
                         <outlet property="movieTableView" destination="Kvi-ch-mPX" id="kJQ-m3-V2f"/>
