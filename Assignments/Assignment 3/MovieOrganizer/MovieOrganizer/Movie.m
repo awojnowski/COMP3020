@@ -12,7 +12,16 @@
 
 @implementation Movie
 
+@synthesize image=_image;
+
 -(void)fetchImageWithCompletionBlock:(void (^)(NSImage *image))completionBlock {
+    
+    if ([self image]) {
+        
+        completionBlock ? completionBlock([self image]) : nil;
+        return;
+        
+    }
     
     NSString * const pageURLString = [NSString stringWithFormat:@"http://api.movieposterdb.com/console?type=JSON&api_key=demo&secret=demo&imdb_code=&title=%@&width=300",[[self title] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];
     
@@ -72,6 +81,11 @@
                     return;
                     
                 }
+                
+                [self willChangeValueForKey:@"image"];
+                _image = image;
+                [self didChangeValueForKey:@"image"];
+                
                 completionBlock ? completionBlock(image) : nil;
                 
             }];

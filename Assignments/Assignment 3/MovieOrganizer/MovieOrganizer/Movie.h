@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Movie : NSManagedObject
 
+@property (nonatomic, readonly, strong) NSImage *image;
+
 -(void)fetchImageWithCompletionBlock:(void (^)(NSImage *image))completionBlock;
 
 +(instancetype)createInManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
