@@ -152,6 +152,10 @@
         
         [self.view setWantsLayer:YES];
         
+        NSColor *lightMintColor = [NSColor colorWithSRGBRed:224.0/255.0 green:255.0/255.0 blue:245.0/255.0 alpha:1];
+        
+        NSColor *customBlueColor = [NSColor colorWithSRGBRed:159.0/255.0 green:223.0/255.0 blue:255.0/255.0 alpha:1];
+        
 //        [self.showMovieView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
         [self.advancedSearchMenuBarView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
         [self.menuBarContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
@@ -184,9 +188,10 @@
 //        [self.exampleUserReviewOne.layer setBorderWidth:1];
 //        [self.exampleUserReviewTwo.layer setBorderWidth:1];
         
-        [self.advancedSearchMenuBarView.layer setBackgroundColor:[NSColor whiteColor].CGColor];
-        [self.menuBarContainerView.layer setBackgroundColor:[NSColor whiteColor].CGColor];
-        [self.showMovieView.layer setBackgroundColor:[NSColor orangeColor].CGColor];
+        [self.advancedSearchMenuBarView.layer setBackgroundColor:lightMintColor.CGColor];
+        [self.menuBarContainerView.layer setBackgroundColor:lightMintColor.CGColor];
+        [self.view.layer setBackgroundColor:customBlueColor.CGColor];
+         
 //        [self.otherReviewsContainer.layer setBackgroundColor:[NSColor whiteColor].CGColor];
         
     });
@@ -394,6 +399,16 @@
         self.movieTableScrollView.hidden = NO;
         
     });
+    
+}
+
+- (IBAction)actorSelectionTouched:(id)sender {
+    
+    
+}
+
+- (IBAction)directorSelectionTouched:(id)sender {
+    
     
 }
 
