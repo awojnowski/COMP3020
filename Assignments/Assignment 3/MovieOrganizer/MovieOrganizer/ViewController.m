@@ -572,6 +572,11 @@
 - (void)minYearTextChanged:(NSNotification *)notification {
     
     NSInteger minYear = self.minYearTextField.integerValue;
+    if (self.minYearTextField.stringValue.length == 0) {
+        
+        minYear = 0;
+        
+    }
     
     [self.searchProvider setMinimumYear:minYear];
     
@@ -582,6 +587,11 @@
 - (void)maxYearTextChanged:(NSNotification *)notification {
     
     NSInteger maxYear = self.maxYearTextField.integerValue;
+    if (self.maxYearTextField.stringValue.length == 0) {
+        
+        maxYear = INT_MAX;
+        
+    }
     
     [self.searchProvider setMaximumYear:maxYear];
     
