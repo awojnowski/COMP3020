@@ -20,6 +20,7 @@
 @property (weak) IBOutlet NSLevelIndicatorCell *starRatingCell;
 @property (weak) IBOutlet NSLevelIndicatorCell *userRatingCell;
 @property (weak) IBOutlet NSButton *watchlistButton;
+@property (weak) IBOutlet NSButtonCell *submitReviewButton;
 
 @property (weak) IBOutlet NSView *userReviewContainer;
 @property (weak) IBOutlet NSView *otherReviewsContainer;
@@ -172,6 +173,13 @@
         }
         
     }
+    
+}
+
+- (IBAction)submitReviewTouched:(id)sender {
+    
+    NSButton* submitReviewButton = (NSButton*)sender;
+    submitReviewButton.title = @"Update";
     
 }
 

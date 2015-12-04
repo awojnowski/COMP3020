@@ -22,15 +22,18 @@
 #import "Tag.h"
 #import "SeedDataLoader.h"
 #import "MovieDetailViewController.h"
+#import "GraphViewController.h"
 
 #import "MovieSearchProvider.h"
 
-@interface ViewController () <NSTableViewDataSource, NSTableViewDelegate, MovieDetailViewControllerDelegate>
+@interface ViewController () <NSTableViewDataSource, NSTableViewDelegate, MovieDetailViewControllerDelegate, GraphViewControllerDelegate>
 
 @property (nonatomic, readonly, assign) BOOL movieDetailShowing;
 
 @property (strong, nonatomic) MovieDetailViewController *movieDetailVC;
+@property (strong, nonatomic) GraphViewController *graphVC;
 @property (strong, nonatomic) NSView *movieDetailView;
+@property (strong, nonatomic) NSView *graphDetailView;
 @property (weak) IBOutlet NSView *showMovieView;
 @property (weak) IBOutlet NSView *advancedSearchMenuBarView;
 @property (weak) IBOutlet NSView *menuBarContainerView;
@@ -42,6 +45,7 @@
 @property (weak) IBOutlet NSView *genreContainerView;
 @property (weak) IBOutlet NSView *actorsContainerView;
 @property (weak) IBOutlet NSView *directorContainerView;
+@property (weak) IBOutlet NSView *graphView;
 @property (weak) IBOutlet NSSearchField *movieSearchField;
 @property (weak) IBOutlet NSTextField *minYearTextField;
 @property (weak) IBOutlet NSTextField *maxYearTextField;
@@ -129,7 +133,9 @@
     [self createAgeRatingPullDown];
     
     [self setMovieDetailView];
+    [self setGraphDetailView];
     self.showMovieView.hidden = YES;
+    self.graphView.hidden = YES;
     [self.movieTableView setDoubleAction:@selector(showMovie)];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(movieSearchTextChanged:) name:NSControlTextDidChangeNotification object:self.movieSearchField];
@@ -223,6 +229,49 @@
     
 }
 
+-(void)setGraphDetailView {
+    
+    self.graphVC = [[GraphViewController alloc] init];
+    self.graphVC.delegate = self;
+    self.graphDetailView = self.graphVC.view;
+    [self.graphDetailView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
+    [self.graphView addConstraint:[NSLayoutConstraint constraintWithItem:self.graphDetailView
+                                                                   attribute:NSLayoutAttributeTop
+                                                                   relatedBy:NSLayoutRelationEqual
+                                                                      toItem:self.graphView
+                                                                   attribute:NSLayoutAttributeTop
+                                                                  multiplier:1.0
+                                                                    constant:0.0]];
+    
+    [self.graphView addConstraint:[NSLayoutConstraint constraintWithItem:self.graphDetailView
+                                                                   attribute:NSLayoutAttributeLeading
+                                                                   relatedBy:NSLayoutRelationEqual
+                                                                      toItem:self.graphView
+                                                                   attribute:NSLayoutAttributeLeading
+                                                                  multiplier:1.0
+                                                                    constant:0.0]];
+    
+    [self.graphView addConstraint:[NSLayoutConstraint constraintWithItem:self.graphDetailView
+                                                                   attribute:NSLayoutAttributeBottom
+                                                                   relatedBy:NSLayoutRelationEqual
+                                                                      toItem:self.graphView
+                                                                   attribute:NSLayoutAttributeBottom
+                                                                  multiplier:1.0
+                                                                    constant:0.0]];
+    
+    [self.graphView addConstraint:[NSLayoutConstraint constraintWithItem:self.graphDetailView
+                                                                   attribute:NSLayoutAttributeTrailing
+                                                                   relatedBy:NSLayoutRelationEqual
+                                                                      toItem:self.graphView
+                                                                   attribute:NSLayoutAttributeTrailing
+                                                                  multiplier:1.0
+                                                                    constant:0.0]];
+    
+    [self.graphView addSubview:self.graphDetailView];
+    
+}
+
 #pragma mark - Movies
 
 -(void)refreshMovies {
@@ -252,6 +301,16 @@
 #pragma mark - MovieDetailViewControllerDelegate
 
 - (void)backButtonPressed:(MovieDetailViewController *)movieDetailViewController {
+    
+    self.viewSegmentedControlSelector.enabled = YES;
+    [self showListViewSelected];
+    [self refreshMovies];
+    
+}
+
+#pragma mark - GraphDetailViewControllerDelegate
+
+- (void)graphBackButtonPressed:(GraphViewController *)graphViewController {
     
     self.viewSegmentedControlSelector.enabled = YES;
     [self showListViewSelected];
@@ -513,10 +572,23 @@
     }*/
     _movieDetailShowing = NO;
     
+    self.graphView.hidden = YES;
     self.showMovieView.hidden = YES;
     self.movieTableView.hidden = NO;
     self.tableViewHeader.hidden = NO;
     self.movieTableScrollView.hidden = NO;
+    
+}
+
+- (void)showGraphView {
+    
+    _movieDetailShowing = NO;
+    
+    self.graphView.hidden = NO;
+    self.showMovieView.hidden = YES;
+    self.movieTableView.hidden = YES;
+    self.tableViewHeader.hidden = YES;
+    self.movieTableScrollView.hidden = YES;
     
 }
 
@@ -632,7 +704,7 @@
         
     } else if(segment == 2) {
         
-        // for showing graph
+        [self showGraphView];
         
     }
     

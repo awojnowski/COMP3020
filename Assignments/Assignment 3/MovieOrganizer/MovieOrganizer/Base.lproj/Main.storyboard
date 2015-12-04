@@ -994,131 +994,11 @@
                                 </constraints>
                                 <animations/>
                             </customView>
-                            <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKr-mU-o44">
-                                <rect key="frame" x="224" y="0.0" width="741" height="692"/>
-                                <clipView key="contentView" drawsBackground="NO" id="cvG-ZI-fek">
-                                    <rect key="frame" x="1" y="0.0" width="739" height="691"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <tableView identifier="MovieTableViewIdentifer" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" multipleSelection="NO" autosaveColumns="NO" headerView="Qfo-Cv-avj" id="Kvi-ch-mPX">
-                                            <rect key="frame" x="0.0" y="0.0" width="790" height="668"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <animations/>
-                                            <size key="intercellSpacing" width="3" height="2"/>
-                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
-                                            <tableColumns>
-                                                <tableColumn identifier="movieTitle" editable="NO" width="198.55078125" minWidth="40" maxWidth="1000" id="LP6-dQ-XHH">
-                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Movie Title">
-                                                        <font key="font" metaFont="smallSystem"/>
-                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
-                                                    </tableHeaderCell>
-                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="mtI-Wg-U2E">
-                                                        <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                    <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="title"/>
-                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
-                                                </tableColumn>
-                                                <tableColumn identifier="movieGenre" editable="NO" width="150" minWidth="40" maxWidth="1000" id="sib-cz-IOl">
-                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Genre">
-                                                        <font key="font" metaFont="smallSystem"/>
-                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
-                                                    </tableHeaderCell>
-                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="Rvn-i6-eh6">
-                                                        <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
-                                                </tableColumn>
-                                                <tableColumn identifier="movieYear" editable="NO" width="64" minWidth="10" maxWidth="3.4028234663852886e+38" id="E3c-V7-4lT">
-                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Year">
-                                                        <font key="font" metaFont="smallSystem"/>
-                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                    </tableHeaderCell>
-                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="fuf-Ov-hjV">
-                                                        <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                    <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="year"/>
-                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
-                                                </tableColumn>
-                                                <tableColumn identifier="movieRating" editable="NO" width="77.3984375" minWidth="10" maxWidth="3.4028234663852886e+38" id="IUf-uY-x9V">
-                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Rating">
-                                                        <font key="font" metaFont="smallSystem"/>
-                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                    </tableHeaderCell>
-                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="S5m-az-4tR">
-                                                        <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                    <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="rating"/>
-                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
-                                                </tableColumn>
-                                                <tableColumn identifier="movieDirector" editable="NO" width="126.4375" minWidth="10" maxWidth="3.4028234663852886e+38" id="PZM-Rh-HPG">
-                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Director">
-                                                        <font key="font" metaFont="smallSystem"/>
-                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                    </tableHeaderCell>
-                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="HkO-oN-oLG">
-                                                        <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                    <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="director.name"/>
-                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
-                                                </tableColumn>
-                                                <tableColumn identifier="movieAgeRating" editable="NO" width="155.5" minWidth="10" maxWidth="3.4028234663852886e+38" id="Obm-Ea-plC">
-                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Age Rating">
-                                                        <font key="font" metaFont="smallSystem"/>
-                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                    </tableHeaderCell>
-                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="74e-qX-Puv">
-                                                        <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                    <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="certification"/>
-                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
-                                                </tableColumn>
-                                            </tableColumns>
-                                            <connections>
-                                                <outlet property="dataSource" destination="XfG-lQ-9wD" id="Nk9-bE-vwf"/>
-                                                <outlet property="delegate" destination="XfG-lQ-9wD" id="1vX-xo-jro"/>
-                                            </connections>
-                                        </tableView>
-                                    </subviews>
-                                    <animations/>
-                                    <nil key="backgroundColor"/>
-                                </clipView>
-                                <animations/>
-                                <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="1iz-cY-hzE">
-                                    <rect key="frame" x="1" y="675" width="739" height="16"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <animations/>
-                                </scroller>
-                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="nV2-m3-cCP">
-                                    <rect key="frame" x="224" y="17" width="15" height="102"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <animations/>
-                                </scroller>
-                                <tableHeaderView key="headerView" id="Qfo-Cv-avj">
-                                    <rect key="frame" x="0.0" y="0.0" width="790" height="23"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <animations/>
-                                </tableHeaderView>
-                            </scrollView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="0U8-eS-Qnv">
+                                <rect key="frame" x="225" y="0.0" width="740" height="692"/>
+                                <animations/>
+                            </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="z9E-7i-HjH">
                                 <rect key="frame" x="225" y="0.0" width="740" height="692"/>
                                 <animations/>
                             </customView>
@@ -1373,6 +1253,130 @@
                                 </constraints>
                                 <animations/>
                             </customView>
+                            <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKr-mU-o44">
+                                <rect key="frame" x="224" y="0.0" width="741" height="692"/>
+                                <clipView key="contentView" drawsBackground="NO" id="cvG-ZI-fek">
+                                    <rect key="frame" x="1" y="0.0" width="739" height="691"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <tableView identifier="MovieTableViewIdentifer" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" multipleSelection="NO" autosaveColumns="NO" headerView="Qfo-Cv-avj" id="Kvi-ch-mPX">
+                                            <rect key="frame" x="0.0" y="0.0" width="790" height="668"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <animations/>
+                                            <size key="intercellSpacing" width="3" height="2"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                            <tableColumns>
+                                                <tableColumn identifier="movieTitle" editable="NO" width="198.55078125" minWidth="40" maxWidth="1000" id="LP6-dQ-XHH">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Movie Title">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="mtI-Wg-U2E">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="title"/>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                </tableColumn>
+                                                <tableColumn identifier="movieGenre" editable="NO" width="150" minWidth="40" maxWidth="1000" id="sib-cz-IOl">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Genre">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="Rvn-i6-eh6">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                </tableColumn>
+                                                <tableColumn identifier="movieYear" editable="NO" width="64" minWidth="10" maxWidth="3.4028234663852886e+38" id="E3c-V7-4lT">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Year">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="fuf-Ov-hjV">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="year"/>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                </tableColumn>
+                                                <tableColumn identifier="movieRating" editable="NO" width="77.3984375" minWidth="10" maxWidth="3.4028234663852886e+38" id="IUf-uY-x9V">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Rating">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="S5m-az-4tR">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="rating"/>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                </tableColumn>
+                                                <tableColumn identifier="movieDirector" editable="NO" width="126.4375" minWidth="10" maxWidth="3.4028234663852886e+38" id="PZM-Rh-HPG">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Director">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="HkO-oN-oLG">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="director.name"/>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                </tableColumn>
+                                                <tableColumn identifier="movieAgeRating" editable="NO" width="155.5" minWidth="10" maxWidth="3.4028234663852886e+38" id="Obm-Ea-plC">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Age Rating">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="74e-qX-Puv">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="certification"/>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                </tableColumn>
+                                            </tableColumns>
+                                            <connections>
+                                                <outlet property="dataSource" destination="XfG-lQ-9wD" id="Nk9-bE-vwf"/>
+                                                <outlet property="delegate" destination="XfG-lQ-9wD" id="1vX-xo-jro"/>
+                                            </connections>
+                                        </tableView>
+                                    </subviews>
+                                    <animations/>
+                                    <nil key="backgroundColor"/>
+                                </clipView>
+                                <animations/>
+                                <scroller key="horizontalScroller" verticalHuggingPriority="750" doubleValue="0.039215686274509803" horizontal="YES" id="1iz-cY-hzE">
+                                    <rect key="frame" x="1" y="675" width="739" height="16"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="nV2-m3-cCP">
+                                    <rect key="frame" x="224" y="17" width="15" height="102"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </scroller>
+                                <tableHeaderView key="headerView" id="Qfo-Cv-avj">
+                                    <rect key="frame" x="0.0" y="0.0" width="790" height="23"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableHeaderView>
+                            </scrollView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Kvi-ch-mPX" firstAttribute="leading" secondItem="sFX-9X-O0V" secondAttribute="trailing" constant="28" id="18D-s4-Yw8"/>
@@ -1392,15 +1396,18 @@
                             <constraint firstItem="Kvi-ch-mPX" firstAttribute="leading" secondItem="DTk-Ui-TU4" secondAttribute="trailing" id="Lrs-VQ-3Me"/>
                             <constraint firstItem="U4I-jN-Gzg" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="N6J-1y-Ei2"/>
                             <constraint firstItem="5tZ-Jg-OcM" firstAttribute="top" secondItem="DTk-Ui-TU4" secondAttribute="bottom" id="PRm-P4-FFw"/>
+                            <constraint firstItem="z9E-7i-HjH" firstAttribute="top" secondItem="Oox-ln-t14" secondAttribute="bottom" id="QjY-OJ-va2"/>
                             <constraint firstItem="Kvi-ch-mPX" firstAttribute="leading" secondItem="U4I-jN-Gzg" secondAttribute="trailing" id="RCK-QD-Zhw"/>
                             <constraint firstItem="icQ-B5-OGZ" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="RD8-NC-Eej"/>
                             <constraint firstItem="iC4-mN-aDl" firstAttribute="top" secondItem="5tZ-Jg-OcM" secondAttribute="bottom" id="SLC-gx-F8S"/>
                             <constraint firstItem="Kvi-ch-mPX" firstAttribute="leading" secondItem="YWB-sR-VFD" secondAttribute="trailing" id="UBA-lo-Jut"/>
                             <constraint firstItem="Kvi-ch-mPX" firstAttribute="leading" secondItem="5tZ-Jg-OcM" secondAttribute="trailing" id="UoG-LW-KoK"/>
+                            <constraint firstItem="z9E-7i-HjH" firstAttribute="leading" secondItem="icQ-B5-OGZ" secondAttribute="trailing" id="WEj-oG-1CB"/>
                             <constraint firstItem="Kvi-ch-mPX" firstAttribute="leading" secondItem="w9R-bg-Nem" secondAttribute="trailing" id="XEI-pd-Hhy"/>
                             <constraint firstItem="Kvi-ch-mPX" firstAttribute="leading" secondItem="CJt-9v-Tpu" secondAttribute="trailing" constant="28" id="Xqd-yR-pT9"/>
                             <constraint firstItem="5tZ-Jg-OcM" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="ZuX-XP-Khc"/>
                             <constraint firstItem="fKr-mU-o44" firstAttribute="top" secondItem="Oox-ln-t14" secondAttribute="bottom" id="cyA-ER-Jul"/>
+                            <constraint firstAttribute="bottom" secondItem="z9E-7i-HjH" secondAttribute="bottom" id="dDO-aW-6D4"/>
                             <constraint firstItem="qvk-M9-Seg" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="ecE-ze-rUb"/>
                             <constraint firstItem="DTk-Ui-TU4" firstAttribute="top" secondItem="VV1-L2-M2s" secondAttribute="bottom" id="gvY-vi-ST1"/>
                             <constraint firstItem="icQ-B5-OGZ" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="iFu-b0-iyS"/>
@@ -1411,6 +1418,7 @@
                             <constraint firstItem="VV1-L2-M2s" firstAttribute="top" secondItem="qvk-M9-Seg" secondAttribute="bottom" id="mGf-Yt-S1s"/>
                             <constraint firstItem="0U8-eS-Qnv" firstAttribute="top" secondItem="Oox-ln-t14" secondAttribute="bottom" id="oQI-u2-m5Z"/>
                             <constraint firstItem="0U8-eS-Qnv" firstAttribute="leading" secondItem="icQ-B5-OGZ" secondAttribute="trailing" id="pKq-nK-d8D"/>
+                            <constraint firstAttribute="trailing" secondItem="z9E-7i-HjH" secondAttribute="trailing" id="pcC-IF-8Zf"/>
                             <constraint firstItem="CJt-9v-Tpu" firstAttribute="leading" secondItem="sFX-9X-O0V" secondAttribute="leading" id="tLY-GR-apT"/>
                             <constraint firstAttribute="bottom" secondItem="fKr-mU-o44" secondAttribute="bottom" id="tsB-zK-tV8"/>
                             <constraint firstItem="Kvi-ch-mPX" firstAttribute="leading" secondItem="iC4-mN-aDl" secondAttribute="trailing" id="uXy-Ja-YKA"/>
@@ -1429,6 +1437,7 @@
                         <outlet property="directorContainerView" destination="w9R-bg-Nem" id="vdd-WY-h4F"/>
                         <outlet property="directorPullDown" destination="sFX-9X-O0V" id="X2I-k3-4Xq"/>
                         <outlet property="genreContainerView" destination="iC4-mN-aDl" id="dKc-1D-4jD"/>
+                        <outlet property="graphView" destination="z9E-7i-HjH" id="rfN-tj-TMZ"/>
                         <outlet property="maxYearTextField" destination="N5O-3g-gyE" id="8iV-od-Su0"/>
                         <outlet property="menuBarContainerView" destination="Oox-ln-t14" id="0nR-K8-tKB"/>
                         <outlet property="minRatingContainerView" destination="U4I-jN-Gzg" id="rtB-9U-IsG"/>
