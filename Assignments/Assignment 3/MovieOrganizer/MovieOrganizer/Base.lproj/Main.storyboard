@@ -910,6 +910,9 @@
                                         <buttonCell key="cell" type="check" title="Shomi" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="t0h-Zc-5cC">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
+                                            <connections>
+                                                <action selector="shomiButtonTouched:" target="XfG-lQ-9wD" id="zHn-O5-4FE"/>
+                                            </connections>
                                         </buttonCell>
                                     </button>
                                     <button translatesAutoresizingMaskIntoConstraints="NO" id="SlH-cz-5Xc">
@@ -918,6 +921,9 @@
                                         <buttonCell key="cell" type="check" title="iTunes" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="r8J-Bo-pR0">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
+                                            <connections>
+                                                <action selector="itunesButtonTouched:" target="XfG-lQ-9wD" id="Jjc-kQ-Tlr"/>
+                                            </connections>
                                         </buttonCell>
                                     </button>
                                     <button translatesAutoresizingMaskIntoConstraints="NO" id="w6Y-aa-KRS">
@@ -926,6 +932,9 @@
                                         <buttonCell key="cell" type="check" title="Netflix" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="km1-e7-xll">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
+                                            <connections>
+                                                <action selector="netflixButtonTouched:" target="XfG-lQ-9wD" id="ue7-DW-BIf"/>
+                                            </connections>
                                         </buttonCell>
                                     </button>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9hQ-0J-bdu">

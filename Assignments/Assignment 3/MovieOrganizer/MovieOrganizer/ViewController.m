@@ -321,8 +321,6 @@
         
     }
     
-    NSLog(@"%d",minRating*2);
-    
     [self.searchProvider setMinimumRating:(minRating*2)];
     
     [self refreshMovies];
@@ -497,9 +495,9 @@
 
 - (void)minYearTextChanged:(NSNotification *)notification {
     
-    NSString* minYear = self.minYearTextField.stringValue;
+    NSInteger minYear = self.minYearTextField.integerValue;
     
-    [self.searchProvider setMinimumYear:minYear.integerValue];
+    [self.searchProvider setMinimumYear:minYear];
     
     [self refreshMovies];
     
@@ -507,9 +505,57 @@
 
 - (void)maxYearTextChanged:(NSNotification *)notification {
     
-    NSString* maxYear = self.maxYearTextField.stringValue;
+    NSInteger maxYear = self.maxYearTextField.integerValue;
     
-    [self.searchProvider setMinimumYear:maxYear.integerValue];
+    [self.searchProvider setMaximumYear:maxYear];
+    
+    [self refreshMovies];
+    
+}
+
+- (IBAction)netflixButtonTouched:(id)sender {
+    
+    if ([sender state] == NSOnState) {
+        
+        [self.searchProvider setAvailableOnNetflix:YES];
+        
+    } else {
+        
+        [self.searchProvider setAvailableOnNetflix:NO];
+        
+    }
+    
+    [self refreshMovies];
+    
+}
+
+- (IBAction)itunesButtonTouched:(id)sender {
+    
+    if ([sender state] == NSOnState) {
+        
+        [self.searchProvider setAvailableOnItunes:YES];
+        
+    } else {
+        
+        [self.searchProvider setAvailableOnItunes:NO];
+        
+    }
+    
+    [self refreshMovies];
+    
+}
+
+- (IBAction)shomiButtonTouched:(id)sender {
+    
+    if ([sender state] == NSOnState) {
+        
+        [self.searchProvider setAvailableOnShomi:YES];
+        
+    } else {
+        
+        [self.searchProvider setAvailableOnShomi:NO];
+        
+    }
     
     [self refreshMovies];
     
