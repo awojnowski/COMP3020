@@ -292,22 +292,32 @@
 
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex {
     
-    NSString *columnID = aTableColumn.identifier;
+    Movie * const movie = [self movies][rowIndex];
     
+    NSString * const columnID = aTableColumn.identifier;
     if ([columnID isEqualToString:@"movieTitle"]) {
-        return self.movies[rowIndex].title;
+        return movie.title;
     } else if ([columnID isEqualToString:@"movieGenre"]) {
-        return self.movies[rowIndex].genres.anyObject.title;
+        
+        NSArray * const genres = [[[movie genres] allObjects] sortedArrayUsingComparator:^NSComparisonResult(Genre *  _Nonnull obj1, Genre * _Nonnull obj2) {
+            return [[obj1 title] compare:[obj2 title]];
+        }];
+        NSMutableArray * const titles = [NSMutableArray array];
+        [genres enumerateObjectsUsingBlock:^(Genre * _Nonnull genre, NSUInteger idx, BOOL * _Nonnull stop) {
+            [titles addObject:[genre title]];
+        }];
+        return [titles componentsJoinedByString:@", "];
+        
     } else if ([columnID isEqualToString:@"movieYear"]) {
-        return [NSString stringWithFormat:@"%@", self.movies[rowIndex].year];
+        return [NSString stringWithFormat:@"%@", movie.year];
     } else if ([columnID isEqualToString:@"movieRating"]) {
-        return self.movies[rowIndex].rating;
+        return movie.rating;
     } else if ([columnID isEqualToString:@"movieDirector"]) {
-        return self.movies[rowIndex].director.name;
+        return movie.director.name;
     } else if ([columnID isEqualToString:@"movieAgeRating"]) {
-        return self.movies[rowIndex].certification;
+        return movie.certification;
     }
-    return NULL;
+    return nil;
     
 }
 

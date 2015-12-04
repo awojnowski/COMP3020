@@ -1026,7 +1026,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView identifier="MovieTableViewIdentifer" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" multipleSelection="NO" autosaveColumns="NO" headerView="Qfo-Cv-avj" id="Kvi-ch-mPX">
-                                            <rect key="frame" x="0.0" y="0.0" width="739" height="668"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="790" height="668"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                             <size key="intercellSpacing" width="3" height="2"/>
@@ -1047,7 +1047,7 @@
                                                     <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="title"/>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                 </tableColumn>
-                                                <tableColumn identifier="movieGenre" editable="NO" width="99.203125" minWidth="40" maxWidth="1000" id="sib-cz-IOl">
+                                                <tableColumn identifier="movieGenre" editable="NO" width="150" minWidth="40" maxWidth="1000" id="sib-cz-IOl">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Genre">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1127,7 +1127,7 @@
                                     <nil key="backgroundColor"/>
                                 </clipView>
                                 <animations/>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="1iz-cY-hzE">
+                                <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="1iz-cY-hzE">
                                     <rect key="frame" x="1" y="675" width="739" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
@@ -1138,7 +1138,7 @@
                                     <animations/>
                                 </scroller>
                                 <tableHeaderView key="headerView" id="Qfo-Cv-avj">
-                                    <rect key="frame" x="0.0" y="0.0" width="739" height="23"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="790" height="23"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                 </tableHeaderView>
