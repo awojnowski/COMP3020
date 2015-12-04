@@ -91,7 +91,7 @@
 }
 
 - (IBAction)addToWatchListPressed:(id)sender {
-    
+    [self.delegate addToWatchListPressed];
 }
 
 - (IBAction)ratingLevelTouched:(id)sender {
