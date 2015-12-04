@@ -288,6 +288,12 @@
 
 #pragma mark - Actions
 
+-(IBAction)watchlistClicked:(id)sender {
+    
+    
+    
+}
+
 - (IBAction)minRatingControlTouched:(id)sender {
     
     NSSegmentedControl *control = (NSSegmentedControl *)sender;
