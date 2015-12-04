@@ -372,7 +372,7 @@
     
     if([self.selectedActorsArray indexOfObject:self.actorPullDown.titleOfSelectedItem] == NSNotFound) {
         
-        if(![self.actorPullDown.titleOfSelectedItem isEqual:@"N/A"]) {
+        if(![self.actorPullDown.titleOfSelectedItem isEqualToString:@"N/A"]) {
             
             [self.selectedActorsArray addObject: self.actorPullDown.titleOfSelectedItem];
             [self updateActorList];
@@ -387,7 +387,7 @@
     
     if([self.selectedDirectorsArray indexOfObject:self.directorPullDown.titleOfSelectedItem] == NSNotFound ) {
         
-        if(![self.directorPullDown.titleOfSelectedItem isEqual:@"N/A"]) {
+        if(![self.directorPullDown.titleOfSelectedItem isEqualToString:@"N/A"]) {
             
             [self.selectedDirectorsArray addObject: self.directorPullDown.titleOfSelectedItem];
             
