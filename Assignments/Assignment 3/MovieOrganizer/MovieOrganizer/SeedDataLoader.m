@@ -61,7 +61,7 @@ NSString * const SeedDataLoaderSeedDataFileName = @"seedData.json";
             
         }
         
-        NSInteger const movieCertification = movieDictionary[@"certification"];
+        NSString * const movieCertification = movieDictionary[@"certification"];
         NSInteger const movieYear = [movieDictionary[@"year"] integerValue];
         NSString * const movieLength = movieDictionary[@"length"];
         NSInteger const movieRating = [movieDictionary[@"rating"] integerValue];
