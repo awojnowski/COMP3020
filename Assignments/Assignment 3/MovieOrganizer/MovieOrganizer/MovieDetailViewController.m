@@ -52,7 +52,14 @@
 }
 
 - (void)updateViewsForMovie {
-    NSString *description = [NSString stringWithFormat:@"Genre: FILL THIS IN\nYear: %@\nRating: %@/10\nStars: %@\nDirector: %@\nLength: %@\n\nTags: %@", self.movie.year, self.movie.rating, self.movie.actors.anyObject.name, self.movie.director.name, self.movie.length, self.movie.tags.anyObject];
+    NSMutableArray<NSString *> *genres = [[NSMutableArray<NSString *> alloc] init];
+    [self.movie.genres.allObjects enumerateObjectsUsingBlock:^(Genre * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [genres addObject:obj.title];
+    }];
+    NSString *genreString = [genres componentsJoinedByString:@", "];
+    
+    NSString *description = [NSString stringWithFormat:@"Genres: %@\nYear: %@\nRating: %@/10\n\nStars: %@\nDirector: %@\n\nLength: %@\nCertificaiton: %@\n\nTags: %@", genreString, self.movie.year, self.movie.rating, self.movie.actors.anyObject.name, self.movie.director.name, self.movie.length, self.movie.certification, self.movie.tags.anyObject];
+    
     [self.movieTitleLabel setStringValue:self.movie.title];
     [self.movieDetailTextField setStringValue:description];
     [self.starRatingCell setIntValue:([self.movie.rating intValue]+1) / 2];

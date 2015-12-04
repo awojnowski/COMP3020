@@ -219,7 +219,6 @@
     if ([columnID isEqualToString:@"movieTitle"]) {
         return self.movies[rowIndex].title;
     } else if ([columnID isEqualToString:@"movieGenre"]) {
-//        NSLog(@"%@", self.movies[rowIndex].genres.anyObject.title);           // genres aren't properly fetched
         return self.movies[rowIndex].genres.anyObject.title;
     } else if ([columnID isEqualToString:@"movieYear"]) {
         return [NSString stringWithFormat:@"%@", self.movies[rowIndex].year];
@@ -228,7 +227,7 @@
     } else if ([columnID isEqualToString:@"movieDirector"]) {
         return self.movies[rowIndex].director.name;
     } else if ([columnID isEqualToString:@"movieAgeRating"]) {
-        return self.movies[rowIndex].rating;                    // age rating needs to be added (certification)
+        return self.movies[rowIndex].certification;
     }
     return NULL;
     
@@ -241,7 +240,12 @@
     
 }
 
-
+- (void)tableView:(NSTableView *)tableView sortDescriptorsDidChange:(NSArray<NSSortDescriptor *> *)oldDescriptors {
+    
+    self.movies = [self.movies sortedArrayUsingDescriptors:self.movieTableView.sortDescriptors];
+    [self.movieTableView reloadData];
+    
+}
 
 #pragma mark - Actions
 
