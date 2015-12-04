@@ -27,6 +27,8 @@
 
 @interface ViewController () <NSTableViewDataSource, NSTableViewDelegate, MovieDetailViewControllerDelegate>
 
+@property (nonatomic, readonly, assign) BOOL movieDetailShowing;
+
 @property (strong, nonatomic) MovieDetailViewController *movieDetailVC;
 @property (strong, nonatomic) NSView *movieDetailView;
 @property (weak) IBOutlet NSView *showMovieView;
@@ -326,6 +328,12 @@
 
 -(IBAction)watchlistClicked:(id)sender {
     
+    // show the list view
+    
+    [self showListViewTapped:nil];
+    
+    // update the watchlist
+    
     Tag * __block watchlistTag = nil;
     [[CoreDataController sharedInstance] performBlock:^(NSManagedObjectContext *managedObjectContext) {
         
@@ -493,28 +501,24 @@
 }
 
 - (IBAction)showMovieTapped:(id)sender {
-
-    dispatch_async( dispatch_get_main_queue(), ^{
-        
-        self.showMovieView.hidden = NO;
-        self.movieTableView.hidden = YES;
-        self.tableViewHeader.hidden = YES;
-        self.movieTableScrollView.hidden = YES;
-        
-    });
+    
+    _movieDetailShowing = YES;
+    
+    self.showMovieView.hidden = NO;
+    self.movieTableView.hidden = YES;
+    self.tableViewHeader.hidden = YES;
+    self.movieTableScrollView.hidden = YES;
     
 }
 
 - (IBAction)showListViewTapped:(id)sender {
-        
-    dispatch_async( dispatch_get_main_queue(), ^{
-        
-        self.showMovieView.hidden = YES;
-        self.movieTableView.hidden = NO;
-        self.tableViewHeader.hidden = NO;
-        self.movieTableScrollView.hidden = NO;
-        
-    });
+    
+    _movieDetailShowing = NO;
+    
+    self.showMovieView.hidden = YES;
+    self.movieTableView.hidden = NO;
+    self.tableViewHeader.hidden = NO;
+    self.movieTableScrollView.hidden = NO;
     
 }
 
