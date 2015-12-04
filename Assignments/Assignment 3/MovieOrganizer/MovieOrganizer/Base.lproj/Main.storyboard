@@ -907,7 +907,7 @@
                                     <button translatesAutoresizingMaskIntoConstraints="NO" id="I2u-te-IU7">
                                         <rect key="frame" x="157" y="9" width="60" height="18"/>
                                         <animations/>
-                                        <buttonCell key="cell" type="check" title="Shomi" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="t0h-Zc-5cC">
+                                        <buttonCell key="cell" type="check" title="Shomi" bezelStyle="regularSquare" imagePosition="left" inset="2" id="t0h-Zc-5cC">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                             <connections>
@@ -918,7 +918,7 @@
                                     <button translatesAutoresizingMaskIntoConstraints="NO" id="SlH-cz-5Xc">
                                         <rect key="frame" x="157" y="31" width="62" height="18"/>
                                         <animations/>
-                                        <buttonCell key="cell" type="check" title="iTunes" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="r8J-Bo-pR0">
+                                        <buttonCell key="cell" type="check" title="iTunes" bezelStyle="regularSquare" imagePosition="left" inset="2" id="r8J-Bo-pR0">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                             <connections>
@@ -929,7 +929,7 @@
                                     <button translatesAutoresizingMaskIntoConstraints="NO" id="w6Y-aa-KRS">
                                         <rect key="frame" x="157" y="53" width="62" height="18"/>
                                         <animations/>
-                                        <buttonCell key="cell" type="check" title="Netflix" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="km1-e7-xll">
+                                        <buttonCell key="cell" type="check" title="Netflix" bezelStyle="regularSquare" imagePosition="left" inset="2" id="km1-e7-xll">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                             <connections>
