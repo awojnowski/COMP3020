@@ -81,6 +81,9 @@
     if (!_searchProvider) {
         
         _searchProvider = [[MovieSearchProvider alloc] init];
+        [_searchProvider setAvailableOnItunes:YES];
+        [_searchProvider setAvailableOnNetflix:YES];
+        [_searchProvider setAvailableOnShomi:YES];
         
     }
     return _searchProvider;
