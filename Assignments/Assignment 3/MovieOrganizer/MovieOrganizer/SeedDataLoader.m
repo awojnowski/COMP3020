@@ -46,10 +46,9 @@ NSString * const SeedDataLoaderSeedDataFileName = @"seedData.json";
     
     [movies enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull movieDictionary, NSUInteger idx, BOOL * _Nonnull stop) {
         
-        if (idx > 1000) {
+        if (idx % 500 == 0) {
             
-            *stop = YES;
-            return;
+            NSLog(@"Imported %ld movies.",(long)idx);
             
         }
         

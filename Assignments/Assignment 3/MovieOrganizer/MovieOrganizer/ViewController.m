@@ -22,6 +22,8 @@
 #import "SeedDataLoader.h"
 #import "MovieDetailViewController.h"
 
+#import "MovieSearchProvider.h"
+
 @interface ViewController () <NSTableViewDataSource, NSTableViewDelegate, MovieDetailViewControllerDelegate>
 
 @property (strong, nonatomic) MovieDetailViewController *movieDetailVC;
@@ -74,19 +76,13 @@
     
     [super viewDidLoad];
     
-    [[CoreDataController sharedInstance] removeCoreDataStore];
     [[CoreDataController sharedInstance] initialize];
     [[CoreDataController sharedInstance] performBlock:^(NSManagedObjectContext *managedObjectContext) {
         
         [[SeedDataLoader sharedInstance] seedDataInManagedObjectContext:managedObjectContext];
         
-    }];
-    
-    [[CoreDataController sharedInstance] performBlock:^(NSManagedObjectContext *managedObjectContext) {
-        
         self.movies = [Movie allMoviesInManagedObjectContext:managedObjectContext];
-        
-        dispatch_async( dispatch_get_main_queue(), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
             
             [self.movieTableView reloadData];
             
@@ -95,6 +91,7 @@
     }];
     
     // setting up advanced search fields
+    
     [self createActorListPullDown];
     [self createDirectorListPullDown];
     [self createAgeRatingPullDown];
