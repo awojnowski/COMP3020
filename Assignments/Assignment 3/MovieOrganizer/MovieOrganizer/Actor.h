@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(instancetype)createInManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
 +(instancetype)actorMatchingName:(NSString *)name inManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
++(NSArray <Actor *> *)allActorsInManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
 
 @end
 

@@ -30,4 +30,12 @@
     
 }
 
++(NSArray <Actor *> *)allActorsInManagedObjectContext:(NSManagedObjectContext *)managedObjectContext {
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:NSStringFromClass([self class])];
+    NSArray *results = [managedObjectContext executeFetchRequest:fetchRequest error:NULL];
+    return results;
+    
+}
+
 @end

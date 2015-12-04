@@ -12,8 +12,8 @@
 		931CF0A31C0BAA55003122FB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 931CF0A21C0BAA55003122FB /* ViewController.m */; };
 		931CF0A51C0BAA55003122FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 931CF0A41C0BAA55003122FB /* Assets.xcassets */; };
 		931CF0A81C0BAA55003122FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 931CF0A61C0BAA55003122FB /* Main.storyboard */; };
-		9395CF0C1C11014B0041650F /* MovieSearchProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 9395CF0B1C11014B0041650F /* MovieSearchProvider.m */; };
 		9395CF141C1155690041650F /* Tag+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 9395CF111C1155690041650F /* Tag+CoreDataProperties.m */; };
+		9395CF181C115FBB0041650F /* MovieSearchProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 9395CF171C115FBB0041650F /* MovieSearchProvider.m */; };
 		93C5153A1C0CF71F008C8C8E /* seedData.json in Resources */ = {isa = PBXBuildFile; fileRef = 93C515391C0CF71F008C8C8E /* seedData.json */; };
 		93C5153F1C0CFA06008C8C8E /* CoreDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C5153E1C0CFA06008C8C8E /* CoreDataController.m */; };
 		93C515431C0CFA25008C8C8E /* MovieOrganizer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93C515411C0CFA25008C8C8E /* MovieOrganizer.xcdatamodeld */; };
@@ -43,10 +43,10 @@
 		931CF0A41C0BAA55003122FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		931CF0A71C0BAA55003122FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		931CF0A91C0BAA55003122FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9395CF0A1C11014B0041650F /* MovieSearchProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MovieSearchProvider.h; path = "MovieSearchProvider.h"; sourceTree = "<group>"; };
-		9395CF0B1C11014B0041650F /* MovieSearchProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MovieSearchProvider.m; path = "MovieSearchProvider.m"; sourceTree = "<group>"; };
-		9395CF101C1155690041650F /* Tag+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Tag+CoreDataProperties.h"; path = "Tag+CoreDataProperties.h"; sourceTree = "<group>"; };
-		9395CF111C1155690041650F /* Tag+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Tag+CoreDataProperties.m"; path = "Tag+CoreDataProperties.m"; sourceTree = "<group>"; };
+		9395CF101C1155690041650F /* Tag+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Tag+CoreDataProperties.h"; sourceTree = "<group>"; };
+		9395CF111C1155690041650F /* Tag+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Tag+CoreDataProperties.m"; sourceTree = "<group>"; };
+		9395CF161C115FBB0041650F /* MovieSearchProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MovieSearchProvider.h; path = "MovieSearchProvider.h"; sourceTree = "<group>"; };
+		9395CF171C115FBB0041650F /* MovieSearchProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MovieSearchProvider.m; path = "MovieSearchProvider.m"; sourceTree = "<group>"; };
 		93C515391C0CF71F008C8C8E /* seedData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = seedData.json; sourceTree = "<group>"; };
 		93C5153D1C0CFA06008C8C8E /* CoreDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataController.h; sourceTree = "<group>"; };
 		93C5153E1C0CFA06008C8C8E /* CoreDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataController.m; sourceTree = "<group>"; };
@@ -146,6 +146,8 @@
 			children = (
 				93C5153D1C0CFA06008C8C8E /* CoreDataController.h */,
 				93C5153E1C0CFA06008C8C8E /* CoreDataController.m */,
+				9395CF161C115FBB0041650F /* MovieSearchProvider.h */,
+				9395CF171C115FBB0041650F /* MovieSearchProvider.m */,
 				93C515441C0CFCFE008C8C8E /* SeedDataLoader.h */,
 				93C515451C0CFCFE008C8C8E /* SeedDataLoader.m */,
 			);
@@ -295,6 +297,7 @@
 				93C515461C0CFCFE008C8C8E /* SeedDataLoader.m in Sources */,
 				93C515621C0D022A008C8C8E /* Movie.m in Sources */,
 				93C5156C1C0D022A008C8C8E /* Configuration.m in Sources */,
+				9395CF181C115FBB0041650F /* MovieSearchProvider.m in Sources */,
 				93C515611C0D022A008C8C8E /* Movie+CoreDataProperties.m in Sources */,
 				931CF0A01C0BAA55003122FB /* main.m in Sources */,
 				93C515431C0CFA25008C8C8E /* MovieOrganizer.xcdatamodeld in Sources */,

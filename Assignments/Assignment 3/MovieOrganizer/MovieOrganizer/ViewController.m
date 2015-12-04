@@ -66,6 +66,7 @@
 @property (nonatomic) NSMutableArray* selectedActorsArray;
 @property (nonatomic) NSMutableArray* selectedDirectorsArray;
 
+@property (nonatomic) NSArray<Actor *>* actors;
 @property (nonatomic) NSArray<Movie *>* movies;
 
 @end
@@ -81,9 +82,23 @@
         
         [[SeedDataLoader sharedInstance] seedDataInManagedObjectContext:managedObjectContext];
         
-        self.movies = [Movie allMoviesInManagedObjectContext:managedObjectContext];
-        dispatch_async(dispatch_get_main_queue(), ^{
+        NSArray *movies = [Movie allMoviesInManagedObjectContext:managedObjectContext];
+        [self setMovies:movies];
+        
+        NSMutableArray * __block actorNames = [NSMutableArray array];
+        /*NSArray *actors = [Actor allActorsInManagedObjectContext:managedObjectContext];
+        [actors enumerateObjectsUsingBlock:^(id  _Nonnull actor, NSUInteger idx, BOOL * _Nonnull stop) {
             
+            [actorNames addObject:[actor name]];
+            
+        }];
+        [self setActors:actors];*/
+        
+        // load the UI
+        
+        dispatch_async(dispatch_get_main_queue(), ^(void) {
+            
+            [[self actorPullDown] addItemsWithTitles:actorNames];
             [self.movieTableView reloadData];
             
         });
@@ -148,41 +163,37 @@
     
     [super viewDidLayout];
     
-    dispatch_async( dispatch_get_main_queue(), ^{
-        
-        [self.view setWantsLayer:YES];
-        
-        NSColor *lightGrayColor = [NSColor colorWithSRGBRed:244.0/255.0 green:244.0/255.0 blue:244.0/255.0 alpha:1];
-        
-        NSColor *grayColor = [NSColor colorWithSRGBRed:224.0/255.0 green:224.0/255.0 blue:224.0/255.0 alpha:1];
-        
-        [self.advancedSearchMenuBarView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-        [self.menuBarContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-        [self.minRatingContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-        [self.yearContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-        [self.tagsContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-        [self.ageContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-        [self.availibilityContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-        [self.genreContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-        [self.actorsContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-        [self.directorContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-
-        [self.advancedSearchMenuBarView.layer setBorderWidth:1];
-        [self.menuBarContainerView.layer setBorderWidth:1];
-        [self.minRatingContainerView.layer setBorderWidth:1];
-        [self.yearContainerView.layer setBorderWidth:1];
-        [self.tagsContainerView.layer setBorderWidth:1];
-        [self.ageContainerView.layer setBorderWidth:1];
-        [self.availibilityContainerView.layer setBorderWidth:1];
-        [self.genreContainerView.layer setBorderWidth:1];
-        [self.actorsContainerView.layer setBorderWidth:1];
-        [self.directorContainerView.layer setBorderWidth:1];
-        
-        [self.advancedSearchMenuBarView.layer setBackgroundColor:grayColor.CGColor];
-        [self.menuBarContainerView.layer setBackgroundColor:grayColor.CGColor];
-        [self.view.layer setBackgroundColor:lightGrayColor.CGColor];
-        
-    });
+    [self.view setWantsLayer:YES];
+    
+    NSColor *lightGrayColor = [NSColor colorWithSRGBRed:244.0/255.0 green:244.0/255.0 blue:244.0/255.0 alpha:1];
+    
+    NSColor *grayColor = [NSColor colorWithSRGBRed:224.0/255.0 green:224.0/255.0 blue:224.0/255.0 alpha:1];
+    
+    [self.advancedSearchMenuBarView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
+    [self.menuBarContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
+    [self.minRatingContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
+    [self.yearContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
+    [self.tagsContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
+    [self.ageContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
+    [self.availibilityContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
+    [self.genreContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
+    [self.actorsContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
+    [self.directorContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
+    
+    [self.advancedSearchMenuBarView.layer setBorderWidth:1];
+    [self.menuBarContainerView.layer setBorderWidth:1];
+    [self.minRatingContainerView.layer setBorderWidth:1];
+    [self.yearContainerView.layer setBorderWidth:1];
+    [self.tagsContainerView.layer setBorderWidth:1];
+    [self.ageContainerView.layer setBorderWidth:1];
+    [self.availibilityContainerView.layer setBorderWidth:1];
+    [self.genreContainerView.layer setBorderWidth:1];
+    [self.actorsContainerView.layer setBorderWidth:1];
+    [self.directorContainerView.layer setBorderWidth:1];
+    
+    [self.advancedSearchMenuBarView.layer setBackgroundColor:grayColor.CGColor];
+    [self.menuBarContainerView.layer setBackgroundColor:grayColor.CGColor];
+    [self.view.layer setBackgroundColor:lightGrayColor.CGColor];
     
 }
 
