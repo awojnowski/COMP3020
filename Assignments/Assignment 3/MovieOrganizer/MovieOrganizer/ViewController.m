@@ -651,33 +651,74 @@
 }
 
 - (IBAction)horrorButtonTouched:(id)sender {
+    [self genreButtonChanged:sender];
 }
 
 - (IBAction)comedyButtonTouched:(id)sender {
+    [self genreButtonChanged:sender];
 }
 
 - (IBAction)romanceButtonTouched:(id)sender {
+    [self genreButtonChanged:sender];
 }
 
 - (IBAction)adventureButtonTouched:(id)sender {
+    [self genreButtonChanged:sender];
 }
 
 - (IBAction)documentaryButtonTouched:(id)sender {
+    [self genreButtonChanged:sender];
 }
 
 - (IBAction)sciFiButtonTouched:(id)sender {
+    [self genreButtonChanged:sender];
 }
 
 - (IBAction)dramaButtonTouched:(id)sender {
+    [self genreButtonChanged:sender];
 }
 
 - (IBAction)actionButtonTouched:(id)sender {
+    [self genreButtonChanged:sender];
 }
 
 - (IBAction)thrillerButtonTouched:(id)sender {
+    [self genreButtonChanged:sender];
 }
 
 - (IBAction)fantasyButtonTouched:(id)sender {
+    [self genreButtonChanged:sender];
+}
+
+-(void)genreButtonChanged:(NSButton *)genreButton {
+    
+    NSString * const title = [genreButton title];
+    
+    Genre * __block genre = nil;
+    [[CoreDataController sharedInstance] performBlock:^(NSManagedObjectContext *managedObjectContext) {
+        
+        genre = [Genre genreMatchingTitle:title inManagedObjectContext:managedObjectContext];
+        
+    }];
+    if (!genre) {
+        
+        return;
+        
+    }
+    
+    NSMutableArray * const genres = [NSMutableArray arrayWithArray:[[self searchProvider] genres]];
+    if ([genres containsObject:genre]) {
+        
+        [genres removeObject:genre];
+        
+    } else {
+        
+        [genres addObject:genre];
+        
+    }
+    [[self searchProvider] setGenres:genres];
+    [self refreshMovies];
+    
 }
 
 @end
