@@ -54,6 +54,9 @@
                                          (%@ == NO OR (%@ == YES AND director == %@)) AND\
                                          (%@ == NO OR (%@ == YES AND ANY genres IN %@)) AND\
                                          (rating >= %@ AND rating <= %@) AND\
+                                         (%@ == NO OR (%@ == YES AND availableOnItunes == %@)) AND\
+                                         (%@ == NO OR (%@ == YES AND availableOnNetflix == %@)) AND\
+                                         (%@ == NO OR (%@ == YES AND availableOnShomi == %@)) AND\
                                          (%@ == NO OR (%@ == YES AND ANY tags IN %@)) AND\
                                          (%@ == NO OR (%@ == YES AND title CONTAINS[c] %@)) AND\
                                          (year >= %@ AND year <= %@)\
@@ -78,6 +81,18 @@
                                          
                                          @([self minimumRating]),
                                          @([self maximumRating]),
+                                         
+                                         @([self availableOnItunes]),
+                                         @([self availableOnItunes]),
+                                         @([self availableOnItunes]),
+                                         
+                                         @([self availableOnNetflix]),
+                                         @([self availableOnNetflix]),
+                                         @([self availableOnNetflix]),
+                                         
+                                         @([self availableOnShomi]),
+                                         @([self availableOnShomi]),
+                                         @([self availableOnShomi]),
                                          
                                          @([self tags] != nil),
                                          @([self tags] != nil),

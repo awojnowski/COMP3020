@@ -39,10 +39,7 @@
 @property (weak) IBOutlet NSView *genreContainerView;
 @property (weak) IBOutlet NSView *actorsContainerView;
 @property (weak) IBOutlet NSView *directorContainerView;
-//@property (weak) IBOutlet NSView *userReviewContainer;
-//@property (weak) IBOutlet NSView *otherReviewsContainer;
-//@property (weak) IBOutlet NSView *exampleUserReviewOne;
-//@property (weak) IBOutlet NSView *exampleUserReviewTwo;
+@property (weak) IBOutlet NSSearchField *movieSearchField;
 
 @property (weak) IBOutlet NSTableView *movieTableView;
 @property (weak) IBOutlet NSTableHeaderView *tableViewHeader;
@@ -66,24 +63,36 @@
 @property (nonatomic) NSMutableArray* selectedActorsArray;
 @property (nonatomic) NSMutableArray* selectedDirectorsArray;
 
+@property (nonatomic, readonly, strong) MovieSearchProvider *searchProvider;
+
 @property (nonatomic) NSArray<Actor *>* actors;
-@property (nonatomic) NSArray<Movie *>* movies;
+@property (nonatomic, readonly) NSArray<Movie *>* movies;
 
 @end
 
 @implementation ViewController
 
+@synthesize searchProvider=_searchProvider;
+-(MovieSearchProvider *)searchProvider {
+    
+    if (!_searchProvider) {
+        
+        _searchProvider = [[MovieSearchProvider alloc] init];
+        
+    }
+    return _searchProvider;
+    
+}
+
 -(void)viewDidLoad {
     
     [super viewDidLoad];
     
+    //[[CoreDataController sharedInstance] removeCoreDataStore];
     [[CoreDataController sharedInstance] initialize];
     [[CoreDataController sharedInstance] performBlock:^(NSManagedObjectContext *managedObjectContext) {
         
         [[SeedDataLoader sharedInstance] seedDataInManagedObjectContext:managedObjectContext];
-        
-        NSArray *movies = [Movie allMoviesInManagedObjectContext:managedObjectContext];
-        [self setMovies:movies];
         
         NSMutableArray * __block actorNames = [NSMutableArray array];
         /*NSArray *actors = [Actor allActorsInManagedObjectContext:managedObjectContext];
@@ -99,7 +108,6 @@
         dispatch_async(dispatch_get_main_queue(), ^(void) {
             
             [[self actorPullDown] addItemsWithTitles:actorNames];
-            [self.movieTableView reloadData];
             
         });
         
@@ -114,7 +122,49 @@
     [self setMovieDetailView];
     self.showMovieView.hidden = YES;
     [self.movieTableView setDoubleAction:@selector(showMovie)];
+    
+    // finish up
+    
+    [self refreshMovies];
 
+}
+
+-(void)viewDidLayout {
+    
+    [super viewDidLayout];
+    
+    [self.view setWantsLayer:YES];
+    
+    NSColor *lightGrayColor = [NSColor colorWithSRGBRed:244.0/255.0 green:244.0/255.0 blue:244.0/255.0 alpha:1];
+    
+    NSColor *grayColor = [NSColor colorWithSRGBRed:224.0/255.0 green:224.0/255.0 blue:224.0/255.0 alpha:1];
+    
+    [self.advancedSearchMenuBarView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
+    [self.menuBarContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
+    [self.minRatingContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
+    [self.yearContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
+    [self.tagsContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
+    [self.ageContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
+    [self.availibilityContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
+    [self.genreContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
+    [self.actorsContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
+    [self.directorContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
+    
+    [self.advancedSearchMenuBarView.layer setBorderWidth:1];
+    [self.menuBarContainerView.layer setBorderWidth:1];
+    [self.minRatingContainerView.layer setBorderWidth:1];
+    [self.yearContainerView.layer setBorderWidth:1];
+    [self.tagsContainerView.layer setBorderWidth:1];
+    [self.ageContainerView.layer setBorderWidth:1];
+    [self.availibilityContainerView.layer setBorderWidth:1];
+    [self.genreContainerView.layer setBorderWidth:1];
+    [self.actorsContainerView.layer setBorderWidth:1];
+    [self.directorContainerView.layer setBorderWidth:1];
+    
+    [self.advancedSearchMenuBarView.layer setBackgroundColor:grayColor.CGColor];
+    [self.menuBarContainerView.layer setBackgroundColor:grayColor.CGColor];
+    [self.view.layer setBackgroundColor:lightGrayColor.CGColor];
+    
 }
 
 -(void)setMovieDetailView {
@@ -160,41 +210,16 @@
     
 }
 
--(void)viewDidLayout {
+#pragma mark - Movies
+
+-(void)refreshMovies {
     
-    [super viewDidLayout];
-    
-    [self.view setWantsLayer:YES];
-    
-    NSColor *lightGrayColor = [NSColor colorWithSRGBRed:244.0/255.0 green:244.0/255.0 blue:244.0/255.0 alpha:1];
-    
-    NSColor *grayColor = [NSColor colorWithSRGBRed:224.0/255.0 green:224.0/255.0 blue:224.0/255.0 alpha:1];
-    
-    [self.advancedSearchMenuBarView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-    [self.menuBarContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-    [self.minRatingContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-    [self.yearContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-    [self.tagsContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-    [self.ageContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-    [self.availibilityContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-    [self.genreContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-    [self.actorsContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-    [self.directorContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-    
-    [self.advancedSearchMenuBarView.layer setBorderWidth:1];
-    [self.menuBarContainerView.layer setBorderWidth:1];
-    [self.minRatingContainerView.layer setBorderWidth:1];
-    [self.yearContainerView.layer setBorderWidth:1];
-    [self.tagsContainerView.layer setBorderWidth:1];
-    [self.ageContainerView.layer setBorderWidth:1];
-    [self.availibilityContainerView.layer setBorderWidth:1];
-    [self.genreContainerView.layer setBorderWidth:1];
-    [self.actorsContainerView.layer setBorderWidth:1];
-    [self.directorContainerView.layer setBorderWidth:1];
-    
-    [self.advancedSearchMenuBarView.layer setBackgroundColor:grayColor.CGColor];
-    [self.menuBarContainerView.layer setBackgroundColor:grayColor.CGColor];
-    [self.view.layer setBackgroundColor:lightGrayColor.CGColor];
+    [[self searchProvider] searchWithCompletionBlock:^(NSArray<Movie *> *movies) {
+        
+        _movies = movies;
+        [[self movieTableView] reloadData];
+        
+    }];
     
 }
 
@@ -417,6 +442,16 @@
 
 - (IBAction)directorSelectionTouched:(id)sender {
     
+    
+}
+
+- (IBAction)searchMovieButtonTouched:(id)sender {
+    
+    //NSString* searchString = self.movieSearchField.stringValue;
+    
+    //MovieSearchProvider *provider = [[MovieSearchProvider alloc] init];
+    
+    //[self.movieTableView reloadData];
     
 }
 

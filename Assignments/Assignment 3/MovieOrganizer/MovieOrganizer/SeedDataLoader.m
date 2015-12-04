@@ -61,6 +61,7 @@ NSString * const SeedDataLoaderSeedDataFileName = @"seedData.json";
             
         }
         
+        NSString * const movieCertification = movieDictionary[@"certification"];
         NSInteger const movieYear = [movieDictionary[@"year"] integerValue];
         NSString * const movieLength = movieDictionary[@"length"];
         NSInteger const movieRating = [movieDictionary[@"rating"] integerValue];
@@ -71,10 +72,32 @@ NSString * const SeedDataLoaderSeedDataFileName = @"seedData.json";
         NSArray * const actors = [movieDictionary[@"actor"] isKindOfClass:[NSString class]] ? @[movieDictionary[@"actor"]] : movieDictionary[@"actor"];
         
         Movie * movie = [Movie createInManagedObjectContext:managedObjectContext];
+        [movie setCertification:movieCertification];
         [movie setTitle:movieTitle];
         [movie setYear:@(movieYear)];
         [movie setLength:movieLength];
         [movie setRating:@(movieRating)];
+        
+        // add the networks
+        
+        NSInteger result = arc4random_uniform(3);
+        if (result == 1) {
+         
+            [movie setAvailableOnItunes:@(YES)];
+            
+        }
+        result = arc4random_uniform(3);
+        if (result == 1) {
+            
+            [movie setAvailableOnNetflix:@(YES)];
+            
+        }
+        result = arc4random_uniform(3);
+        if (result == 1) {
+            
+            [movie setAvailableOnShomi:@(YES)];
+            
+        }
         
         // add the director
         

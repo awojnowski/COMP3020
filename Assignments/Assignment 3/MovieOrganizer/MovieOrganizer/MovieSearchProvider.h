@@ -37,6 +37,12 @@
 
 @property (nonatomic, strong) NSArray <Genre *> *genres;
 
+// networks
+
+@property (nonatomic, assign) BOOL availableOnItunes;
+@property (nonatomic, assign) BOOL availableOnNetflix;
+@property (nonatomic, assign) BOOL availableOnShomi;
+
 // ratings
 
 @property (nonatomic, assign) NSInteger minimumRating; // inclusive

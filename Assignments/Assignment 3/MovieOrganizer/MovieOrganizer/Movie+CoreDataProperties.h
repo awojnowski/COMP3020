@@ -15,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Movie (CoreDataProperties)
 
+@property (nullable, nonatomic, retain) NSNumber *availableOnNetflix;
+@property (nullable, nonatomic, retain) NSNumber *availableOnShomi;
+@property (nullable, nonatomic, retain) NSNumber *availableOnItunes;
 @property (nullable, nonatomic, retain) NSString *certification;
 @property (nullable, nonatomic, retain) NSString *length;
 @property (nullable, nonatomic, retain) NSNumber *rating;

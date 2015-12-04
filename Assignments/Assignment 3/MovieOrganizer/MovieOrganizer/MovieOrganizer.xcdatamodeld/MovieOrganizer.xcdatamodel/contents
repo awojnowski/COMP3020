@@ -16,6 +16,9 @@
         <relationship name="movies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Movie" inverseName="genres" inverseEntity="Movie" syncable="YES"/>
     </entity>
     <entity name="Movie" representedClassName="Movie" syncable="YES">
+        <attribute name="availableOnItunes" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="availableOnNetflix" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="availableOnShomi" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="certification" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="length" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rating" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
@@ -36,7 +39,7 @@
         <element name="Configuration" positionX="-63" positionY="-18" width="128" height="60"/>
         <element name="Director" positionX="18" positionY="72" width="128" height="75"/>
         <element name="Genre" positionX="-18" positionY="27" width="128" height="75"/>
-        <element name="Movie" positionX="-36" positionY="9" width="128" height="180"/>
+        <element name="Movie" positionX="-36" positionY="9" width="128" height="225"/>
         <element name="Tag" positionX="36" positionY="108" width="128" height="90"/>
     </elements>
 </model>
