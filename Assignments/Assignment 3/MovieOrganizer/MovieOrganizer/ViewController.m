@@ -502,6 +502,11 @@
 
 - (IBAction)showMovieTapped:(id)sender {
     
+    if ([self movieDetailShowing]) {
+        
+        return;
+        
+    }
     _movieDetailShowing = YES;
     
     self.showMovieView.hidden = NO;
@@ -513,6 +518,11 @@
 
 - (IBAction)showListViewTapped:(id)sender {
     
+    if (![self movieDetailShowing]) {
+        
+        return;
+        
+    }
     _movieDetailShowing = NO;
     
     self.showMovieView.hidden = YES;
