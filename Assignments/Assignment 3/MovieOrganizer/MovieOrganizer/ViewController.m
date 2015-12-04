@@ -222,6 +222,13 @@
     
 }
 
+-(void)refreshSortDescriptors {
+    
+    _movies = [[self movies] sortedArrayUsingDescriptors:<#(nonnull NSArray<NSSortDescriptor *> *)#>];
+    [[self movieTableView] reloadData];
+    
+}
+
 #pragma mark - MovieDetailViewControllerDelegate
 
 - (void)backButtonPressed {
