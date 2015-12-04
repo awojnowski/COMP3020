@@ -61,6 +61,7 @@ NSString * const SeedDataLoaderSeedDataFileName = @"seedData.json";
             
         }
         
+        NSInteger const movieCertification = movieDictionary[@"certification"];
         NSInteger const movieYear = [movieDictionary[@"year"] integerValue];
         NSString * const movieLength = movieDictionary[@"length"];
         NSInteger const movieRating = [movieDictionary[@"rating"] integerValue];
@@ -71,6 +72,7 @@ NSString * const SeedDataLoaderSeedDataFileName = @"seedData.json";
         NSArray * const actors = [movieDictionary[@"actor"] isKindOfClass:[NSString class]] ? @[movieDictionary[@"actor"]] : movieDictionary[@"actor"];
         
         Movie * movie = [Movie createInManagedObjectContext:managedObjectContext];
+        [movie setCertification:movieCertification];
         [movie setTitle:movieTitle];
         [movie setYear:@(movieYear)];
         [movie setLength:movieLength];
