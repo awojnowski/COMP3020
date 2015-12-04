@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		74DD1A1E1C12320100C11E86 /* GraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74DD1A1C1C12320100C11E86 /* GraphViewController.m */; };
+		74DD1A1F1C12320100C11E86 /* GraphViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74DD1A1D1C12320100C11E86 /* GraphViewController.xib */; };
 		931CF09D1C0BAA55003122FB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 931CF09C1C0BAA55003122FB /* AppDelegate.m */; };
 		931CF0A01C0BAA55003122FB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 931CF09F1C0BAA55003122FB /* main.m */; };
 		931CF0A31C0BAA55003122FB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 931CF0A21C0BAA55003122FB /* ViewController.m */; };
@@ -34,6 +36,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		74DD1A1B1C12320100C11E86 /* GraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphViewController.h; sourceTree = "<group>"; };
+		74DD1A1C1C12320100C11E86 /* GraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphViewController.m; sourceTree = "<group>"; };
+		74DD1A1D1C12320100C11E86 /* GraphViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GraphViewController.xib; sourceTree = "<group>"; };
 		931CF0981C0BAA55003122FB /* MovieOrganizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieOrganizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		931CF09B1C0BAA55003122FB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		931CF09C1C0BAA55003122FB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -162,6 +167,9 @@
 				ED3AD9711C0FD59F00AEEFD5 /* MovieDetailViewController.h */,
 				ED3AD9721C0FD59F00AEEFD5 /* MovieDetailViewController.m */,
 				ED3AD9731C0FD59F00AEEFD5 /* MovieDetailViewController.xib */,
+				74DD1A1B1C12320100C11E86 /* GraphViewController.h */,
+				74DD1A1C1C12320100C11E86 /* GraphViewController.m */,
+				74DD1A1D1C12320100C11E86 /* GraphViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -271,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED3AD9751C0FD59F00AEEFD5 /* MovieDetailViewController.xib in Resources */,
+				74DD1A1F1C12320100C11E86 /* GraphViewController.xib in Resources */,
 				93C5153A1C0CF71F008C8C8E /* seedData.json in Resources */,
 				931CF0A51C0BAA55003122FB /* Assets.xcassets in Resources */,
 				931CF0A81C0BAA55003122FB /* Main.storyboard in Resources */,
@@ -301,6 +310,7 @@
 				93C515611C0D022A008C8C8E /* Movie+CoreDataProperties.m in Sources */,
 				931CF0A01C0BAA55003122FB /* main.m in Sources */,
 				93C515431C0CFA25008C8C8E /* MovieOrganizer.xcdatamodeld in Sources */,
+				74DD1A1E1C12320100C11E86 /* GraphViewController.m in Sources */,
 				93C5153F1C0CFA06008C8C8E /* CoreDataController.m in Sources */,
 				931CF09D1C0BAA55003122FB /* AppDelegate.m in Sources */,
 				93C515871C0D066C008C8C8E /* Director+CoreDataProperties.m in Sources */,

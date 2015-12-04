@@ -17,6 +17,7 @@
                 <outlet property="otherReviewsContainer" destination="X56-st-gY9" id="edh-1u-wj0"/>
                 <outlet property="shomiImage" destination="ZtG-cq-2ei" id="qXi-lU-jZ8"/>
                 <outlet property="starRatingCell" destination="xnr-Ak-wOP" id="Isf-O1-yEv"/>
+                <outlet property="submitReviewButton" destination="RjS-5N-pee" id="rCp-23-We6"/>
                 <outlet property="userRatingCell" destination="5LY-K9-MbU" id="pbP-t9-Vrq"/>
                 <outlet property="userReviewContainer" destination="vvx-gz-xr3" id="3zg-4M-fT2"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
@@ -193,6 +194,9 @@
                                     <buttonCell key="cell" type="push" title="Submit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="RjS-5N-pee">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
+                                        <connections>
+                                            <action selector="submitReviewTouched:" target="-2" id="Qyq-nj-cAs"/>
+                                        </connections>
                                     </buttonCell>
                                 </button>
                                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="szP-7T-cFk">
