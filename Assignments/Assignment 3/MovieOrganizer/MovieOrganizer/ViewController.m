@@ -198,13 +198,13 @@
     
 }
 
-#pragma MARK - MovieDetailViewControllerDelegate
+#pragma mark - MovieDetailViewControllerDelegate
 
 - (void)backButtonPressed {
     [self showListViewTapped:nil];
 }
 
-#pragma MARK - NSTableView
+#pragma mark - NSTableView
 
 -(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
     
@@ -243,7 +243,7 @@
 
 
 
-#pragma MARK - Actions
+#pragma mark - Actions
 
 - (IBAction)minRatingControlTouched:(id)sender {
     
