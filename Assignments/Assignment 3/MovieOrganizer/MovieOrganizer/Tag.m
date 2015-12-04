@@ -2,16 +2,16 @@
 //  Tag.m
 //  MovieOrganizer
 //
-//  Created by Aaron Wojnowski on 2015-11-30.
+//  Created by Aaron Wojnowski on 2015-12-03.
 //  Copyright © 2015 CS Boys. All rights reserved.
 //
 
 #import "Tag.h"
 #import "Movie.h"
 
-@implementation Tag
+NSString * const TagWatchlistTitle = @"Your Watchlist";
 
-NSString * const WatchlistTagName = @"Your Watchlist";
+@implementation Tag
 
 +(instancetype)createInManagedObjectContext:(NSManagedObjectContext *)managedObjectContext {
     
@@ -31,7 +31,7 @@ NSString * const WatchlistTagName = @"Your Watchlist";
 +(instancetype)watchlistInManagedObjectContext:(NSManagedObjectContext *)managedObjectContext {
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:NSStringFromClass([self class])];
-    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"title ==[c] %@",WatchlistTagName]];
+    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"title ==[c] %@",TagWatchlistTitle]];
     NSArray *results = [managedObjectContext executeFetchRequest:fetchRequest error:NULL];
     return [results firstObject];
     

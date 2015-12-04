@@ -704,7 +704,7 @@
                                             <constraint firstAttribute="width" constant="200" id="MzG-Xy-X5B"/>
                                         </constraints>
                                         <animations/>
-                                        <searchFieldCell key="cell" selectable="YES" editable="YES" refusesFirstResponder="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="BaY-B0-3ri">
+                                        <searchFieldCell key="cell" selectable="YES" editable="YES" borderStyle="bezel" placeholderString="Search for Movie" usesSingleLineMode="YES" bezelStyle="round" id="BaY-B0-3ri">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -725,8 +725,20 @@
                                             <action selector="showListViewTapped:" target="XfG-lQ-9wD" id="Hp6-if-wQH"/>
                                         </connections>
                                     </button>
-                                    <button translatesAutoresizingMaskIntoConstraints="NO" id="Gev-Gf-gQF">
+                                    <button translatesAutoresizingMaskIntoConstraints="NO" id="bNh-mT-nO7">
                                         <rect key="frame" x="684" y="8" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="IH8-zu-yaH"/>
+                                            <constraint firstAttribute="height" constant="20" id="YsZ-CX-RB6"/>
+                                        </constraints>
+                                        <animations/>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="graph" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="4Us-kH-dmd">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                    </button>
+                                    <button translatesAutoresizingMaskIntoConstraints="NO" id="Gev-Gf-gQF">
+                                        <rect key="frame" x="656" y="8" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="N0p-AJ-VIy"/>
                                             <constraint firstAttribute="width" constant="20" id="jD6-Tf-koQ"/>
@@ -739,63 +751,14 @@
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="bNh-mT-nO7" firstAttribute="leading" secondItem="Gev-Gf-gQF" secondAttribute="trailing" constant="8" id="28d-q3-7He"/>
                                     <constraint firstItem="dwP-KK-hnP" firstAttribute="centerY" secondItem="Oox-ln-t14" secondAttribute="centerY" id="9Jo-PR-Lyy"/>
                                     <constraint firstItem="dwP-KK-hnP" firstAttribute="leading" secondItem="Oox-ln-t14" secondAttribute="leading" constant="8" id="Ao5-Uz-SfM"/>
+                                    <constraint firstItem="bNh-mT-nO7" firstAttribute="centerY" secondItem="8eU-oI-1A0" secondAttribute="centerY" id="NLC-gJ-ZKP"/>
+                                    <constraint firstItem="8eU-oI-1A0" firstAttribute="leading" secondItem="bNh-mT-nO7" secondAttribute="trailing" constant="8" id="VdU-2p-Qjf"/>
                                     <constraint firstAttribute="trailing" secondItem="8eU-oI-1A0" secondAttribute="trailing" constant="8" id="mwb-Pd-O6z"/>
-                                    <constraint firstItem="8eU-oI-1A0" firstAttribute="leading" secondItem="Gev-Gf-gQF" secondAttribute="trailing" constant="8" id="n0z-lu-A5H"/>
                                     <constraint firstItem="8eU-oI-1A0" firstAttribute="centerY" secondItem="Oox-ln-t14" secondAttribute="centerY" id="ru8-2D-7EX"/>
                                     <constraint firstItem="Gev-Gf-gQF" firstAttribute="centerY" secondItem="Oox-ln-t14" secondAttribute="centerY" id="vvW-lS-sid"/>
-                                </constraints>
-                                <animations/>
-                            </customView>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="U4I-jN-Gzg">
-                                <rect key="frame" x="0.0" y="647" width="225" height="45"/>
-                                <subviews>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qMm-UU-PeR">
-                                        <rect key="frame" x="6" y="14" width="76" height="17"/>
-                                        <animations/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Min. Rating:" id="eWc-Rg-ove">
-                                            <font key="font" metaFont="system"/>
-                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                        </textFieldCell>
-                                    </textField>
-                                    <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jrs-cJ-hG6">
-                                        <rect key="frame" x="109" y="10" width="110" height="24"/>
-                                        <animations/>
-                                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectAny" id="lMu-RT-iPG">
-                                            <font key="font" metaFont="system"/>
-                                            <segments>
-                                                <segment image="starOutline" width="20">
-                                                    <nil key="label"/>
-                                                </segment>
-                                                <segment image="starOutline" width="20" tag="1">
-                                                    <nil key="label"/>
-                                                </segment>
-                                                <segment image="starOutline" width="20">
-                                                    <nil key="label"/>
-                                                </segment>
-                                                <segment image="starOutline" width="20">
-                                                    <nil key="label"/>
-                                                </segment>
-                                                <segment image="starOutline" width="20">
-                                                    <nil key="label"/>
-                                                </segment>
-                                            </segments>
-                                        </segmentedCell>
-                                        <connections>
-                                            <action selector="minRatingControlTouched:" target="XfG-lQ-9wD" id="dqm-Us-MZ3"/>
-                                        </connections>
-                                    </segmentedControl>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="qMm-UU-PeR" firstAttribute="leading" secondItem="U4I-jN-Gzg" secondAttribute="leading" constant="8" id="DCe-qk-32z"/>
-                                    <constraint firstAttribute="bottom" secondItem="qMm-UU-PeR" secondAttribute="bottom" constant="14" id="UV2-w6-OSd"/>
-                                    <constraint firstAttribute="width" constant="225" id="WKc-P3-zq6"/>
-                                    <constraint firstItem="qMm-UU-PeR" firstAttribute="top" secondItem="U4I-jN-Gzg" secondAttribute="top" constant="14" id="fFc-yi-eeQ"/>
-                                    <constraint firstAttribute="trailing" secondItem="jrs-cJ-hG6" secondAttribute="trailing" constant="8" id="fUL-pi-691"/>
-                                    <constraint firstAttribute="height" constant="45" id="jBf-An-Hmo"/>
-                                    <constraint firstItem="jrs-cJ-hG6" firstAttribute="centerY" secondItem="U4I-jN-Gzg" secondAttribute="centerY" id="juW-3c-P2Z"/>
                                 </constraints>
                                 <animations/>
                             </customView>
@@ -826,7 +789,7 @@
                                             <constraint firstAttribute="width" constant="67" id="Y8n-K4-Wfa"/>
                                         </constraints>
                                         <animations/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Min" drawsBackground="YES" id="LTd-CM-q5z">
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Min" drawsBackground="YES" id="LTd-CM-q5z">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -838,7 +801,7 @@
                                             <constraint firstAttribute="width" constant="67" id="n5Y-xq-IJo"/>
                                         </constraints>
                                         <animations/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Max" drawsBackground="YES" id="246-5r-LlF">
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Max" drawsBackground="YES" id="246-5r-LlF">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -876,7 +839,7 @@
                                             <constraint firstAttribute="width" constant="168" id="lME-Ya-0tR"/>
                                         </constraints>
                                         <animations/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Ex. Funny, New, Classic" drawsBackground="YES" id="uPx-bg-dft">
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Ex. Funny, New, Classic" drawsBackground="YES" id="uPx-bg-dft">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -901,7 +864,7 @@
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Age Rating:" id="R18-oN-Ym3">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                         </textFieldCell>
                                     </textField>
                                     <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YQX-Zc-blY">
@@ -1104,7 +1067,7 @@
                                             </menu>
                                         </popUpButtonCell>
                                         <connections>
-                                            <action selector="actorSelectionTouched:" target="XfG-lQ-9wD" id="EUc-f9-cFc"/>
+                                            <action selector="actorSelectionTouched:" target="XfG-lQ-9wD" id="et9-kj-eTD"/>
                                         </connections>
                                     </popUpButton>
                                     <button translatesAutoresizingMaskIntoConstraints="NO" id="byT-es-jEd">
@@ -1163,7 +1126,7 @@
                                             </menu>
                                         </popUpButtonCell>
                                         <connections>
-                                            <action selector="directorSelectionTouched:" target="XfG-lQ-9wD" id="yKb-ku-gdJ"/>
+                                            <action selector="directorSelectionTouched:" target="XfG-lQ-9wD" id="nId-ZD-iDi"/>
                                         </connections>
                                     </popUpButton>
                                     <button translatesAutoresizingMaskIntoConstraints="NO" id="qK8-K7-914">
@@ -1313,6 +1276,57 @@
                                     <animations/>
                                 </tableHeaderView>
                             </scrollView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="U4I-jN-Gzg">
+                                <rect key="frame" x="0.0" y="647" width="225" height="45"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qMm-UU-PeR">
+                                        <rect key="frame" x="6" y="14" width="76" height="17"/>
+                                        <animations/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Min. Rating:" id="eWc-Rg-ove">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jrs-cJ-hG6">
+                                        <rect key="frame" x="109" y="10" width="110" height="24"/>
+                                        <animations/>
+                                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectAny" id="lMu-RT-iPG">
+                                            <font key="font" metaFont="system"/>
+                                            <segments>
+                                                <segment image="starOutline" width="20">
+                                                    <nil key="label"/>
+                                                </segment>
+                                                <segment image="starOutline" width="20" tag="1">
+                                                    <nil key="label"/>
+                                                </segment>
+                                                <segment image="starOutline" width="20">
+                                                    <nil key="label"/>
+                                                </segment>
+                                                <segment image="starOutline" width="20">
+                                                    <nil key="label"/>
+                                                </segment>
+                                                <segment image="starOutline" width="20">
+                                                    <nil key="label"/>
+                                                </segment>
+                                            </segments>
+                                        </segmentedCell>
+                                        <connections>
+                                            <action selector="minRatingControlTouched:" target="XfG-lQ-9wD" id="dqm-Us-MZ3"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="qMm-UU-PeR" firstAttribute="leading" secondItem="U4I-jN-Gzg" secondAttribute="leading" constant="8" id="DCe-qk-32z"/>
+                                    <constraint firstAttribute="bottom" secondItem="qMm-UU-PeR" secondAttribute="bottom" constant="14" id="UV2-w6-OSd"/>
+                                    <constraint firstAttribute="width" constant="225" id="WKc-P3-zq6"/>
+                                    <constraint firstItem="qMm-UU-PeR" firstAttribute="top" secondItem="U4I-jN-Gzg" secondAttribute="top" constant="14" id="fFc-yi-eeQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="jrs-cJ-hG6" secondAttribute="trailing" constant="8" id="fUL-pi-691"/>
+                                    <constraint firstAttribute="height" constant="45" id="jBf-An-Hmo"/>
+                                    <constraint firstItem="jrs-cJ-hG6" firstAttribute="centerY" secondItem="U4I-jN-Gzg" secondAttribute="centerY" id="juW-3c-P2Z"/>
+                                </constraints>
+                                <animations/>
+                            </customView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="0U8-eS-Qnv">
                                 <rect key="frame" x="225" y="0.0" width="740" height="692"/>
                                 <animations/>
@@ -1391,6 +1405,7 @@
     </scenes>
     <resources>
         <image name="eye" width="200" height="200"/>
+        <image name="graph" width="1200" height="1200"/>
         <image name="list" width="200" height="200"/>
         <image name="plus" width="200" height="200"/>
         <image name="starOutline" width="200" height="200"/>
