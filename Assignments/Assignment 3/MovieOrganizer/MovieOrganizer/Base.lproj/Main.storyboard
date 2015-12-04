@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9060"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9059"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -749,13 +749,52 @@
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </searchFieldCell>
                                     </searchField>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hW0-fn-wPU">
+                                        <rect key="frame" x="574" y="0.0" width="80" height="32"/>
+                                        <animations/>
+                                        <buttonCell key="cell" type="push" title="Delete" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="WaY-GF-TXd">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="deletePressed:" target="XfG-lQ-9wD" id="ZjS-WO-y71"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hIk-cV-VX7">
+                                        <rect key="frame" x="510" y="0.0" width="64" height="32"/>
+                                        <animations/>
+                                        <buttonCell key="cell" type="push" title="Edit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="rfg-zL-DMN">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="editPressed:" target="XfG-lQ-9wD" id="9Gj-0I-Woy"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RkL-VQ-W8J">
+                                        <rect key="frame" x="445" y="0.0" width="65" height="32"/>
+                                        <animations/>
+                                        <buttonCell key="cell" type="push" title="Add" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="O7e-uU-63c">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="addPressed:" target="XfG-lQ-9wD" id="eCL-aD-P8X"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="hIk-cV-VX7" firstAttribute="baseline" secondItem="hW0-fn-wPU" secondAttribute="baseline" id="0Ow-gX-PoD"/>
                                     <constraint firstItem="bNh-mT-nO7" firstAttribute="leading" secondItem="Gev-Gf-gQF" secondAttribute="trailing" constant="8" id="28d-q3-7He"/>
+                                    <constraint firstItem="hW0-fn-wPU" firstAttribute="top" secondItem="Gev-Gf-gQF" secondAttribute="top" id="6EV-b2-dwJ"/>
+                                    <constraint firstItem="hW0-fn-wPU" firstAttribute="leading" secondItem="hIk-cV-VX7" secondAttribute="trailing" constant="12" symbolic="YES" id="9A9-LC-jrb"/>
                                     <constraint firstItem="dwP-KK-hnP" firstAttribute="centerY" secondItem="Oox-ln-t14" secondAttribute="centerY" id="9Jo-PR-Lyy"/>
                                     <constraint firstItem="dwP-KK-hnP" firstAttribute="leading" secondItem="Oox-ln-t14" secondAttribute="leading" constant="8" id="Ao5-Uz-SfM"/>
+                                    <constraint firstItem="hIk-cV-VX7" firstAttribute="leading" secondItem="RkL-VQ-W8J" secondAttribute="trailing" constant="12" symbolic="YES" id="GpM-QD-xzb"/>
                                     <constraint firstItem="bNh-mT-nO7" firstAttribute="centerY" secondItem="8eU-oI-1A0" secondAttribute="centerY" id="NLC-gJ-ZKP"/>
                                     <constraint firstItem="8eU-oI-1A0" firstAttribute="leading" secondItem="bNh-mT-nO7" secondAttribute="trailing" constant="8" id="VdU-2p-Qjf"/>
+                                    <constraint firstItem="RkL-VQ-W8J" firstAttribute="baseline" secondItem="hIk-cV-VX7" secondAttribute="baseline" id="a3L-sU-Nyu"/>
+                                    <constraint firstItem="Gev-Gf-gQF" firstAttribute="leading" secondItem="hW0-fn-wPU" secondAttribute="trailing" constant="8" symbolic="YES" id="mWB-Vk-gHI"/>
                                     <constraint firstAttribute="trailing" secondItem="8eU-oI-1A0" secondAttribute="trailing" constant="8" id="mwb-Pd-O6z"/>
                                     <constraint firstItem="8eU-oI-1A0" firstAttribute="centerY" secondItem="Oox-ln-t14" secondAttribute="centerY" id="ru8-2D-7EX"/>
                                     <constraint firstItem="Gev-Gf-gQF" firstAttribute="centerY" secondItem="Oox-ln-t14" secondAttribute="centerY" id="vvW-lS-sid"/>

@@ -290,6 +290,44 @@
     
 }
 
+#pragma mark - Data Manipulation
+
+- (IBAction)addPressed:(id)sender {
+    
+    [[CoreDataController sharedInstance] performBlock:^(NSManagedObjectContext *managedObjectContext) {
+        
+        [Movie createInManagedObjectContext:managedObjectContext];
+        
+    }];
+    
+    [self refreshMovies];
+    
+}
+
+- (IBAction)editPressed:(id)sender {
+    
+    [[CoreDataController sharedInstance] performBlock:^(NSManagedObjectContext *managedObjectContext) {
+        
+        self.movies[self.movieTableView.selectedRow].rating = @10;
+        
+    }];
+    
+    [self refreshMovies];
+    
+}
+
+- (IBAction)deletePressed:(id)sender {
+    
+    [[CoreDataController sharedInstance] performBlock:^(NSManagedObjectContext *managedObjectContext) {
+        
+        [managedObjectContext deleteObject:self.movies[self.movieTableView.selectedRow]];
+        
+    }];
+    
+    [self refreshMovies];
+    
+}
+
 #pragma mark - Actions
 
 -(IBAction)watchlistClicked:(id)sender {
