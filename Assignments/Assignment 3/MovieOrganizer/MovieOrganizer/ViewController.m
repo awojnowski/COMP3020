@@ -152,11 +152,10 @@
         
         [self.view setWantsLayer:YES];
         
-        NSColor *lightMintColor = [NSColor colorWithSRGBRed:224.0/255.0 green:255.0/255.0 blue:245.0/255.0 alpha:1];
+        NSColor *lightGrayColor = [NSColor colorWithSRGBRed:244.0/255.0 green:244.0/255.0 blue:244.0/255.0 alpha:1];
         
-        NSColor *customBlueColor = [NSColor colorWithSRGBRed:159.0/255.0 green:223.0/255.0 blue:255.0/255.0 alpha:1];
+        NSColor *grayColor = [NSColor colorWithSRGBRed:224.0/255.0 green:224.0/255.0 blue:224.0/255.0 alpha:1];
         
-//        [self.showMovieView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
         [self.advancedSearchMenuBarView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
         [self.menuBarContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
         [self.minRatingContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
@@ -167,12 +166,7 @@
         [self.genreContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
         [self.actorsContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
         [self.directorContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-//        [self.userReviewContainer.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-//        [self.otherReviewsContainer.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-//        [self.exampleUserReviewOne.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-//        [self.exampleUserReviewTwo.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-        
-//        [self.showMovieView.layer setBorderWidth:1];
+
         [self.advancedSearchMenuBarView.layer setBorderWidth:1];
         [self.menuBarContainerView.layer setBorderWidth:1];
         [self.minRatingContainerView.layer setBorderWidth:1];
@@ -183,16 +177,10 @@
         [self.genreContainerView.layer setBorderWidth:1];
         [self.actorsContainerView.layer setBorderWidth:1];
         [self.directorContainerView.layer setBorderWidth:1];
-//        [self.userReviewContainer.layer setBorderWidth:1];
-//        [self.otherReviewsContainer.layer setBorderWidth:1];
-//        [self.exampleUserReviewOne.layer setBorderWidth:1];
-//        [self.exampleUserReviewTwo.layer setBorderWidth:1];
         
-        [self.advancedSearchMenuBarView.layer setBackgroundColor:lightMintColor.CGColor];
-        [self.menuBarContainerView.layer setBackgroundColor:lightMintColor.CGColor];
-        [self.view.layer setBackgroundColor:customBlueColor.CGColor];
-         
-//        [self.otherReviewsContainer.layer setBackgroundColor:[NSColor whiteColor].CGColor];
+        [self.advancedSearchMenuBarView.layer setBackgroundColor:grayColor.CGColor];
+        [self.menuBarContainerView.layer setBackgroundColor:grayColor.CGColor];
+        [self.view.layer setBackgroundColor:lightGrayColor.CGColor];
         
     });
     
