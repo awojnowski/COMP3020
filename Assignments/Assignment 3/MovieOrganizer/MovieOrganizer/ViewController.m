@@ -216,10 +216,23 @@
     
     [[self searchProvider] searchWithCompletionBlock:^(NSArray<Movie *> *movies) {
         
-        _movies = movies;
+        _movies = [self moviesWithSortDescriptors:<#Sort Descriptors#> fromMovies:movies];
         [[self movieTableView] reloadData];
         
     }];
+    
+}
+
+-(void)refreshSortDescriptors {
+    
+    _movies = [self moviesWithSortDescriptors:<#Sort Descriptors#> fromMovies:[self movies]];
+    [[self movieTableView] reloadData];
+    
+}
+
+-(NSArray *)moviesWithSortDescriptors:(NSArray *)sortDescriptors fromMovies:(NSArray *)movies {
+    
+    return [movies sortedArrayUsingDescriptors:sortDescriptors];
     
 }
 
