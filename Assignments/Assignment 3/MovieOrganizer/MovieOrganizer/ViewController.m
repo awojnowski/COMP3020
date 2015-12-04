@@ -216,7 +216,7 @@
     
     [[self searchProvider] searchWithCompletionBlock:^(NSArray<Movie *> *movies) {
         
-        _movies = [self moviesWithSortDescriptors:<#Sort Descriptors#> fromMovies:movies];
+        _movies = [self moviesWithSortDescriptors:self.movieTableView.sortDescriptors fromMovies:movies];
         [[self movieTableView] reloadData];
         
     }];
@@ -225,7 +225,7 @@
 
 -(void)refreshSortDescriptors {
     
-    _movies = [self moviesWithSortDescriptors:<#Sort Descriptors#> fromMovies:[self movies]];
+    _movies = [self moviesWithSortDescriptors:self.movieTableView.sortDescriptors fromMovies:[self movies]];
     [[self movieTableView] reloadData];
     
 }
@@ -280,8 +280,7 @@
 
 - (void)tableView:(NSTableView *)tableView sortDescriptorsDidChange:(NSArray<NSSortDescriptor *> *)oldDescriptors {
     
-    self.movies = [self.movies sortedArrayUsingDescriptors:self.movieTableView.sortDescriptors];
-    [self.movieTableView reloadData];
+    [self refreshSortDescriptors];
     
 }
 
