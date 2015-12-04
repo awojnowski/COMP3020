@@ -8,6 +8,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="MovieDetailViewController">
             <connections>
                 <outlet property="appleImage" destination="XEM-vC-0Gb" id="ne9-zk-2l6"/>
+                <outlet property="artworkImageView" destination="zgT-cT-VLh" id="ISl-2n-6TL"/>
                 <outlet property="exampleUserReviewOne" destination="X56-st-gY9" id="y5u-5S-dsI"/>
                 <outlet property="exampleUserReviewTwo" destination="RLY-mR-edP" id="9MH-3s-cZI"/>
                 <outlet property="movieDetailTextField" destination="hHD-iD-IqA" id="ReP-WL-Fe5"/>

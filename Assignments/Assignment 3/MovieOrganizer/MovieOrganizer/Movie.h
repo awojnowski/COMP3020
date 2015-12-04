@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Movie : NSManagedObject
 
+-(void)fetchImageWithCompletionBlock:(void (^)(NSImage *image))completionBlock;
+
 +(instancetype)createInManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
 +(instancetype)movieMatchingTitle:(NSString *)title inManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
 +(NSArray <Movie *> *)allMoviesInManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;

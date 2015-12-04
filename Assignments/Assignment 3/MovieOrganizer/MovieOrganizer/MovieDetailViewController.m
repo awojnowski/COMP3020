@@ -27,6 +27,7 @@
 @property (weak) IBOutlet NSImageView *netflixImage;
 @property (weak) IBOutlet NSImageView *appleImage;
 @property (weak) IBOutlet NSImageView *shomiImage;
+@property (weak) IBOutlet NSImageView *artworkImageView;
 
 @end
 
@@ -37,7 +38,7 @@
     // Do view setup here.
     
     [self.view setWantsLayer:YES];
-
+    
     [self.userReviewContainer.layer setBorderColor:[NSColor lightGrayColor].CGColor];
     [self.otherReviewsContainer.layer setBorderColor:[NSColor lightGrayColor].CGColor];
     [self.exampleUserReviewOne.layer setBorderColor:[NSColor lightGrayColor].CGColor];
@@ -49,6 +50,7 @@
     [self.exampleUserReviewTwo.layer setBorderWidth:1];
     
     [self.view.layer setBackgroundColor:[NSColor whiteColor].CGColor];
+    
 }
 
 - (void)setMovie:(Movie *)movie {
@@ -88,6 +90,12 @@
     [self.movieTitleLabel setStringValue:self.movie.title];
     [self.movieDetailTextField setStringValue:description];
     [self.starRatingCell setIntValue:([self.movie.rating intValue]+1) / 2];
+    
+    [[self movie] fetchImageWithCompletionBlock:^(NSImage * _Nonnull image) {
+        
+        [[self artworkImageView] setImage:image];
+        
+    }];
 }
 
 - (IBAction)backButtonPressed:(id)sender {
