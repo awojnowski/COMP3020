@@ -66,12 +66,26 @@
 @property (nonatomic) NSMutableArray* selectedActorsArray;
 @property (nonatomic) NSMutableArray* selectedDirectorsArray;
 
+@property (nonatomic, readonly, strong) MovieSearchProvider *searchProvider;
+
 @property (nonatomic) NSArray<Actor *>* actors;
-@property (nonatomic) NSArray<Movie *>* movies;
+@property (nonatomic, readonly) NSArray<Movie *>* movies;
 
 @end
 
 @implementation ViewController
+
+@synthesize searchProvider=_searchProvider;
+-(MovieSearchProvider *)searchProvider {
+    
+    if (!_searchProvider) {
+        
+        _searchProvider = [[MovieSearchProvider alloc] init];
+        
+    }
+    return _searchProvider;
+    
+}
 
 -(void)viewDidLoad {
     
@@ -81,9 +95,6 @@
     [[CoreDataController sharedInstance] performBlock:^(NSManagedObjectContext *managedObjectContext) {
         
         [[SeedDataLoader sharedInstance] seedDataInManagedObjectContext:managedObjectContext];
-        
-        NSArray *movies = [Movie allMoviesInManagedObjectContext:managedObjectContext];
-        [self setMovies:movies];
         
         NSMutableArray * __block actorNames = [NSMutableArray array];
         /*NSArray *actors = [Actor allActorsInManagedObjectContext:managedObjectContext];
@@ -99,7 +110,6 @@
         dispatch_async(dispatch_get_main_queue(), ^(void) {
             
             [[self actorPullDown] addItemsWithTitles:actorNames];
-            [self.movieTableView reloadData];
             
         });
         
@@ -113,7 +123,49 @@
     
     [self setMovieDetailView];
     self.showMovieView.hidden = YES;
+    
+    // finish up
+    
+    [self refreshMovies];
 
+}
+
+-(void)viewDidLayout {
+    
+    [super viewDidLayout];
+    
+    [self.view setWantsLayer:YES];
+    
+    NSColor *lightGrayColor = [NSColor colorWithSRGBRed:244.0/255.0 green:244.0/255.0 blue:244.0/255.0 alpha:1];
+    
+    NSColor *grayColor = [NSColor colorWithSRGBRed:224.0/255.0 green:224.0/255.0 blue:224.0/255.0 alpha:1];
+    
+    [self.advancedSearchMenuBarView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
+    [self.menuBarContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
+    [self.minRatingContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
+    [self.yearContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
+    [self.tagsContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
+    [self.ageContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
+    [self.availibilityContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
+    [self.genreContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
+    [self.actorsContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
+    [self.directorContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
+    
+    [self.advancedSearchMenuBarView.layer setBorderWidth:1];
+    [self.menuBarContainerView.layer setBorderWidth:1];
+    [self.minRatingContainerView.layer setBorderWidth:1];
+    [self.yearContainerView.layer setBorderWidth:1];
+    [self.tagsContainerView.layer setBorderWidth:1];
+    [self.ageContainerView.layer setBorderWidth:1];
+    [self.availibilityContainerView.layer setBorderWidth:1];
+    [self.genreContainerView.layer setBorderWidth:1];
+    [self.actorsContainerView.layer setBorderWidth:1];
+    [self.directorContainerView.layer setBorderWidth:1];
+    
+    [self.advancedSearchMenuBarView.layer setBackgroundColor:grayColor.CGColor];
+    [self.menuBarContainerView.layer setBackgroundColor:grayColor.CGColor];
+    [self.view.layer setBackgroundColor:lightGrayColor.CGColor];
+    
 }
 
 -(void)setMovieDetailView {
@@ -159,51 +211,26 @@
     
 }
 
--(void)viewDidLayout {
+#pragma mark - Movies
+
+-(void)refreshMovies {
     
-    [super viewDidLayout];
-    
-    [self.view setWantsLayer:YES];
-    
-    NSColor *lightGrayColor = [NSColor colorWithSRGBRed:244.0/255.0 green:244.0/255.0 blue:244.0/255.0 alpha:1];
-    
-    NSColor *grayColor = [NSColor colorWithSRGBRed:224.0/255.0 green:224.0/255.0 blue:224.0/255.0 alpha:1];
-    
-    [self.advancedSearchMenuBarView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-    [self.menuBarContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-    [self.minRatingContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-    [self.yearContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-    [self.tagsContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-    [self.ageContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-    [self.availibilityContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-    [self.genreContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-    [self.actorsContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-    [self.directorContainerView.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-    
-    [self.advancedSearchMenuBarView.layer setBorderWidth:1];
-    [self.menuBarContainerView.layer setBorderWidth:1];
-    [self.minRatingContainerView.layer setBorderWidth:1];
-    [self.yearContainerView.layer setBorderWidth:1];
-    [self.tagsContainerView.layer setBorderWidth:1];
-    [self.ageContainerView.layer setBorderWidth:1];
-    [self.availibilityContainerView.layer setBorderWidth:1];
-    [self.genreContainerView.layer setBorderWidth:1];
-    [self.actorsContainerView.layer setBorderWidth:1];
-    [self.directorContainerView.layer setBorderWidth:1];
-    
-    [self.advancedSearchMenuBarView.layer setBackgroundColor:grayColor.CGColor];
-    [self.menuBarContainerView.layer setBackgroundColor:grayColor.CGColor];
-    [self.view.layer setBackgroundColor:lightGrayColor.CGColor];
+    [[self searchProvider] searchWithCompletionBlock:^(NSArray<Movie *> *movies) {
+        
+        _movies = movies;
+        [[self movieTableView] reloadData];
+        
+    }];
     
 }
 
-#pragma MARK - MovieDetailViewControllerDelegate
+#pragma mark - MovieDetailViewControllerDelegate
 
 - (void)backButtonPressed {
     [self showListViewTapped:nil];
 }
 
-#pragma MARK - NSTableView
+#pragma mark - NSTableView
 
 -(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
     
