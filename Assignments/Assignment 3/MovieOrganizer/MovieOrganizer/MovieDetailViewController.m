@@ -24,6 +24,10 @@
 @property (weak) IBOutlet NSView *exampleUserReviewOne;
 @property (weak) IBOutlet NSView *exampleUserReviewTwo;
 
+@property (weak) IBOutlet NSImageView *netflixImage;
+@property (weak) IBOutlet NSImageView *appleImage;
+@property (weak) IBOutlet NSImageView *shomiImage;
+
 @end
 
 @implementation MovieDetailViewController

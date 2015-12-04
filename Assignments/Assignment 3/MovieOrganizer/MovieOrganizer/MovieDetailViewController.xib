@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9059"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9060"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MovieDetailViewController">
             <connections>
+                <outlet property="appleImage" destination="XEM-vC-0Gb" id="ne9-zk-2l6"/>
                 <outlet property="exampleUserReviewOne" destination="X56-st-gY9" id="y5u-5S-dsI"/>
                 <outlet property="exampleUserReviewTwo" destination="RLY-mR-edP" id="9MH-3s-cZI"/>
                 <outlet property="movieDetailTextField" destination="hHD-iD-IqA" id="ReP-WL-Fe5"/>
                 <outlet property="movieTitleLabel" destination="Jdc-FP-TUn" id="Ehs-t3-jrm"/>
+                <outlet property="netflixImage" destination="2X3-mi-TQo" id="pp6-Zn-CWs"/>
                 <outlet property="otherReviewsContainer" destination="X56-st-gY9" id="edh-1u-wj0"/>
+                <outlet property="shomiImage" destination="ZtG-cq-2ei" id="qXi-lU-jZ8"/>
                 <outlet property="starRatingCell" destination="xnr-Ak-wOP" id="Isf-O1-yEv"/>
                 <outlet property="userRatingCell" destination="5LY-K9-MbU" id="pbP-t9-Vrq"/>
                 <outlet property="userReviewContainer" destination="vvx-gz-xr3" id="3zg-4M-fT2"/>

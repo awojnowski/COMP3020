@@ -123,6 +123,8 @@
     self.showMovieView.hidden = YES;
     [self.movieTableView setDoubleAction:@selector(showMovie)];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(movieSearchTextChanged:) name:NSControlTextDidChangeNotification object:self.movieSearchField];
+    
     // finish up
     
     [self refreshMovies];
@@ -290,6 +292,12 @@
 
 #pragma mark - Actions
 
+-(IBAction)watchlistClicked:(id)sender {
+    
+    
+    
+}
+
 - (IBAction)minRatingControlTouched:(id)sender {
     
     NSSegmentedControl *control = (NSSegmentedControl *)sender;
@@ -374,7 +382,7 @@
     
     if([self.selectedActorsArray indexOfObject:self.actorPullDown.titleOfSelectedItem] == NSNotFound) {
         
-        if(![self.actorPullDown.titleOfSelectedItem isEqual:@"N/A"]) {
+        if(![self.actorPullDown.titleOfSelectedItem isEqualToString:@"N/A"]) {
             
             [self.selectedActorsArray addObject: self.actorPullDown.titleOfSelectedItem];
             [self updateActorList];
@@ -389,7 +397,7 @@
     
     if([self.selectedDirectorsArray indexOfObject:self.directorPullDown.titleOfSelectedItem] == NSNotFound ) {
         
-        if(![self.directorPullDown.titleOfSelectedItem isEqual:@"N/A"]) {
+        if(![self.directorPullDown.titleOfSelectedItem isEqualToString:@"N/A"]) {
             
             [self.selectedDirectorsArray addObject: self.directorPullDown.titleOfSelectedItem];
             
@@ -461,13 +469,19 @@
     
 }
 
-- (IBAction)searchMovieButtonTouched:(id)sender {
+- (void)movieSearchTextChanged:(NSNotification *)notification {
     
-    //NSString* searchString = self.movieSearchField.stringValue;
+    NSString* searchString = self.movieSearchField.stringValue;
     
-    //MovieSearchProvider *provider = [[MovieSearchProvider alloc] init];
+    if([searchString isEqual: @""]) {
+        
+        searchString = nil;
+        
+    }
     
-    //[self.movieTableView reloadData];
+    [self.searchProvider setTitle:searchString];
+    
+    [self refreshMovies];
     
 }
 
