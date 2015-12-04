@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		74DD1A1E1C12320100C11E86 /* GraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74DD1A1C1C12320100C11E86 /* GraphViewController.m */; };
 		74DD1A1F1C12320100C11E86 /* GraphViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74DD1A1D1C12320100C11E86 /* GraphViewController.xib */; };
+		9315BABD1C12435B005BA339 /* ScatterplotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9315BABC1C12435B005BA339 /* ScatterplotView.m */; };
 		931CF09D1C0BAA55003122FB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 931CF09C1C0BAA55003122FB /* AppDelegate.m */; };
 		931CF0A01C0BAA55003122FB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 931CF09F1C0BAA55003122FB /* main.m */; };
 		931CF0A31C0BAA55003122FB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 931CF0A21C0BAA55003122FB /* ViewController.m */; };
@@ -39,6 +40,8 @@
 		74DD1A1B1C12320100C11E86 /* GraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphViewController.h; sourceTree = "<group>"; };
 		74DD1A1C1C12320100C11E86 /* GraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphViewController.m; sourceTree = "<group>"; };
 		74DD1A1D1C12320100C11E86 /* GraphViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GraphViewController.xib; sourceTree = "<group>"; };
+		9315BABB1C12435B005BA339 /* ScatterplotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScatterplotView.h; path = "ScatterplotView.h"; sourceTree = "<group>"; };
+		9315BABC1C12435B005BA339 /* ScatterplotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScatterplotView.m; path = "ScatterplotView.m"; sourceTree = "<group>"; };
 		931CF0981C0BAA55003122FB /* MovieOrganizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieOrganizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		931CF09B1C0BAA55003122FB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		931CF09C1C0BAA55003122FB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -96,6 +99,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9315BABA1C124304005BA339 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9315BABB1C12435B005BA339 /* ScatterplotView.h */,
+				9315BABC1C12435B005BA339 /* ScatterplotView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		931CF08F1C0BAA55003122FB = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +129,7 @@
 			children = (
 				93C5153B1C0CF995008C8C8E /* Controllers */,
 				93C515471C0D01EC008C8C8E /* Models */,
+				9315BABA1C124304005BA339 /* Views */,
 				93C5153C1C0CF99B008C8C8E /* View Controllers */,
 				931CF09E1C0BAA55003122FB /* Supporting Files */,
 			);
@@ -303,6 +316,7 @@
 				93C515651C0D022A008C8C8E /* Genre+CoreDataProperties.m in Sources */,
 				93C515641C0D022A008C8C8E /* Actor.m in Sources */,
 				93C515661C0D022A008C8C8E /* Genre.m in Sources */,
+				9315BABD1C12435B005BA339 /* ScatterplotView.m in Sources */,
 				93C515461C0CFCFE008C8C8E /* SeedDataLoader.m in Sources */,
 				93C515621C0D022A008C8C8E /* Movie.m in Sources */,
 				93C5156C1C0D022A008C8C8E /* Configuration.m in Sources */,

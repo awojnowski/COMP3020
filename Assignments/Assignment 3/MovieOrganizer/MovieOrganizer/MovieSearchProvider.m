@@ -113,6 +113,10 @@
         NSArray * const results = [managedObjectContext executeFetchRequest:fetchRequest error:NULL];
         dispatch_async(dispatch_get_main_queue(), ^(void) {
             
+            [self willChangeValueForKey:@"previousSearchResults"];
+            _previousSearchResults = results;
+            [self didChangeValueForKey:@"previousSearchResults"];
+            
             completionBlock(results);
             
         });

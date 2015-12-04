@@ -8,16 +8,10 @@
 
 #import <Cocoa/Cocoa.h>
 
-@protocol GraphViewControllerDelegate;
+@class MovieSearchProvider;
 
 @interface GraphViewController : NSViewController
 
-@property (weak, nonatomic) id<GraphViewControllerDelegate> delegate;
-
-@end
-
-@protocol GraphViewControllerDelegate <NSObject>
-
-- (void)graphBackButtonPressed:(GraphViewController *)graphViewController;
+@property (nonatomic, weak) MovieSearchProvider *searchProvider;
 
 @end

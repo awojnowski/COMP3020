@@ -26,8 +26,9 @@
 
 #import "MovieSearchProvider.h"
 
-@interface ViewController () <NSTableViewDataSource, NSTableViewDelegate, MovieDetailViewControllerDelegate, GraphViewControllerDelegate>
+@interface ViewController () <NSTableViewDataSource, NSTableViewDelegate, MovieDetailViewControllerDelegate>
 
+@property (nonatomic, readonly, assign) NSInteger currentSelectedSegment;
 @property (nonatomic, readonly, assign) BOOL movieDetailShowing;
 
 @property (strong, nonatomic) MovieDetailViewController *movieDetailVC;
@@ -231,8 +232,8 @@
 
 -(void)setGraphDetailView {
     
-    self.graphVC = [[GraphViewController alloc] init];
-    self.graphVC.delegate = self;
+    self.graphVC = [[GraphViewController alloc] initWithNibName:nil bundle:nil];
+    self.graphVC.searchProvider = [self searchProvider];
     self.graphDetailView = self.graphVC.view;
     [self.graphDetailView setTranslatesAutoresizingMaskIntoConstraints:NO];
     
@@ -295,6 +296,65 @@
 -(NSArray *)moviesWithSortDescriptors:(NSArray *)sortDescriptors fromMovies:(NSArray *)movies {
     
     return [movies sortedArrayUsingDescriptors:sortDescriptors];
+    
+}
+
+#pragma mark - Watchlist
+
+-(Tag *)watchlistTag {
+    
+    Tag * __block watchlistTag = nil;
+    [[CoreDataController sharedInstance] performBlock:^(NSManagedObjectContext *managedObjectContext) {
+        
+        watchlistTag = [Tag watchlistInManagedObjectContext:managedObjectContext];
+        
+    }];
+    if (!watchlistTag) {
+        
+        return nil;
+        
+    }
+    return watchlistTag;
+    
+}
+
+-(void)enableWatchlist {
+    
+    Tag * const watchlistTag = [self watchlistTag];
+    if (!watchlistTag) {
+        
+        return;
+        
+    }
+    
+    NSMutableArray * const mutableTagsArray = [NSMutableArray arrayWithArray:[[self searchProvider] tags]];
+    if ([mutableTagsArray containsObject:watchlistTag]) {
+        
+        return;
+        
+    }
+    [mutableTagsArray addObject:watchlistTag];
+    [[self searchProvider] setTags:mutableTagsArray];
+    
+}
+
+-(void)disableWatchlist {
+    
+    Tag * const watchlistTag = [self watchlistTag];
+    if (!watchlistTag) {
+        
+        return;
+        
+    }
+    
+    NSMutableArray * const mutableTagsArray = [NSMutableArray arrayWithArray:[[self searchProvider] tags]];
+    if (![mutableTagsArray containsObject:watchlistTag]) {
+        
+        return;
+        
+    }
+    [mutableTagsArray removeObject:watchlistTag];
+    [[self searchProvider] setTags:mutableTagsArray];
     
 }
 
@@ -395,43 +455,6 @@
 - (void)tableView:(NSTableView *)tableView sortDescriptorsDidChange:(NSArray<NSSortDescriptor *> *)oldDescriptors {
     
     [self refreshSortDescriptors];
-    
-}
-
-#pragma mark - Actions
-
--(IBAction)watchlistClicked:(id)sender {
-    
-    // show the list view
-    
-    [self showListViewSelected];
-    
-    // update the watchlist
-    
-    Tag * __block watchlistTag = nil;
-    [[CoreDataController sharedInstance] performBlock:^(NSManagedObjectContext *managedObjectContext) {
-        
-        watchlistTag = [Tag watchlistInManagedObjectContext:managedObjectContext];
-        
-    }];
-    if (!watchlistTag) {
-        
-        return;
-        
-    }
-    
-    NSMutableArray * const mutableTagsArray = [NSMutableArray arrayWithArray:[[self searchProvider] tags]];
-    if ([[[self searchProvider] tags] containsObject:watchlistTag]) {
-        
-        [mutableTagsArray removeObject:watchlistTag];
-        
-    } else {
-        
-        [mutableTagsArray addObject:watchlistTag];
-        
-    }
-    [[self searchProvider] setTags:mutableTagsArray];
-    [self refreshMovies];
     
 }
 
@@ -692,15 +715,25 @@
 - (IBAction)viewSegmentedControlSelected:(id)sender {
     
     NSSegmentedControl *control = (NSSegmentedControl *)sender;
-    int segment = (int)[control selectedSegment];
+    NSInteger segment = [control selectedSegment];
+    if (segment == [self currentSelectedSegment]) {
+        
+        return;
+        
+    }
+    _currentSelectedSegment = segment;
     
     if(segment == 0) {
         
-        [self watchlistClicked:nil];
+        [self showListViewSelected];
+        [self disableWatchlist];
+        [self refreshMovies];
         
     } else if(segment == 1) {
         
-        [self watchlistClicked:nil];
+        [self showListViewSelected];
+        [self enableWatchlist];
+        [self refreshMovies];
         
     } else if(segment == 2) {
         
