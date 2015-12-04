@@ -81,7 +81,6 @@
     if (!_searchProvider) {
         
         _searchProvider = [[MovieSearchProvider alloc] init];
-        [_searchProvider setAvailableOnShomi:YES];
         
     }
     return _searchProvider;
