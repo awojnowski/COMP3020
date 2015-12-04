@@ -113,6 +113,7 @@
     
     [self setMovieDetailView];
     self.showMovieView.hidden = YES;
+    [self.movieTableView setDoubleAction:@selector(showMovie)];
 
 }
 
@@ -233,10 +234,14 @@
     
 }
 
-- (void)tableViewSelectionDidChange:(NSNotification *)notification {
+- (void)showMovie {
+    
     self.movieDetailVC.movie = self.movies[self.movieTableView.selectedRow];
     [self showMovieTapped:nil];
+    
 }
+
+
 
 #pragma MARK - Actions
 
