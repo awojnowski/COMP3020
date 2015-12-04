@@ -463,6 +463,12 @@
     
     NSString* searchString = self.movieSearchField.stringValue;
     
+    if([searchString isEqual: @""]) {
+        
+        searchString = nil;
+        
+    }
+    
     [self.searchProvider setTitle:searchString];
     
     [self refreshMovies];
