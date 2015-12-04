@@ -50,7 +50,7 @@
         NSPredicate * const predicate = [NSPredicate predicateWithFormat:@"\
                                          TRUEPREDICATE AND (\
                                          (%@ == NO OR (%@ == YES AND ANY actors IN %@)) AND \
-                                         (%@ == NO OR (%@ == YES AND certification CONTAINS[c] %@)) AND\
+                                         (%@ == NO OR (%@ == YES AND certification ==[c] %@)) AND\
                                          (%@ == NO OR (%@ == YES AND director == %@)) AND\
                                          (%@ == NO OR (%@ == YES AND ANY genres IN %@)) AND\
                                          (rating >= %@ AND rating <= %@) AND\
