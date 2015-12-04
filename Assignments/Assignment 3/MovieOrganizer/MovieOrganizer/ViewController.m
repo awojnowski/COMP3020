@@ -121,6 +121,7 @@
     
     [self setMovieDetailView];
     self.showMovieView.hidden = YES;
+    [self.movieTableView setDoubleAction:@selector(showMovie)];
     
     // finish up
     
@@ -215,7 +216,7 @@
     
     [[self searchProvider] searchWithCompletionBlock:^(NSArray<Movie *> *movies) {
         
-        _movies = [self moviesWithSortDescriptors:<#Sort Descriptors#> fromMovies:movies];
+        _movies = [self moviesWithSortDescriptors:self.movieTableView.sortDescriptors fromMovies:movies];
         [[self movieTableView] reloadData];
         
     }];
@@ -224,7 +225,7 @@
 
 -(void)refreshSortDescriptors {
     
-    _movies = [self moviesWithSortDescriptors:<#Sort Descriptors#> fromMovies:[self movies]];
+    _movies = [self moviesWithSortDescriptors:self.movieTableView.sortDescriptors fromMovies:[self movies]];
     [[self movieTableView] reloadData];
     
 }
@@ -256,7 +257,6 @@
     if ([columnID isEqualToString:@"movieTitle"]) {
         return self.movies[rowIndex].title;
     } else if ([columnID isEqualToString:@"movieGenre"]) {
-//        NSLog(@"%@", self.movies[rowIndex].genres.anyObject.title);           // genres aren't properly fetched
         return self.movies[rowIndex].genres.anyObject.title;
     } else if ([columnID isEqualToString:@"movieYear"]) {
         return [NSString stringWithFormat:@"%@", self.movies[rowIndex].year];
@@ -265,18 +265,26 @@
     } else if ([columnID isEqualToString:@"movieDirector"]) {
         return self.movies[rowIndex].director.name;
     } else if ([columnID isEqualToString:@"movieAgeRating"]) {
-        return self.movies[rowIndex].rating;                    // age rating needs to be added (certification)
+        return self.movies[rowIndex].certification;
     }
     return NULL;
     
 }
 
-- (void)tableViewSelectionDidChange:(NSNotification *)notification {
+- (void)showMovie {
+    
     self.movieDetailVC.movie = self.movies[self.movieTableView.selectedRow];
     [self showMovieTapped:nil];
+    
 }
 
-#pragma MARK - Actions
+- (void)tableView:(NSTableView *)tableView sortDescriptorsDidChange:(NSArray<NSSortDescriptor *> *)oldDescriptors {
+    
+    [self refreshSortDescriptors];
+    
+}
+
+#pragma mark - Actions
 
 - (IBAction)minRatingControlTouched:(id)sender {
     
