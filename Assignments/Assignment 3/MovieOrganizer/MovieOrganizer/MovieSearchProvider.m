@@ -63,20 +63,20 @@
                                          )\
                                          ",
                                          
-                                         @([self actors] != nil),
-                                         @([self actors] != nil),
+                                         @([[self actors] count] > 0),
+                                         @([[self actors] count] > 0),
                                          [self actors] ?: @[],
                                          
-                                         @([self certification] != nil),
-                                         @([self certification] != nil),
+                                         @([[self certification] length] > 0),
+                                         @([[self certification] length] > 0),
                                          [self certification],
                                          
                                          @([self director] != nil),
                                          @([self director] != nil),
                                          [self director],
                                          
-                                         @([self genres] != nil),
-                                         @([self genres] != nil),
+                                         @([[self genres] count] > 0),
+                                         @([[self genres] count] > 0),
                                          [self genres] ?: @[],
                                          
                                          @([self minimumRating]),
@@ -94,12 +94,12 @@
                                          @([self availableOnShomi]),
                                          @([self availableOnShomi]),
                                          
-                                         @([self tags] != nil),
-                                         @([self tags] != nil),
+                                         @([[self tags] count] > 0),
+                                         @([[self tags] count] > 0),
                                          [self tags] ?: @[],
                                          
-                                         @([self title] != nil),
-                                         @([self title] != nil),
+                                         @([[self title] length] > 0),
+                                         @([[self title] length] > 0),
                                          [self title],
                                          
                                          @([self minimumYear]),

@@ -19,6 +19,7 @@
 #import "Genre.h"
 #import "Actor.h"
 #import "Director.h"
+#import "Tag.h"
 #import "SeedDataLoader.h"
 #import "MovieDetailViewController.h"
 
@@ -298,7 +299,30 @@
 
 -(IBAction)watchlistClicked:(id)sender {
     
+    Tag * __block watchlistTag = nil;
+    [[CoreDataController sharedInstance] performBlock:^(NSManagedObjectContext *managedObjectContext) {
+        
+        watchlistTag = [Tag watchlistInManagedObjectContext:managedObjectContext];
+        
+    }];
+    if (!watchlistTag) {
+        
+        return;
+        
+    }
     
+    NSMutableArray * const mutableTagsArray = [NSMutableArray arrayWithArray:[[self searchProvider] tags]];
+    if ([[[self searchProvider] tags] containsObject:watchlistTag]) {
+        
+        [mutableTagsArray removeObject:watchlistTag];
+        
+    } else {
+        
+        [mutableTagsArray addObject:watchlistTag];
+        
+    }
+    [[self searchProvider] setTags:mutableTagsArray];
+    [self refreshMovies];
     
 }
 
