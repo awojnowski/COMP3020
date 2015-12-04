@@ -21,10 +21,11 @@
 #import "Director.h"
 #import "SeedDataLoader.h"
 #import "MovieDetailViewController.h"
+#import "EditMovieViewController.h"
 
 #import "MovieSearchProvider.h"
 
-@interface ViewController () <NSTableViewDataSource, NSTableViewDelegate, MovieDetailViewControllerDelegate>
+@interface ViewController () <NSTableViewDataSource, NSTableViewDelegate, MovieDetailViewControllerDelegate, EditMovieViewControllerDelegate>
 
 @property (strong, nonatomic) MovieDetailViewController *movieDetailVC;
 @property (strong, nonatomic) NSView *movieDetailView;
@@ -67,6 +68,8 @@
 
 @property (nonatomic) NSArray<Actor *>* actors;
 @property (nonatomic, readonly) NSArray<Movie *>* movies;
+
+@property (strong, nonatomic) NSWindowController *editMovieWindowController;
 
 @end
 
@@ -296,7 +299,14 @@
     
     [[CoreDataController sharedInstance] performBlock:^(NSManagedObjectContext *managedObjectContext) {
         
-        [Movie createInManagedObjectContext:managedObjectContext];
+        Movie *movie = [Movie createInManagedObjectContext:managedObjectContext];
+        
+        NSStoryboard *storyboard = [NSStoryboard storyboardWithName:@"MovieEditor" bundle:nil];
+        self.editMovieWindowController = [storyboard instantiateInitialController];
+        EditMovieViewController *editViewController = (EditMovieViewController *)self.editMovieWindowController.window.contentViewController;
+        editViewController.delegate = self;
+        editViewController.movie = movie;
+        [self.editMovieWindowController showWindow:self];
         
     }];
     
@@ -325,6 +335,22 @@
     }];
     
     [self refreshMovies];
+    
+}
+
+#pragma mark - EditMovieViewControllerDelegate
+
+- (void)cancelEditing:(EditMovieViewController *)editMovieViewController {
+    
+    [self.editMovieWindowController close];
+    self.editMovieWindowController = nil;
+    
+}
+
+- (void)doneEditing:(EditMovieViewController *)editMovieViewController {
+    
+    [self.editMovieWindowController close];
+    self.editMovieWindowController = nil;
     
 }
 
