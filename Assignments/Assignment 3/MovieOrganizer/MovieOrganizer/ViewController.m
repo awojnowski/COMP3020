@@ -232,6 +232,13 @@
     
 }
 
+- (void)tableView:(NSTableView *)tableView sortDescriptorsDidChange:(NSArray<NSSortDescriptor *> *)oldDescriptors {
+    
+    self.movies = [self.movies sortedArrayUsingDescriptors:self.movieTableView.sortDescriptors];
+    [self.movieTableView reloadData];
+    
+}
+
 - (void)showMovie {
     self.movieDetailVC.movie = self.movies[self.movieTableView.selectedRow];
     [self showMovieTapped:nil];

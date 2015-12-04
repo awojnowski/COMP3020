@@ -1239,6 +1239,10 @@
                                 </constraints>
                                 <animations/>
                             </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="0U8-eS-Qnv">
+                                <rect key="frame" x="225" y="0.0" width="740" height="692"/>
+                                <animations/>
+                            </customView>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKr-mU-o44">
                                 <rect key="frame" x="224" y="0.0" width="741" height="692"/>
                                 <clipView key="contentView" drawsBackground="NO" id="cvG-ZI-fek">
@@ -1264,6 +1268,7 @@
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
+                                                    <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="title"/>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                 </tableColumn>
                                                 <tableColumn identifier="movieGenre" editable="NO" width="99.203125" minWidth="40" maxWidth="1000" id="sib-cz-IOl">
@@ -1277,6 +1282,7 @@
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
+                                                    <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="genre"/>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                 </tableColumn>
                                                 <tableColumn identifier="movieYear" editable="NO" width="64" minWidth="10" maxWidth="3.4028234663852886e+38" id="E3c-V7-4lT">
@@ -1290,6 +1296,7 @@
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
+                                                    <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="year"/>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                 </tableColumn>
                                                 <tableColumn identifier="movieRating" editable="NO" width="77.3984375" minWidth="10" maxWidth="3.4028234663852886e+38" id="IUf-uY-x9V">
@@ -1303,6 +1310,7 @@
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
+                                                    <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="rating"/>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                 </tableColumn>
                                                 <tableColumn identifier="movieDirector" editable="NO" width="126.4375" minWidth="10" maxWidth="3.4028234663852886e+38" id="PZM-Rh-HPG">
@@ -1316,6 +1324,7 @@
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
+                                                    <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="director.name"/>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                 </tableColumn>
                                                 <tableColumn identifier="movieAgeRating" editable="NO" width="156" minWidth="10" maxWidth="3.4028234663852886e+38" id="Obm-Ea-plC">
@@ -1358,10 +1367,6 @@
                                     <animations/>
                                 </tableHeaderView>
                             </scrollView>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="0U8-eS-Qnv">
-                                <rect key="frame" x="225" y="0.0" width="740" height="692"/>
-                                <animations/>
-                            </customView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Kvi-ch-mPX" firstAttribute="leading" secondItem="sFX-9X-O0V" secondAttribute="trailing" constant="28" id="18D-s4-Yw8"/>
