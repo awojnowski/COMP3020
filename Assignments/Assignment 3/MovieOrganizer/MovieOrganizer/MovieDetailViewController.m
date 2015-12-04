@@ -104,17 +104,29 @@
         
         [self.netflixImage setImage:[NSImage imageNamed:@"netflix"]];
         
+    } else {
+        
+        [self.netflixImage setImage:[NSImage imageNamed:@"netflixGray"]];
+        
     }
     
     if(self.movie.availableOnShomi.boolValue) {
         
         [self.shomiImage setImage:[NSImage imageNamed:@"shomi"]];
         
+    } else {
+        
+        [self.shomiImage setImage:[NSImage imageNamed:@"shomiGray"]];
+        
     }
     
     if(self.movie.availableOnItunes.boolValue) {
         
         [self.appleImage setImage:[NSImage imageNamed:@"apple"]];
+        
+    } else {
+        
+        [self.appleImage setImage:[NSImage imageNamed:@"appleGray"]];
         
     }
     
