@@ -123,6 +123,8 @@
     self.showMovieView.hidden = YES;
     [self.movieTableView setDoubleAction:@selector(showMovie)];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(movieSearchTextChanged:) name:NSControlTextDidChangeNotification object:self.movieSearchField];
+    
     // finish up
     
     [self refreshMovies];
@@ -457,13 +459,13 @@
     
 }
 
-- (IBAction)searchMovieButtonTouched:(id)sender {
+- (void)movieSearchTextChanged:(NSNotification *)notification {
     
-    //NSString* searchString = self.movieSearchField.stringValue;
+    NSString* searchString = self.movieSearchField.stringValue;
     
-    //MovieSearchProvider *provider = [[MovieSearchProvider alloc] init];
+    [self.searchProvider setTitle:searchString];
     
-    //[self.movieTableView reloadData];
+    [self refreshMovies];
     
 }
 
