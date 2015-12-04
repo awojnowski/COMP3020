@@ -13,10 +13,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+extern NSString * const WatchlistTagName;
+
 @interface Tag : NSManagedObject
 
 +(instancetype)createInManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
 +(instancetype)tagMatchingTitle:(NSString *)title inManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
+
++(instancetype)watchlistInManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
 
 @end
 

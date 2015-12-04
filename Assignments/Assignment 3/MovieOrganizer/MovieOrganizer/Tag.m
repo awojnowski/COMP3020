@@ -11,6 +11,8 @@
 
 @implementation Tag
 
+NSString * const WatchlistTagName = @"Your Watchlist";
+
 +(instancetype)createInManagedObjectContext:(NSManagedObjectContext *)managedObjectContext {
     
     return [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([self class]) inManagedObjectContext:managedObjectContext];
@@ -21,6 +23,15 @@
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:NSStringFromClass([self class])];
     [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"title ==[c] %@",title]];
+    NSArray *results = [managedObjectContext executeFetchRequest:fetchRequest error:NULL];
+    return [results firstObject];
+    
+}
+
++(instancetype)watchlistInManagedObjectContext:(NSManagedObjectContext *)managedObjectContext {
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:NSStringFromClass([self class])];
+    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"title ==[c] %@",WatchlistTagName]];
     NSArray *results = [managedObjectContext executeFetchRequest:fetchRequest error:NULL];
     return [results firstObject];
     

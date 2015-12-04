@@ -13,6 +13,7 @@
 		931CF0A51C0BAA55003122FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 931CF0A41C0BAA55003122FB /* Assets.xcassets */; };
 		931CF0A81C0BAA55003122FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 931CF0A61C0BAA55003122FB /* Main.storyboard */; };
 		9395CF0C1C11014B0041650F /* MovieSearchProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 9395CF0B1C11014B0041650F /* MovieSearchProvider.m */; };
+		9395CF141C1155690041650F /* Tag+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 9395CF111C1155690041650F /* Tag+CoreDataProperties.m */; };
 		93C5153A1C0CF71F008C8C8E /* seedData.json in Resources */ = {isa = PBXBuildFile; fileRef = 93C515391C0CF71F008C8C8E /* seedData.json */; };
 		93C5153F1C0CFA06008C8C8E /* CoreDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C5153E1C0CFA06008C8C8E /* CoreDataController.m */; };
 		93C515431C0CFA25008C8C8E /* MovieOrganizer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93C515411C0CFA25008C8C8E /* MovieOrganizer.xcdatamodeld */; };
@@ -25,7 +26,6 @@
 		93C5156A1C0D022A008C8C8E /* Director.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C5155C1C0D022A008C8C8E /* Director.m */; };
 		93C5156B1C0D022A008C8C8E /* Configuration+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C5155E1C0D022A008C8C8E /* Configuration+CoreDataProperties.m */; };
 		93C5156C1C0D022A008C8C8E /* Configuration.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C515601C0D022A008C8C8E /* Configuration.m */; };
-		93C5157A1C0D03C1008C8C8E /* Tag+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C515771C0D03C1008C8C8E /* Tag+CoreDataProperties.m */; };
 		93C5157B1C0D03C1008C8C8E /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C515791C0D03C1008C8C8E /* Tag.m */; };
 		93C515841C0D0627008C8C8E /* Actor+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C515831C0D0627008C8C8E /* Actor+CoreDataProperties.m */; };
 		93C515871C0D066C008C8C8E /* Director+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C515861C0D066C008C8C8E /* Director+CoreDataProperties.m */; };
@@ -45,6 +45,8 @@
 		931CF0A91C0BAA55003122FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9395CF0A1C11014B0041650F /* MovieSearchProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MovieSearchProvider.h; path = "../../../../../../../../../../Aaron/Documents/Work/University/COMP 3020/Repository/Assignments/Assignment 3/MovieOrganizer/MovieOrganizer/MovieSearchProvider.h"; sourceTree = "<group>"; };
 		9395CF0B1C11014B0041650F /* MovieSearchProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MovieSearchProvider.m; path = "../../../../../../../../../../Aaron/Documents/Work/University/COMP 3020/Repository/Assignments/Assignment 3/MovieOrganizer/MovieOrganizer/MovieSearchProvider.m"; sourceTree = "<group>"; };
+		9395CF101C1155690041650F /* Tag+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Tag+CoreDataProperties.h"; path = "../../../../../../../../../../Aaron/Documents/Work/University/COMP 3020/Repository/Assignments/Assignment 3/MovieOrganizer/Tag+CoreDataProperties.h"; sourceTree = "<group>"; };
+		9395CF111C1155690041650F /* Tag+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Tag+CoreDataProperties.m"; path = "../../../../../../../../../../Aaron/Documents/Work/University/COMP 3020/Repository/Assignments/Assignment 3/MovieOrganizer/Tag+CoreDataProperties.m"; sourceTree = "<group>"; };
 		93C515391C0CF71F008C8C8E /* seedData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = seedData.json; sourceTree = "<group>"; };
 		93C5153D1C0CFA06008C8C8E /* CoreDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataController.h; sourceTree = "<group>"; };
 		93C5153E1C0CFA06008C8C8E /* CoreDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataController.m; sourceTree = "<group>"; };
@@ -67,8 +69,6 @@
 		93C5155E1C0D022A008C8C8E /* Configuration+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Configuration+CoreDataProperties.m"; sourceTree = "<group>"; };
 		93C5155F1C0D022A008C8C8E /* Configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Configuration.h; sourceTree = "<group>"; };
 		93C515601C0D022A008C8C8E /* Configuration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Configuration.m; sourceTree = "<group>"; };
-		93C515761C0D03C1008C8C8E /* Tag+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Tag+CoreDataProperties.h"; sourceTree = "<group>"; };
-		93C515771C0D03C1008C8C8E /* Tag+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Tag+CoreDataProperties.m"; sourceTree = "<group>"; };
 		93C515781C0D03C1008C8C8E /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
 		93C515791C0D03C1008C8C8E /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
 		93C515821C0D0627008C8C8E /* Actor+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Actor+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -205,8 +205,8 @@
 				93C5154A1C0D022A008C8C8E /* Movie+CoreDataProperties.m */,
 				93C5154B1C0D022A008C8C8E /* Movie.h */,
 				93C5154C1C0D022A008C8C8E /* Movie.m */,
-				93C515761C0D03C1008C8C8E /* Tag+CoreDataProperties.h */,
-				93C515771C0D03C1008C8C8E /* Tag+CoreDataProperties.m */,
+				9395CF101C1155690041650F /* Tag+CoreDataProperties.h */,
+				9395CF111C1155690041650F /* Tag+CoreDataProperties.m */,
 				93C515781C0D03C1008C8C8E /* Tag.h */,
 				93C515791C0D03C1008C8C8E /* Tag.m */,
 			);
@@ -290,9 +290,9 @@
 				93C5156B1C0D022A008C8C8E /* Configuration+CoreDataProperties.m in Sources */,
 				93C515841C0D0627008C8C8E /* Actor+CoreDataProperties.m in Sources */,
 				93C5156A1C0D022A008C8C8E /* Director.m in Sources */,
+				9395CF141C1155690041650F /* Tag+CoreDataProperties.m in Sources */,
 				93C515651C0D022A008C8C8E /* Genre+CoreDataProperties.m in Sources */,
 				93C515641C0D022A008C8C8E /* Actor.m in Sources */,
-				93C5157A1C0D03C1008C8C8E /* Tag+CoreDataProperties.m in Sources */,
 				93C515661C0D022A008C8C8E /* Genre.m in Sources */,
 				93C515461C0CFCFE008C8C8E /* SeedDataLoader.m in Sources */,
 				93C515621C0D022A008C8C8E /* Movie.m in Sources */,

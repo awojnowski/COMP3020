@@ -134,6 +134,12 @@ NSString * const SeedDataLoaderSeedDataFileName = @"seedData.json";
         
     }];
     
+    // create the watchlist
+    
+    Tag *watchList = [Tag createInManagedObjectContext:managedObjectContext];
+    [watchList setTitle:WatchlistTagName];
+    [watchList setReadonly:@(YES)];
+    
     // all done!
     
     [configuration setIsCreated:@YES];

@@ -2,7 +2,7 @@
 //  Tag+CoreDataProperties.h
 //  MovieOrganizer
 //
-//  Created by Aaron Wojnowski on 2015-11-30.
+//  Created by Aaron Wojnowski on 2015-12-03.
 //  Copyright © 2015 CS Boys. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Tag (CoreDataProperties)
 
 @property (nullable, nonatomic, retain) NSString *title;
+@property (nullable, nonatomic, retain) NSNumber *readonly;
 @property (nullable, nonatomic, retain) NSSet<Movie *> *movies;
 
 @end
