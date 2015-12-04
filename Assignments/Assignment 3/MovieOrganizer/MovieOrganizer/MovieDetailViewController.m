@@ -7,6 +7,7 @@
 //
 
 #import "MovieDetailViewController.h"
+#import "CoreDataController.h"
 #import "Genre.h"
 #import "Actor.h"
 #import "Director.h"
@@ -18,6 +19,7 @@
 @property (weak) IBOutlet NSTextField *movieDetailTextField;
 @property (weak) IBOutlet NSLevelIndicatorCell *starRatingCell;
 @property (weak) IBOutlet NSLevelIndicatorCell *userRatingCell;
+@property (weak) IBOutlet NSButton *watchlistButton;
 
 @property (weak) IBOutlet NSView *userReviewContainer;
 @property (weak) IBOutlet NSView *otherReviewsContainer;
@@ -115,19 +117,49 @@
         [self.appleImage setImage:[NSImage imageNamed:@"apple"]];
         
     }
+    
+    [self refreshWatchlistButtonForMovie:[self movie]];
+    
 }
 
 - (IBAction)backButtonPressed:(id)sender {
-    [self.delegate backButtonPressed];
+    [self.delegate backButtonPressed:self];
 }
 
 - (IBAction)addToWatchListPressed:(id)sender {
-    [self.delegate addToWatchListPressed];
+    [self.delegate addToWatchListPressed:self];
+    [self refreshWatchlistButtonForMovie:[self movie]];
 }
 
 - (IBAction)ratingLevelTouched:(id)sender {
     
     [self.userRatingCell setImage:[NSImage imageNamed:@"starSmallOutline"]];
+    
+}
+
+#pragma mark - Watchlist
+
+-(void)refreshWatchlistButtonForMovie:(Movie *)movie {
+    
+    Tag * __block watchlistTag = nil;
+    [[CoreDataController sharedInstance] performBlock:^(NSManagedObjectContext *managedObjectContext) {
+        
+        watchlistTag = [Tag watchlistInManagedObjectContext:managedObjectContext];
+        
+    }];
+    if (watchlistTag) {
+        
+        if ([[[self movie] tags] containsObject:watchlistTag]) {
+            
+            [[self watchlistButton] setTitle:@"Remove From Watchlist"];
+            
+        } else {
+            
+            [[self watchlistButton] setTitle:@"Add To Watchlist"];
+            
+        }
+        
+    }
     
 }
 

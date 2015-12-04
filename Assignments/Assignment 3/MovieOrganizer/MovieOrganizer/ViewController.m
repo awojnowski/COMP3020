@@ -245,12 +245,36 @@
 
 #pragma mark - MovieDetailViewControllerDelegate
 
-- (void)backButtonPressed {
+- (void)backButtonPressed:(MovieDetailViewController *)movieDetailViewController {
+    
     [self showListViewTapped:nil];
+    [self refreshMovies];
+    
 }
 
-- (void)addToWatchListPressed {
-    // For Aaron <3
+- (void)addToWatchListPressed:(MovieDetailViewController *)movieDetailViewController {
+    
+    [[CoreDataController sharedInstance] performBlock:^(NSManagedObjectContext *managedObjectContext) {
+        
+        Tag * const watchlistTag = [Tag watchlistInManagedObjectContext:managedObjectContext];
+        if (!watchlistTag) {
+            
+            return;
+            
+        }
+        Movie * const movie = [movieDetailViewController movie];
+        if ([[movie tags] containsObject:watchlistTag]) {
+            
+            [movie removeTagsObject:watchlistTag];
+            
+        } else {
+            
+            [movie addTagsObject:watchlistTag];
+            
+        }
+        
+    }];
+    
 }
 
 #pragma mark - NSTableView

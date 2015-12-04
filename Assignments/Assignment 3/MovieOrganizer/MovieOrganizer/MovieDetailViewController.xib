@@ -20,6 +20,7 @@
                 <outlet property="userRatingCell" destination="5LY-K9-MbU" id="pbP-t9-Vrq"/>
                 <outlet property="userReviewContainer" destination="vvx-gz-xr3" id="3zg-4M-fT2"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+                <outlet property="watchlistButton" destination="tRz-tk-P6s" id="qFt-M7-gCO"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
