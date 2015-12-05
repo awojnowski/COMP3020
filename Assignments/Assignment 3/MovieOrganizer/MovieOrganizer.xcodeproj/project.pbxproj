@@ -34,6 +34,8 @@
 		93C515871C0D066C008C8C8E /* Director+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C515861C0D066C008C8C8E /* Director+CoreDataProperties.m */; };
 		ED3AD9741C0FD59F00AEEFD5 /* MovieDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3AD9721C0FD59F00AEEFD5 /* MovieDetailViewController.m */; };
 		ED3AD9751C0FD59F00AEEFD5 /* MovieDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED3AD9731C0FD59F00AEEFD5 /* MovieDetailViewController.xib */; };
+		ED50A8C41C11836B00704979 /* MovieEditor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED50A8C31C11836B00704979 /* MovieEditor.storyboard */; };
+		ED50A8C71C11892600704979 /* EditMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED50A8C61C11892600704979 /* EditMovieViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +88,9 @@
 		ED3AD9711C0FD59F00AEEFD5 /* MovieDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieDetailViewController.h; sourceTree = "<group>"; };
 		ED3AD9721C0FD59F00AEEFD5 /* MovieDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieDetailViewController.m; sourceTree = "<group>"; };
 		ED3AD9731C0FD59F00AEEFD5 /* MovieDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieDetailViewController.xib; sourceTree = "<group>"; };
+		ED50A8C31C11836B00704979 /* MovieEditor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MovieEditor.storyboard; sourceTree = "<group>"; };
+		ED50A8C51C11892600704979 /* EditMovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditMovieViewController.h; sourceTree = "<group>"; };
+		ED50A8C61C11892600704979 /* EditMovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditMovieViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +150,7 @@
 				931CF09C1C0BAA55003122FB /* AppDelegate.m */,
 				931CF0A41C0BAA55003122FB /* Assets.xcassets */,
 				931CF0A61C0BAA55003122FB /* Main.storyboard */,
+				ED50A8C31C11836B00704979 /* MovieEditor.storyboard */,
 				931CF0A91C0BAA55003122FB /* Info.plist */,
 				931CF09F1C0BAA55003122FB /* main.m */,
 			);
@@ -180,6 +186,8 @@
 				ED3AD9711C0FD59F00AEEFD5 /* MovieDetailViewController.h */,
 				ED3AD9721C0FD59F00AEEFD5 /* MovieDetailViewController.m */,
 				ED3AD9731C0FD59F00AEEFD5 /* MovieDetailViewController.xib */,
+				ED50A8C51C11892600704979 /* EditMovieViewController.h */,
+				ED50A8C61C11892600704979 /* EditMovieViewController.m */,
 				74DD1A1B1C12320100C11E86 /* GraphViewController.h */,
 				74DD1A1C1C12320100C11E86 /* GraphViewController.m */,
 				74DD1A1D1C12320100C11E86 /* GraphViewController.xib */,
@@ -294,6 +302,7 @@
 				ED3AD9751C0FD59F00AEEFD5 /* MovieDetailViewController.xib in Resources */,
 				74DD1A1F1C12320100C11E86 /* GraphViewController.xib in Resources */,
 				93C5153A1C0CF71F008C8C8E /* seedData.json in Resources */,
+				ED50A8C41C11836B00704979 /* MovieEditor.storyboard in Resources */,
 				931CF0A51C0BAA55003122FB /* Assets.xcassets in Resources */,
 				931CF0A81C0BAA55003122FB /* Main.storyboard in Resources */,
 			);
@@ -309,6 +318,7 @@
 				ED3AD9741C0FD59F00AEEFD5 /* MovieDetailViewController.m in Sources */,
 				93C5157B1C0D03C1008C8C8E /* Tag.m in Sources */,
 				931CF0A31C0BAA55003122FB /* ViewController.m in Sources */,
+				ED50A8C71C11892600704979 /* EditMovieViewController.m in Sources */,
 				93C5156B1C0D022A008C8C8E /* Configuration+CoreDataProperties.m in Sources */,
 				93C515841C0D0627008C8C8E /* Actor+CoreDataProperties.m in Sources */,
 				93C5156A1C0D022A008C8C8E /* Director.m in Sources */,

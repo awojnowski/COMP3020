@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9060"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9059"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -731,11 +731,50 @@
                                             </connections>
                                         </segmentedCell>
                                     </segmentedControl>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="o51-vi-OZ6">
+                                        <rect key="frame" x="546" y="1" width="80" height="32"/>
+                                        <animations/>
+                                        <buttonCell key="cell" type="push" title="Delete" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="p6u-7M-QKl">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="deletePressed:" target="XfG-lQ-9wD" id="G8d-Zc-irR"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gJb-Yx-2S1">
+                                        <rect key="frame" x="482" y="1" width="64" height="32"/>
+                                        <animations/>
+                                        <buttonCell key="cell" type="push" title="Edit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="off-nV-qCl">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="editPressed:" target="XfG-lQ-9wD" id="K23-yZ-hQM"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tij-P5-qFV">
+                                        <rect key="frame" x="417" y="1" width="65" height="32"/>
+                                        <animations/>
+                                        <buttonCell key="cell" type="push" title="Add" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6mz-Lu-3hT">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="addPressed:" target="XfG-lQ-9wD" id="1Jy-It-PPZ"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="dwP-KK-hnP" firstAttribute="centerY" secondItem="Oox-ln-t14" secondAttribute="centerY" id="9Jo-PR-Lyy"/>
                                     <constraint firstItem="dwP-KK-hnP" firstAttribute="leading" secondItem="Oox-ln-t14" secondAttribute="leading" constant="8" id="Ao5-Uz-SfM"/>
+                                    <constraint firstItem="o51-vi-OZ6" firstAttribute="baseline" secondItem="6IB-jM-eje" secondAttribute="baseline" id="HO8-9S-biz"/>
+                                    <constraint firstItem="6IB-jM-eje" firstAttribute="leading" secondItem="o51-vi-OZ6" secondAttribute="trailing" constant="12" id="Km9-No-5vu"/>
+                                    <constraint firstItem="o51-vi-OZ6" firstAttribute="leading" secondItem="gJb-Yx-2S1" secondAttribute="trailing" constant="12" symbolic="YES" id="ZRN-vJ-Hpc"/>
                                     <constraint firstAttribute="trailing" secondItem="6IB-jM-eje" secondAttribute="trailing" constant="8" id="cNO-PJ-Sxh"/>
+                                    <constraint firstItem="tij-P5-qFV" firstAttribute="baseline" secondItem="gJb-Yx-2S1" secondAttribute="baseline" id="dpl-vX-Hgb"/>
+                                    <constraint firstItem="gJb-Yx-2S1" firstAttribute="baseline" secondItem="o51-vi-OZ6" secondAttribute="baseline" id="eh5-TM-pOp"/>
+                                    <constraint firstItem="gJb-Yx-2S1" firstAttribute="leading" secondItem="tij-P5-qFV" secondAttribute="trailing" constant="12" symbolic="YES" id="h6H-Mv-EPg"/>
                                     <constraint firstItem="6IB-jM-eje" firstAttribute="centerY" secondItem="dwP-KK-hnP" secondAttribute="centerY" id="iha-vD-00d"/>
                                 </constraints>
                                 <animations/>
@@ -851,7 +890,7 @@
                                             <constraint firstAttribute="width" constant="83" id="EOH-SH-UhG"/>
                                         </constraints>
                                         <animations/>
-                                        <popUpButtonCell key="cell" type="push" title="N/A" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" pullsDown="YES" selectedItem="keM-9h-oxw" id="gRo-Ib-g9Y">
+                                        <popUpButtonCell key="cell" type="push" title="N/A" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" pullsDown="YES" selectedItem="Rkw-c1-er3" id="gRo-Ib-g9Y">
                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="menu"/>
                                             <menu key="menu" id="CFa-hl-5Nl">
@@ -1256,11 +1295,11 @@
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKr-mU-o44">
                                 <rect key="frame" x="224" y="0.0" width="741" height="692"/>
                                 <clipView key="contentView" drawsBackground="NO" id="cvG-ZI-fek">
-                                    <rect key="frame" x="1" y="0.0" width="739" height="691"/>
+                                    <rect key="frame" x="1" y="0.0" width="739" height="676"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView identifier="MovieTableViewIdentifer" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" multipleSelection="NO" autosaveColumns="NO" headerView="Qfo-Cv-avj" id="Kvi-ch-mPX">
-                                            <rect key="frame" x="0.0" y="0.0" width="790" height="668"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="790" height="653"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                             <size key="intercellSpacing" width="3" height="2"/>
@@ -1361,7 +1400,7 @@
                                     <nil key="backgroundColor"/>
                                 </clipView>
                                 <animations/>
-                                <scroller key="horizontalScroller" verticalHuggingPriority="750" doubleValue="0.039215686274509803" horizontal="YES" id="1iz-cY-hzE">
+                                <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="1iz-cY-hzE">
                                     <rect key="frame" x="1" y="675" width="739" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>

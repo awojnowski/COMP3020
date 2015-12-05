@@ -22,11 +22,12 @@
 #import "Tag.h"
 #import "SeedDataLoader.h"
 #import "MovieDetailViewController.h"
+#import "EditMovieViewController.h"
 #import "GraphViewController.h"
 
 #import "MovieSearchProvider.h"
 
-@interface ViewController () <NSTableViewDataSource, NSTableViewDelegate, MovieDetailViewControllerDelegate>
+@interface ViewController () <NSTableViewDataSource, NSTableViewDelegate, MovieDetailViewControllerDelegate, EditMovieViewControllerDelegate>
 
 @property (nonatomic, readonly, assign) NSInteger currentSelectedSegment;
 @property (nonatomic, readonly, assign) BOOL movieDetailShowing;
@@ -78,6 +79,8 @@
 
 @property (nonatomic) NSArray<Actor *>* actors;
 @property (nonatomic, readonly) NSArray<Movie *>* movies;
+
+@property (strong, nonatomic) NSWindowController *editMovieWindowController;
 
 @end
 
@@ -442,6 +445,12 @@
     
 }
 
+- (void)tableView:(NSTableView *)tableView sortDescriptorsDidChange:(NSArray<NSSortDescriptor *> *)oldDescriptors {
+    
+    [self refreshSortDescriptors];
+    
+}
+
 - (void)showMovie {
     
     self.movieDetailVC.movie = self.movies[self.movieTableView.selectedRow];
@@ -452,11 +461,84 @@
     
 }
 
-- (void)tableView:(NSTableView *)tableView sortDescriptorsDidChange:(NSArray<NSSortDescriptor *> *)oldDescriptors {
+#pragma mark - Data Manipulation
+
+- (IBAction)addPressed:(id)sender {
     
-    [self refreshSortDescriptors];
+    [[CoreDataController sharedInstance] performBlock:^(NSManagedObjectContext *managedObjectContext) {
+        
+        Movie *movie = [Movie createInManagedObjectContext:managedObjectContext];
+        
+        [self showMovieEditorWithMovie:movie];
+        
+    }];
     
 }
+
+- (IBAction)editPressed:(id)sender {
+    
+    [[CoreDataController sharedInstance] performBlock:^(NSManagedObjectContext *managedObjectContext) {
+        
+        [self showMovieEditorWithMovie:self.movies[self.movieTableView.selectedRow]];
+        
+    }];
+    
+}
+
+- (IBAction)deletePressed:(id)sender {
+    
+    [[CoreDataController sharedInstance] performBlock:^(NSManagedObjectContext *managedObjectContext) {
+        
+        [managedObjectContext deleteObject:self.movies[self.movieTableView.selectedRow]];
+        
+    }];
+    
+    [self refreshMovies];
+    
+}
+
+- (void)showMovieEditorWithMovie:(Movie *)movie {
+    
+    NSStoryboard *storyboard = [NSStoryboard storyboardWithName:@"MovieEditor" bundle:nil];
+    self.editMovieWindowController = [storyboard instantiateInitialController];
+    EditMovieViewController *editViewController = (EditMovieViewController *)self.editMovieWindowController.window.contentViewController;
+    editViewController.delegate = self;
+    editViewController.movie = movie;
+    [self.editMovieWindowController showWindow:self];
+    
+}
+
+#pragma mark - EditMovieViewControllerDelegate
+
+- (void)cancelEditing:(EditMovieViewController *)editMovieViewController {
+    
+    [self.editMovieWindowController close];
+    self.editMovieWindowController = nil;
+    
+    if (editMovieViewController.movie.title.length == 0) {
+        
+        // Created a new movie but didn't fill it in
+        
+        [[CoreDataController sharedInstance] performBlock:^(NSManagedObjectContext *managedObjectContext) {
+            
+            [managedObjectContext deleteObject:editMovieViewController.movie];
+            
+        }];
+        
+    }
+    
+}
+
+- (void)doneEditing:(EditMovieViewController *)editMovieViewController {
+    
+    [self.editMovieWindowController close];
+    self.editMovieWindowController = nil;
+    
+    [self refreshMovies];
+    
+}
+
+#pragma mark - Actions
 
 - (IBAction)minRatingControlTouched:(id)sender {
     
