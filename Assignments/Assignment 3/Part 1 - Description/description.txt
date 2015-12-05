@@ -1,0 +1,35 @@
+(1) Project Description
+
+Our movie organizer has a simplistic design with an advanced search bar on the left sidebar with relevant views updating in the main content area to the right of it.  Our advanced search allows querying the database by minimum rating, year range, tags, age rating, media availability, genre, actors and directors which update in real time to the view when a change is made.  Additionally, our basic movie search field checks string containment each time the field is changed and can update the corresponding view instantly due to the speed of core data.  Having searches that can query very fast was a user goal because it eliminates the need for users to wait and constantly click search buttons.  Our auto-updating when search fields change instantly reflecting changes to the corresponding view allows users to work much faster and see these changes instantly.
+
+Our movie organizer allows querying based off of availability on Netflix, iTunes and Shomi, a feature that we found was very important to users with the high usage of streaming and online movie renting services.  We implemented this in advanced search and then when a movie is selected, three simple icons of the media services denote whether the movie is available denoted by a coloured icon versus a grayscaled icon.
+
+We also implemented a foreign API to fetch movie titles and update the poster of the movie in the movie detail view to give a more visual experience to the user.
+
+We implemented a watchlist which allows users to store movies in a separate view by adding it to their watchlist in the movie detail view.  This feature allows users to keep track of movies they are interested in without having to go through the trouble of remembering them or searching for them again.
+
+Our movie organizer allows users to view movies in both a table view where they can search quickly and sort columns to increase speed and a graph view, giving another representation a user can choose to view movies in.
+
+Navigation in our movie organizer is very simple with a segmented control in the top right of the window where users can click on different segments to see a table view of their search, a graph of their search or a watchlist for easy navigation.
+
+Our movie organizer allows users to add, edit or delete movies from the database so they can customize the database, implemented with thorough input validation.
+
+Tags..?
+
+Reviews..?
+
+(2) Interface description
+
+Our interface allows users to either search for a movie titles in a basic search field or by using the advanced search on the left sidebar.  There exists a content viewer which changes views based off of what is chosen.  Navigation between views is done through the segmented controller in the top right of the window, defaulted as a table view.
+
+Our interface is expected to behave such that whenever a change is made by advanced search or basic movie search, changes will be updated in the corresponding table or graph view instantly.  Whenever a movie is selected in the table view, the content view will navigate to the related movie detail view which should contain the movie title, rating, availability on media and other pertinent information. If the selected movie can be found by the API which we implemented, a poster of that movie will update in the movie detail view.  Selecting the back button in the movie detail view should return to the previous view that the movie was selected in.  When a user adds, edits, or deletes a movie from the database, the system should update and reflect the changes in the corresponding views.
+
+(3) Particular problems
+
+Our information on Netflix, Shomi and iTunes availability is randomized information in the database and does not reflect actual availability in the real world.
+
+Sometimes when nagivating amongst the segmented control views in the top right, there will be a very brief split second visual bug before the view updates.
+
+(4) Installation procedure
+
+(FILL IN)
