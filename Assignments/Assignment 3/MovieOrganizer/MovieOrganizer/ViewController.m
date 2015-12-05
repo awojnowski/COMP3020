@@ -1013,6 +1013,9 @@
         }];
         if (!item) {
             
+            NSAlert * const alert = [NSAlert alertWithMessageText:@"Error" defaultButton:@"Dismiss" alternateButton:nil otherButton:nil informativeTextWithFormat:@"It doesn't look like a director with that name was found."];
+            [alert runModal];
+            
             return;
             
         }
@@ -1036,6 +1039,9 @@
             
         }];
         if (!item) {
+            
+            NSAlert * const alert = [NSAlert alertWithMessageText:@"Error" defaultButton:@"Dismiss" alternateButton:nil otherButton:nil informativeTextWithFormat:@"It doesn't look like an actor with that name was found."];
+            [alert runModal];
             
             return;
             
