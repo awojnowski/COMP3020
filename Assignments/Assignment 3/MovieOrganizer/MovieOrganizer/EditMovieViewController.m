@@ -81,6 +81,12 @@
     
 }
 
+- (NSString *)trimmedString:(NSString *)string {
+    
+    return [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    
+}
+
 #pragma mark - Data Conversion
 
 - (NSArray<NSString *> *)trimmedComponents:(NSString *)string {
@@ -212,7 +218,12 @@
     
     // Validate
     
-    if ([self.movieTitleTextField.stringValue isEqualToString:@""]) {
+    NSString *title = [self trimmedString:self.movieTitleTextField.stringValue];
+    NSString *director = [self trimmedString:self.directorTextField.stringValue];
+    NSString *actors = [self trimmedString:self.actorsTextField.stringValue];
+    NSString *genres = [self trimmedString:self.genreTextField.stringValue];
+    
+    if ([title isEqualToString:@""]) { // CHECK FOR SPACES
         
         [self showAlertWithTitle:@"Invalid Movie Title" andMessage:@"The movie title can not be empty."];
         [self.movieTitleTextField becomeFirstResponder];
@@ -227,32 +238,32 @@
         [self showAlertWithTitle:@"Invalid Movie Length" andMessage:@"The movie length can not be empty."];
         [self.lengthTextField becomeFirstResponder];
         
-    } else if ([self.directorTextField.stringValue isEqualToString:@""]) {
+    } else if ([director isEqualToString:@""]) {
         
         [self showAlertWithTitle:@"Invalid Movie Director" andMessage:@"The movie director can not be empty."];
         [self.directorTextField becomeFirstResponder];
         
-    } else if (![self containsOnlyLetters:self.directorTextField.stringValue]) {
+    } else if (![self containsOnlyLetters:director]) {
         
         [self showAlertWithTitle:@"Invalid Movie Director" andMessage:@"The movie director can only contain letters."];
         [self.directorTextField becomeFirstResponder];
         
-    } else if ([self.actorsTextField.stringValue isEqualToString:@""]) {
+    } else if ([actors isEqualToString:@""]) {
         
         [self showAlertWithTitle:@"Invalid Movie Actors" andMessage:@"The movie actors can not be empty."];
         [self.actorsTextField becomeFirstResponder];
         
-    } else if (![self containsOnlyLetters:self.actorsTextField.stringValue]) {
+    } else if (![self containsOnlyLetters:actors]) {
         
         [self showAlertWithTitle:@"Invalid Movie Actors" andMessage:@"The movie actors can only contain letters."];
         [self.actorsTextField becomeFirstResponder];
         
-    } else if ([self.genreTextField.stringValue isEqualToString:@""]) {
+    } else if ([genres isEqualToString:@""]) {
         
         [self showAlertWithTitle:@"Invalid Movie Genre" andMessage:@"The movie genre can not be empty."];
         [self.genreTextField becomeFirstResponder];
         
-    } else if (![self containsOnlyLetters:self.genreTextField.stringValue]) {
+    } else if (![self containsOnlyLetters:genres]) {
         
         [self showAlertWithTitle:@"Invalid Movie Genre" andMessage:@"The movie genre can only contain letters."];
         [self.genreTextField becomeFirstResponder];
@@ -260,19 +271,6 @@
     } else {
         
         // Good to go
-        
-//        NSLog(@"Title: %@", self.movieTitleTextField.stringValue);
-//        NSLog(@"Rating: %@", [NSNumber numberWithInteger:self.ratingPopUpButton.indexOfSelectedItem]);
-//        NSLog(@"Certification: %@", self.certificationPopUpButton.titleOfSelectedItem);
-//        NSLog(@"Year: %@", [NSNumber numberWithInt:self.yearTextField.intValue]);
-//        NSLog(@"Length: %@", [NSNumber numberWithInt:self.lengthTextField.intValue]);
-//        NSLog(@"Director: %@", self.directorTextField.stringValue);
-//        NSLog(@"Actors: %@", [self setFromString:self.actorsTextField.stringValue]);
-//        NSLog(@"Genre: %@", self.genreTextField.stringValue);
-//        NSLog(@"Tags: %@", [self setFromString:self.tagsTextField.stringValue]);
-//        NSLog(@"iTunes: %@", [NSNumber numberWithInt:self.itunesCheckBox.intValue]);
-//        NSLog(@"Netflix: %@", [NSNumber numberWithInt:self.netflixCheckBox.intValue]);
-//        NSLog(@"Shomi: %@\n", [NSNumber numberWithInt:self.shomiCheckBox.intValue]);
         
         [[CoreDataController sharedInstance] performBlock:^(NSManagedObjectContext *managedObjectContext) {
             
