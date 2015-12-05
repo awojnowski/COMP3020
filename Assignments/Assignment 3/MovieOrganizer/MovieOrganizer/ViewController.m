@@ -301,16 +301,9 @@
         
         Movie *movie = [Movie createInManagedObjectContext:managedObjectContext];
         
-        NSStoryboard *storyboard = [NSStoryboard storyboardWithName:@"MovieEditor" bundle:nil];
-        self.editMovieWindowController = [storyboard instantiateInitialController];
-        EditMovieViewController *editViewController = (EditMovieViewController *)self.editMovieWindowController.window.contentViewController;
-        editViewController.delegate = self;
-        editViewController.movie = movie;
-        [self.editMovieWindowController showWindow:self];
+        [self showMovieEditorWithMovie:movie];
         
     }];
-    
-    [self refreshMovies];
     
 }
 
@@ -318,11 +311,9 @@
     
     [[CoreDataController sharedInstance] performBlock:^(NSManagedObjectContext *managedObjectContext) {
         
-        self.movies[self.movieTableView.selectedRow].rating = @10;
+        [self showMovieEditorWithMovie:self.movies[self.movieTableView.selectedRow]];
         
     }];
-    
-    [self refreshMovies];
     
 }
 
@@ -338,6 +329,17 @@
     
 }
 
+- (void)showMovieEditorWithMovie:(Movie *)movie {
+    
+    NSStoryboard *storyboard = [NSStoryboard storyboardWithName:@"MovieEditor" bundle:nil];
+    self.editMovieWindowController = [storyboard instantiateInitialController];
+    EditMovieViewController *editViewController = (EditMovieViewController *)self.editMovieWindowController.window.contentViewController;
+    editViewController.delegate = self;
+    editViewController.movie = movie;
+    [self.editMovieWindowController showWindow:self];
+    
+}
+
 #pragma mark - EditMovieViewControllerDelegate
 
 - (void)cancelEditing:(EditMovieViewController *)editMovieViewController {
@@ -345,12 +347,26 @@
     [self.editMovieWindowController close];
     self.editMovieWindowController = nil;
     
+    if (editMovieViewController.movie.title.length == 0) {
+        
+        // Created a new movie but didn't fill it in
+        
+        [[CoreDataController sharedInstance] performBlock:^(NSManagedObjectContext *managedObjectContext) {
+            
+            [managedObjectContext deleteObject:editMovieViewController.movie];
+            
+        }];
+        
+    }
+    
 }
 
 - (void)doneEditing:(EditMovieViewController *)editMovieViewController {
     
     [self.editMovieWindowController close];
     self.editMovieWindowController = nil;
+    
+    [self refreshMovies];
     
 }
 
