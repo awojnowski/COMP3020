@@ -51,7 +51,7 @@
                                          TRUEPREDICATE AND (\
                                          (%@ == NO OR (%@ == YES AND ANY actors IN %@)) AND \
                                          (%@ == NO OR (%@ == YES AND certification ==[c] %@)) AND\
-                                         (%@ == NO OR (%@ == YES AND director == %@)) AND\
+                                         (%@ == NO OR (%@ == YES AND director IN %@)) AND\
                                          (%@ == NO OR (%@ == YES AND ANY genres IN %@)) AND\
                                          (rating >= %@ AND rating <= %@) AND\
                                          (%@ == NO OR (%@ == YES AND availableOnItunes == %@)) AND\
@@ -71,9 +71,9 @@
                                          @([[self certification] length] > 0),
                                          [self certification],
                                          
-                                         @([self director] != nil),
-                                         @([self director] != nil),
-                                         [self director],
+                                         @([[self directors] count] > 0),
+                                         @([[self directors] count] > 0),
+                                         [self directors] ?: @[],
                                          
                                          @([[self genres] count] > 0),
                                          @([[self genres] count] > 0),

@@ -14,6 +14,10 @@
 
 #import "ViewController.h"
 
+#import "TagsListAddView.h"
+#import "DirectorsListAddView.h"
+#import "ActorsListAddView.h"
+
 #import "CoreDataController.h"
 #import "Movie.h"
 #import "Genre.h"
@@ -27,7 +31,7 @@
 
 #import "MovieSearchProvider.h"
 
-@interface ViewController () <NSTableViewDataSource, NSTableViewDelegate, MovieDetailViewControllerDelegate, EditMovieViewControllerDelegate>
+@interface ViewController () <NSTableViewDataSource, NSTableViewDelegate, MovieDetailViewControllerDelegate, EditMovieViewControllerDelegate, ListAddViewDelegate>
 
 @property (nonatomic, readonly, assign) NSInteger currentSelectedSegment;
 @property (nonatomic, readonly, assign) BOOL movieDetailShowing;
@@ -51,6 +55,10 @@
 @property (weak) IBOutlet NSSearchField *movieSearchField;
 @property (weak) IBOutlet NSTextField *minYearTextField;
 @property (weak) IBOutlet NSTextField *maxYearTextField;
+
+@property (weak) IBOutlet DirectorsListAddView *directorsListAddView;
+@property (weak) IBOutlet ActorsListAddView *actorsListAddView;
+@property (weak) IBOutlet TagsListAddView *tagsListAddView;
 
 @property (weak) IBOutlet NSTableView *movieTableView;
 @property (weak) IBOutlet NSTableHeaderView *tableViewHeader;
@@ -132,8 +140,10 @@
     
     // setting up advanced search fields
     
-    [self createActorListPullDown];
-    [self createDirectorListPullDown];
+    [[self tagsListAddView] setDelegate:self];
+    [[self directorsListAddView] setDelegate:self];
+    [[self actorsListAddView] setDelegate:self];
+    
     [self createAgeRatingPullDown];
     
     [self setMovieDetailView];
@@ -579,35 +589,6 @@
     
 }
 
--(void)createActorListPullDown {
-    
-    [self.actorPullDown removeAllItems];
-    
-    // how to add actors to a list
-    
-    //[self.actorPullDown addItemsWithTitles:self.actors];
-    
-}
-
--(void)createDirectorListPullDown {
-    
-    [self.directorPullDown removeAllItems];
-    
-    self.directorArray = [[NSMutableArray alloc] init];
-    self.selectedDirectorsArray = [[NSMutableArray alloc] init];
-    [self.directorArray addObject:@"N/A"];
-    [self.directorArray addObject:@"Steven Spielberg"];
-    [self.directorArray addObject:@"George Lucas"];
-    [self.directorArray addObject:@"Kieran Cairney"];
-    
-    for(int i = 0; i <= [self.directorArray count]; i++) {
-        
-        [self.directorPullDown addItemsWithTitles:self.directorArray];
-        
-    }
-    
-}
-
 - (IBAction)ageRatingPulledDown:(id)sender {
     
     NSPopUpButtonCell* ageRatingPopUpButton = (NSPopUpButtonCell*)sender;
@@ -941,6 +922,176 @@
     }
     [[self searchProvider] setGenres:genres];
     [self refreshMovies];
+    
+}
+
+#pragma mark - ListAddViewDelegate
+
+-(NSArray *)rowArrayForListAddView:(ListAddView *)listAddView {
+    
+    if (listAddView == [self tagsListAddView]) {
+        
+        return [[self searchProvider] tags] ?: @[];
+        
+    } else if (listAddView == [self directorsListAddView]) {
+        
+        return [[self searchProvider] directors] ?: @[];
+        
+    } else if (listAddView == [self actorsListAddView]) {
+        
+        return [[self searchProvider] actors] ?: @[];
+        
+    }
+    return nil;
+    
+}
+
+-(NSString *)listAddView:(ListAddView *)listAddView stringValueForRowArrayItem:(id)item {
+    
+    if (listAddView == [self tagsListAddView]) {
+        
+        return [(Tag *)item title];
+        
+    } else if (listAddView == [self directorsListAddView]) {
+        
+        return [(Director *)item name];
+        
+    } else if (listAddView == [self actorsListAddView]) {
+        
+        return [(Actor *)item name];
+        
+    }
+    return nil;
+    
+}
+
+-(void)listAddViewAddedItem:(ListAddView *)listAddView {
+    
+    if (listAddView == [self tagsListAddView]) {
+        
+        NSString * const itemName = [self fetchItemNameWithPrompt:@"Please enter the name of a tag."];
+        if (!itemName) {
+            
+            return;
+            
+        }
+        id __block item = nil;
+        [[CoreDataController sharedInstance] performBlock:^(NSManagedObjectContext *managedObjectContext) {
+            
+            item = [Tag tagMatchingTitle:itemName inManagedObjectContext:managedObjectContext];
+            if (!item) {
+                
+                item = [Tag createInManagedObjectContext:managedObjectContext];
+                [item setTitle:itemName];
+                
+            }
+            
+        }];
+        if (!item) {
+            
+            return;
+            
+        }
+        
+        NSMutableArray * const mutableTags = [NSMutableArray arrayWithArray:[[self searchProvider] tags]];
+        [mutableTags addObject:item];
+        [[self searchProvider] setTags:mutableTags];
+        
+    } else if (listAddView == [self directorsListAddView]) {
+        
+        NSString * const itemName = [self fetchItemNameWithPrompt:@"Please enter a director's name."];
+        if (!itemName) {
+            
+            return;
+            
+        }
+        id __block item = nil;
+        [[CoreDataController sharedInstance] performBlock:^(NSManagedObjectContext *managedObjectContext) {
+            
+            item = [Director directorMatchingName:itemName inManagedObjectContext:managedObjectContext];
+            
+        }];
+        if (!item) {
+            
+            return;
+            
+        }
+        
+        NSMutableArray * const mutableDirectors = [NSMutableArray arrayWithArray:[[self searchProvider] directors]];
+        [mutableDirectors addObject:item];
+        [[self searchProvider] setDirectors:mutableDirectors];
+        
+    } else if (listAddView == [self actorsListAddView]) {
+        
+        NSString * const itemName = [self fetchItemNameWithPrompt:@"Please enter an actor's name."];
+        if (!itemName) {
+            
+            return;
+            
+        }
+        id __block item = nil;
+        [[CoreDataController sharedInstance] performBlock:^(NSManagedObjectContext *managedObjectContext) {
+            
+            item = [Actor actorMatchingName:itemName inManagedObjectContext:managedObjectContext];
+            
+        }];
+        if (!item) {
+            
+            return;
+            
+        }
+        
+        NSMutableArray * const mutableActors = [NSMutableArray arrayWithArray:[[self searchProvider] actors]];
+        [mutableActors addObject:item];
+        [[self searchProvider] setActors:mutableActors];
+        
+    }
+    [self refreshMovies];
+    [[listAddView tableView] reloadData];
+    
+}
+
+-(void)listAddView:(ListAddView *)listAddView removedRowArrayItem:(id)item {
+    
+    if (listAddView == [self tagsListAddView]) {
+        
+        NSMutableArray * const mutableTags = [NSMutableArray arrayWithArray:[[self searchProvider] tags]];
+        [mutableTags removeObject:item];
+        [[self searchProvider] setTags:mutableTags];
+        
+    } else if (listAddView == [self directorsListAddView]) {
+        
+        NSMutableArray * const mutableDirectors = [NSMutableArray arrayWithArray:[[self searchProvider] directors]];
+        [mutableDirectors removeObject:item];
+        [[self searchProvider] setDirectors:mutableDirectors];
+        
+    } else if (listAddView == [self actorsListAddView]) {
+        
+        NSMutableArray * const mutableActors = [NSMutableArray arrayWithArray:[[self searchProvider] actors]];
+        [mutableActors removeObject:item];
+        [[self searchProvider] setActors:mutableActors];
+        
+    }
+    [self refreshMovies];
+    [[listAddView tableView] reloadData];
+    
+}
+
+-(NSString *)fetchItemNameWithPrompt:(NSString *)prompt {
+    
+    NSAlert * const alert = [NSAlert alertWithMessageText: prompt defaultButton:@"OK" alternateButton:@"Cancel" otherButton:nil informativeTextWithFormat:@""];
+    
+    NSTextField * const inputField = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, 200, 24)];
+    [alert setAccessoryView:inputField];
+    
+    NSInteger const button = [alert runModal];
+    if (button == NSAlertDefaultReturn) {
+        
+        [inputField validateEditing];
+        return [inputField stringValue];
+        
+    }
+    return nil;
     
 }
 

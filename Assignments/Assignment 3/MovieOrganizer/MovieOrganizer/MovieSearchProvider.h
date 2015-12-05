@@ -32,7 +32,7 @@
 
 // director
 
-@property (nonatomic, strong) Director *director;
+@property (nonatomic, strong) NSArray <Director *> *directors;
 
 // genre
 
