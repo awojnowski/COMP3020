@@ -75,7 +75,7 @@
 
 - (BOOL)containsOnlyLetters:(NSString *)string {
     
-    NSString *regex = @"[A-Za-z, ]*";
+    NSString *regex = @"[A-Za-z, -.]*";
     NSPredicate *test = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
     return [test evaluateWithObject:string];
     
