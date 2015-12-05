@@ -19,16 +19,23 @@
 #import "Genre.h"
 #import "Actor.h"
 #import "Director.h"
+#import "Tag.h"
 #import "SeedDataLoader.h"
 #import "MovieDetailViewController.h"
 #import "EditMovieViewController.h"
+#import "GraphViewController.h"
 
 #import "MovieSearchProvider.h"
 
 @interface ViewController () <NSTableViewDataSource, NSTableViewDelegate, MovieDetailViewControllerDelegate, EditMovieViewControllerDelegate>
 
+@property (nonatomic, readonly, assign) NSInteger currentSelectedSegment;
+@property (nonatomic, readonly, assign) BOOL movieDetailShowing;
+
 @property (strong, nonatomic) MovieDetailViewController *movieDetailVC;
+@property (strong, nonatomic) GraphViewController *graphVC;
 @property (strong, nonatomic) NSView *movieDetailView;
+@property (strong, nonatomic) NSView *graphDetailView;
 @property (weak) IBOutlet NSView *showMovieView;
 @property (weak) IBOutlet NSView *advancedSearchMenuBarView;
 @property (weak) IBOutlet NSView *menuBarContainerView;
@@ -40,12 +47,16 @@
 @property (weak) IBOutlet NSView *genreContainerView;
 @property (weak) IBOutlet NSView *actorsContainerView;
 @property (weak) IBOutlet NSView *directorContainerView;
+@property (weak) IBOutlet NSView *graphView;
 @property (weak) IBOutlet NSSearchField *movieSearchField;
+@property (weak) IBOutlet NSTextField *minYearTextField;
+@property (weak) IBOutlet NSTextField *maxYearTextField;
 
 @property (weak) IBOutlet NSTableView *movieTableView;
 @property (weak) IBOutlet NSTableHeaderView *tableViewHeader;
 @property (weak) IBOutlet NSScrollView *movieTableScrollView;
 
+@property (weak) IBOutlet NSSegmentedCell *viewSegmentedControlSelector;
 @property (weak) IBOutlet NSSegmentedControl *minRatingControl;
 @property (weak) IBOutlet NSPopUpButtonCell *ageRatingPopUpButton;
 @property (weak) IBOutlet NSPopUpButton *actorPullDown;
@@ -81,6 +92,9 @@
     if (!_searchProvider) {
         
         _searchProvider = [[MovieSearchProvider alloc] init];
+        [_searchProvider setAvailableOnItunes:NO];
+        [_searchProvider setAvailableOnNetflix:NO];
+        [_searchProvider setAvailableOnShomi:NO];
         
     }
     return _searchProvider;
@@ -123,10 +137,14 @@
     [self createAgeRatingPullDown];
     
     [self setMovieDetailView];
+    [self setGraphDetailView];
     self.showMovieView.hidden = YES;
+    self.graphView.hidden = YES;
     [self.movieTableView setDoubleAction:@selector(showMovie)];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(movieSearchTextChanged:) name:NSControlTextDidChangeNotification object:self.movieSearchField];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(minYearTextChanged:) name:NSControlTextDidChangeNotification object:self.minYearTextField];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(maxYearTextChanged:) name:NSControlTextDidChangeNotification object:self.maxYearTextField];
     
     // finish up
     
@@ -215,6 +233,49 @@
     
 }
 
+-(void)setGraphDetailView {
+    
+    self.graphVC = [[GraphViewController alloc] initWithNibName:nil bundle:nil];
+    self.graphVC.searchProvider = [self searchProvider];
+    self.graphDetailView = self.graphVC.view;
+    [self.graphDetailView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
+    [self.graphView addConstraint:[NSLayoutConstraint constraintWithItem:self.graphDetailView
+                                                                   attribute:NSLayoutAttributeTop
+                                                                   relatedBy:NSLayoutRelationEqual
+                                                                      toItem:self.graphView
+                                                                   attribute:NSLayoutAttributeTop
+                                                                  multiplier:1.0
+                                                                    constant:0.0]];
+    
+    [self.graphView addConstraint:[NSLayoutConstraint constraintWithItem:self.graphDetailView
+                                                                   attribute:NSLayoutAttributeLeading
+                                                                   relatedBy:NSLayoutRelationEqual
+                                                                      toItem:self.graphView
+                                                                   attribute:NSLayoutAttributeLeading
+                                                                  multiplier:1.0
+                                                                    constant:0.0]];
+    
+    [self.graphView addConstraint:[NSLayoutConstraint constraintWithItem:self.graphDetailView
+                                                                   attribute:NSLayoutAttributeBottom
+                                                                   relatedBy:NSLayoutRelationEqual
+                                                                      toItem:self.graphView
+                                                                   attribute:NSLayoutAttributeBottom
+                                                                  multiplier:1.0
+                                                                    constant:0.0]];
+    
+    [self.graphView addConstraint:[NSLayoutConstraint constraintWithItem:self.graphDetailView
+                                                                   attribute:NSLayoutAttributeTrailing
+                                                                   relatedBy:NSLayoutRelationEqual
+                                                                      toItem:self.graphView
+                                                                   attribute:NSLayoutAttributeTrailing
+                                                                  multiplier:1.0
+                                                                    constant:0.0]];
+    
+    [self.graphView addSubview:self.graphDetailView];
+    
+}
+
 #pragma mark - Movies
 
 -(void)refreshMovies {
@@ -241,14 +302,108 @@
     
 }
 
-#pragma mark - MovieDetailViewControllerDelegate
+#pragma mark - Watchlist
 
-- (void)backButtonPressed {
-    [self showListViewTapped:nil];
+-(Tag *)watchlistTag {
+    
+    Tag * __block watchlistTag = nil;
+    [[CoreDataController sharedInstance] performBlock:^(NSManagedObjectContext *managedObjectContext) {
+        
+        watchlistTag = [Tag watchlistInManagedObjectContext:managedObjectContext];
+        
+    }];
+    if (!watchlistTag) {
+        
+        return nil;
+        
+    }
+    return watchlistTag;
+    
 }
 
-- (void)addToWatchListPressed {
-    // For Aaron <3
+-(void)enableWatchlist {
+    
+    Tag * const watchlistTag = [self watchlistTag];
+    if (!watchlistTag) {
+        
+        return;
+        
+    }
+    
+    NSMutableArray * const mutableTagsArray = [NSMutableArray arrayWithArray:[[self searchProvider] tags]];
+    if ([mutableTagsArray containsObject:watchlistTag]) {
+        
+        return;
+        
+    }
+    [mutableTagsArray addObject:watchlistTag];
+    [[self searchProvider] setTags:mutableTagsArray];
+    
+}
+
+-(void)disableWatchlist {
+    
+    Tag * const watchlistTag = [self watchlistTag];
+    if (!watchlistTag) {
+        
+        return;
+        
+    }
+    
+    NSMutableArray * const mutableTagsArray = [NSMutableArray arrayWithArray:[[self searchProvider] tags]];
+    if (![mutableTagsArray containsObject:watchlistTag]) {
+        
+        return;
+        
+    }
+    [mutableTagsArray removeObject:watchlistTag];
+    [[self searchProvider] setTags:mutableTagsArray];
+    
+}
+
+#pragma mark - MovieDetailViewControllerDelegate
+
+- (void)backButtonPressed:(MovieDetailViewController *)movieDetailViewController {
+    
+    self.viewSegmentedControlSelector.enabled = YES;
+    [self showListViewSelected];
+    [self refreshMovies];
+    
+}
+
+#pragma mark - GraphDetailViewControllerDelegate
+
+- (void)graphBackButtonPressed:(GraphViewController *)graphViewController {
+    
+    self.viewSegmentedControlSelector.enabled = YES;
+    [self showListViewSelected];
+    [self refreshMovies];
+    
+}
+
+- (void)addToWatchListPressed:(MovieDetailViewController *)movieDetailViewController {
+    
+    [[CoreDataController sharedInstance] performBlock:^(NSManagedObjectContext *managedObjectContext) {
+        
+        Tag * const watchlistTag = [Tag watchlistInManagedObjectContext:managedObjectContext];
+        if (!watchlistTag) {
+            
+            return;
+            
+        }
+        Movie * const movie = [movieDetailViewController movie];
+        if ([[movie tags] containsObject:watchlistTag]) {
+            
+            [movie removeTagsObject:watchlistTag];
+            
+        } else {
+            
+            [movie addTagsObject:watchlistTag];
+            
+        }
+        
+    }];
+    
 }
 
 #pragma mark - NSTableView
@@ -261,35 +416,48 @@
 
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex {
     
-    NSString *columnID = aTableColumn.identifier;
+    Movie * const movie = [self movies][rowIndex];
     
+    NSString * const columnID = aTableColumn.identifier;
     if ([columnID isEqualToString:@"movieTitle"]) {
-        return self.movies[rowIndex].title;
+        return movie.title;
     } else if ([columnID isEqualToString:@"movieGenre"]) {
-        return self.movies[rowIndex].genres.anyObject.title;
+        
+        NSArray * const genres = [[[movie genres] allObjects] sortedArrayUsingComparator:^NSComparisonResult(Genre *  _Nonnull obj1, Genre * _Nonnull obj2) {
+            return [[obj1 title] compare:[obj2 title]];
+        }];
+        NSMutableArray * const titles = [NSMutableArray array];
+        [genres enumerateObjectsUsingBlock:^(Genre * _Nonnull genre, NSUInteger idx, BOOL * _Nonnull stop) {
+            [titles addObject:[genre title]];
+        }];
+        return [titles componentsJoinedByString:@", "];
+        
     } else if ([columnID isEqualToString:@"movieYear"]) {
-        return [NSString stringWithFormat:@"%@", self.movies[rowIndex].year];
+        return [NSString stringWithFormat:@"%@", movie.year];
     } else if ([columnID isEqualToString:@"movieRating"]) {
-        return self.movies[rowIndex].rating;
+        return movie.rating;
     } else if ([columnID isEqualToString:@"movieDirector"]) {
-        return self.movies[rowIndex].director.name;
+        return movie.director.name;
     } else if ([columnID isEqualToString:@"movieAgeRating"]) {
-        return self.movies[rowIndex].certification;
+        return movie.certification;
     }
-    return NULL;
-    
-}
-
-- (void)showMovie {
-    
-    self.movieDetailVC.movie = self.movies[self.movieTableView.selectedRow];
-    [self showMovieTapped:nil];
+    return nil;
     
 }
 
 - (void)tableView:(NSTableView *)tableView sortDescriptorsDidChange:(NSArray<NSSortDescriptor *> *)oldDescriptors {
     
     [self refreshSortDescriptors];
+    
+}
+
+- (void)showMovie {
+    
+    self.movieDetailVC.movie = self.movies[self.movieTableView.selectedRow];
+    
+    self.viewSegmentedControlSelector.enabled = NO;
+    
+    [self showMovieSelected];
     
 }
 
@@ -372,12 +540,6 @@
 
 #pragma mark - Actions
 
--(IBAction)watchlistClicked:(id)sender {
-    
-    
-    
-}
-
 - (IBAction)minRatingControlTouched:(id)sender {
     
     NSSegmentedControl *control = (NSSegmentedControl *)sender;
@@ -397,13 +559,17 @@
         
     }
     
+    [self.searchProvider setMinimumRating:(minRating*2)];
+    
+    [self refreshMovies];
+    
 }
 
 -(void)createAgeRatingPullDown {
     
     [self.ageRatingPopUpButton removeAllItems];
     
-    NSArray* ageTypes = [NSArray arrayWithObjects: @"N/A",@"Any",@"G",@"PG",@"14A",@"18A",@"R", nil];
+    NSArray* ageTypes = [NSArray arrayWithObjects: @"N/A",@"Any",@"G",@"PG",@"PG-13",@"R", nil];
     
     for(int i = 0; i <= [ageTypes count]; i++) {
         
@@ -417,18 +583,9 @@
     
     [self.actorPullDown removeAllItems];
     
-    self.actorArray = [[NSMutableArray alloc] init];
-    self.selectedActorsArray = [[NSMutableArray alloc] init];
-    [self.actorArray addObject:@"N/A"];
-    [self.actorArray addObject:@"Tom Cruise"];
-    [self.actorArray addObject:@"Brad Pitt"];
-    [self.actorArray addObject:@"Angelia Jolie"];
+    // how to add actors to a list
     
-    for(int i = 0; i <= [self.actorArray count]; i++) {
-        
-        [self.actorPullDown addItemsWithTitles:self.actorArray];
-        
-    }
+    //[self.actorPullDown addItemsWithTitles:self.actors];
     
 }
 
@@ -454,36 +611,18 @@
 - (IBAction)ageRatingPulledDown:(id)sender {
     
     NSPopUpButtonCell* ageRatingPopUpButton = (NSPopUpButtonCell*)sender;
-    [ageRatingPopUpButton setTitle:ageRatingPopUpButton.titleOfSelectedItem];
+    NSString* ageRating = ageRatingPopUpButton.titleOfSelectedItem;
+    [ageRatingPopUpButton setTitle:ageRating];
     
-}
-
-- (IBAction)addActorTouched:(id)sender {
-    
-    if([self.selectedActorsArray indexOfObject:self.actorPullDown.titleOfSelectedItem] == NSNotFound) {
+    if([ageRating isEqualToString:@"Any"]) {
         
-        if(![self.actorPullDown.titleOfSelectedItem isEqualToString:@"N/A"]) {
-            
-            [self.selectedActorsArray addObject: self.actorPullDown.titleOfSelectedItem];
-            [self updateActorList];
-            
-        }
+        ageRating = nil;
         
     }
     
-}
-
-- (IBAction)addDirectorTouched:(id)sender {
+    [self.searchProvider setCertification:ageRating];
     
-    if([self.selectedDirectorsArray indexOfObject:self.directorPullDown.titleOfSelectedItem] == NSNotFound ) {
-        
-        if(![self.directorPullDown.titleOfSelectedItem isEqualToString:@"N/A"]) {
-            
-            [self.selectedDirectorsArray addObject: self.directorPullDown.titleOfSelectedItem];
-            
-        }
-        
-    }
+    [self refreshMovies];
     
 }
 
@@ -513,29 +652,78 @@
     
 }
 
-- (IBAction)showMovieTapped:(id)sender {
-
-    dispatch_async( dispatch_get_main_queue(), ^{
+- (void)showMovieSelected {
+    
+    if ([self movieDetailShowing]) {
         
-        self.showMovieView.hidden = NO;
-        self.movieTableView.hidden = YES;
-        self.tableViewHeader.hidden = YES;
-        self.movieTableScrollView.hidden = YES;
+        return;
         
-    });
+    }
+    _movieDetailShowing = YES;
+    
+    self.showMovieView.hidden = NO;
+    self.movieTableView.hidden = YES;
+    self.tableViewHeader.hidden = YES;
+    self.movieTableScrollView.hidden = YES;
     
 }
 
-- (IBAction)showListViewTapped:(id)sender {
+- (void)showListViewSelected {
+    
+    /*if (![self movieDetailShowing]) {
         
-    dispatch_async( dispatch_get_main_queue(), ^{
+        return;
         
-        self.showMovieView.hidden = YES;
-        self.movieTableView.hidden = NO;
-        self.tableViewHeader.hidden = NO;
-        self.movieTableScrollView.hidden = NO;
+    }*/
+    _movieDetailShowing = NO;
+    
+    self.graphView.hidden = YES;
+    self.showMovieView.hidden = YES;
+    self.movieTableView.hidden = NO;
+    self.tableViewHeader.hidden = NO;
+    self.movieTableScrollView.hidden = NO;
+    
+}
+
+- (void)showGraphView {
+    
+    _movieDetailShowing = NO;
+    
+    self.graphView.hidden = NO;
+    self.showMovieView.hidden = YES;
+    self.movieTableView.hidden = YES;
+    self.tableViewHeader.hidden = YES;
+    self.movieTableScrollView.hidden = YES;
+    
+}
+
+- (IBAction)addActorTouched:(id)sender {
+    
+    if([self.selectedActorsArray indexOfObject:self.actorPullDown.titleOfSelectedItem] == NSNotFound) {
         
-    });
+        if(![self.actorPullDown.titleOfSelectedItem isEqualToString:@"N/A"]) {
+            
+            [self.selectedActorsArray addObject: self.actorPullDown.titleOfSelectedItem];
+            [self updateActorList];
+            
+        }
+        
+    }
+    
+}
+
+- (IBAction)addDirectorTouched:(id)sender {
+    
+    if([self.selectedDirectorsArray indexOfObject:self.directorPullDown.titleOfSelectedItem] == NSNotFound ) {
+        
+        if(![self.directorPullDown.titleOfSelectedItem isEqualToString:@"N/A"]) {
+            
+            [self.selectedDirectorsArray addObject: self.directorPullDown.titleOfSelectedItem];
+            NSLog(@"%@",self.directorPullDown.titleOfSelectedItem);
+            
+        }
+        
+    }
     
 }
 
@@ -546,7 +734,10 @@
 
 - (IBAction)directorSelectionTouched:(id)sender {
     
-    
+    /*NSPopUpButtonCell* directorSelectionButton = (NSPopUpButtonCell*)sender;
+    NSString* selectedDirector = directorSelectionButton.titleOfSelectedItem;
+    directorSelectionButton.state = NSOnState;*/
+
 }
 
 - (void)movieSearchTextChanged:(NSNotification *)notification {
@@ -561,6 +752,194 @@
     
     [self.searchProvider setTitle:searchString];
     
+    [self refreshMovies];
+    
+}
+
+- (void)minYearTextChanged:(NSNotification *)notification {
+    
+    NSInteger minYear = self.minYearTextField.integerValue;
+    if (self.minYearTextField.stringValue.length == 0) {
+        
+        minYear = 0;
+        
+    }
+    
+    [self.searchProvider setMinimumYear:minYear];
+    
+    [self refreshMovies];
+    
+}
+
+- (void)maxYearTextChanged:(NSNotification *)notification {
+    
+    NSInteger maxYear = self.maxYearTextField.integerValue;
+    if (self.maxYearTextField.stringValue.length == 0) {
+        
+        maxYear = INT_MAX;
+        
+    }
+    
+    if(maxYear == 0) {
+        
+        [self.searchProvider setMaximumYear:INT_MAX];
+        
+    } else {
+        
+        [self.searchProvider setMaximumYear:maxYear];
+        
+    }
+    
+    [self refreshMovies];
+    
+}
+
+- (IBAction)viewSegmentedControlSelected:(id)sender {
+    
+    NSSegmentedControl *control = (NSSegmentedControl *)sender;
+    NSInteger segment = [control selectedSegment];
+    if (segment == [self currentSelectedSegment]) {
+        
+        return;
+        
+    }
+    _currentSelectedSegment = segment;
+    
+    if(segment == 0) {
+        
+        [self showListViewSelected];
+        [self disableWatchlist];
+        [self refreshMovies];
+        
+    } else if(segment == 1) {
+        
+        [self showListViewSelected];
+        [self enableWatchlist];
+        [self refreshMovies];
+        
+    } else if(segment == 2) {
+        
+        [self showGraphView];
+        
+    }
+    
+}
+
+- (IBAction)netflixButtonTouched:(id)sender {
+    
+    if ([sender state] == NSOnState) {
+        
+        [self.searchProvider setAvailableOnNetflix:YES];
+        
+    } else {
+        
+        [self.searchProvider setAvailableOnNetflix:NO];
+        
+    }
+    
+    [self refreshMovies];
+    
+}
+
+- (IBAction)itunesButtonTouched:(id)sender {
+    
+    if ([sender state] == NSOnState) {
+        
+        [self.searchProvider setAvailableOnItunes:YES];
+        
+    } else {
+        
+        [self.searchProvider setAvailableOnItunes:NO];
+        
+    }
+    
+    [self refreshMovies];
+    
+}
+
+- (IBAction)shomiButtonTouched:(id)sender {
+    
+    if ([sender state] == NSOnState) {
+        
+        [self.searchProvider setAvailableOnShomi:YES];
+        
+    } else {
+        
+        [self.searchProvider setAvailableOnShomi:NO];
+        
+    }
+    
+    [self refreshMovies];
+    
+}
+
+- (IBAction)horrorButtonTouched:(id)sender {
+    [self genreButtonChanged:sender];
+}
+
+- (IBAction)comedyButtonTouched:(id)sender {
+    [self genreButtonChanged:sender];
+}
+
+- (IBAction)romanceButtonTouched:(id)sender {
+    [self genreButtonChanged:sender];
+}
+
+- (IBAction)adventureButtonTouched:(id)sender {
+    [self genreButtonChanged:sender];
+}
+
+- (IBAction)documentaryButtonTouched:(id)sender {
+    [self genreButtonChanged:sender];
+}
+
+- (IBAction)sciFiButtonTouched:(id)sender {
+    [self genreButtonChanged:sender];
+}
+
+- (IBAction)dramaButtonTouched:(id)sender {
+    [self genreButtonChanged:sender];
+}
+
+- (IBAction)actionButtonTouched:(id)sender {
+    [self genreButtonChanged:sender];
+}
+
+- (IBAction)thrillerButtonTouched:(id)sender {
+    [self genreButtonChanged:sender];
+}
+
+- (IBAction)fantasyButtonTouched:(id)sender {
+    [self genreButtonChanged:sender];
+}
+
+-(void)genreButtonChanged:(NSButton *)genreButton {
+    
+    NSString * const title = [genreButton title];
+    
+    Genre * __block genre = nil;
+    [[CoreDataController sharedInstance] performBlock:^(NSManagedObjectContext *managedObjectContext) {
+        
+        genre = [Genre genreMatchingTitle:title inManagedObjectContext:managedObjectContext];
+        
+    }];
+    if (!genre) {
+        
+        return;
+        
+    }
+    
+    NSMutableArray * const genres = [NSMutableArray arrayWithArray:[[self searchProvider] genres]];
+    if ([genres containsObject:genre]) {
+        
+        [genres removeObject:genre];
+        
+    } else {
+        
+        [genres addObject:genre];
+        
+    }
+    [[self searchProvider] setGenres:genres];
     [self refreshMovies];
     
 }

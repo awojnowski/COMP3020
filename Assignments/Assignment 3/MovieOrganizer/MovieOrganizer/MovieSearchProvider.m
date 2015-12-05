@@ -50,7 +50,7 @@
         NSPredicate * const predicate = [NSPredicate predicateWithFormat:@"\
                                          TRUEPREDICATE AND (\
                                          (%@ == NO OR (%@ == YES AND ANY actors IN %@)) AND \
-                                         (%@ == NO OR (%@ == YES AND certification CONTAINS[c] %@)) AND\
+                                         (%@ == NO OR (%@ == YES AND certification ==[c] %@)) AND\
                                          (%@ == NO OR (%@ == YES AND director == %@)) AND\
                                          (%@ == NO OR (%@ == YES AND ANY genres IN %@)) AND\
                                          (rating >= %@ AND rating <= %@) AND\
@@ -63,20 +63,20 @@
                                          )\
                                          ",
                                          
-                                         @([self actors] != nil),
-                                         @([self actors] != nil),
+                                         @([[self actors] count] > 0),
+                                         @([[self actors] count] > 0),
                                          [self actors] ?: @[],
                                          
-                                         @([self certification] != nil),
-                                         @([self certification] != nil),
+                                         @([[self certification] length] > 0),
+                                         @([[self certification] length] > 0),
                                          [self certification],
                                          
                                          @([self director] != nil),
                                          @([self director] != nil),
                                          [self director],
                                          
-                                         @([self genres] != nil),
-                                         @([self genres] != nil),
+                                         @([[self genres] count] > 0),
+                                         @([[self genres] count] > 0),
                                          [self genres] ?: @[],
                                          
                                          @([self minimumRating]),
@@ -94,12 +94,12 @@
                                          @([self availableOnShomi]),
                                          @([self availableOnShomi]),
                                          
-                                         @([self tags] != nil),
-                                         @([self tags] != nil),
+                                         @([[self tags] count] > 0),
+                                         @([[self tags] count] > 0),
                                          [self tags] ?: @[],
                                          
-                                         @([self title] != nil),
-                                         @([self title] != nil),
+                                         @([[self title] length] > 0),
+                                         @([[self title] length] > 0),
                                          [self title],
                                          
                                          @([self minimumYear]),
@@ -112,6 +112,10 @@
         
         NSArray * const results = [managedObjectContext executeFetchRequest:fetchRequest error:NULL];
         dispatch_async(dispatch_get_main_queue(), ^(void) {
+            
+            [self willChangeValueForKey:@"previousSearchResults"];
+            _previousSearchResults = results;
+            [self didChangeValueForKey:@"previousSearchResults"];
             
             completionBlock(results);
             

@@ -17,9 +17,11 @@
                 <outlet property="otherReviewsContainer" destination="X56-st-gY9" id="edh-1u-wj0"/>
                 <outlet property="shomiImage" destination="ZtG-cq-2ei" id="qXi-lU-jZ8"/>
                 <outlet property="starRatingCell" destination="xnr-Ak-wOP" id="Isf-O1-yEv"/>
+                <outlet property="submitReviewButton" destination="RjS-5N-pee" id="rCp-23-We6"/>
                 <outlet property="userRatingCell" destination="5LY-K9-MbU" id="pbP-t9-Vrq"/>
                 <outlet property="userReviewContainer" destination="vvx-gz-xr3" id="3zg-4M-fT2"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+                <outlet property="watchlistButton" destination="tRz-tk-P6s" id="qFt-M7-gCO"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
@@ -192,6 +194,9 @@
                                     <buttonCell key="cell" type="push" title="Submit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="RjS-5N-pee">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
+                                        <connections>
+                                            <action selector="submitReviewTouched:" target="-2" id="Qyq-nj-cAs"/>
+                                        </connections>
                                     </buttonCell>
                                 </button>
                                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="szP-7T-cFk">
@@ -294,7 +299,7 @@
                             </connections>
                         </button>
                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZtG-cq-2ei">
-                            <rect key="frame" x="773" y="702" width="38" height="38"/>
+                            <rect key="frame" x="773" y="525" width="38" height="38"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="38" id="JR7-gW-Cmf"/>
                                 <constraint firstAttribute="height" constant="38" id="NZn-xp-rK1"/>
@@ -303,7 +308,7 @@
                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="shomiGray" id="neM-0i-BjW"/>
                         </imageView>
                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2X3-mi-TQo">
-                            <rect key="frame" x="681" y="702" width="38" height="38"/>
+                            <rect key="frame" x="681" y="525" width="38" height="38"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="38" id="AJY-J3-uRr"/>
                                 <constraint firstAttribute="width" constant="38" id="UTS-5I-nAx"/>
@@ -312,7 +317,7 @@
                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="netflixGray" id="f4S-s2-bYK"/>
                         </imageView>
                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XEM-vC-0Gb">
-                            <rect key="frame" x="727" y="702" width="38" height="38"/>
+                            <rect key="frame" x="727" y="525" width="38" height="38"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="38" id="Qwn-ro-2r0"/>
                                 <constraint firstAttribute="width" constant="38" id="aLL-UI-Sb5"/>
@@ -341,6 +346,7 @@
                         <constraint firstItem="XEM-vC-0Gb" firstAttribute="leading" secondItem="2X3-mi-TQo" secondAttribute="trailing" constant="8" id="bGD-8b-0mg"/>
                         <constraint firstAttribute="trailing" secondItem="tRz-tk-P6s" secondAttribute="trailing" constant="8" id="cRR-AA-KYZ"/>
                         <constraint firstAttribute="trailing" secondItem="ZtG-cq-2ei" secondAttribute="trailing" constant="8" id="cuX-JS-oNB"/>
+                        <constraint firstItem="2X3-mi-TQo" firstAttribute="baseline" secondItem="zgT-cT-VLh" secondAttribute="baseline" constant="-4" id="cwv-hx-ZUz"/>
                         <constraint firstItem="Jca-cl-bnF" firstAttribute="centerY" secondItem="Jdc-FP-TUn" secondAttribute="centerY" id="h6y-iA-SXL"/>
                         <constraint firstItem="H4x-1B-xpV" firstAttribute="leading" secondItem="TBp-pw-Jnw" secondAttribute="leading" constant="8" id="hFU-d4-app"/>
                         <constraint firstAttribute="trailing" secondItem="hHD-iD-IqA" secondAttribute="trailing" constant="10" id="iV1-5r-D5Y"/>
@@ -350,7 +356,6 @@
                         <constraint firstItem="Jdc-FP-TUn" firstAttribute="top" secondItem="zgT-cT-VLh" secondAttribute="top" id="pvQ-1y-aU3"/>
                         <constraint firstItem="ZOc-LD-mZW" firstAttribute="leading" secondItem="vvx-gz-xr3" secondAttribute="leading" id="tGe-yp-0mw"/>
                         <constraint firstItem="XEM-vC-0Gb" firstAttribute="centerY" secondItem="2X3-mi-TQo" secondAttribute="centerY" id="tv4-uW-mXK"/>
-                        <constraint firstItem="2X3-mi-TQo" firstAttribute="top" secondItem="Jdc-FP-TUn" secondAttribute="top" id="xAo-cm-lIs"/>
                         <constraint firstItem="vvx-gz-xr3" firstAttribute="top" secondItem="oxx-Xi-MT7" secondAttribute="bottom" constant="8" id="xaq-Mu-PAB"/>
                         <constraint firstItem="Vta-nJ-4Jv" firstAttribute="trailing" secondItem="X56-st-gY9" secondAttribute="trailing" id="zSW-6y-srY"/>
                     </constraints>

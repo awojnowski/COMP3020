@@ -9,16 +9,18 @@
 #import <Cocoa/Cocoa.h>
 #import "Movie.h"
 
-@protocol MovieDetailViewControllerDelegate <NSObject>
-
-- (void)backButtonPressed;
-- (void)addToWatchListPressed;
-
-@end
+@protocol MovieDetailViewControllerDelegate;
 
 @interface MovieDetailViewController : NSViewController
 
 @property (strong, nonatomic) Movie *movie;
 @property (weak, nonatomic) id<MovieDetailViewControllerDelegate> delegate;
+
+@end
+
+@protocol MovieDetailViewControllerDelegate <NSObject>
+
+- (void)backButtonPressed:(MovieDetailViewController *)movieDetailViewController;
+- (void)addToWatchListPressed:(MovieDetailViewController *)movieDetailViewController;
 
 @end

@@ -14,6 +14,7 @@
 
 @property (nonatomic, assign) NSInteger maximumResults;
 
+@property (nonatomic, readonly, strong) NSArray <Movie *> *previousSearchResults;
 -(void)searchWithCompletionBlock:(void (^)(NSArray <Movie *> *movies))completionBlock;
 
 @end

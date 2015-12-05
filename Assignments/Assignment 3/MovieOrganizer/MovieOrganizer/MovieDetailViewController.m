@@ -7,6 +7,7 @@
 //
 
 #import "MovieDetailViewController.h"
+#import "CoreDataController.h"
 #import "Genre.h"
 #import "Actor.h"
 #import "Director.h"
@@ -18,6 +19,8 @@
 @property (weak) IBOutlet NSTextField *movieDetailTextField;
 @property (weak) IBOutlet NSLevelIndicatorCell *starRatingCell;
 @property (weak) IBOutlet NSLevelIndicatorCell *userRatingCell;
+@property (weak) IBOutlet NSButton *watchlistButton;
+@property (weak) IBOutlet NSButtonCell *submitReviewButton;
 
 @property (weak) IBOutlet NSView *userReviewContainer;
 @property (weak) IBOutlet NSView *otherReviewsContainer;
@@ -89,26 +92,94 @@
     
     [self.movieTitleLabel setStringValue:self.movie.title];
     [self.movieDetailTextField setStringValue:description];
-    [self.starRatingCell setIntValue:([self.movie.rating intValue]+1) / 2];
+    [self.starRatingCell setIntValue:([self.movie.rating intValue] / 2)+1];
     
+    [[self artworkImageView] setImage:[NSImage imageNamed:@"poster"]];
     [[self movie] fetchImageWithCompletionBlock:^(NSImage * _Nonnull image) {
         
         [[self artworkImageView] setImage:image];
         
     }];
+        
+    if(self.movie.availableOnNetflix.boolValue) {
+        
+        [self.netflixImage setImage:[NSImage imageNamed:@"netflix"]];
+        
+    } else {
+        
+        [self.netflixImage setImage:[NSImage imageNamed:@"netflixGray"]];
+        
+    }
+    
+    if(self.movie.availableOnShomi.boolValue) {
+        
+        [self.shomiImage setImage:[NSImage imageNamed:@"shomi"]];
+        
+    } else {
+        
+        [self.shomiImage setImage:[NSImage imageNamed:@"shomiGray"]];
+        
+    }
+    
+    if(self.movie.availableOnItunes.boolValue) {
+        
+        [self.appleImage setImage:[NSImage imageNamed:@"apple"]];
+        
+    } else {
+        
+        [self.appleImage setImage:[NSImage imageNamed:@"appleGray"]];
+        
+    }
+    
+    [self refreshWatchlistButtonForMovie:[self movie]];
+    
 }
 
 - (IBAction)backButtonPressed:(id)sender {
-    [self.delegate backButtonPressed];
+    [self.delegate backButtonPressed:self];
 }
 
 - (IBAction)addToWatchListPressed:(id)sender {
-    [self.delegate addToWatchListPressed];
+    [self.delegate addToWatchListPressed:self];
+    [self refreshWatchlistButtonForMovie:[self movie]];
 }
 
 - (IBAction)ratingLevelTouched:(id)sender {
     
     [self.userRatingCell setImage:[NSImage imageNamed:@"starSmallOutline"]];
+    
+}
+
+#pragma mark - Watchlist
+
+-(void)refreshWatchlistButtonForMovie:(Movie *)movie {
+    
+    Tag * __block watchlistTag = nil;
+    [[CoreDataController sharedInstance] performBlock:^(NSManagedObjectContext *managedObjectContext) {
+        
+        watchlistTag = [Tag watchlistInManagedObjectContext:managedObjectContext];
+        
+    }];
+    if (watchlistTag) {
+        
+        if ([[[self movie] tags] containsObject:watchlistTag]) {
+            
+            [[self watchlistButton] setTitle:@"Remove From Watchlist"];
+            
+        } else {
+            
+            [[self watchlistButton] setTitle:@"Add To Watchlist"];
+            
+        }
+        
+    }
+    
+}
+
+- (IBAction)submitReviewTouched:(id)sender {
+    
+    NSButton* submitReviewButton = (NSButton*)sender;
+    submitReviewButton.title = @"Update";
     
 }
 
