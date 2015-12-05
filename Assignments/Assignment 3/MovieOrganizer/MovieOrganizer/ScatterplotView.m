@@ -41,8 +41,8 @@
 
     CGFloat const leftXPadding = 48.0;
     CGFloat const rightXPadding = 32.0;
-    CGFloat const upperYPadding = 16.0;
-    CGFloat const lowerYPadding = 48.0;
+    CGFloat const upperYPadding = 36.0;
+    CGFloat const lowerYPadding = 64.0;
     CGFloat const dotSize = 8.0;
     
     NSRect const graphRect = NSMakeRect(leftXPadding, lowerYPadding, (dirtyRect.size.width - leftXPadding - rightXPadding), (dirtyRect.size.height - upperYPadding - lowerYPadding));
@@ -95,6 +95,9 @@
         
     }
     
+    [[NSColor blackColor] setFill];
+    [@"Rating" drawInRect:NSMakeRect(16.0, graphRect.origin.y + graphRect.size.height, 100.0, 32.0) withAttributes:@{ NSFontAttributeName : [NSFont fontWithName:@"HelveticaNeue" size:16.0] }];
+    
     // draw the years
     
     CGFloat const yearTextHeight = 20.0;
@@ -131,6 +134,9 @@
         [string drawInRect:stringRect withAttributes:@{ NSFontAttributeName : [NSFont fontWithName:@"HelveticaNeue" size:16.0], NSParagraphStyleAttributeName : yearParagraphStyle }];
         
     }
+    
+    [[NSColor blackColor] setFill];
+    [@"Year" drawInRect:NSMakeRect(graphRect.origin.x, graphRect.origin.y - yearTextHeight - 8.0 - 16.0 - yearTextHeight / 2.0, graphRect.size.width, yearTextHeight) withAttributes:@{ NSFontAttributeName : [NSFont fontWithName:@"HelveticaNeue" size:16.0], NSParagraphStyleAttributeName : yearParagraphStyle }];
     
 }
 
