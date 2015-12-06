@@ -12,6 +12,7 @@
 @class Actor;
 @class Director;
 @class Genre;
+@class Review;
 @class Tag;
 
 NS_ASSUME_NONNULL_BEGIN

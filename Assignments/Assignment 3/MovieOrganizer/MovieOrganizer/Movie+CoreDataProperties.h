@@ -2,7 +2,7 @@
 //  Movie+CoreDataProperties.h
 //  MovieOrganizer
 //
-//  Created by Aaron Wojnowski on 2015-11-30.
+//  Created by Aaron Wojnowski on 2015-12-06.
 //  Copyright © 2015 CS Boys. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -15,9 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Movie (CoreDataProperties)
 
+@property (nullable, nonatomic, retain) NSNumber *availableOnItunes;
 @property (nullable, nonatomic, retain) NSNumber *availableOnNetflix;
 @property (nullable, nonatomic, retain) NSNumber *availableOnShomi;
-@property (nullable, nonatomic, retain) NSNumber *availableOnItunes;
 @property (nullable, nonatomic, retain) NSString *certification;
 @property (nullable, nonatomic, retain) NSString *length;
 @property (nullable, nonatomic, retain) NSNumber *rating;
@@ -26,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSSet<Actor *> *actors;
 @property (nullable, nonatomic, retain) Director *director;
 @property (nullable, nonatomic, retain) NSSet<Genre *> *genres;
+@property (nullable, nonatomic, retain) NSSet<Review *> *reviews;
 @property (nullable, nonatomic, retain) NSSet<Tag *> *tags;
 
 @end
@@ -41,6 +42,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)removeGenresObject:(Genre *)value;
 - (void)addGenres:(NSSet<Genre *> *)values;
 - (void)removeGenres:(NSSet<Genre *> *)values;
+
+- (void)addReviewsObject:(Review *)value;
+- (void)removeReviewsObject:(Review *)value;
+- (void)addReviews:(NSSet<Review *> *)values;
+- (void)removeReviews:(NSSet<Review *> *)values;
 
 - (void)addTagsObject:(Tag *)value;
 - (void)removeTagsObject:(Tag *)value;

@@ -17,6 +17,7 @@
 		931CF0A81C0BAA55003122FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 931CF0A61C0BAA55003122FB /* Main.storyboard */; };
 		935635161C14E6A5002498A8 /* Review+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 935635131C14E6A5002498A8 /* Review+CoreDataProperties.m */; };
 		935635171C14E6A5002498A8 /* Review.m in Sources */ = {isa = PBXBuildFile; fileRef = 935635151C14E6A5002498A8 /* Review.m */; };
+		935E44771C14E7460024B8A3 /* Movie+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 935E44761C14E7460024B8A3 /* Movie+CoreDataProperties.m */; };
 		937233A91C138B620003D246 /* ListAddView.m in Sources */ = {isa = PBXBuildFile; fileRef = 937233A81C138B620003D246 /* ListAddView.m */; };
 		937233AC1C138B690003D246 /* TagsListAddView.m in Sources */ = {isa = PBXBuildFile; fileRef = 937233AB1C138B690003D246 /* TagsListAddView.m */; };
 		937233AF1C138B720003D246 /* DirectorsListAddView.m in Sources */ = {isa = PBXBuildFile; fileRef = 937233AE1C138B720003D246 /* DirectorsListAddView.m */; };
@@ -27,7 +28,6 @@
 		93C5153F1C0CFA06008C8C8E /* CoreDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C5153E1C0CFA06008C8C8E /* CoreDataController.m */; };
 		93C515431C0CFA25008C8C8E /* MovieOrganizer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93C515411C0CFA25008C8C8E /* MovieOrganizer.xcdatamodeld */; };
 		93C515461C0CFCFE008C8C8E /* SeedDataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C515451C0CFCFE008C8C8E /* SeedDataLoader.m */; };
-		93C515611C0D022A008C8C8E /* Movie+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C5154A1C0D022A008C8C8E /* Movie+CoreDataProperties.m */; };
 		93C515621C0D022A008C8C8E /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C5154C1C0D022A008C8C8E /* Movie.m */; };
 		93C515641C0D022A008C8C8E /* Actor.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C515501C0D022A008C8C8E /* Actor.m */; };
 		93C515651C0D022A008C8C8E /* Genre+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C515521C0D022A008C8C8E /* Genre+CoreDataProperties.m */; };
@@ -59,10 +59,12 @@
 		931CF0A41C0BAA55003122FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		931CF0A71C0BAA55003122FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		931CF0A91C0BAA55003122FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		935635121C14E6A5002498A8 /* Review+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Review+CoreDataProperties.h"; path = "Review+CoreDataProperties.h"; sourceTree = "<group>"; };
-		935635131C14E6A5002498A8 /* Review+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Review+CoreDataProperties.m"; path = "Review+CoreDataProperties.m"; sourceTree = "<group>"; };
-		935635141C14E6A5002498A8 /* Review.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Review.h; path = "Review.h"; sourceTree = "<group>"; };
-		935635151C14E6A5002498A8 /* Review.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Review.m; path = "Review.m"; sourceTree = "<group>"; };
+		935635121C14E6A5002498A8 /* Review+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Review+CoreDataProperties.h"; sourceTree = "<group>"; };
+		935635131C14E6A5002498A8 /* Review+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Review+CoreDataProperties.m"; sourceTree = "<group>"; };
+		935635141C14E6A5002498A8 /* Review.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Review.h; sourceTree = "<group>"; };
+		935635151C14E6A5002498A8 /* Review.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Review.m; sourceTree = "<group>"; };
+		935E44751C14E7460024B8A3 /* Movie+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Movie+CoreDataProperties.h"; path = "../../../../../../../../../../Aaron/Documents/Work/University/COMP 3020/Repository/Assignments/Assignment 3/MovieOrganizer/MovieOrganizer/Movie+CoreDataProperties.h"; sourceTree = "<group>"; };
+		935E44761C14E7460024B8A3 /* Movie+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Movie+CoreDataProperties.m"; path = "../../../../../../../../../../Aaron/Documents/Work/University/COMP 3020/Repository/Assignments/Assignment 3/MovieOrganizer/MovieOrganizer/Movie+CoreDataProperties.m"; sourceTree = "<group>"; };
 		937233A71C138B620003D246 /* ListAddView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListAddView.h; sourceTree = "<group>"; };
 		937233A81C138B620003D246 /* ListAddView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListAddView.m; sourceTree = "<group>"; };
 		937233AA1C138B690003D246 /* TagsListAddView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagsListAddView.h; sourceTree = "<group>"; };
@@ -81,8 +83,6 @@
 		93C515421C0CFA25008C8C8E /* MovieOrganizer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MovieOrganizer.xcdatamodel; sourceTree = "<group>"; };
 		93C515441C0CFCFE008C8C8E /* SeedDataLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeedDataLoader.h; sourceTree = "<group>"; };
 		93C515451C0CFCFE008C8C8E /* SeedDataLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeedDataLoader.m; sourceTree = "<group>"; };
-		93C515491C0D022A008C8C8E /* Movie+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Movie+CoreDataProperties.h"; sourceTree = "<group>"; };
-		93C5154A1C0D022A008C8C8E /* Movie+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Movie+CoreDataProperties.m"; sourceTree = "<group>"; };
 		93C5154B1C0D022A008C8C8E /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
 		93C5154C1C0D022A008C8C8E /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
 		93C5154F1C0D022A008C8C8E /* Actor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Actor.h; sourceTree = "<group>"; };
@@ -264,8 +264,8 @@
 				93C515521C0D022A008C8C8E /* Genre+CoreDataProperties.m */,
 				93C515531C0D022A008C8C8E /* Genre.h */,
 				93C515541C0D022A008C8C8E /* Genre.m */,
-				93C515491C0D022A008C8C8E /* Movie+CoreDataProperties.h */,
-				93C5154A1C0D022A008C8C8E /* Movie+CoreDataProperties.m */,
+				935E44751C14E7460024B8A3 /* Movie+CoreDataProperties.h */,
+				935E44761C14E7460024B8A3 /* Movie+CoreDataProperties.m */,
 				93C5154B1C0D022A008C8C8E /* Movie.h */,
 				93C5154C1C0D022A008C8C8E /* Movie.m */,
 				935635121C14E6A5002498A8 /* Review+CoreDataProperties.h */,
@@ -372,9 +372,9 @@
 				935635171C14E6A5002498A8 /* Review.m in Sources */,
 				93C515461C0CFCFE008C8C8E /* SeedDataLoader.m in Sources */,
 				93C515621C0D022A008C8C8E /* Movie.m in Sources */,
+				935E44771C14E7460024B8A3 /* Movie+CoreDataProperties.m in Sources */,
 				93C5156C1C0D022A008C8C8E /* Configuration.m in Sources */,
 				9395CF181C115FBB0041650F /* MovieSearchProvider.m in Sources */,
-				93C515611C0D022A008C8C8E /* Movie+CoreDataProperties.m in Sources */,
 				931CF0A01C0BAA55003122FB /* main.m in Sources */,
 				937233AF1C138B720003D246 /* DirectorsListAddView.m in Sources */,
 				93C515431C0CFA25008C8C8E /* MovieOrganizer.xcdatamodeld in Sources */,

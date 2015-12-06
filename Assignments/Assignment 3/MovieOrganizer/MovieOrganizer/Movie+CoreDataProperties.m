@@ -2,7 +2,7 @@
 //  Movie+CoreDataProperties.m
 //  MovieOrganizer
 //
-//  Created by Aaron Wojnowski on 2015-11-30.
+//  Created by Aaron Wojnowski on 2015-12-06.
 //  Copyright © 2015 CS Boys. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -13,9 +13,9 @@
 
 @implementation Movie (CoreDataProperties)
 
+@dynamic availableOnItunes;
 @dynamic availableOnNetflix;
 @dynamic availableOnShomi;
-@dynamic availableOnItunes;
 @dynamic certification;
 @dynamic length;
 @dynamic rating;
@@ -24,6 +24,7 @@
 @dynamic actors;
 @dynamic director;
 @dynamic genres;
+@dynamic reviews;
 @dynamic tags;
 
 @end
