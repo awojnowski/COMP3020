@@ -758,6 +758,9 @@
                                             <segments>
                                                 <segment image="graph" width="32"/>
                                             </segments>
+                                            <connections>
+                                                <action selector="graphSegmentedControlSelected:" target="XfG-lQ-9wD" id="zwR-M2-uRT"/>
+                                            </connections>
                                         </segmentedCell>
                                     </segmentedControl>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="o51-vi-OZ6">
@@ -1348,6 +1351,7 @@
                         <outlet property="directorContainerView" destination="w9R-bg-Nem" id="vdd-WY-h4F"/>
                         <outlet property="directorsListAddView" destination="YWB-sR-VFD" id="ygX-Nu-2Qw"/>
                         <outlet property="genreContainerView" destination="iC4-mN-aDl" id="dKc-1D-4jD"/>
+                        <outlet property="graphSegmentedControl" destination="s66-39-0gF" id="kyR-EA-KGS"/>
                         <outlet property="graphView" destination="z9E-7i-HjH" id="rfN-tj-TMZ"/>
                         <outlet property="maxYearTextField" destination="N5O-3g-gyE" id="8iV-od-Su0"/>
                         <outlet property="menuBarContainerView" destination="Oox-ln-t14" id="0nR-K8-tKB"/>

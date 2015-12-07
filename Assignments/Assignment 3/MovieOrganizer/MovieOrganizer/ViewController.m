@@ -6,13 +6,12 @@
 //  Copyright © 2015 CS Boys. All rights reserved.
 //
 
-// store user reviews
 // both write ups
 // EVERYTHING input validated
-// Editting segmented control to reflect when going to graph view
+// input validation on reviews
+// diasble interaction when on movie
 
 // syntax-free interaction?
-// diasble interaction when on movie?
 // add all genres to adv. search?
 
 #import "ViewController.h"
@@ -70,8 +69,7 @@
 @property (weak) IBOutlet NSSegmentedCell *viewSegmentedControlSelector;
 @property (weak) IBOutlet NSSegmentedControl *minRatingControl;
 @property (weak) IBOutlet NSPopUpButtonCell *ageRatingPopUpButton;
-@property (weak) IBOutlet NSPopUpButton *actorPullDown;
-@property (weak) IBOutlet NSPopUpButton *directorPullDown;
+@property (weak) IBOutlet NSSegmentedCell *graphSegmentedControl;
 
 // Properties related to looking at movie field
 //@property (weak) IBOutlet NSLevelIndicator *movieRatingIndicator;
@@ -122,7 +120,6 @@
         
         [[SeedDataLoader sharedInstance] seedDataInManagedObjectContext:managedObjectContext];
         
-        NSMutableArray * __block actorNames = [NSMutableArray array];
         /*NSArray *actors = [Actor allActorsInManagedObjectContext:managedObjectContext];
         [actors enumerateObjectsUsingBlock:^(id  _Nonnull actor, NSUInteger idx, BOOL * _Nonnull stop) {
             
@@ -133,11 +130,11 @@
         
         // load the UI
         
-        dispatch_async(dispatch_get_main_queue(), ^(void) {
+        /*dispatch_async(dispatch_get_main_queue(), ^(void) {
             
             [[self actorPullDown] addItemsWithTitles:actorNames];
             
-        });
+        });*/
         
     }];
     
@@ -610,32 +607,6 @@
     
 }
 
-- (void)updateActorList {
-    
-    int baseOriginX = self.actorPullDown.frame.origin.x + 2;
-    int baseOriginY = 120;
-    int baseWidth = self.actorPullDown.frame.size.width - 4;
-    int baseHeight = 22;
-    
-    for(int i = 0; i < [self.selectedActorsArray count]; i++) {
-        
-        NSTextField* actor = [[NSTextField alloc] init];
-        actor.stringValue = [self.selectedActorsArray objectAtIndex:i];
-        [actor setFrame: CGRectMake(baseOriginX,baseOriginY - (baseHeight * i),baseWidth,baseHeight)];
-        [self.view addSubview:actor];
-        
-        [self.directorContainerView removeFromSuperview];
-        
-        [self.directorContainerView setFrame: CGRectMake(self.directorContainerView.frame.origin.x,baseOriginY + (baseHeight * i) - 8,self.directorContainerView.frame.size.width,self.directorContainerView.frame.size.height)];
-        
-        [self.view addSubview:self.directorContainerView];
-    }
-    
-    //NSLog(@"Pulldown: %f %f %f %f",self.actorPullDown.frame.origin.x,self.actorPullDown.frame.origin.y,self.actorPullDown.frame.size.width,self.actorPullDown.frame.size.height);
-    //NSLog(@"Text: %f %f %f %f",actor.frame.origin.x,actor.frame.origin.y,actor.frame.size.width,actor.frame.size.height);
-    
-}
-
 - (void)showMovieSelected {
     
     if ([self movieDetailShowing]) {
@@ -679,49 +650,6 @@
     self.tableViewHeader.hidden = YES;
     self.movieTableScrollView.hidden = YES;
     
-}
-
-- (IBAction)addActorTouched:(id)sender {
-    
-    if([self.selectedActorsArray indexOfObject:self.actorPullDown.titleOfSelectedItem] == NSNotFound) {
-        
-        if(![self.actorPullDown.titleOfSelectedItem isEqualToString:@"N/A"]) {
-            
-            [self.selectedActorsArray addObject: self.actorPullDown.titleOfSelectedItem];
-            [self updateActorList];
-            
-        }
-        
-    }
-    
-}
-
-- (IBAction)addDirectorTouched:(id)sender {
-    
-    if([self.selectedDirectorsArray indexOfObject:self.directorPullDown.titleOfSelectedItem] == NSNotFound ) {
-        
-        if(![self.directorPullDown.titleOfSelectedItem isEqualToString:@"N/A"]) {
-            
-            [self.selectedDirectorsArray addObject: self.directorPullDown.titleOfSelectedItem];
-            NSLog(@"%@",self.directorPullDown.titleOfSelectedItem);
-            
-        }
-        
-    }
-    
-}
-
-- (IBAction)actorSelectionTouched:(id)sender {
-    
-    
-}
-
-- (IBAction)directorSelectionTouched:(id)sender {
-    
-    /*NSPopUpButtonCell* directorSelectionButton = (NSPopUpButtonCell*)sender;
-    NSString* selectedDirector = directorSelectionButton.titleOfSelectedItem;
-    directorSelectionButton.state = NSOnState;*/
-
 }
 
 - (void)movieSearchTextChanged:(NSNotification *)notification {
@@ -778,11 +706,38 @@
     
 }
 
+- (IBAction)graphSegmentedControlSelected:(id)sender {
+    
+    if(self.graphSegmentedControl.state == NSOffState) {
+        
+        [self.graphSegmentedControl setSelected:NO forSegment:0];
+        [self viewSegmentedControlSelected:nil];
+        
+    } else {
+        
+        [self.graphSegmentedControl setSelected:YES forSegment:0];
+        [self showGraphView];
+        
+    }
+    
+}
+
 - (IBAction)viewSegmentedControlSelected:(id)sender {
     
-    NSSegmentedControl *control = (NSSegmentedControl *)sender;
-    NSInteger segment = [control selectedSegment];
-    if (segment == [self currentSelectedSegment]) {
+    NSInteger segment = [self.viewSegmentedControlSelector selectedSegment];
+    if (self.graphSegmentedControl.state == NSOnState) {
+        
+        if(segment == 0) {
+            
+            [self disableWatchlist];
+            
+        } else {
+            
+            [self enableWatchlist];
+            
+        }
+        
+        [self refreshMovies];
         
         return;
         
@@ -800,10 +755,6 @@
         [self showListViewSelected];
         [self enableWatchlist];
         [self refreshMovies];
-        
-    } else if(segment == 2) {
-        
-        [self showGraphView];
         
     }
     
