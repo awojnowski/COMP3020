@@ -126,6 +126,19 @@
     
     [self refreshWatchlistButtonForMovie:[self movie]];
     
+    Review * const review = [[[self movie] reviews] anyObject];
+    if (review) {
+        
+        [[self userReviewTextField] setStringValue:[review review]];
+        [[self userRatingCell] setIntValue:[[review rating] intValue]];
+        
+    } else {
+        
+        [[self userReviewTextField] setStringValue:@""];
+        [[self userRatingCell] setIntValue:0];
+        
+    }
+    
 }
 
 - (IBAction)backButtonPressed:(id)sender {
@@ -174,19 +187,21 @@
     //NSButton* submitReviewButton = (NSButton*)sender;
     //submitReviewButton.title = @"Update";
     
-    Review __block *review = nil;
     [[CoreDataController sharedInstance] performBlock:^(NSManagedObjectContext *managedObjectContext) {
         
-        review = [Review createInManagedObjectContext:managedObjectContext];
-        [review setMovie:self.movie];
-        [self.movie addReviewsObject:review];
+        Review *review = [[[self movie] reviews] anyObject];
+        if (!review) {
+            
+            review = [Review createInManagedObjectContext:managedObjectContext];
+            [review setMovie:self.movie];
+            [self.movie addReviewsObject:review];
+            
+        }
+        
         [review setReview:self.userReviewTextField.stringValue];
         [review setRating:@(self.userRatingCell.intValue)];
         
-        
     }];
-    
-    
     
 }
 
