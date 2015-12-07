@@ -670,13 +670,9 @@
 
 - (void)minYearTextChanged:(NSNotification *)notification {
     
-    NSInteger minYear = self.minYearTextField.integerValue;
-    if (self.minYearTextField.stringValue.length == 0) {
-        
-        minYear = 0;
-        
-    }
+    [[self minYearTextField] setStringValue:[self normalizedYearString:[[self minYearTextField] stringValue]]];
     
+    NSInteger const minYear = self.minYearTextField.integerValue;
     [self.searchProvider setMinimumYear:minYear];
     
     [self refreshMovies];
@@ -685,24 +681,26 @@
 
 - (void)maxYearTextChanged:(NSNotification *)notification {
     
-    NSInteger maxYear = self.maxYearTextField.integerValue;
-    if (self.maxYearTextField.stringValue.length == 0) {
-        
-        maxYear = INT_MAX;
-        
-    }
+    [[self maxYearTextField] setStringValue:[self normalizedYearString:[[self maxYearTextField] stringValue]]];
     
-    if(maxYear == 0) {
+    if ([[[self maxYearTextField] stringValue] length] == 0) {
         
         [self.searchProvider setMaximumYear:INT_MAX];
         
     } else {
         
+        NSInteger const maxYear = MAX(self.minYearTextField.integerValue, self.maxYearTextField.integerValue);
         [self.searchProvider setMaximumYear:maxYear];
         
     }
     
     [self refreshMovies];
+    
+}
+
+-(NSString *)normalizedYearString:(NSString *)yearString {
+    
+    return [[yearString componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""];
     
 }
 
