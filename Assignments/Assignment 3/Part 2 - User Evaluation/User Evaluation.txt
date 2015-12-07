@@ -94,8 +94,8 @@ Permission to quote: YES
 1)
 clicks: 3
 time: 35 seconds
-errors/feedback: - did not know who quinten tarantino was so looked in actors first
-- searched by scrolling taking longer
+errors/feedback: - did not know who Quinten Tarantino was, so she tried typing his name into actors before adding him as a director
+- accidentally mis-spelled his name causing confusion
 
 2)
 clicks: 1
@@ -149,7 +149,7 @@ Permission to quote: YES
 1)
 clicks: 2
 time: 21 seconds
-errors/feedback: searched by scrolling taking longer
+errors/feedback: had to figure out and process the advanced search before figuring out how to search by director (gulf of execution)
 
 2)
 clicks: 1
@@ -196,6 +196,7 @@ Rocky's Review:
 - I'm happy there is a feature to search for netflix
 - I like that I can search for multiple genres at once
 - Overall information is displayed well and simply for me to find
+- Didn’t understand what the scatterplot would be used for
 
 Daniel:
 Permission to observe: YES
@@ -204,7 +205,7 @@ Permission to quote: YES
 1)
 clicks: 1
 time: 7 seconds
-errors/feedback: - queried by typing to increase speed
+errors/feedback: - easily parsed the advanced search layout
 
 2)
 clicks: 1

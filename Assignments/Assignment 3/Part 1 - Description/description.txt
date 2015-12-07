@@ -32,4 +32,4 @@ Sometimes when nagivating amongst the segmented control views in the top right, 
 
 (4) Installation procedure
 
-(FILL IN)
+1. Open the app (it will populate itself with data initially which may take a little while as the internal object database is being generated)
