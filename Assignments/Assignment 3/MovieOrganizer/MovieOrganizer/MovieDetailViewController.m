@@ -12,6 +12,7 @@
 #import "Actor.h"
 #import "Director.h"
 #import "Tag.h"
+#import "Review.h"
 
 @interface MovieDetailViewController ()
 
@@ -21,11 +22,9 @@
 @property (weak) IBOutlet NSLevelIndicatorCell *userRatingCell;
 @property (weak) IBOutlet NSButton *watchlistButton;
 @property (weak) IBOutlet NSButtonCell *submitReviewButton;
+@property (weak) IBOutlet NSTextField *userReviewTextField;
 
 @property (weak) IBOutlet NSView *userReviewContainer;
-@property (weak) IBOutlet NSView *otherReviewsContainer;
-@property (weak) IBOutlet NSView *exampleUserReviewOne;
-@property (weak) IBOutlet NSView *exampleUserReviewTwo;
 
 @property (weak) IBOutlet NSImageView *netflixImage;
 @property (weak) IBOutlet NSImageView *appleImage;
@@ -43,14 +42,8 @@
     [self.view setWantsLayer:YES];
     
     [self.userReviewContainer.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-    [self.otherReviewsContainer.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-    [self.exampleUserReviewOne.layer setBorderColor:[NSColor lightGrayColor].CGColor];
-    [self.exampleUserReviewTwo.layer setBorderColor:[NSColor lightGrayColor].CGColor];
     
     [self.userReviewContainer.layer setBorderWidth:1];
-    [self.otherReviewsContainer.layer setBorderWidth:1];
-    [self.exampleUserReviewOne.layer setBorderWidth:1];
-    [self.exampleUserReviewTwo.layer setBorderWidth:1];
     
     [self.view.layer setBackgroundColor:[NSColor whiteColor].CGColor];
     
@@ -88,7 +81,7 @@
         tagsString = [tags componentsJoinedByString:@", "];
     }
     
-    NSString *description = [NSString stringWithFormat:@"Genres: %@\nYear: %@\nRating: %@/10\n\nStars: %@\nDirector: %@\n\nLength: %@\nCertificaiton: %@\n\nTags: %@", genreString, self.movie.year, self.movie.rating, actorString, self.movie.director.name, self.movie.length, certification, tagsString];
+    NSString *description = [NSString stringWithFormat:@"Genres: %@\nYear: %@\nRating: %@/10\n\nStars: %@\nDirector: %@\n\nLength: %@\nCertification: %@\n\nTags: %@", genreString, self.movie.year, self.movie.rating, actorString, self.movie.director.name, self.movie.length, certification, tagsString];
     
     [self.movieTitleLabel setStringValue:self.movie.title];
     [self.movieDetailTextField setStringValue:description];
@@ -178,8 +171,22 @@
 
 - (IBAction)submitReviewTouched:(id)sender {
     
-    NSButton* submitReviewButton = (NSButton*)sender;
-    submitReviewButton.title = @"Update";
+    //NSButton* submitReviewButton = (NSButton*)sender;
+    //submitReviewButton.title = @"Update";
+    
+    Review __block *review = nil;
+    [[CoreDataController sharedInstance] performBlock:^(NSManagedObjectContext *managedObjectContext) {
+        
+        review = [Review createInManagedObjectContext:managedObjectContext];
+        [review setMovie:self.movie];
+        [self.movie addReviewsObject:review];
+        [review setReview:self.userReviewTextField.stringValue];
+        [review setRating:@(self.userRatingCell.intValue)];
+        
+        
+    }];
+    
+    
     
 }
 

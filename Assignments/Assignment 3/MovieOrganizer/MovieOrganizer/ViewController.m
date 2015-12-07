@@ -6,11 +6,14 @@
 //  Copyright © 2015 CS Boys. All rights reserved.
 //
 
-// starting window size
-// layout subviews not updating
-// how are we gonna design the advanced search to edit cells to move
-// diasble interaction when on profile
-// need to change to scrollviews
+// store user reviews
+// both write ups
+// EVERYTHING input validated
+// Editting segmented control to reflect when going to graph view
+
+// syntax-free interaction?
+// diasble interaction when on movie?
+// add all genres to adv. search?
 
 #import "ViewController.h"
 
