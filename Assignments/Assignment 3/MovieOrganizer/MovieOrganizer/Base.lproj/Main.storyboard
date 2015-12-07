@@ -1111,17 +1111,6 @@
                                             <action selector="fantasyButtonTouched:" target="XfG-lQ-9wD" id="NSR-G4-WFY"/>
                                         </connections>
                                     </button>
-                                    <button translatesAutoresizingMaskIntoConstraints="NO" id="2fv-YC-i81">
-                                        <rect key="frame" x="150" y="94" width="55" height="18"/>
-                                        <animations/>
-                                        <buttonCell key="cell" type="check" title="Sci.Fi" bezelStyle="regularSquare" imagePosition="left" inset="2" id="fZf-v6-Q6S">
-                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                            <connections>
-                                                <action selector="sciFiButtonTouched:" target="XfG-lQ-9wD" id="gqj-FD-p8c"/>
-                                            </connections>
-                                        </buttonCell>
-                                    </button>
                                     <button translatesAutoresizingMaskIntoConstraints="NO" id="WVn-tO-U4a">
                                         <rect key="frame" x="6" y="6" width="104" height="18"/>
                                         <animations/>
@@ -1141,6 +1130,17 @@
                                             <font key="font" metaFont="system"/>
                                             <connections>
                                                 <action selector="horrorButtonTouched:" target="XfG-lQ-9wD" id="zdQ-iv-OnK"/>
+                                            </connections>
+                                        </buttonCell>
+                                    </button>
+                                    <button translatesAutoresizingMaskIntoConstraints="NO" id="2fv-YC-i81">
+                                        <rect key="frame" x="150" y="94" width="58" height="18"/>
+                                        <animations/>
+                                        <buttonCell key="cell" type="check" title="Sci-Fi" bezelStyle="regularSquare" imagePosition="left" inset="2" id="fZf-v6-Q6S">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                            <connections>
+                                                <action selector="sciFiButtonTouched:" target="XfG-lQ-9wD" id="gqj-FD-p8c"/>
                                             </connections>
                                         </buttonCell>
                                     </button>
@@ -1278,7 +1278,7 @@
                                     <nil key="backgroundColor"/>
                                 </clipView>
                                 <animations/>
-                                <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="1iz-cY-hzE">
+                                <scroller key="horizontalScroller" verticalHuggingPriority="750" doubleValue="0.0029730488432309645" horizontal="YES" id="1iz-cY-hzE">
                                     <rect key="frame" x="1" y="675" width="739" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>

@@ -188,6 +188,8 @@
 
 - (IBAction)submitReviewTouched:(id)sender {
     
+    self.submitReviewButton.title = @"Update";
+    
     [[CoreDataController sharedInstance] performBlock:^(NSManagedObjectContext *managedObjectContext) {
         
         Review *review = [[[self movie] reviews] anyObject];

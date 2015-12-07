@@ -12,7 +12,6 @@
 // diasble interaction when on movie
 
 // syntax-free interaction?
-// add all genres to adv. search?
 
 #import "ViewController.h"
 
