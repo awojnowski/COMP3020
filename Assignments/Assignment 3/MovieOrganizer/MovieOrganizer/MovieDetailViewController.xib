@@ -14,7 +14,7 @@
                 <outlet property="netflixImage" destination="2X3-mi-TQo" id="pp6-Zn-CWs"/>
                 <outlet property="shomiImage" destination="ZtG-cq-2ei" id="qXi-lU-jZ8"/>
                 <outlet property="starRatingCell" destination="xnr-Ak-wOP" id="Isf-O1-yEv"/>
-                <outlet property="submitReviewButton" destination="RjS-5N-pee" id="rCp-23-We6"/>
+                <outlet property="submitReviewButton" destination="ElR-b8-XmD" id="5Qc-ly-ufA"/>
                 <outlet property="userRatingCell" destination="5LY-K9-MbU" id="pbP-t9-Vrq"/>
                 <outlet property="userRatingLevelIndicator" destination="5LY-K9-MbU" id="2t3-FE-jNU"/>
                 <outlet property="userReviewContainer" destination="vvx-gz-xr3" id="3zg-4M-fT2"/>
@@ -137,17 +137,6 @@
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                 </textField>
-                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ElR-b8-XmD">
-                                    <rect key="frame" x="718" y="102" width="83" height="32"/>
-                                    <animations/>
-                                    <buttonCell key="cell" type="push" title="Submit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="RjS-5N-pee">
-                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                        <font key="font" metaFont="system"/>
-                                        <connections>
-                                            <action selector="submitReviewTouched:" target="-2" id="Qyq-nj-cAs"/>
-                                        </connections>
-                                    </buttonCell>
-                                </button>
                                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="szP-7T-cFk">
                                     <rect key="frame" x="3" y="103" width="33" height="33"/>
                                     <constraints>
@@ -178,6 +167,17 @@
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                 </textField>
+                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ElR-b8-XmD">
+                                    <rect key="frame" x="718" y="102" width="83" height="32"/>
+                                    <animations/>
+                                    <buttonCell key="cell" type="push" title="Submit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="RjS-5N-pee">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                        <connections>
+                                            <action selector="submitReviewTouched:" target="-2" id="Qyq-nj-cAs"/>
+                                        </connections>
+                                    </buttonCell>
+                                </button>
                             </subviews>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="ElR-b8-XmD" secondAttribute="trailing" constant="8" id="0yg-Zz-5NC"/>

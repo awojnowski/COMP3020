@@ -131,11 +131,15 @@
         
         [[self userReviewTextField] setStringValue:[review review]];
         [[self userRatingCell] setIntValue:[[review rating] intValue]];
+        [self.userRatingCell setImage:[NSImage imageNamed:@"starSmallOutline"]];
+        self.submitReviewButton.title = @"Update";
         
     } else {
         
+        [self.userRatingCell setImage:[NSImage imageNamed:@"starSmallOutlineBase"]];
+        self.submitReviewButton.title = @"Review";
         [[self userReviewTextField] setStringValue:@""];
-        [[self userRatingCell] setIntValue:0];
+        [[self userRatingCell] setIntValue:5];
         
     }
     
@@ -183,9 +187,6 @@
 }
 
 - (IBAction)submitReviewTouched:(id)sender {
-    
-    //NSButton* submitReviewButton = (NSButton*)sender;
-    //submitReviewButton.title = @"Update";
     
     [[CoreDataController sharedInstance] performBlock:^(NSManagedObjectContext *managedObjectContext) {
         
