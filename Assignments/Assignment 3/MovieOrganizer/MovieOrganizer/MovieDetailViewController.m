@@ -188,6 +188,24 @@
 
 - (IBAction)submitReviewTouched:(id)sender {
     
+    BOOL const didRate = ![self.userRatingCell.image.name isEqualToString:@"starSmallOutlineBase"];
+    if (!didRate) {
+        
+        NSAlert * const alert = [NSAlert alertWithMessageText:@"Error" defaultButton:@"Dismiss" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Please choose the rating (in stars) before submitting your review."];
+        [alert runModal];
+        
+        return;
+        
+    }
+    if (self.userReviewTextField.stringValue.length == 0) {
+        
+        NSAlert * const alert = [NSAlert alertWithMessageText:@"Error" defaultButton:@"Dismiss" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Please enter some information about your review in the text field, before submitting your review."];
+        [alert runModal];
+        
+        return;
+        
+    }
+    
     self.submitReviewButton.title = @"Update";
     
     [[CoreDataController sharedInstance] performBlock:^(NSManagedObjectContext *managedObjectContext) {
