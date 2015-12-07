@@ -197,14 +197,6 @@
         return;
         
     }
-    if (self.userReviewTextField.stringValue.length == 0) {
-        
-        NSAlert * const alert = [NSAlert alertWithMessageText:@"Error" defaultButton:@"Dismiss" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Please enter some information about your review in the text field, before submitting your review."];
-        [alert runModal];
-        
-        return;
-        
-    }
     
     self.submitReviewButton.title = @"Update";
     
