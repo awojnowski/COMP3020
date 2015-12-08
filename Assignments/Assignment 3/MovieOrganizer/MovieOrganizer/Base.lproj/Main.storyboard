@@ -1278,7 +1278,7 @@
                                     <nil key="backgroundColor"/>
                                 </clipView>
                                 <animations/>
-                                <scroller key="horizontalScroller" verticalHuggingPriority="750" doubleValue="0.0029730488432309645" horizontal="YES" id="1iz-cY-hzE">
+                                <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="1iz-cY-hzE">
                                     <rect key="frame" x="1" y="675" width="739" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
@@ -1342,17 +1342,28 @@
                         <animations/>
                     </view>
                     <connections>
+                        <outlet property="actionButton" destination="nqd-I8-zmB" id="zZG-dM-tm3"/>
                         <outlet property="actorsContainerView" destination="YWB-sR-VFD" id="Vos-tl-qXn"/>
                         <outlet property="actorsListAddView" destination="w9R-bg-Nem" id="IKK-bO-NvP"/>
+                        <outlet property="addMovieButton" destination="tij-P5-qFV" id="rbs-Vv-djP"/>
                         <outlet property="advancedSearchMenuBarView" destination="icQ-B5-OGZ" id="ZAb-a4-PYw"/>
+                        <outlet property="adventureButton" destination="ceI-3j-jzq" id="kof-pT-XDM"/>
                         <outlet property="ageContainerView" destination="DTk-Ui-TU4" id="L1w-DF-zoP"/>
                         <outlet property="ageRatingPopUpButton" destination="gRo-Ib-g9Y" id="EuR-Vh-RYd"/>
                         <outlet property="availibilityContainerView" destination="5tZ-Jg-OcM" id="J4z-XP-q6H"/>
+                        <outlet property="comedyButton" destination="Bhr-AH-nWg" id="RST-Ti-cSH"/>
+                        <outlet property="deleteMovieButton" destination="o51-vi-OZ6" id="CRC-0z-hri"/>
                         <outlet property="directorContainerView" destination="w9R-bg-Nem" id="vdd-WY-h4F"/>
                         <outlet property="directorsListAddView" destination="YWB-sR-VFD" id="ygX-Nu-2Qw"/>
+                        <outlet property="documentaryButton" destination="WVn-tO-U4a" id="MQk-57-ygG"/>
+                        <outlet property="dramaButton" destination="EwS-3H-mBJ" id="5qe-nH-zLV"/>
+                        <outlet property="editMovieButton" destination="gJb-Yx-2S1" id="WDo-Wv-175"/>
+                        <outlet property="fantasyButton" destination="2iE-CD-77B" id="5Kp-f1-Ty2"/>
                         <outlet property="genreContainerView" destination="iC4-mN-aDl" id="dKc-1D-4jD"/>
                         <outlet property="graphSegmentedControl" destination="s66-39-0gF" id="kyR-EA-KGS"/>
                         <outlet property="graphView" destination="z9E-7i-HjH" id="rfN-tj-TMZ"/>
+                        <outlet property="horrorButton" destination="WvS-fR-Xkv" id="2hA-Ip-qIC"/>
+                        <outlet property="itunesButton" destination="SlH-cz-5Xc" id="JKA-Wv-jVl"/>
                         <outlet property="maxYearTextField" destination="N5O-3g-gyE" id="8iV-od-Su0"/>
                         <outlet property="menuBarContainerView" destination="Oox-ln-t14" id="0nR-K8-tKB"/>
                         <outlet property="minRatingContainerView" destination="U4I-jN-Gzg" id="rtB-9U-IsG"/>
@@ -1361,10 +1372,15 @@
                         <outlet property="movieSearchField" destination="dwP-KK-hnP" id="jHA-Mb-cqZ"/>
                         <outlet property="movieTableScrollView" destination="fKr-mU-o44" id="KCf-fi-Eb0"/>
                         <outlet property="movieTableView" destination="Kvi-ch-mPX" id="kJQ-m3-V2f"/>
+                        <outlet property="netflixButton" destination="w6Y-aa-KRS" id="pFd-PN-boj"/>
+                        <outlet property="romanceButton" destination="u5m-JS-f4z" id="Kje-JW-HM7"/>
+                        <outlet property="sciFiButton" destination="2fv-YC-i81" id="0YF-47-Kxk"/>
+                        <outlet property="shomiButton" destination="I2u-te-IU7" id="CNl-RX-U78"/>
                         <outlet property="showMovieView" destination="0U8-eS-Qnv" id="7H2-Op-xc1"/>
                         <outlet property="tableViewHeader" destination="Qfo-Cv-avj" id="LyY-i6-CEg"/>
                         <outlet property="tagsContainerView" destination="VV1-L2-M2s" id="UUj-Cc-2Xk"/>
                         <outlet property="tagsListAddView" destination="VV1-L2-M2s" id="wUR-x9-DPr"/>
+                        <outlet property="thrillerButton" destination="R0e-ci-YBg" id="HcG-TQ-eRI"/>
                         <outlet property="viewSegmentedControlSelector" destination="6aE-5s-umK" id="Dti-GS-1tu"/>
                         <outlet property="yearContainerView" destination="qvk-M9-Seg" id="eFN-5G-MQ2"/>
                     </connections>

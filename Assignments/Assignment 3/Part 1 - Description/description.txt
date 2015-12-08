@@ -4,23 +4,25 @@ Our movie organizer has a simplistic design with an advanced search bar on the l
 
 Our movie organizer allows querying based off of availability on Netflix, iTunes and Shomi, a feature that we found was very important to users with the high usage of streaming and online movie renting services.  We implemented this in advanced search and then when a movie is selected, three simple icons of the media services denote whether the movie is available denoted by a coloured icon versus a grayscaled icon.
 
-We also implemented a foreign API to fetch movie titles and update the poster of the movie in the movie detail view to give a more visual experience to the user.
+We also implemented a foreign API to fetch movie titles and update the poster of the movie in the movie detail view to give a more visual experience to the user if the poster is available.
+
+We give power to the user through allowing users to edit, add and delete movies from the database, monitored with thorough input validation.
 
 We implemented a watchlist which allows users to store movies in a separate view by adding it to their watchlist in the movie detail view.  This feature allows users to keep track of movies they are interested in without having to go through the trouble of remembering them or searching for them again.
 
 Our movie organizer allows users to view movies in both a table view where they can search quickly and sort columns to increase speed and a graph view, giving another representation a user can choose to view movies in.
 
-Navigation in our movie organizer is very simple with a segmented control in the top right of the window where users can click on different segments to see a table view of their search, a graph of their search or a watchlist for easy navigation.
+Navigation in our movie organizer is very simple with a segmented control in the top right of the window for easy navigation, where users can click on different segments to see a table view of their search or a watchlist, with the option of viewing either of these in a graph view.
 
 Our movie organizer allows users to add, edit or delete movies from the database so they can customize the database, implemented with thorough input validation.
 
-Tags..?
+Our movie organizer supports tagging movies with strings that can then be subsequently queried for in the future for customization utility for the user
 
-Reviews..?
+Our movie organizer allows users to rate and review movies that are stored in our database and can be re-looked at when as an example the user wanted to remember what they thought of a movie if they have not seen it in a long time.
 
 (2) Interface description
 
-Our interface allows users to either search for a movie titles in a basic search field or by using the advanced search on the left sidebar.  There exists a content viewer which changes views based off of what is chosen.  Navigation between views is done through the segmented controller in the top right of the window, defaulted as a table view.
+Our interface allows users to either search for a movie titles in a basic search field or by using the advanced search on the left sidebar.  There exists a content viewer which changes views based off of what is chosen.  Navigation between views is done through the segmented controller in the top right of the window, defaulted as a table view.  Users may alternate between the tableview and watchlist with the segmented control in the top right with the option of viewing them as a graph view by toggling the graph segment. To view a movie's details, one must simply double click a selected movie to prompt the movie detail view and can return to the previous view on the click of the back button within the detail view.
 
 Our interface is expected to behave such that whenever a change is made by advanced search or basic movie search, changes will be updated in the corresponding table or graph view instantly.  Whenever a movie is selected in the table view, the content view will navigate to the related movie detail view which should contain the movie title, rating, availability on media and other pertinent information. If the selected movie can be found by the API which we implemented, a poster of that movie will update in the movie detail view.  Selecting the back button in the movie detail view should return to the previous view that the movie was selected in.  When a user adds, edits, or deletes a movie from the database, the system should update and reflect the changes in the corresponding views.
 
@@ -28,8 +30,8 @@ Our interface is expected to behave such that whenever a change is made by advan
 
 Our information on Netflix, Shomi and iTunes availability is randomized information in the database and does not reflect actual availability in the real world.
 
-Sometimes when nagivating amongst the segmented control views in the top right, there will be a very brief split second visual bug before the view updates.
+When fetching posters corresponding to titles through the intermediate API, in the case of a more recent movie than the one in our database, the poster may be of the correct movie but will reflect a newer version than that of the database in some cases (Ex. Beowulf from 2007 poster on the 1999 version).
 
 (4) Installation procedure
 
-1. Open the app (it will populate itself with data initially which may take a little while as the internal object database is being generated)
+1. Open the app in Xcode (it will populate itself with data initially which may take a little while as the internal object database is being generated)

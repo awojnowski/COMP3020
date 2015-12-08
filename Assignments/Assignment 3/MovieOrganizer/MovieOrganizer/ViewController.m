@@ -6,13 +6,6 @@
 //  Copyright © 2015 CS Boys. All rights reserved.
 //
 
-// both write ups
-// EVERYTHING input validated
-// input validation on reviews
-// diasble interaction when on movie
-
-// syntax-free interaction?
-
 #import "ViewController.h"
 
 #import "TagsListAddView.h"
@@ -70,10 +63,24 @@
 @property (weak) IBOutlet NSPopUpButtonCell *ageRatingPopUpButton;
 @property (weak) IBOutlet NSSegmentedCell *graphSegmentedControl;
 
-// Properties related to looking at movie field
-//@property (weak) IBOutlet NSLevelIndicator *movieRatingIndicator;
-//@property (weak) IBOutlet NSTextField *movieDescriptionField;
-//@property (weak) IBOutlet NSImageView *moviePosterImage;
+@property (weak) IBOutlet NSButton *addMovieButton;
+@property (weak) IBOutlet NSButton *editMovieButton;
+@property (weak) IBOutlet NSButton *deleteMovieButton;
+
+@property (weak) IBOutlet NSButton *netflixButton;
+@property (weak) IBOutlet NSButton *itunesButton;
+@property (weak) IBOutlet NSButton *shomiButton;
+
+@property (weak) IBOutlet NSButton *horrorButton;
+@property (weak) IBOutlet NSButton *comedyButton;
+@property (weak) IBOutlet NSButton *romanceButton;
+@property (weak) IBOutlet NSButton *adventureButton;
+@property (weak) IBOutlet NSButton *documentaryButton;
+@property (weak) IBOutlet NSButton *sciFiButton;
+@property (weak) IBOutlet NSButton *dramaButton;
+@property (weak) IBOutlet NSButton *actionButton;
+@property (weak) IBOutlet NSButton *thrillerButton;
+@property (weak) IBOutlet NSButton *fantasyButton;
 
 // Database of actors & directors
 @property (nonatomic) NSMutableArray* actorArray;
@@ -118,22 +125,6 @@
     [[CoreDataController sharedInstance] performBlock:^(NSManagedObjectContext *managedObjectContext) {
         
         [[SeedDataLoader sharedInstance] seedDataInManagedObjectContext:managedObjectContext];
-        
-        /*NSArray *actors = [Actor allActorsInManagedObjectContext:managedObjectContext];
-        [actors enumerateObjectsUsingBlock:^(id  _Nonnull actor, NSUInteger idx, BOOL * _Nonnull stop) {
-            
-            [actorNames addObject:[actor name]];
-            
-        }];
-        [self setActors:actors];*/
-        
-        // load the UI
-        
-        /*dispatch_async(dispatch_get_main_queue(), ^(void) {
-            
-            [[self actorPullDown] addItemsWithTitles:actorNames];
-            
-        });*/
         
     }];
     
@@ -374,7 +365,7 @@
 
 - (void)backButtonPressed:(MovieDetailViewController *)movieDetailViewController {
     
-    self.viewSegmentedControlSelector.enabled = YES;
+    [self setViewInteractionOnMovieSelection:YES];
     [self showListViewSelected];
     [self refreshMovies];
     
@@ -384,7 +375,7 @@
 
 - (void)graphBackButtonPressed:(GraphViewController *)graphViewController {
     
-    self.viewSegmentedControlSelector.enabled = YES;
+    [self setViewInteractionOnMovieSelection:YES];
     [self showListViewSelected];
     [self refreshMovies];
     
@@ -463,9 +454,7 @@
 - (void)showMovie {
     
     self.movieDetailVC.movie = self.movies[self.movieTableView.selectedRow];
-    
-    self.viewSegmentedControlSelector.enabled = NO;
-    
+    [self setViewInteractionOnMovieSelection:NO];
     [self showMovieSelected];
     
 }
@@ -1049,6 +1038,40 @@
         
     }
     return nil;
+    
+}
+
+-(void)setViewInteractionOnMovieSelection:(BOOL)boolValue {
+    
+    self.minRatingControl.enabled = boolValue;
+    self.minYearTextField.enabled = boolValue;
+    self.maxYearTextField.enabled = boolValue;
+    self.ageRatingPopUpButton.enabled = boolValue;
+    self.netflixButton.enabled = boolValue;
+    self.shomiButton.enabled = boolValue;
+    self.itunesButton.enabled = boolValue;
+    self.horrorButton.enabled = boolValue;
+    self.comedyButton.enabled = boolValue;
+    self.romanceButton.enabled = boolValue;
+    self.adventureButton.enabled = boolValue;
+    self.documentaryButton.enabled = boolValue;
+    self.sciFiButton.enabled = boolValue;
+    self.dramaButton.enabled = boolValue;
+    self.actionButton.enabled = boolValue;
+    self.thrillerButton.enabled = boolValue;
+    self.fantasyButton.enabled = boolValue;
+    self.movieSearchField.enabled = boolValue;
+    self.viewSegmentedControlSelector.enabled = boolValue;
+    self.graphSegmentedControl.enabled = boolValue;
+    self.addMovieButton.enabled = boolValue;
+    self.editMovieButton.enabled = boolValue;
+    self.deleteMovieButton.enabled = boolValue;
+    self.tagsListAddView.segmentedControl.enabled = boolValue;
+    self.tagsListAddView.tableView.enabled = boolValue;
+    self.directorsListAddView.segmentedControl.enabled = boolValue;
+    self.directorsListAddView.tableView.enabled = boolValue;
+    self.actorsListAddView.segmentedControl.enabled = boolValue;
+    self.actorsListAddView.tableView.enabled = boolValue;
     
 }
 
