@@ -50,40 +50,50 @@
 - Ensure to user to be open about discussing going through tasks and to mention suggestions or thoughts
 - Ask user to be relaxed and calm whilst conducting the tests
 - Ask permission to observe actions
+- Ask questions (allocating time for user feedback during tasks):
 
-1) Use advanced search to search by movies with Quentin Tarantino
-2) Find the movie 'A Cinderella Story'
+1) Use advanced search to search for movies directed by Steven Spielberg
+2) Find the movie 'A Cinderella Story' with the movie search bar
 3) Search for movies from 2000 or earlier
 4) Search for movies above 3 stars
 5) Rate a movie
 6) Add a movie to watchlist
 7) In movie window, return to viewing list of movies
-8) View scatterplot representation of data
-9) Search for movies NOT available on netflix
+8) View scatterplot representation of your watchlist
+9) Search for movies available on netflix and iTunes
+10) Delete any movie in the database
 
-Logical order of each task:
+-----
+NOTE: Logical order of each task:
 1) find director in director field > click
 2) search bar > type string containing movie title > locate movie in tableview
-or advanced search known info > locate movie in tableview
 3) type 2000 in max year field > optional type 0 in min
 4) click 3 star button in min rating
 5) click on any movie (if not currently in view) > click amount of stars for review > (type optional review) > click submit
 6) click on any movie (if not currently in view) > click on add to watchlist button
 7) in movie view click on back
-or in movie view click on tableview button
-or in movie view click on scatterplot button
-8) click on scatterplot button
-9) in advanced search field click on netflix field to disable
+8) click on scatterplot button > click on watchlist button
+or click on watchlist button > click on scatterplot button
+9) click netflix field > click iTunes field
+or click iTunes field > click netflix field
+10) select tableview if not selected > select movie > click delete button
+-----
 
 Any questions or suggestions?
 Overall how was your experience with the interface?
 Are you okay with me using quotes from this interview for a user study?
+Thank them for their time.
 
 **Variables / Analysis of Task**
 
 1) clicks per task
 2) time
 3) errors/feedback
+
+**Evaluation Techniques**
+
+- Semi-structured interview
+- Observation with permission
 
 **Interviews**
 
@@ -92,24 +102,25 @@ Permission to observe: YES
 Permission to quote: YES
 
 1)
-clicks: 3
+clicks: 5
 time: 35 seconds
-errors/feedback: - did not know who Quinten Tarantino was, so she tried typing his name into actors before adding him as a director
+errors/feedback:
 - accidentally mis-spelled his name causing confusion
+- had to help user with spelling
 
 2)
 clicks: 1
-time: 10 seconds
+time: 11 seconds
 errors/feedback: note: slower typer, identified field quickly
 
 3)
 clicks: 2
-time: 8 seconds
+time: 12 seconds
 errors/feedback: extra click by adding 0 as min year
 
 4)
 clicks: 1
-time: 3 seconds
+time: 4 seconds
 errors/feedback: none
 
 5)
@@ -124,17 +135,23 @@ errors/feedback: note: 1 click because already in movie view
 
 7)
 clicks: 1
-time: 3 seconds
-errors/feedback: note: used back button feature to return and was already in movie view
+time: 4 seconds
+errors/feedback: note: was already in movie view
 
 8)
-clicks: 1
+clicks: 2
 time: 14 seconds
 errors/feedback: "took me a while to find the graph picture"
+toggled watchlist then scatterplot
 
 9)
-clicks: 1
+clicks: 2
 time: 8 seconds
+errors/feedback: none
+
+10)
+clicks: 2
+time: 7 seconds
 errors/feedback: none
 
 Tanis' Experience:
@@ -158,7 +175,7 @@ errors/feedback: none
 
 3)
 clicks: 1
-time: 5 seconds
+time: 4 seconds
 errors/feedback: none
 
 4)
@@ -179,20 +196,25 @@ errors/feedback: note: 1 click because already in movie view
 7)
 clicks: 1
 time: 3 seconds
-errors/feedback: note: used list button feature to return and was already in movie view
+errors/feedback: note: was already in movie view
 
 8)
-clicks: 1
+clicks: 2
 time: 9 seconds
-errors/feedback: none
+errors/feedback: toggled scatterplot then watchlist
 
 9)
-clicks: 1
+clicks: 2
 time: 6 seconds
 errors/feedback: none
 
-Rocky's Review:
-- It seems to be a very fast and efficient tool
+10)
+clicks: 2
+time: 6 seconds
+errors/feedback: none
+
+Rocky's Experience:
+- "I would definitely use this all the time"
 - I'm happy there is a feature to search for netflix
 - I like that I can search for multiple genres at once
 - Overall information is displayed well and simply for me to find
@@ -203,29 +225,29 @@ Permission to observe: YES
 Permission to quote: YES
 
 1)
-clicks: 1
+clicks: 2
 time: 7 seconds
-errors/feedback: - easily parsed the advanced search layout
+errors/feedback: easily parsed the advanced search layout
 
 2)
 clicks: 1
-time: 4 seconds
+time: 3 seconds
 errors/feedback: note: fast typer
 
 3)
 clicks: 1
-time: 2 seconds
+time: 3 seconds
 errors/feedback: none
 
 4)
 clicks: 1
-time: 1 second
+time: 2 second
 errors/feedback: none
 
 5)
 clicks: 3 
-time: 12 seconds
-errors/feedback: note: wrote a brief review as well
+time: 6 seconds
+errors/feedback: none
 
 6)
 clicks: 1
@@ -235,23 +257,29 @@ errors/feedback: none
 7)
 clicks: 1
 time: 1 second
-errors/feedback: note: used back button feature to return and was already in movie view
+errors/feedback: note: was already in movie view
 
 8)
-clicks: 1
+clicks: 2
 time: 5 seconds
-errors/feedback: none
+errors/feedback: toggled scatterplot then watchlist
 
 9)
-clicks: 1
+clicks: 2
 time: 3 seconds
 errors/feedback: none
 
-Daniel's Review:
+10)
+clicks: 2
+time: 2 seconds
+errors/feedback: none
+
+Daniel's Experience:
+- I really like the automatic query updates
 - I like the wide range of search tools
 - I like being able to tab to different search fields
-- fluid workflow
-- overall solid app
+- Fluid workflow
+- Overall solid app
 
 Aurelié:
 Permission to observe: YES
@@ -260,16 +288,16 @@ Permission to quote: YES
 1)
 clicks: 2
 time: 20 seconds
-errors/feedback: - searched by scrolling taking longer
+errors/feedback: needed help spelling Steven Spielberg
 
 2)
-clicks: 9
-time: 17 seconds
-errors/feedback: note: used advanced search by genre and director
+clicks: 1
+time: 15 seconds
+errors/feedback: slower typer
 
 3)
 clicks: 2
-time: 7 seconds
+time: 9 seconds
 errors/feedback: extra click by adding 0 as min year
 
 4)
@@ -289,23 +317,29 @@ errors/feedback: note: 1 click because already in movie view
 
 7)
 clicks: 1
-time: 4 seconds
-errors/feedback: note: used back button feature to return and was already in movie view
+time: 3 seconds
+errors/feedback: note: was already in movie view
 
 8)
-clicks: 1
+clicks: 2
 time: 10 seconds
-errors/feedback: none
+errors/feedback: toggled watchlist then scatterplot
 
 9)
-clicks: 1
+clicks: 2
 time: 6 seconds
 errors/feedback: none
 
-Aurelié's review:
+10)
+clicks: 2
+time: 8 seconds
+errors/feedback: none
+
+Aurelié's Experience:
 - Easy to use even though my first language isn't English
 - I like being able to search in a year range, because I like classics
 - I like how I can see if a movie can be rented on iTunes
+- It was easy for me to learn
 
 Tresor:
 Permission to observe: YES
@@ -314,12 +348,12 @@ Permission to quote: YES
 1)
 clicks: 2
 time: 9 seconds
-errors/feedback: - searched by typing to increase speed
+errors/feedback: none
 
 2)
 clicks: 1
-time: 7 seconds
-errors/feedback: none
+time: 6 seconds
+errors/feedback: medium speed typer
 
 3)
 clicks: 1
@@ -333,7 +367,7 @@ errors/feedback: none
 
 5)
 clicks: 3
-time: 10 seconds
+time: 9 seconds
 errors/feedback: none
 
 6)
@@ -344,51 +378,59 @@ errors/feedback: note: 1 click because already in movie view
 7)
 clicks: 1
 time: 2 seconds
-errors/feedback: note: used back button feature to return and was already in movie view
+errors/feedback: note: was already in movie view
 
 8)
-clicks: 1
+clicks: 2
 time: 6 seconds
-errors/feedback: none
+errors/feedback: toggled watchlist then scatterplot
 
 9)
-clicks: 1
+clicks: 2
 time: 4 seconds
 errors/feedback: none
 
-Tresor's review:
+10)
+clicks: 2
+time: 4 seconds
+errors/feedback: none
+
+Tresor's Experience:
 - I like being able to search for Netflix movies easily
 - Simple and easy to find what I want to do
+- I like being able to tab through fields
+- Very easy to learn
 
 **Analysis**
 
-*NOTE: SEE DATA GRAPHS AND ANALYSIS INFORMATION ON FINAL PAGE
+*NOTE: SEE DATA GRAPHS ON FINAL PAGE
 
 - Our objective in our end user testing was to observe users interaction with the most common subtasks of the app to ensure that the learning curve is very easy for them and simple to use
-- Our vision was to create a system that is very easy in terms of navigation and very simple in terms of presented information.  We have accomplished this by noticing the maximum amount of clicks (excluding one advanced search with multiple fields) took 3 clicks to complete a subtask with a unique group of users testing the application
-- Graphing timed data and recognizing an average task completion time for all users to be 7.31seconds on first interaction with the application, demonstrates the simple learning curve
+- Our vision was to create a system that is very easy in terms of navigation and very simple in terms of presented information.  We have accomplished this by noticing the maximum amount of clicks (excluding one advanced search with multiple fields) took 5 clicks to complete a subtask with a unique group of users testing the application
+- Graphing timed data and recognizing an average task completion time for all users to be 7.08seconds on first interaction with the application, demonstrates the simple learning curve
 - To solidify that our system is easy to use, when asked for feedback it was common that users expressed that it was enjoyable using the app
 - One concern was the ability to find the graph button by one user which we changed the icon to be more apparent
 - Additionally we verified through subtasks that our advanced searching method was easy for users, along with writing ratings/reviews on movies and adding to a watchlist quickly
 - We found that observing users unobtrusively was the best representation of real-life use which we wanted to test
-- At the core, our system is foundationally based on searching for movies so we did not feel that it was appropriate to categorize content analysis because the overall goal was to ensure fluid, easy, simple usage
-- We focused on noting important diaglogue as opposed to a whole transcript to focus on rich feedback as opposed to a diluted cluster
-- Overall great performance from different users and overall general consistency
+- At the core, our system is foundationally based on searching for movies and navigation, so we did not feel that it was appropriate to categorize content analysis because the overall goal was to ensure fluid, easy, simple usage
+- We focused on noting important diaglogue as opposed to a whole transcript to focus on rich/useful feedback as opposed to a diluted cluster
+- Overall great performance from a variety of users and overall general consistency
 
 **Experience**
 
 (a) What we learned
 - We learned about interviewing users in a professional manner and getting valuable feedback to assess our application
-- We learned that different users interact with environments differently depending on how tech-savvy they are (Ex. tabbing through fields versus click and scroll)
-- We learned to be careful with questions such as search for movies with "Quinten Tarantino" versus "directed by," a less ambiguous and more accurate question
+- We learned that different users interact with environments differently depending on how tech-savvy they are (Ex. tabbing through fields versus clicking each field)
+- We learned to be careful with questions such as search for movies directed by "Steven Spielberg" because not everyone knows how to spell names
 
 (b)
-- We will be concise with questions such as rephrasing task 1 to "use advanced search to search by movies directed by Quinten Tarantino
-- We will try to facilitate more direct questions such as "use the search bar to search for 'A Cinderella Story'" as opposed to just saying 'find' as that diverted one user to search with the advanced field skewing the data
-- However, asking more open ended questions such as find movie X does allow freedom for the user which can be just as useful by observing how they interact when multiple options are available. Therefore the previous question is not necessarily harmful as we learned some users will search for the movie, some may prefer advanced searching
+- We will try to select tasks that are less dependent on spelling, although we did feel that Steven Spielberg was easy enough to spell for testing our directors advanced search field
+- We will consider asking a mix with more open ended questions such as "find movie X" which would allow freedom for the user which can be useful by observing how they interact when multiple options are present. Therefore, we would get different valued feedback by learning perhaps that some users would search in the movie field, some may prefer advanced searching
+- We are not sure if we would add a mix of open ended and direct questions though because our goal in this case was to compare user data and have consistency across users versus giving them many options and seeing how they acted
+- Perhaps if our project was in more of an introductory exploratory stage we would ask more open ended questions to facilitate exploration, versus verifying our already suggested, designed and tested methods in our example
 
 (c)
 - User testing with work/coop projects can be useful for conducting interviews amongst peers for many different decisions such as usability and design feedback for example
 - More so with future projects, user testing could be important for a software engineering project on a large system with complex tasks
 - On larger systems whether in a work environment or a project, the larger and more complicated a design and layout is, the more important it is to create the best experience for users and much more important to evaluate the system on users with complicated tasks and subtasks
-- If an issue arises with users in any case on larger projects, it is important to gather feedback and solve this issue so no one else will experience it
+- If an issue arises with users in any case on larger projects, it is important to gather feedback and solve this issue so no other users will experience it in the future
