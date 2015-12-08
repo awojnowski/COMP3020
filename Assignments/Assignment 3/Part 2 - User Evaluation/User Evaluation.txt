@@ -413,7 +413,7 @@ Tresor's Experience:
 - Additionally we verified through subtasks that our advanced searching method was easy for users, along with writing ratings/reviews on movies and adding to a watchlist quickly
 - We found that observing users unobtrusively was the best representation of real-life use which we wanted to test
 - At the core, our system is foundationally based on searching for movies and navigation, so we did not feel that it was appropriate to categorize content analysis because the overall goal was to ensure fluid, easy, simple usage
-- We focused on noting important diaglogue as opposed to a whole transcript to focus on rich/useful feedback as opposed to a diluted cluster
+- We focused on noting important dialogue as opposed to a whole transcript to focus on rich/useful feedback as opposed to a diluted cluster
 - Overall great performance from a variety of users and overall general consistency
 
 **Experience**
