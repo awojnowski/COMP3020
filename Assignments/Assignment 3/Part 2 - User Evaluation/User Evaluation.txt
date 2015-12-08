@@ -16,7 +16,7 @@
 - Enjoy's science fiction and action movies
 - Likes to watch movies with his family
 - Likes to watch movies that friends have suggested to him
-- Prefers to watch movie on Netflix on weekends
+- Prefers to watch movies on Netflix on weekends
 - Really loves Steven Spielberg movies
 
 3) Daniel
@@ -44,10 +44,10 @@
 
 **Subtasks / Interview Guideline**
 
-(Will be semi-structured including observation)
+(Will be semi-structured including participatory observation)
 
 - Inform users about the background of the application and the concept
-- Ensure to user to be open about discussing going through tasks and to mention suggestions or thoughts
+- Encourage user to think aloud as they go through tasks and to mention any suggestions or thoughts
 - Ask user to be relaxed and calm whilst conducting the tests
 - Ask permission to observe actions
 - Ask questions (allocating time for user feedback during tasks):
@@ -64,8 +64,8 @@
 10) Delete any movie in the database
 
 -----
-NOTE: Logical order of each task:
-1) find director in director field > click
+NOTE: Optimal order of each task:
+1) type director’s name in director field > click confirm
 2) search bar > type string containing movie title > locate movie in tableview
 3) type 2000 in max year field > optional type 0 in min
 4) click 3 star button in min rating
@@ -93,7 +93,7 @@ Thank them for their time.
 **Evaluation Techniques**
 
 - Semi-structured interview
-- Observation with permission
+- Participatory observation with permission
 
 **Interviews**
 
@@ -405,14 +405,14 @@ Tresor's Experience:
 
 *NOTE: SEE DATA GRAPHS ON FINAL PAGE
 
-- Our objective in our end user testing was to observe users interaction with the most common subtasks of the app to ensure that the learning curve is very easy for them and simple to use
+- Our objective in our end user testing was to observe users’ interaction with the most common subtasks in the app to ensure that the learning curve is very easy for them and simple to use
 - Our vision was to create a system that is very easy in terms of navigation and very simple in terms of presented information.  We have accomplished this by noticing the maximum amount of clicks (excluding one advanced search with multiple fields) took 5 clicks to complete a subtask with a unique group of users testing the application
 - Graphing timed data and recognizing an average task completion time for all users to be 7.08seconds on first interaction with the application, demonstrates the simple learning curve
-- To solidify that our system is easy to use, when asked for feedback it was common that users expressed that it was enjoyable using the app
+- To verify that our system is easy to use, when asked for feedback users expressed that it was enjoyable using the app
 - One concern was the ability to find the graph button by one user which we changed the icon to be more apparent
 - Additionally we verified through subtasks that our advanced searching method was easy for users, along with writing ratings/reviews on movies and adding to a watchlist quickly
 - We found that observing users unobtrusively was the best representation of real-life use which we wanted to test
-- At the core, our system is foundationally based on searching for movies and navigation, so we did not feel that it was appropriate to categorize content analysis because the overall goal was to ensure fluid, easy, simple usage
+- At the core, our system is based on searching for movies and navigation, so we did not feel it was appropriate to categorize content analysis because the overall goal was to ensure fluid, easy, simple usage
 - We focused on noting important dialogue as opposed to a whole transcript to focus on rich/useful feedback as opposed to a diluted cluster
 - Overall great performance from a variety of users and overall general consistency
 
@@ -423,13 +423,13 @@ Tresor's Experience:
 - We learned that different users interact with environments differently depending on how tech-savvy they are (Ex. tabbing through fields versus clicking each field)
 - We learned to be careful with questions such as search for movies directed by "Steven Spielberg" because not everyone knows how to spell names
 
-(b)
+(b) What we will do differently next time
 - We will try to select tasks that are less dependent on spelling, although we did feel that Steven Spielberg was easy enough to spell for testing our directors advanced search field
 - We will consider asking a mix with more open ended questions such as "find movie X" which would allow freedom for the user which can be useful by observing how they interact when multiple options are present. Therefore, we would get different valued feedback by learning perhaps that some users would search in the movie field, some may prefer advanced searching
 - We are not sure if we would add a mix of open ended and direct questions though because our goal in this case was to compare user data and have consistency across users versus giving them many options and seeing how they acted
 - Perhaps if our project was in more of an introductory exploratory stage we would ask more open ended questions to facilitate exploration, versus verifying our already suggested, designed and tested methods in our example
 
-(c)
+(c) How we can integrate user testing into future projects
 - User testing with work/coop projects can be useful for conducting interviews amongst peers for many different decisions such as usability and design feedback for example
 - More so with future projects, user testing could be important for a software engineering project on a large system with complex tasks
 - On larger systems whether in a work environment or a project, the larger and more complicated a design and layout is, the more important it is to create the best experience for users and much more important to evaluate the system on users with complicated tasks and subtasks
